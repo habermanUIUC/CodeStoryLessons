@@ -1,6 +1,7 @@
 10156  git init .
 10157  git add .
 10158  git commit -m 'init'
-10159  git remote add origin https://github.com/habermanUIUC/CodeStories.git
+10159  git remote add origin https://github.com/habermanUIUC/CodeStoryLessons.git
 10160  git branch -M main
 10161  git push -u origin main
+git remote -v
