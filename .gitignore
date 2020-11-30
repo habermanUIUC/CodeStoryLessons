@@ -1,0 +1,11 @@
+.idea/
+sandbox/
+sandbox_tmp/
+*.zip
+*.pxm
+debug_log.txt
+__pycache__
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
