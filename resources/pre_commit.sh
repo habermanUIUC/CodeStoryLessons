@@ -11,10 +11,10 @@ for i in $out; do
   dir=$(echo ${i}| cut -f1 -d/)
   if [ ${dir} = 'lessons' ]; then
     LESSON=$(echo ${i}| cut -f4 -d/)
-    echo "doing ${i} ${dir} ${LESSON}"
+    echo "doing ${TODO} ${i} ${dir} ${LESSON}"
     #echo "${SRC_DIR}"
     # cd to the directory so tar only keeps relative path
-    cd ${root}
+    cd "${root}"
     gtar --sort=name --owner=root:0 --group=root:0 --mtime='UTC 2021-01-01' -cvf ${LESSON}.tar --exclude='*.ipynb' --exclude='*.gz' ${i} &> /tmp/log.txt
     gzip -n ${LESSON}.tar
     /bin/mv ${LESSON}.tar.gz ${SRC_DIR}
