@@ -20,6 +20,7 @@ for i in $out; do
     echo 'created'
     ls -la ${SRC_DIR}/*.gz
     git add ${SRC_DIR}
+    echo 'tar file added via git'
     echo 'be sure to git commit'
 
   else

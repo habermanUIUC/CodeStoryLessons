@@ -5,3 +5,11 @@
 10160  git branch -M main
 10161  git push -u origin main
 git remote -v
+
+
+work flow
+
+git add .
+pre_commit.sh
+git commit -m <message>
+git push
