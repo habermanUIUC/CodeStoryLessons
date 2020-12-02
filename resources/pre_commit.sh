@@ -4,7 +4,15 @@
 # user has executed git add . 
 
 root="/Users/mikeh/home/projects/CodeStoryLessons"
-out=$(git diff-index --cached Head | cut -f2 | grep lessons | cut -f1-4 -d/ | uniq)
+
+if [ $# -eq 0 ]; then
+  out=$(git diff-index --cached Head | cut -f2 | grep lessons | cut -f1-4 -d/ | uniq)
+else
+  out="$1"
+  # convert tag dmap:projects:project-m3 into lessons/dmap/projects/project-m3
+fi
+
+echo "doing ${out}"
 for i in $out; do
   # lessons/dmap/projects/project-m3
   SRC_DIR=$root/$i
