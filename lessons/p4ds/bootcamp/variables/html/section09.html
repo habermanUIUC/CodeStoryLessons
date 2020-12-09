@@ -2,23 +2,23 @@
     let stateCheck = setInterval(function(){
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
-        s1 = document.querySelector('h1');
-        console.log('doc is ready', s1);
+        s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
         if (s1) {
            s1.setAttribute('tabindex', '-1');
            s1.focus(); 
            s1.scrollIntoView({behavior: 'smooth'}); 
            setTimeout(function(){s1.blur()}, 500);
-           console.log('focus set');
+           // console.log('focus set');
         }
       }
     }, 200);
     </script></head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<h1 class="section" id="section3">Sequence and Order</h1><p class="new">One of the most basic 'constructs' of programming is the idea that code gets 
+<div id="start"></div><h1 class="section" id="section3">Sequence and Order</h1><p class="new">One of the most basic 'constructs' of programming is the idea that code gets 
 executed from top to bottom, left to right (just like reading English). This 
 idea of sequential order of execution is one of the 3 'big' ideas of 
 imperative languages like Python. You can see from the code inside <code>print_poem</code> 
 how we need to rely on this fundamental rule of how programming languages work.</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> An imperative language is one in which you tell the computer 
 how to solve a problem. If you know SQL, you tell the computer what you want, 
-not how to do it. SQL is a declarative language.  </p></blockquote><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-12" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-12"><span> what a variable is </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-13" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-13"><span> what's the purpose of a variable </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-14" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-14"><span> what's the operator for assignment </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-15" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-15"><span> note how the <em>lesson assignment</em> makes use of the difference <br/> between
+not how to do it. SQL is a declarative language.  </p></blockquote><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-0" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-0"><span> what a variable is </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-1" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-1"><span> what's the purpose of a variable </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-2" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-2"><span> what's the operator for assignment </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-3" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-3"><span> note how the <em>lesson assignment</em> makes use of the difference <br/> between
 parameters (e.g. major) and the arguments (e.g. my_major). </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div></div></div></body></html>

@@ -2,19 +2,19 @@
     let stateCheck = setInterval(function(){
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
-        s1 = document.querySelector('h1');
-        console.log('doc is ready', s1);
+        s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
         if (s1) {
            s1.setAttribute('tabindex', '-1');
            s1.focus(); 
            s1.scrollIntoView({behavior: 'smooth'}); 
            setTimeout(function(){s1.blur()}, 500);
-           console.log('focus set');
+           // console.log('focus set');
         }
       }
     }, 200);
     </script></head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<h1 class="section" id="section2">Function parameters are variables too</h1><p class="new">We can make the poem generator even more flexible, by allowing the person 
+<div id="start"></div><h1 class="section" id="section2">Function parameters are variables too</h1><p class="new">We can make the poem generator even more flexible, by allowing the person 
 calling <code>print_poem</code> to pass in what kind of noun they want to use. The 'person' 
 calling a function is called the client (the other people or software using your code) or caller.</p><p class="new">As we saw earlier, functions can have parameters that can be used inside the function.
  These parameters are variables to the function as well. </p><p class="new">Let's create a new function named <code>print_any_poem</code>. It is the same as <code>print_poem</code>, 

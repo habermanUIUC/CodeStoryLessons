@@ -2,22 +2,18 @@
     let stateCheck = setInterval(function(){
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
-        s1 = document.querySelector('h1');
-        console.log('doc is ready', s1);
+        s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
         if (s1) {
            s1.setAttribute('tabindex', '-1');
            s1.focus(); 
            s1.scrollIntoView({behavior: 'smooth'}); 
            setTimeout(function(){s1.blur()}, 500);
-           console.log('focus set');
+           // console.log('focus set');
         }
       }
     }, 200);
     </script></head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
-print(ide.tester.test_notebook(verbose=True)) 
-
-# once you are ready -- run this 
-# be sure to name the download it solution.py 
-# ide.tester.download_solution() 
-</code></pre></div></div></div></body></html>
+<div id="start"></div><h3 id="step-3">Step 3</h3><p class="new">create three variables outside of the function:</p><ul><li>The first variable will be named <code>my_major</code> and will hold a string that describes your major.</li><li>The second variable, named <code>my_caffeine</code>,  holds the number of cups/cans of any 
+caffeinated coffee, tea, soda you typically drink in a day (e.g 0,1,2, ...).</li><li>The third variable, named <code>my_type</code>, holds the name of your beverage.</li><li>If you don't drink anything with caffeine, use 0</li><li>You should only use whole numbers.</li></ul><h3 id="step-4">Step 4</h3><p class="new">call the function created in Step 1 using the variables created in Step 3</p><h3 id="step-5">Step 5</h3><p class="new">you can test your code using the built in ide</p><pre><code>ide.tester_test_function(about_me)</code></pre><p class="new">Notes:</p><ul><li>To complete this lesson your function MUST be precise in it's printing.</li><li>Note the correct spacing and the trailing '.' at the end of the sentence.</li></ul><p class="new">As shown in the examples, <code>print()</code> can print out multiple values by using multiple parameters.</p><pre><code>num = 37
+print("Hello", "My favorite Number is", num)</code></pre></div></div></body></html>

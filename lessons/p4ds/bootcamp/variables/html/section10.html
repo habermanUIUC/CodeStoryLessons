@@ -2,20 +2,18 @@
     let stateCheck = setInterval(function(){
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
-        s1 = document.querySelector('h1');
-        console.log('doc is ready', s1);
+        s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
         if (s1) {
            s1.setAttribute('tabindex', '-1');
            s1.focus(); 
            s1.scrollIntoView({behavior: 'smooth'}); 
            setTimeout(function(){s1.blur()}, 500);
-           console.log('focus set');
+           // console.log('focus set');
         }
       }
     }, 200);
     </script></head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<h1 class="section" id="section4">Lesson Assignment:</h1><h2 id="who-are-you">Who are you</h2><p class="new">To complete this lesson do the following:</p><h3 id="step-1">Step 1</h3><p class="new">create a function named <code>about_me</code> with three parameters named <code>major</code>, <code>cups</code>, <code>type</code> in 
+<div id="start"></div><h1 class="section" id="section4">Lesson Assignment:</h1><h2 id="let-me-tell-you-about-me-">Let me tell you about me. </h2><p class="new">To complete this lesson do the following:</p><h3 id="step-1">Step 1</h3><p class="new">create a function named <code>about_me</code> with three parameters named <code>major</code>, <code>cups</code>, <code>type</code> in 
 that order. You should not create any variables inside this function.</p><h3 id="step-2">Step 2</h3><p class="new">inside the function print the following (but using the values contained in the 
-parameters -- (the words in &lt;&gt; should be replaced with the variable names)</p><pre><code>My major is &lt;major&gt; and I drink &lt;cups&gt; cups of &lt;type&gt; each day.</code></pre><h3 id="step-3">Step 3</h3><p class="new">create three variables outside of the function:</p><ul><li>The first variable will be named <code>my_major</code> and will hold a string that describes your major.</li><li>The second variable, named <code>my_caffeine</code>,  holds the number of cups/cans of any 
-caffeinated coffee, tea, soda you typically drink in a day (e.g 0,1,2, ...).</li><li>The third variable, named <code>my_type</code>, holds the name of your beverage.</li><li>If you don't drink anything with caffeine, use 0</li><li>You should only use whole numbers.</li></ul><h3 id="step-4">Step 4</h3><p class="new">call the function created in #1 using the variables created in #3</p><h3 id="step-5">Step 5</h3><p class="new">you can test your code using the built in ide</p><pre><code>ide.tester_test_function(about_me)</code></pre><p class="new">Notes:</p><ul><li>To complete this lesson your function MUST be precise in it's printing.</li><li>Note the correct spacing and the trailing '.' at the end of the sentence.</li></ul><p class="new">As shown in the examples, <code>print()</code> can print out multiple values by using multiple parameters.</p><pre><code>num = 37
-print("Hello", "My favorite Number is", num)</code></pre></div></div></body></html>
+parameters -- the words in &lt;&gt; should be replaced with the variable names)</p><pre><code>My major is &lt;major&gt; and I drink &lt;cups&gt; cups of &lt;type&gt; each day.</code></pre></div></div></body></html>

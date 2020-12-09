@@ -2,17 +2,17 @@
     let stateCheck = setInterval(function(){
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
-        s1 = document.querySelector('h1');
-        console.log('doc is ready', s1);
+        s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
         if (s1) {
            s1.setAttribute('tabindex', '-1');
            s1.focus(); 
            s1.scrollIntoView({behavior: 'smooth'}); 
            setTimeout(function(){s1.blur()}, 500);
-           console.log('focus set');
+           // console.log('focus set');
         }
       }
     }, 200);
     </script></head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<h1 class="section" id="section1">Variables</h1><h2 id="a-variables-way-to-remember-your-journey">A Variable’s Way to Remember Your Journey</h2><p class="new">Imagine you are writing a children's poem: </p><img alt="ds1.png" class="center border2 mt-5" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/bootcamp/variables/html/ds1.png"/><p class="new">What if you used Python to write the poem? The function <code>print_dog_poem</code> does 
+<div id="start"></div><h1 class="section" id="section1">Variables</h1><h2 id="a-variables-way-to-remember-your-journey">A Variable’s Way to Remember Your Journey</h2><p class="new">Imagine you are writing a children's poem: </p><img alt="ds1.png" class="center border2 mt-5" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/bootcamp/variables/html/ds1.png"/><p class="new">What if you used Python to write the poem? The function <code>print_dog_poem</code> does 
 just that (without the fancy centering). </p><p class="new">Go ahead and run the code to generate the poem: </p></div></div></body></html>

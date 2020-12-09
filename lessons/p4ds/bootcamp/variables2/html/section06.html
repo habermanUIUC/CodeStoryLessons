@@ -3,13 +3,13 @@
       if (document.readyState === 'complete') {
         clearInterval(stateCheck);
         s1 = document.getElementById('start');
-        console.log('doc is ready', s1);
+        // console.log('doc is ready', s1);
         if (s1) {
            s1.setAttribute('tabindex', '-1');
            s1.focus(); 
            s1.scrollIntoView({behavior: 'smooth'}); 
            setTimeout(function(){s1.blur()}, 500);
-           console.log('focus set');
+           // console.log('focus set');
         }
       }
     }, 200);

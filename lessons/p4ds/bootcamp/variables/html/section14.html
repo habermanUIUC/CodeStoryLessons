@@ -14,27 +14,10 @@
       }
     }, 200);
     </script></head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start"></div><h2 id="ode-to-bugs">Ode to Bugs</h2><p class="new">You then realize that "Dogs" doesn't do the poem justice and decide "Bugs" is 
-better. A quick substitution in your editor and you're done. Easy. But you
- might want to keep both the dog version and the bug version or the cat
- people may want their own version.</p><p class="new">The issue is that the word <code>Dogs</code> is <em>hardcoded</em> inside the poem. There's no way to 
-change the poem once you call the function <code>print_dog_poem()</code>.</p><p class="new">Using a construct called a <em>variable</em> we can set up our poem so 'Dogs' can easily 
-be swapped out for any word without having to rewrite the poem every time. 
-The function <code>print_poem()</code> uses a variable named <code>noun</code> to hold a value <code>"Dogs"</code>.</p><p class="new">We can then use the contents of the variable, in this case <code>"Dogs"</code> in other
- parts of the code (er poem):</p><pre><code>def print_poem():
-    noun = "Dogs"
-    print("I LIKE")
-    print(noun)
-    print("Black",noun, "Green", noun)
-    print("Bad", noun, "Mean", noun)
-    print("All kinds of", noun)
-    print("I like", noun)
-    print(noun)</code></pre><p class="new">Let's take a closer look:</p><div class="code-block code clearfix"><pre><code class="line-number">def print_poem():
-</code><code class="line-number">    noun = "Dogs"
-</code></pre></div><p class="new">On line 2, we are creating the variable named <code>noun</code>; <code>noun</code> is the name given 
-to a container (i.e. memory location) that holds the value <code>"Dogs"</code>.  The <code>=</code> sign 
-is used for assignment. Do <strong>not</strong> say "equals" say "assignment".</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> In some programming languages, you will see a keyword in
- front of the variable (<code>var</code>, for example, in JavaScript:  <code>var noun = "Dogs"</code>). 
-Some languages even require you to specify the type (more on that soon) of values 
-the variable can hold: <code>String noun = "Dogs"</code> or <code>noun:String = "Dogs"</code>. Python 
-doesn't have these requirements.  </p></blockquote><p class="new">Go ahead and call <code>print_poem</code> to print out the poem. </p></div></div></body></html>
+<div id="start"></div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# be sure to name the download it solution.py 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>
