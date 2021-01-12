@@ -17,7 +17,24 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Review</h1><h2 id="looking-back-and-moving-forward">looking back and moving forward</h2><p class="new">Believe it or not you now know enough Python to start working on larger 
-problems including those common in DataScience. You also have enough of the 
-vocabulary to start reading other textbooks on programming. We will add more 
-information on everything you learned in each of the lessons in the second half.</p><p class="new">Let's do a quick overview of what you have learned:</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">Will generate a graph something like the following:</p><pre><code>**
+********
+*******
+*******************
+*****
+****************
+**************
+************
+**********
+*****
+**</code></pre><p class="new">To be clear</p><ul><li>the first line represents how often a 2 was rolled when two dice were rolled (i.e. pair of 
+dice thrown, both being 1's)</li><li>the last line represents how often a 12 was rolled (both dice rolled were 6 's).</li><li>each line represents a percentage.</li></ul><p class="new">Hints:</p><ul><li>Use integer truncation to determine the number of stars to print</li><li><p class="new">The number of stars to print is just the percentage of times a sum was rolled compared to the total number of throws </p><ul><li>if you threw the dice 1000 times, and got 30 '9's: =&gt; 3 stars</li><li>if you threw the dice 10 times and got 1 '9':   =&gt; 10 stars</li></ul></li><li>Use the fancy string operation to easily print out a string value multiple 
+times (see lesson on sequences and strings)</li><li>You must handle the edge case when all possible sums do not come up. That
+is, it will be possible to roll the dice a few times and never see a 10
+Your histogram should have an empty (zero length string) line for that 'bar'.</li><li>The tests will not necessarily use the roll map your code created -- just
+one that meets the specifications of step</li><li>If you want to generate the exact graph shown above, you can initialize the
+random library with a specific seed value:</li></ul><pre><code>random.seed(101)</code></pre><p class="new">This must be done <em>before</em> any code is run and should be done from the code that 
+tests your functions. The idea is to separate testing code from implementation details. 
+You wouldn't want your library of functions to set the random seed. That should be 
+left to the testing code to decide.</p><h2 id="step-3-how-many-throws">Step 3 How Many Throws?</h2><p class="new">Experiment with the <code>roll_count</code> variable (see step 2). </p><ul><li>Using different orders of magnitude of 10, determine the number of rolls
+that are needed to get an almost perfect distribution consistently.</li><li>Although not tested in this lesson, this 'value' could show up on a quiz.</li></ul><h3 id="the-ideal-two-dice-sum-distribution">The ideal two dice sum distribution</h3><img alt="ds1.png" class="border2 center iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/bootcamp/review/html/ds1.png"/></div></div></body></html>
