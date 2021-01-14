@@ -1,0 +1,42 @@
+Date;Merchant;Type;Price;Tax;Total
+01/02/17;Bevande Café;Restaurant; 4.57 ; 0.41 ; 4.98
+01/03/17;Papa Del's Pizza;Restaurant; 17.57 ; 1.58 ; 19.15
+01/04/17;Radio Maria;Restaurant; 56.20 ; 5.06 ; 61.26
+01/05/17;Bevande Café;Restaurant; 3.56 ; 0.32 ; 3.88
+01/06/17;County Market;Grocery; 30.15 ; 2.71 ; 32.86
+01/07/17;Papa Del's Pizza;Restaurant; 18.08 ; 1.63 ; 19.71
+01/08/17;Bombay Indian Grill;Restaurant; 13.07 ; 1.18 ; 14.25
+01/09/17;Lai Lai Wok;Restaurant; 20.67 ; 1.86 ; 22.53
+01/10/17;Bevande Café;Restaurant; 1.99 ; 0.18 ; 2.17
+01/11/17;Bombay Indian Grill;Restaurant; 20.07 ; 1.81 ; 21.88
+01/12/17;Meijer;Grocery; 26.98 ; 2.43 ; 29.41
+01/13/17;Bevande Café;Restaurant; 2.18 ; 0.20 ; 2.38
+01/14/17;Café Kopi;Restaurant; 4.10 ; 0.37 ; 4.47
+01/15/17;Bevande Café;Restaurant; 2.73 ; 0.25 ; 2.98
+01/16/17;Bevande Café;Restaurant; 2.00 ; 0.18 ; 2.18
+01/17/17;Radio Maria;Restaurant; 55.67 ; 5.01 ; 60.68
+01/19/17;Bombay Indian Grill;Restaurant; 18.14 ; 1.63 ; 19.77
+01/21/17;Apricot Lane;Apparel; 47.51 ; 4.28 ; 51.79
+01/23/17;Chipotle Mexican Grill;Restaurant; 6.81 ; 0.61 ; 7.42
+01/26/17;Panera Bread Company;Restaurant; 10.24 ; 0.92 ; 11.16
+01/29/17;Subway;Restaurant; 5.24 ; 0.47 ; 5.71
+01/31/17;Urban Outfitters;Apparel; 31.52 ; 2.84 ; 34.36
+02/02/17;Chipotle Mexican Grill;Restaurant; 6.81 ; 0.61 ; 7.42
+02/04/17;Starbucks Coffee;Restaurant; 4.11 ; 0.37 ; 4.48
+02/05/17;Noodles & Company;Restaurant; 26.00 ; 2.34 ; 28.34
+02/07/17;Za's Italian Café;Restaurant; 7.01 ; 0.63 ; 7.64
+02/09/17;Espresso Royale Café;Restaurant; 2.11 ; 0.19 ; 2.30
+02/11/17;Apple Store;Technology; 124.11 ; 11.17 ; 135.28
+02/13/17;Cravings;Restaurant; 6.25 ; 0.56 ; 6.81
+02/15/17;Ragstock;Apparel; 11.57 ; 1.04 ; 12.61
+02/17/17;Panera Bread Company;Restaurant; 9.76 ; 0.88 ; 10.64
+02/19/17;Chipotle Mexican Grill;Restaurant; 6.81 ; 0.61 ; 7.42
+02/20/17;Espresso Royale Café;Restaurant; 3.87 ; 0.35 ; 4.22
+02/21/17;Potbelly Sandwich Shop;Restaurant; 7.09 ; 0.64 ; 7.73
+02/22/17;Zorba's Restaurant;Restaurant; 6.41 ; 0.58 ; 6.99
+02/23/17;Panda Express;Restaurant; 7.91 ; 0.71 ; 8.62
+02/24/17;Apple Store;Technology; 32.71 ; 2.94 ; 35.65
+02/25/17;Chipotle Mexican Grill;Restaurant; 6.81 ; 0.61 ; 7.42
+02/26/17;Red Herring;Restaurant; 5.00 ; 0.45 ; 5.45
+02/27/17;Jimmy John's Gourmet Sandwiches;Restaurant; 5.45 ; 0.49 ; 5.94
+02/28/17;Apricot Lane;Apparel; 148.12 ; 13.33 ; 161.45
