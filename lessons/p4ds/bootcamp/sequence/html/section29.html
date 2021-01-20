@@ -17,15 +17,11 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>print('H' * 5)
-
-l1 = [1,2,3]
-print(l1 * 3)
-
-l2 = ['a','b','c']
-print(l2 * 3)
-
-a = [1,2,3]
-b = ['a','b','c']
-c = a * b
-print(c)</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">However, if you want to avoid dealing with the error, you can guard the <code>index</code> method 
+with a membership test:</p><pre><code>def safe():
+    l = ["abc", "def", "ghi"]
+    if 'abc' in l:
+        print(l.index("abc"))
+        
+safe()</code></pre><h2 id="sequence-element-counting">Sequence Element Counting</h2><p class="new">The <code>count</code> method on a sequence will provide a count of the number of those
+ elements:</p></div></div></body></html>

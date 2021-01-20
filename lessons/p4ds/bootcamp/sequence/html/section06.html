@@ -17,8 +17,8 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">The <code>strip</code> method also allows you to pass in a character to remove from 
-the ends of a string.</p><pre><code>msg = "I do love 'food'" 
-print(msg.strip("'"))</code></pre><h3 id="replacing-characters">Replacing Characters</h3><p class="new">You can also replace a character with another using the <code>replace</code> method:</p><pre><code># replace substrings
-print(msg.replace('o', 'a'))</code></pre><h2 id="finding-substrings">Finding Substrings</h2><p class="new">Strings have an additional method called <code>find</code> that returns the index of a
- substring.  It returns -1 if the requested value is not found:</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="changing-strings">Changing Strings</h2><p class="new">The following examples show how you can change or update the contents of a string. 
+An important note (which is discussed in great detail in another lesson) is that 
+all the methods shown actually <em>return</em> a new string and don't modify the target string.</p><h3 id="changing-case">Changing Case</h3><p class="new">Changing case is usually a data processing step in the data science pipeline 
+where the analysis wants to treat both cases the same (called case insensitive).
+You can change the case of a string using the string methods <code>lower</code> and <code>upper</code>:</p></div></div></body></html>

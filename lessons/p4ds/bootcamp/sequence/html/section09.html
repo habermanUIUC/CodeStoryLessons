@@ -17,6 +17,9 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>msg = "Apples are red. Bob likes apples."
-parts = msg.split('.')
-print(parts)</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>msg = "  This is a story   "
+print(len(msg), msg)
+
+# remove whitespace at start and end
+clean = msg.strip()
+print(len(clean), clean)</code></pre></div></div></div></body></html>

@@ -17,8 +17,20 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>name = "Informatics"
-print(name.index('c'))
-
-l = ["abc", "def", "ghi"]
-print(l.index("def"))</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Sequences</h1><p class="new">The string and the list belong to a broader (aka generic) class called the <em>sequence</em>. 
+Every value that has type <code>string</code> or type <code>list</code> (e.g. <code>print(type(list))</code>) is also a sequence. 
+We will also discuss other sequence types in upcoming chapters.</p><p class="new">Sequence types provide a common set of operations that work for several different 
+types of collections. It allows you, the software engineer, to design things 
+(e.g. functions) to operate on a family of types rather than assuming a specific type.</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> Python provides a set of Abstract Base Classes (ABC) that
+ formally define Protocols (a specific set of methods that must be
+ implemented) that one can use to design new types.  The Sequence is an ABC. 
+We will dive deep into Python class design in the advanced class.</p></blockquote><h2 id="immutable-and-mutable-sequences">Immutable and Mutable Sequences</h2><p class="new">Sequence types are either mutable (e.g. lists) or immutable (e.g. strings). Mutable 
+collections allow you to change the contents. Immutable sequences do not allow 
+for changing any values in the sequence. We will discuss immutable sequences
+ and why you will want to use them in a separate lesson.</p><p class="new">As mentioned, the string is a sequence. It's just a sequence of characters. However, 
+the string is an immutable sequence -- hence all the methods that 'changed' the 
+underlying string actually return a <em>new</em> string. </p><p class="new">All the fun stuff you can do with lists can also be done with strings. 
+Part of this lesson is for you to explore the fact that the things you can do
+ with any sequence type will work for both strings and lists.</p><h2 id="sequence-length">Sequence Length</h2><p class="new">The <code>len</code> function is actually a built-in function in which you can pass in a
+ sequence to determine its length (more on built in functions later). It returns 
+the number of element in the sequence: </p></div></div></body></html>

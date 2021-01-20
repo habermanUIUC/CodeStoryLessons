@@ -20,16 +20,5 @@
 <div id="start" class="section">&nbsp;</div><h1 class="section" id="section2">Strings</h1><p class="new">We learned about the string type in an earlier lesson. Since many data analysis 
 involves text, it's important to understand a few important operations that can be 
 done on strings.</p><h2 id="creating-strings">Creating Strings</h2><p class="new">The usual way to create strings is just assign a string value (called a literal) 
-to a variable. However, you can also change values into strings using the Python 
-built-in function <code>str</code>.</p><pre><code># change a number into a string
-x = str(8)
-print(x, type(x))</code></pre><h3 id="back-to-the-string">Back to the String</h3><p class="new">As a side note, if a string represents a number, you can convert it to an actual 
-number by using either the <code>int</code> or <code>float</code> functions:</p><pre><code>print(int("121"), float("3.33"))</code></pre><h3 id="strings-from-lists">Strings from Lists</h3><p class="new">Almost all types provide some type of string representation.  For lists of
- items, you can use the string's <code>join</code> method to glue the items in a list together:</p><pre><code>parts = [1,2,3,4]
-ssv = ';'.join(parts)
-print(ssv)</code></pre><h2 id="changing-strings">Changing Strings</h2><p class="new">The following examples show how you can change or update the contents of a
- string.  An important note (which is discussed in great detail in another
-  lesson) is that all the methods shown actually return a new string and don't 
-  modify the target string.</p><h3 id="changing-case">Changing Case</h3><p class="new">Changing case is usually a data processing step in the data science pipeline 
-where the analysis wants to treat both cases the same (called case insensitive).
-You can change the case of a string using the string methods <code>lower</code> and <code>upper</code>:</p></div></div></body></html>
+to a variable. However, you can also change values of other types into strings using 
+the Python built-in function <code>str</code>.</p></div></div></body></html>
