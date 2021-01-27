@@ -238,10 +238,10 @@ you can use an image to grab the dominant colors to put a palette together
 and <a href="https://lokeshdhakar.com/projects/color-thief/" target="_blank">Color Thief</a> are good tools.</p><p class="new">A future lesson will discuss matplotlib's colormaps which is another way to work
 with professionally developed color palettes that allow for easy mapping
  between values and colors.</p><br/><h1 class="section" id="section4">Lesson Assignment</h1><p class="new">Be sure you have run all the example code and understand what's being demonstrated. 
-You will use a colormap to build a simple bar chart for the categorical data we used to demonstrate
+You will use a colormap to build a simple scatter chart for the categorical data we used to demonstrate
  scatter plots. 
 When you are done, your graph should look like the following:
-<img alt="plot_pets.png" class="border small mt-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/color/html/plot_pets.png"/></p><p class="new">Note that you can<strong>not</strong> use Pandas.</p><h2 id="part-1-color-selection-">Part 1 Color Selection </h2><p class="new">The RandomPetData class will generate four different values for the pet
+<img alt="plot_pets.png" class="border small mt-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/color/html/plot_pets.png"/></p><p class="new">Note that you can<strong>not</strong> use Pandas.</p><h2 id="part-1-color-selection-">Part 1 Color Selection </h2><p class="new">The <code>RandomPetData</code> class will generate four different values for the <code>pet</code>
  attribute: fish, dog, cat, n/a:</p><div class="ide code-starter clearfix"><pre><code>from LessonUtil import RandomPetData
 data = RandomPetData(100)
 print(data.pet)</code></pre></div><p class="new">Each of these values will be assigned a color. Create a custom colormap 
