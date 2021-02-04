@@ -18,7 +18,8 @@
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Extra Credit</h1><p class="new">Modify both <code>build_tf</code> and <code>split_into_tokens</code>, such that a <strong>stoplist</strong> 
-could be passed in (see lines 6 and 7).<br/>This is a named parameter (named <code>stopwords</code>) whose default value is the empty list.</p><p class="new">If <code>normalize</code> is <code>false</code>: </p><ul><li>still remove stopwords</li><li>only remove stopwords if they match in case, however</li></ul><p class="new">The idea is that if a word in a document is also a stopword, that word is
+could be passed in (see lines 6 and 7).<br/>This is a named parameter (named <code>stopwords</code>) whose default value is the empty list.</p><p class="new">Regardless of the value of <code>normalize</code>, if <code>stopwords</code> is non-empty, it
+ indicates that they are to be removed</p><p class="new">If <code>normalize</code> is <code>false</code>: </p><ul><li>still remove stopwords if necessary</li><li>only remove stopwords if they match in case, however</li></ul><p class="new">The idea is that if a word in a document is also a stopword, that word is
  removed and not processed.  This will involve adjusting a few other
  functions as well.  Be sure that if you add a new parameter to handle the
  stopwords, it is a named parameter with a default value of the empty list.</p><div class="code-block code clearfix"><pre><code class="line-number">def process_huck():
