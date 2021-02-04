@@ -108,7 +108,7 @@ def test_tf():
 
 # test_tf()
 # print(ide.tester.test_function(build_tf))</code></pre></div><p class="new">After you are done, you can compare your results to the chart below:
-</p><img alt="tf-gham.png" class="w-full border my-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf/html/tf-gham.png"/><p class="new">Note that the word 'like' is the only word that appears in all the documents.
+</p><img alt="tf2-gham.png" class="w-full border my-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf/html/tf2-gham.png"/><p class="new">Note that the word 'like' is the only word that appears in all the documents.
 You can also test it against the grader:</p><pre><code>print(vocab.most_common(5)) # 5 most common words
 print(tf[1].most_common(5)) # 5 most common words in second document
 print(tf[1]['eggs']         # relative freq of 'eggs' in the second document
@@ -158,7 +158,7 @@ def build_idf(vocabulary, corpus_tf):
 test_idf()
 
 # print(ide.tester.test_function(build_idf))</code></pre><p class="new">After you are done, you can compare your results to the chart below.
-<img alt="idf-gham.png" class="w-full border mt-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf/html/idf-gham.png"/></p><h2 id="tfidf">TF•IDF</h2><p class="new">As a reminder, the TF is calculated per document, and IDF is calculated across a set of documents. The final 
+<img alt="idf2-gham.png" class="w-full border mt-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf/html/idf2-gham.png"/></p><h2 id="tfidf">TF•IDF</h2><p class="new">As a reminder, the TF is calculated per document, and IDF is calculated across a set of documents. The final 
 calculation (the assignment of this lesson) is to create the final TF * IDF. So for each document in the corpus, 
 the TF•IDF value is TF * IDF for each term.  Values close to zero are your custom set of stop words -- 
 words that did not help separate out the documents.  Note that you can get these stopwords by just looking at the IDF values.</p><h2 id="adjusting-the-math-">Adjusting The Math </h2><p class="new">At first glance, it might seem 'easy' to calculate TF•IDF (we are almost there). However, for 
