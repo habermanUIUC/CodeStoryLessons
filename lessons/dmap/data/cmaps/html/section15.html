@@ -19,12 +19,11 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>from matplotlib.cbook import get_sample_data
 import numpy as np
-io = get_sample_data('axes_grid/bivariate_normal.npy') # 3.3 , np_load=True)
-data = np.load(io.name)
 
-def bivariate_map(data):
-  fig, ax = plt.subplots()
-  im = ax.imshow(data, cmap='gist_earth')  
-  return fig
+def bivariate_map():
+    io = get_sample_data('axes_grid/bivariate_normal.npy') # 3.3 , np_load=True)
+    data = np.load(io.name)
+    fig, ax = plt.subplots()
+    im = ax.imshow(data, cmap='gist_earth')  
 
-fig = bivariate_map(data)</code></pre></div></div></div></body></html>
+bivariate_map()</code></pre></div></div></div></body></html>

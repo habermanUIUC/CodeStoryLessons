@@ -187,15 +187,14 @@ they have a normal distribution when both are added together.
 Visually, the bivariate normal distribution is a three-dimensional bell curve 
 (as shown in the image).</p><div class="ide code-starter clearfix"><pre><code>from matplotlib.cbook import get_sample_data
 import numpy as np
-io = get_sample_data('axes_grid/bivariate_normal.npy') # 3.3 , np_load=True)
-data = np.load(io.name)
 
-def bivariate_map(data):
-  fig, ax = plt.subplots()
-  im = ax.imshow(data, cmap='gist_earth')  
-  return fig
+def bivariate_map():
+    io = get_sample_data('axes_grid/bivariate_normal.npy') # 3.3 , np_load=True)
+    data = np.load(io.name)
+    fig, ax = plt.subplots()
+    im = ax.imshow(data, cmap='gist_earth')  
 
-fig = bivariate_map(data)</code></pre></div><p class="new">You can add a colorbar simply by adding this line:</p><pre><code>  fig.colorbar(im)</code></pre><p class="new">You will want to consult the <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html" target="_blank">imshow</a> 
+bivariate_map()</code></pre></div><p class="new">You can add a colorbar simply by adding this line:</p><pre><code>  fig.colorbar(im)</code></pre><p class="new">You will want to consult the <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.imshow.html" target="_blank">imshow</a> 
 documentation -- as there are many features to the API. </p><h2 id="colormaps-are-dangerous-">Colormaps are Dangerous ☠️</h2><p class="new">The selection of a colormap is an important consideration. A poor selection can result in 
 a improper understanding or misinterpretation of the data. 
 You should <a href="https://www.eecs.harvard.edu/~kgajos/papers/2011/borkin11-infoviz.pdf" target="_blank">read</a>
@@ -250,7 +249,7 @@ we no longer need to use <code>np.where</code> as we did before to slice up the 
   paths = axes.scatter(df.x, df.y, c=df.pet_idx, s=50, cmap=cmap, edgecolor='black')
   h,values = paths.legend_elements()
   axes.legend(handles=h, labels=names)
-  return fig</code></pre></div><h2 id="review">Review</h2><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-6" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-6"><span> What is a colormap </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-7" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-7"><span> When would you want to use a colormap </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-8" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-8"><span> What is a diverging colormap </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-9" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-9"><span> When do we use <code>imshow</code></span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div><h1 class="section" id="section4">Lesson Assignment</h1><p class="new">Be sure you have run all the example code and understand what's being demonstrated. 
+  return fig</code></pre></div><h2 id="review">Review</h2><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-16" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-16"><span> What is a colormap </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-17" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-17"><span> When would you want to use a colormap </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-18" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-18"><span> What is a diverging colormap </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-19" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-19"><span> When do we use <code>imshow</code></span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div><h1 class="section" id="section4">Lesson Assignment</h1><p class="new">Be sure you have run all the example code and understand what's being demonstrated. 
 You will use a colormap to build a simple bar chart for the categorical data we used to demonstrate
  scatter plots. 
 When you are done, your graph should look like the following:
