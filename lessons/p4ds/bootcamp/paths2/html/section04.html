@@ -17,10 +17,10 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Forcing Evaluation Order</h1><p class="new">Parenthesis can be used to force a different evaluation order.  </p><p class="new">Order of evaluation:</p><ul><li>The keyword <code>not</code> is evaluated first,</li><li><code>and</code> is next</li><li>finally <code>or</code>.</li></ul><p class="new">However, anything inside <code>()</code> is always evaluated first. Those statements 
-inside the <code>()</code> are evaluated using the normal order -- unless additional parenthesis 
-are used. Python doesn't require parenthesis but you should use them if 
-it helps with either clarity or the actual evaluation.  </p><h2 id="exercise">Exercise</h2><p class="new">Take a look at three possible reordering of the logic inside the following functions.  </p><p class="new">Which version will return False if price is 0.25 and hungry is False?  </p><p class="new">This is good example of a possible quiz question. So make sure you know how 
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Forcing Evaluation Order</h1><p class="new">Parentheses can be used to force a different evaluation order.  </p><p class="new">Order of evaluation:</p><ul><li>The keyword <code>not</code> is evaluated first,</li><li><code>and</code> is next</li><li>finally <code>or</code>.</li></ul><p class="new">However, anything inside <code>()</code> is always evaluated first. Those statements 
+inside the <code>()</code> are evaluated using the normal order -- unless additional parentheses 
+are used. Python doesn't require parentheses but you should use them if 
+it helps with either clarity or the actual evaluation.  </p><h2 id="exercise">Exercise</h2><p class="new">Take a look at three possible reordering of the logic inside the following functions.  </p><p class="new">Which version will return False if price is 0.25 and hungry is False?  </p><p class="new">This is a good example of a possible quiz question. So make sure you know how 
 to "read" this code and understand how Python will evaluate it based on the 
 arguments passed.</p><pre><code>def will_eat2(price, hungry):
   if (price == 0.25 or \

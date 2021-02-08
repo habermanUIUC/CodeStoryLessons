@@ -21,13 +21,13 @@
 be simplified even further. If a function simply returns <code>True</code> or <code>False</code> based 
 on a condition, you can just return the result of the expression directly:</p><pre><code>def is_dog(noise, leg_count):
   return makes_dog_noise(noise) and leg_count == 4</code></pre><p class="new">This is usually the best practice in programming. Be sure you understand why 
-this simplified logic works <em>without</em> using an if statement.</p><h2 id="keeping-lines-shart">Keeping Lines Shart</h2><p class="new">As you may have noticed, sometimes expressing the necessary logic becomes long. 
+this simplified logic works <em>without</em> using an if statement.</p><h2 id="keeping-lines-short">Keeping Lines Short</h2><p class="new">As you may have noticed, sometimes expressing the necessary logic becomes long. 
 For example, here's a way to the captures the logic of eating if the price is 
 between 1.01 and 1.99 OR you are hungry:</p><pre><code>def will_eat(hungry, price):
   if price &gt; 1.00 and price &lt; 2.00 or hungry == True:
     return True
   return False</code></pre><p class="new">Reading long lines is difficult. In addition to using variables, you can 
-use parenthesis to allow your code to span multiple lines (splitting the line 
+use parentheses to allow your code to span multiple lines (splitting the line 
 with a carriage return (or newline) will result in a syntax error):</p><pre><code>def will_eat(hungry, price):
   if (price &gt; 1.00 and price &lt; 2.00 
      or hungry == True):
