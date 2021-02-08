@@ -24,8 +24,10 @@
    and writing. That process is called code refactoring:  spotting a pattern
     or issue with your code and rewriting it such that the code behavior is
      the same, but the code itself is simplified or becomes easier to manage
-      or extend.  We will revisit these concepts in another lesson.</p><h3 id="loop-variable-scope-">Loop Variable Scope </h3><p class="new">One important note is that the loop variable (e.g <code>p</code> in the above example) is 
-still visible outside of the loop -- it will contain the last value assigned to it in is a keyword</p><pre><code>for p in primes:
+      or extend.  We will revisit these concepts in another lesson.</p><h3 id="loop-variable-scope-">Loop Variable Scope </h3><p class="new">One important note is that the loop variable (e.g <code>p</code> in the next example) is 
+still visible outside of the loop.  After the loop finishes, the variable 
+(<code>p</code> in this case) will still have a value -- it will have the last value 
+assigned to it:</p><pre><code>for p in primes:
     print(p)
 
 print('still holding', p)</code></pre><h3 id="looping-sequence">Looping Sequence</h3><p class="new">As we mentioned early on, Python will always run the code top-down, left to

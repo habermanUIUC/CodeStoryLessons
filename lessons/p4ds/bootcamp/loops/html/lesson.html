@@ -49,8 +49,10 @@ print(primes[7])</code></pre></div><h1 class="section" id="section2">For Loops</
    and writing. That process is called code refactoring:  spotting a pattern
     or issue with your code and rewriting it such that the code behavior is
      the same, but the code itself is simplified or becomes easier to manage
-      or extend.  We will revisit these concepts in another lesson.</p><h3 id="loop-variable-scope-">Loop Variable Scope </h3><p class="new">One important note is that the loop variable (e.g <code>p</code> in the above example) is 
-still visible outside of the loop -- it will contain the last value assigned to it in is a keyword</p><pre><code>for p in primes:
+      or extend.  We will revisit these concepts in another lesson.</p><h3 id="loop-variable-scope-">Loop Variable Scope </h3><p class="new">One important note is that the loop variable (e.g <code>p</code> in the next example) is 
+still visible outside of the loop.  After the loop finishes, the variable 
+(<code>p</code> in this case) will still have a value -- it will have the last value 
+assigned to it:</p><pre><code>for p in primes:
     print(p)
 
 print('still holding', p)</code></pre><h3 id="looping-sequence">Looping Sequence</h3><p class="new">As we mentioned early on, Python will always run the code top-down, left to
@@ -69,13 +71,16 @@ for_loop_fun()</code></pre></div><h3 id="operator-fun">Operator fun</h3><ul><li>
  sequence:</p><img alt="for_loop.gif" class="center border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/bootcamp/loops/html/for_loop.gif"/><h1 class="section" id="section3">While Loops</h1><p class="new">Another basic loop construct is the <code>while</code> loop. It looks like the following:</p><pre><code>while loop_test:
    # run this code as long as loop_test is True</code></pre><ul><li><strong><code>while</code></strong> is a keyword in Python used for iteration.</li><li><code>loop_test</code> is a boolean expression that gets evaluated to determine if the loop code gets executed.</li><li>all the statements inside the loop will get executed each iteration (or time) through the loop.</li></ul><p class="new">Here is a simple while loop</p><div class="ide code-starter clearfix"><pre><code>count = 0
 while count &lt; 5:
-  print(count)
-  count = count + 1</code></pre></div><p class="new">Note how the boolean expression (<code>count &lt; 5</code>) will be evaulated each
- time through the loop. It's important that that expression will
- eventaully be false, otherwise you will have an infinite loop (not a
- good thing). Always be sure that if you are using a while loop, that
- something inside in the will affect the boolean expression.</p><p class="new">The following illustrates the running of the above while loop inside a function.
-See how the loop expression gets evaulated each time until it becomes false:</p><img alt="while0.gif" class="center border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/bootcamp/loops/html/while0.gif"/><p class="new">Take a look at the following code, try to figure out the value the
+    print(count)
+    count = count + 1</code></pre></div><p class="new">Note how the boolean expression (i.e. <code>count &lt; 5</code>) will be evaluated each
+ time through the loop. It's vital that the expression will
+ eventaully be false; otherwise you will have an infinite loop (not a
+ good thing). If you are using a <code>while</code> loop, be sure that there's code inside
+ the body of the loop that will affect the loop's boolean expression (e.g
+ <code>count = count + 1</code>).</p><p class="new">The following illustrates the running of the above while loop inside a function.
+Note how the loop expression gets evaluated each time through the loop. 
+Once it evaluates to <code>False</code>, the code inside the loop will not be run; the 
+next line after the loop will run:</p><img alt="while0.gif" class="center border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/bootcamp/loops/html/while0.gif"/><p class="new">Take a look at the following code, try to figure out the value the
  function returns (and the sequence of code that is run):</p><div class="ide code-starter clearfix"><pre><code>def while_loop_fun():
     count = 0
     while count % 4 != 3:
@@ -108,7 +113,7 @@ Finish the following function <code>prime_loops</code></p><div class="ide code-s
 </code></pre></div><p class="new">Let's go through that code:</p><ul><li>line 1: we declare and define a variable that will be used to determine if we should loop or not.</li><li>line 2: As long as <code>idx</code> is less than the length of the primes list, we will run the 
 code inside the loop.</li><li>line 4: we increment the counter and then jump back to line 2 and re-evaluate the 
 boolean expression: <code>idx &lt; len(primes)</code></li></ul><p class="new">Notes: </p><ul><li><code>idx</code> is incrementated at the end of the loop (just before the boolean expression 
-controlling the loop is re-evaulated)</li><li>the value of <code>idx</code> after the loop is done is the same as <code>len(primes)</code></li></ul><h2 id="when-will-we-stop">When will we stop?</h2><p class="new">In almost all <code>while</code> loops, we will have a statement that updates the variable 
+controlling the loop is re-evaluated)</li><li>the value of <code>idx</code> after the loop is done is the same as <code>len(primes)</code></li></ul><h2 id="when-will-we-stop">When will we stop?</h2><p class="new">In almost all <code>while</code> loops, we will have a statement that updates the variable 
 that affects the loop continuation test. As previously mentioned, if we never did, 
 our loop would never end; an endless or infinite loop.  </p><p class="new">Some programs have purposeful infinite loops, we will try to avoid them. In the 
 above code, <code>idx = idx + 1</code> is the statement that affects the test.  If we never
@@ -156,9 +161,8 @@ returns <code>True</code> if ALL the numbers are even. </p><p class="new">Notes<
 the number of even numbers in the list. </p><p class="new">Notes:</p><ul><li>you MUST call the your <code>is_even</code> function</li></ul><pre><code>def count_even(list_of_numbers):
   # counts the number of even numbers 
   # in list_of_numbers</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="test-your-solutions">Test your solutions</h2><p class="new">See if you can write a few of your own tests for each of the functions</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>loops</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Getting Loopy</div><p class="text-center text-gray-800 text-xl">Repeating Code</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">loops</span></div><div class="text-gray-700 text-base"> </div><div class="text-gray-700 text-base">Readings</div><div class="text-xs p-2 border border-solid border-gray-500 bg-gray-300"> <div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://www.digitalocean.com/community/tutorials/how-to-construct-for-loops-in-python-3" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-construct-for-loops-in-python-3</a></div><div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://www.digitalocean.com/community/tutorials/how-to-construct-while-loops-in-python-3" target="_blank">https://www.digitalocean.com/community/tutorials/how-to-construct-while-loops-in-python-3</a></div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
-print(ide.tester.test_notebook(verbose=True)) 
+# print(ide.tester.test_notebook(verbose=True)) 
 
 # once you are ready -- run this 
-# be sure to name the download it solution.py 
 # ide.tester.download_solution() 
 </code></pre></div></div></div></body></html>

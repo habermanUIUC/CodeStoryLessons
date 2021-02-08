@@ -24,7 +24,7 @@
 </code></pre></div><p class="new">Let's go through that code:</p><ul><li>line 1: we declare and define a variable that will be used to determine if we should loop or not.</li><li>line 2: As long as <code>idx</code> is less than the length of the primes list, we will run the 
 code inside the loop.</li><li>line 4: we increment the counter and then jump back to line 2 and re-evaluate the 
 boolean expression: <code>idx &lt; len(primes)</code></li></ul><p class="new">Notes: </p><ul><li><code>idx</code> is incrementated at the end of the loop (just before the boolean expression 
-controlling the loop is re-evaulated)</li><li>the value of <code>idx</code> after the loop is done is the same as <code>len(primes)</code></li></ul><h2 id="when-will-we-stop">When will we stop?</h2><p class="new">In almost all <code>while</code> loops, we will have a statement that updates the variable 
+controlling the loop is re-evaluated)</li><li>the value of <code>idx</code> after the loop is done is the same as <code>len(primes)</code></li></ul><h2 id="when-will-we-stop">When will we stop?</h2><p class="new">In almost all <code>while</code> loops, we will have a statement that updates the variable 
 that affects the loop continuation test. As previously mentioned, if we never did, 
 our loop would never end; an endless or infinite loop.  </p><p class="new">Some programs have purposeful infinite loops, we will try to avoid them. In the 
 above code, <code>idx = idx + 1</code> is the statement that affects the test.  If we never
