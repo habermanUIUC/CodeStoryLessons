@@ -28,7 +28,7 @@ could be passed in (see lines 6 and 7).<br/>This is a named parameter (named <co
 </code><code class="line-number">    corpus   = Util.clean_chapters(chapters)
 </code><code class="line-number">
 </code><code class="line-number">    stopwords = Util.load_stopwords()
-</code><code class="line-number">    vocab, tf = build_tf(corpus, min_length=2, stopwords)
+</code><code class="line-number">    vocab, tf = build_tf(corpus, 2, stopwords)
 </code><code class="line-number">    idf = build_idf(vocab, tf)
 </code><code class="line-number">    tfidf = build_tf_idf(tf, idf)
 </code><code class="line-number">    
