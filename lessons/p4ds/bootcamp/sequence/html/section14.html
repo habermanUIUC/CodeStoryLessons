@@ -20,10 +20,10 @@
 <div id="start" class="section">&nbsp;</div><p class="new">In the above example, a period was used to split <code>msg</code> into different parts. A common 
 data format is separating data using a comma (csv - comma separated values):</p><pre><code>csv = "12,11,10,0"
 parts = csv.split(',')
-print(parts)</code></pre><p class="new">You may notice that the empty string was returned in the first split example in 
-the last component. This is because the string ended (terminated) with the 
-character that was being used to split on. A few important notes:</p><ul><li>the character used to split the string is not part of any of the returned strings.</li><li>if a string ends with the character that is being used to split the string, 
-the returned array has an empty string as its last element.</li></ul><p class="new">Be sure to understand the above and this example:</p><pre><code>csv = "12,11,10,0,"
+print(parts)</code></pre><p class="new">In the first example, you may have noticed that the last component returned is
+ empty string. This is because the string ended (terminated) with the character 
+that was being used to split on. </p><p class="new">A few important notes:</p><ul><li>the character used to split the string is not part of any of the returned strings.</li><li>if a string ends with the character that is being used to split the string, 
+the returned array has an empty string as its last element.</li></ul><p class="new">Be sure to understand the above and next example:</p><pre><code>csv = "12,11,10,0,"
 parts = csv.split(',')
 print(parts)</code></pre><p class="new">If you don't pass in a parameter to <code>split</code>, it will use the space, newline, and 
 tabs (called whitespace) as the character (or token) to split on. You can easily 
