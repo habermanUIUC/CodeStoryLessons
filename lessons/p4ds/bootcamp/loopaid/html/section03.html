@@ -19,8 +19,8 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><p class="new">When you use the <code>range</code> function (really a class) to create a 'virtual' list, 
 the first parameter is the starting number and the second is the stopping point. </p><p class="new">The stopping point is NOT included in the list (we say the end is exclusive). 
-Also, the default step value is 1 (which can be changed by adding a third parameter):</p><pre><code>backwards = range(4, 0, -1)
-for n in backwards:
+Also, the default step value is 1 (which can be changed by adding a third parameter):</p><pre><code>forwards = range(0, 6, 1)
+for n in forwards:
     print(n)</code></pre><h3 id="stepping-in-style">Stepping in Style</h3><p class="new">You can use the <code>step</code> parameter to generate specific sequences:</p><pre><code>for i in range(2,12,2):
     print(i)</code></pre><h3 id="negative-stepping">Negative Stepping</h3><p class="new">Going backwards is just as easy:</p><pre><code>for i in range(12,0,-2):
     print(i)</code></pre><h2 id="range-as-a-sequence-type">Range as a sequence type</h2><p class="new">Using the <code>range</code> function returns a sequence (an immutable sequence) and you 

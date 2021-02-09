@@ -19,7 +19,10 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">🔁 Aid</h1><div class="clear-both border border-gray-600 float-left mr-3 mt-3"><video class="border-0" controls="" id="v1" width="500"><source src="https://storage.googleapis.com/uicourse/videos/mh1/11_loopaid.mp4" type="video/mp4"/></video></div><h2 id="repetition-help">repetition help</h2><p class="new">As we have learned, the <code>for</code> loop syntax is very straightforward:</p><pre><code>for item in some_collection:
    do_something(item)</code></pre><p class="new">As we saw in the previous lesson, when you want to just add up a sequence, 
-a <code>while</code> loop works well, but the syntax of using a <code>for</code> loop is a bit easier.<br/>There's no need for managing a loop index and/or a boolean expression.  </p><p class="new">Looping over items in a collection (usually a list) is <em>so</em> common that
+a <code>while</code> loop works well, but the syntax of using a <code>for</code> loop is a bit easier. 
+There's no need for managing a loop index and/or a boolean expression. However, 
+the <code>for</code> loop provides no information on the indices (where the item is located 
+in the sequence).</p><p class="new">Looping over items in a collection (usually a list) is <em>so</em> common that
  Python also provides a few helper functions so that you can still use the <code>for</code> 
  loop syntax in other situations where you might still want a loop index.</p><h2 id="home-on-the-range">Home on the Range</h2><p class="new">The <code>range</code> function produces a <em>sequence</em> (not a list) of numbers that can be iterated over.<br/>It is used to easily build a defined ordered set of numbers. You can even have a negative 
 step value to count backwards. When you need a quick sequence of numbers, <code>range</code> is your answer.</p><pre><code>range(start, stop, step)</code></pre><ul><li><code>start</code> has a default value of 0</li><li><code>stop</code> is required</li><li><code>step</code> has a default value of 1</li></ul><p class="new">It will generate a sequence of values starting at <code>start</code>, ending at <code>stop - 1</code>, and 
