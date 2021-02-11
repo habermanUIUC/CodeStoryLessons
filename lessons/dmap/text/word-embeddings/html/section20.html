@@ -17,29 +17,18 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">If the following line is a bit confusing: <code>data_2d[:, 0], data_2d[:, 1]</code>, 
-now's a good time to review array slicing from INFO 490.</p><p class="new">You can see that there is indeed similar 'distances' between the points. Another fun 
-<a href="https://projector.tensorflow.org/" target="_blank">visualization tool</a> for word vectors is with using TensorFlow. 
-TensorFlow is a Google product to create, use (and learn about) machine learning algorithms easily. 
-You can even use TensorFlow to create word embeddings --assuming you have 
-access to a large corpus to train on.  Our next lesson is on word2vec, one of
- the most popular implementations for building and using word vectors.</p><h2 id="one-hot-encoding">One Hot Encoding</h2><p class="new">Algorithms that produce word vector models -- like word2vec and GloVe (more
- next lesson) usually input their 'words' as vectors as well.  However, they
-use something called one-hot encoding.  </p><p class="new">One hot encoding simply assigns either a 1 or a 0 to an attribute if that
- attribute is present.  For example, in the following sentence: 
-'a word is known by the company it keeps' would have the following matrix
- representation:</p><pre><code>        a word is known by the company it keeps
-a       1 0    0  0     0   0  0       0  0
-word    0 1    0  0     0   0  0       0  0
-is      0 0    1  0     0   0  0       0  0
-known   0 0    0  1     0   0  0       0  0
-by      0 0    0  0     1   0  0       0  0
-the     0 0    0  0     0   1  0       0  0
-company 0 0    0  0     0   0  1       0  0
-it      0 0    0  0     0   0  0       1  0
-keeps   0 0    0  0     0   0  0       0  1</code></pre><p class="new">The rows are are the unique set of words in the corpus. The columns are the corpus. 
-The big issue of course is that for a large corpus, the matrix is <em>sparse</em>
-meaning most of the values are zero.  Hence, the usually need a more efficient
-way to model this representation in memory.</p><p class="new">Note that one hot encoding only captures location information.  While word 
-vectors capture 'meaning' and location.  They enable deep learning models as
- well since they can be used as input into these algorithms.</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="-really-">🍔 Really ?</h2><p class="new">Luckily, we know burgers seems a bit strange. Much like tweaking with stopwords, 
+we can decide to remove some words that might have been affected by the training.
+ In most situations, this isn't a scalable solution, but we're hungry and we 
+want Canadian fries. </p><p class="new">In order to narrow down the results, you need to remove synonyms for fries
+ (potatoes) and remove any reference to hamburgers (probably due to the training data):</p><pre><code>ex = ['canad', 'us', 'frie', 'bacon', 'potato', 'burger', 'steak']</code></pre><p class="new">Add those to the exceptions list above and re-run your code.</p><p class="new">If you inspect the top 10, you will find poutine, cheese, and gravy (the
+ Canadian delicacy)! Although the need to tweak the results, shows the
+ importance of data used to build the word vectors.</p><h2 id="visualizing-word-vectors">Visualizing Word Vectors</h2><img alt="king.png" class="border small float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/word-embeddings/html/king.png"/><p class="new">Since each word vector contains hundreds of dimensions (300 for spacy), it's
+impossible to visualize without projecting the high dimensions into lower
+ dimensional space (i.e. 2 or 3).  </p><p class="new">Although we will have a separate lesson on how to transform a data-set with many
+ dimensions to one with only a few of its 'most important' dimensions, we will 
+use something called t-Distributed Stochastic Neighbor Embedding (t-SNE for
+ short). The t-SNE algorithm is particularly well suited for the visualization of 
+high-dimensional datasets.  </p><p class="new">Don't worry too much about the actual code (it's not important for this lesson).
+You <em>should</em> be able to read it. The main point is to see where the 'words' are 
+in 2D space and their relative distances to each other. </p></div></div></body></html>

@@ -19,24 +19,10 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><p class="new">Be sure to code this up and run it (it's also tested).</p><h2 id="ill-have-some-with-that-">I'll have some 🍟❓with that. </h2><p class="new">Most of the world knows about french fries, but other countries may have
  another word (or similar food) to them. Let's use this machinery to help us 
-out in case we go to Canada on vacation.</p><p class="new">Do Canadians even eat fries ?</p><p class="new">To find the equivalent of US fries in Canada, we can set up the following equation:</p><pre><code>def where_are_my_fries(md):
+out in case we go to Canada on vacation.</p><p class="new">Do Canadians even eat fries ?</p><p class="new">To find the equivalent of US fries in Canada, set up the following equation:</p><pre><code>def where_are_my_fries(md):
     vector = md.vocab['canada'].vector - md.vocab['usa'].vector + md.vocab['fries'].vector
     ex = ['canad', 'us', 'frie']
     answer = find_closest(md, vector, ex)
     print([a.text for a in answer[0:10]])
 
-where_are_my_fries(nlp)</code></pre><h2 id="-really-">🍔 Really ?</h2><p class="new">Luckily, we know burgers seems a bit strange. Much like tweaking with stopwords, 
-we can decide to remove some words that might have been affected by the training.
- In most situations, this isn't a scalable solution, but we're hungry and we 
-want Canadian fries. </p><p class="new">In order to narrow down the results, you need to remove synonyms for fries
- (potatoes) and remove any reference to hamburgers (probably due to the training data):</p><pre><code>ex = ['canad', 'us', 'frie', 'bacon', 'potato', 'burger', 'steak']</code></pre><p class="new">If you inspect the top 10, you will find poutine, cheese, and gravy (the
- Canadian delicacy)! Although the need to tweak the results, shows the
- importance of data used to build the word vectors.</p><h2 id="visualizing-word-vectors">Visualizing Word Vectors</h2><img alt="king.png" class="border small float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/word-embeddings/html/king.png"/><p class="new">Since each word vector contains hundreds of dimensions (300 for spacy), it's
-impossible to visualize without projecting the high dimensions into lower
- dimensional space (i.e. 2 or 3).  </p><p class="new">Although we will have a separate lesson on how to transform a data-set with many
- dimensions to one with only a few of its 'most important' dimensions, we will 
-use something called t-Distributed Stochastic Neighbor Embedding (t-SNE for
- short). The t-SNE algorithm is particularly well suited for the visualization of 
-high-dimensional datasets.  </p><p class="new">Don't worry too much about the actual code (it's not important for this lesson).
-You <em>should</em> be able to read it. The main point is to see where the 'words' are 
-in 2D space and their relative distances to each other. </p></div></div></body></html>
+where_are_my_fries(nlp)</code></pre></div></div></body></html>

@@ -17,20 +17,26 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def find_best_fit(md, result, words, topn=15):
-    # md is the nlp model
-    # result is a vector you're trying to get close to
-    # words is a list of spacy objects/words (3 of them) that
-    # need to be excluded (e.g nlp.vocab['man'])
-  
-    # return the topn candidates, in order so index 0 is the best fit
-    # it should always have at least one word in it
-    return []
-    
-def find_analogy(md, three_words):
-     # md is the nlp model
-     # three_words is a list of strings (e.g. ['king', 'man', 'woman'])
-
-     # return the text (a string) for the word that meets the analogy 
-     # it should use find_best_fit
-     return None</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">One Hot Encoding</h1><p class="new">Algorithms that produce word vector models -- like word2vec and GloVe (more
+ next lesson) usually input their 'words' as vectors as well.  However, they
+use something called one-hot encoding.  </p><p class="new">One hot encoding simply assigns either a 1 or a 0 to an attribute if that
+ attribute is present.  For example, in the following sentence: 
+'a word is known by the company it keeps' would have the following matrix
+ representation:</p><pre><code>        a word is known by the company it keeps
+a       1 0    0  0     0   0  0       0  0
+word    0 1    0  0     0   0  0       0  0
+is      0 0    1  0     0   0  0       0  0
+known   0 0    0  1     0   0  0       0  0
+by      0 0    0  0     1   0  0       0  0
+the     0 0    0  0     0   1  0       0  0
+company 0 0    0  0     0   0  1       0  0
+it      0 0    0  0     0   0  0       1  0
+keeps   0 0    0  0     0   0  0       0  1</code></pre><p class="new">The rows are are the unique set of words in the corpus. The columns are the corpus. 
+The big issue of course is that for a large corpus, the matrix is <em>sparse</em>
+meaning most of the values are zero.  Hence, the usually need a more efficient
+way to model this representation in memory.</p><p class="new">Note that one hot encoding only captures location information.  While word 
+vectors capture 'meaning' and location.  They enable deep learning models as
+ well since they can be used as input into these algorithms.</p><h2 id="bonus-vectors">Bonus Vectors</h2><p class="new">As with a lot of machine learning models, many will be too big to load into
+ notebooks.  However, if you want to experiment with other word vectors 
+(on your own computer -- they are too big to load into a notebook), 
+the following models have been trained using Wikipedia. </p><ul><li><a href="https://fasttext.cc/docs/en/english-vectors.html" target="_blank">https://fasttext.cc/docs/en/english-vectors.html</a></li></ul></div></div></body></html>

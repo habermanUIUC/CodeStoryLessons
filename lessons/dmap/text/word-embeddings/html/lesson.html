@@ -151,7 +151,7 @@ def demo_vector_math(md):
     print('d1 and d2 close:', homemade_sim(d1, d2) &gt; 0.70)
 
 demo_vector_math(nlp)</code></pre></div><h2 id="finding-similar-words">Finding Similar Words</h2><p class="new">Using the same math, we can build upon that to find all the words that are
- closet to a specific word.</p><div class="ide code-starter clearfix"><pre><code>def all_words_except(md, word):
+ closest to a specific word.</p><div class="ide code-starter clearfix"><pre><code>def all_words_except(md, word):
     # get all words in the vocabulary
     # each must have a word vector
     # don't include the exception
@@ -207,7 +207,7 @@ def demo_word_math(md):
     print(answer[0].text)</code></pre></div><p class="new">Be sure to take the time to understand what is happening when you call <code>demo_word_math()</code>:
 The big issue is that it takes a long time to run these since <code>all_words_except</code> is looking at all the words in the vocabulary.
 Also, it's important to remove the words math, symbol from the vocabulary, since those words will match perfectly.</p><p class="new">The function <code>valid</code> also removes words that begin with 'math' (e.g
- mathematics, etc).  It's not a perfect solution, but it's enough for the demonstration.</p><pre><code>demo_word_math(nlp)</code></pre><p class="new">What did you get ?</p><p class="new">Depending on the data used to build the model (tweeter, news, Wikipedia, etc) 
+ mathematics, etc).  It's not a perfect solution, but it's enough for the demonstration.</p><pre><code>demo_word_math(nlp)</code></pre><p class="new">What did you get ?</p><p class="new">Does it make sense for <strong>Math</strong> + <strong>Symbols</strong> is ❓❓❓❓</p><p class="new">Depending on the data used to build the model (tweeter, news, Wikipedia, etc) 
 you may have to adjust your results. For example, using the <code>en_core_web_md</code> 
 model gives different results.</p><h2 id="-the-most-famous-word-analogy-of-all-">♪♫ The Most Famous Word Analogy of All ♬♬</h2><img alt="kmwBlur.png" class="border small float-left mb-3 mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/word-embeddings/html/kmwBlur.png"/><p class="new">One of the popular examples of math with word vectors is to solve this equation:</p><p class="new"><strong>Man</strong> is to <strong>Woman</strong> as <strong>King</strong> is to ❓❓❓❓</p><p class="new">Before reading on, grab some paper and see if you can come up with the math
  (just addition and subtraction) to solve it (it's fun!).</p><h3 id="-"> </h3><div class="font-sans container mt-1 mb-4 "><div></div><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-6" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-6"><span> This can be solved using the vector math: </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3"><span><code>result = king - man + woman</code></span></p></div></div></div></div></div><h3 id="dont-go-past-">Don't Go Past </h3><p class="new">Make sure you understand the logic behind that vector math.  It's like saying
@@ -218,17 +218,17 @@ take the difference between ('woman' - 'man') and add that to 'king'. </p><p cla
   
 king_is_to_what(nlp)</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><p class="new">Be sure to code this up and run it (it's also tested).</p><h2 id="ill-have-some-with-that-">I'll have some 🍟❓with that. </h2><p class="new">Most of the world knows about french fries, but other countries may have
  another word (or similar food) to them. Let's use this machinery to help us 
-out in case we go to Canada on vacation.</p><p class="new">Do Canadians even eat fries ?</p><p class="new">To find the equivalent of US fries in Canada, we can set up the following equation:</p><pre><code>def where_are_my_fries(md):
+out in case we go to Canada on vacation.</p><p class="new">Do Canadians even eat fries ?</p><p class="new">To find the equivalent of US fries in Canada, set up the following equation:</p><pre><code>def where_are_my_fries(md):
     vector = md.vocab['canada'].vector - md.vocab['usa'].vector + md.vocab['fries'].vector
     ex = ['canad', 'us', 'frie']
     answer = find_closest(md, vector, ex)
     print([a.text for a in answer[0:10]])
 
-where_are_my_fries(nlp)</code></pre><h2 id="-really-">🍔 Really ?</h2><p class="new">Luckily, we know burgers seems a bit strange. Much like tweaking with stopwords, 
+where_are_my_fries(nlp)</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="-really-">🍔 Really ?</h2><p class="new">Luckily, we know burgers seems a bit strange. Much like tweaking with stopwords, 
 we can decide to remove some words that might have been affected by the training.
  In most situations, this isn't a scalable solution, but we're hungry and we 
 want Canadian fries. </p><p class="new">In order to narrow down the results, you need to remove synonyms for fries
- (potatoes) and remove any reference to hamburgers (probably due to the training data):</p><pre><code>ex = ['canad', 'us', 'frie', 'bacon', 'potato', 'burger', 'steak']</code></pre><p class="new">If you inspect the top 10, you will find poutine, cheese, and gravy (the
+ (potatoes) and remove any reference to hamburgers (probably due to the training data):</p><pre><code>ex = ['canad', 'us', 'frie', 'bacon', 'potato', 'burger', 'steak']</code></pre><p class="new">Add those to the exceptions list above and re-run your code.</p><p class="new">If you inspect the top 10, you will find poutine, cheese, and gravy (the
  Canadian delicacy)! Although the need to tweak the results, shows the
  importance of data used to build the word vectors.</p><h2 id="visualizing-word-vectors">Visualizing Word Vectors</h2><img alt="king.png" class="border small float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/word-embeddings/html/king.png"/><p class="new">Since each word vector contains hundreds of dimensions (300 for spacy), it's
 impossible to visualize without projecting the high dimensions into lower
@@ -267,12 +267,13 @@ def show_vector_space(md):
     fig = plot_results(data, labels)
 
 show_vector_space(nlp)</code></pre></div><p class="new">If the following line is a bit confusing: <code>data_2d[:, 0], data_2d[:, 1]</code>, 
-now's a good time to review array slicing from INFO 490.</p><p class="new">You can see that there is indeed similar 'distances' between the points. Another fun 
+now's a good time to review array slicing from INFO 490.  We will be using
+ that syntax many times.</p><p class="new">You can see that there is indeed similar 'distances' between the points. Another fun 
 <a href="https://projector.tensorflow.org/" target="_blank">visualization tool</a> for word vectors is with using TensorFlow. 
 TensorFlow is a Google product to create, use (and learn about) machine learning algorithms easily. 
 You can even use TensorFlow to create word embeddings --assuming you have 
 access to a large corpus to train on.  Our next lesson is on word2vec, one of
- the most popular implementations for building and using word vectors.</p><h2 id="one-hot-encoding">One Hot Encoding</h2><p class="new">Algorithms that produce word vector models -- like word2vec and GloVe (more
+ the most popular implementations for building and using word vectors.</p><h1 class="section" id="section3">One Hot Encoding</h1><p class="new">Algorithms that produce word vector models -- like word2vec and GloVe (more
  next lesson) usually input their 'words' as vectors as well.  However, they
 use something called one-hot encoding.  </p><p class="new">One hot encoding simply assigns either a 1 or a 0 to an attribute if that
  attribute is present.  For example, in the following sentence: 
@@ -291,7 +292,7 @@ The big issue of course is that for a large corpus, the matrix is <em>sparse</em
 meaning most of the values are zero.  Hence, the usually need a more efficient
 way to model this representation in memory.</p><p class="new">Note that one hot encoding only captures location information.  While word 
 vectors capture 'meaning' and location.  They enable deep learning models as
- well since they can be used as input into these algorithms.</p><h1 class="section" id="section3">Bonus Vectors</h1><p class="new">As with a lot of machine learning models, many will be too big to load into
+ well since they can be used as input into these algorithms.</p><h2 id="bonus-vectors">Bonus Vectors</h2><p class="new">As with a lot of machine learning models, many will be too big to load into
  notebooks.  However, if you want to experiment with other word vectors 
 (on your own computer -- they are too big to load into a notebook), 
 the following models have been trained using Wikipedia. </p><ul><li><a href="https://fasttext.cc/docs/en/english-vectors.html" target="_blank">https://fasttext.cc/docs/en/english-vectors.html</a></li></ul><h1 class="section" id="section4">Lesson Assignment </h1><p class="new">Using what you learned in this lesson, you are going to create a function named
@@ -325,7 +326,7 @@ print(find_analogy(nlp, ['Italy', 'pizza', 'Mexico'])) # NO SPAIN</code></pre><p
  analogies will work:</p><pre><code># fastest, (furthest in top 10)
 print(find_analogy(nlp, ['quickest', 'quick', 'far'])) 
 
-# raptor, (bird not even in top 10) 
+# raptor??, (bird not even in top 10) 
 print(find_analogy(nlp, ['mammal', 'dog', 'eagle']))</code></pre><h2 id="snail-testing">Snail Testing</h2><p class="new">Both <code>find_analogy</code> and <code>find_best_match</code> take a bit (almost a minute) to test.
 The testing software has load the spacy model into memory -- and we all know
  how long that can take.  Please, work on getting your code to work first in

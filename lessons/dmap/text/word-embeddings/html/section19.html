@@ -17,32 +17,4 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def reduce_dimensions(md, labels):
-    from sklearn.manifold import TSNE
-    import numpy as np
-  
-    data = np.array([md.vocab[w].vector for w in labels])
-    # reduce to two
-    tsne_model = TSNE(n_components=2)
-    data_2d = tsne_model.fit_transform(data)
-  
-    return data_2d
-
-def plot_results(data_2d, labels):
-    import matplotlib
-    import matplotlib.pyplot as plt
-  
-    # plot the 2d vectors and show their labels
-    fig, axes = plt.subplots()
-    axes.scatter(data_2d[:, 0], data_2d[:, 1], s=100)
-    for i, txt in enumerate(labels):
-        axes.annotate(txt, (data_2d[i,0], data_2d[i,1]), xytext=(2, 3), textcoords='offset points')
-    axes.grid()
-    return fig
-
-def show_vector_space(md):
-    labels = ['king', 'man', 'queen', 'woman']
-    data = reduce_dimensions(md, labels)
-    fig = plot_results(data, labels)
-
-show_vector_space(nlp)</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code></code></pre></div></div></div></body></html>

@@ -17,9 +17,22 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
-# print(ide.tester.test_notebook(verbose=True)) 
+<div id="start" class="section">&nbsp;</div><h4 id="test-cases">Test Cases</h4><p class="new">A few test cases to try:</p><pre><code>print(find_analogy(nlp, ['king', 'man', 'woman']))      
+# --&gt; queen
+print(find_analogy(nlp, ['Illinois', 'Springfield', 'Lansing']))  
+# --&gt; michigan
+print(find_analogy(nlp, ['walked', 'walk', 'go'])) 
+# --&gt; want past tense of go (went)</code></pre><p class="new">Note that order will matter:</p><pre><code>print(find_analogy(nlp, ['pizza', 'Italy', 'Mexico'])) # YES tacos
+print(find_analogy(nlp, ['Italy', 'pizza', 'Mexico'])) # NO SPAIN</code></pre><p class="new">If you start playing with these word vectors, remember, not all word
+ analogies will work:</p><pre><code># fastest, (furthest in top 10)
+print(find_analogy(nlp, ['quickest', 'quick', 'far'])) 
 
-# once you are ready -- run this 
-# ide.tester.download_solution() 
-</code></pre></div></div></div></body></html>
+# raptor??, (bird not even in top 10) 
+print(find_analogy(nlp, ['mammal', 'dog', 'eagle']))</code></pre><h2 id="snail-testing">Snail Testing</h2><p class="new">Both <code>find_analogy</code> and <code>find_best_match</code> take a bit (almost a minute) to test.
+The testing software has load the spacy model into memory -- and we all know
+ how long that can take.  Please, work on getting your code to work first in
+ the notebook before using the <code>ide.tester</code> functionality.  If your analogies
+ are not working here, they won't pass the tests anyway.</p><pre><code># print(ide.tester.test_function(find_analogy))
+# print(ide.tester.test_function(find_best_match))</code></pre><h2 id="optimization-is-the-root-of-evil-but-">Optimization is the root of evil, but ...</h2><p class="new">Although you always want correctness over efficiency, once things are
+ working there are a few places you can look to make your code faster: </p><ul><li>rather than sorting the entire array of words and the distances/similarities,
+you can only sort the words worth keeping (a much smaller list)</li></ul></div></div></body></html>
