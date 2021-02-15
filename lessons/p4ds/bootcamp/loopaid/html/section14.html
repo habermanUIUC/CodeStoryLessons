@@ -17,8 +17,12 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="terse-verse-building">Terse, Verse Building</h2><p class="new">Create a function named <code>ts_verse_builder</code> that does the same as the
- above example BUT has the following restrictions:</p><ul><li>can only call <code>build_lyrics</code></li><li>use no variables</li><li>the body of the function is a <strong>single line of code</strong></li></ul><pre><code>v2 = ts_verse_builder()
-print(lyrics_to_string(v2))</code></pre><p class="new">Would generate the following:</p><pre><code>1: I, I, I, I Shake it off, I Shake it off
-2: I, I, I, I Shake it off, I Shake it off
-3: I, I, I, I Shake it off, I Shake it off</code></pre></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="create-lyricstostring">Create <code>lyrics_to_string</code></h2><p class="new">Create a function named <code>lyrics_to_string</code> whose parameter is a list of
+ words (created via <code>build_lyrics</code>).</p><ul><li>builds a string that contains the full set of lyrics</li><li>it must use the <code>enumerate</code> function</li><li>you <strong>cannot</strong> use the <code>join</code> method</li><li>add a space and a comma after each lyric</li></ul><p class="new">For example:</p><pre><code>def test_lyrics():
+    a = build_lyrics('I', 3)
+    b = build_lyrics('I Shake it off', 2)
+    a_s = lyrics_to_string(a)
+    b_s = lyrics_to_string(b)
+    print(a_s)
+    print(b_s)</code></pre><p class="new">Should print:</p><pre><code>I, I, I, 
+I Shake it off, I Shake it off,</code></pre></div></div></body></html>

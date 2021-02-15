@@ -17,9 +17,9 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h3 id="range-math">Range math</h3><p class="new">The math functions (min,max,sum) do work</p><pre><code>print(min(all_even))   
-print(max(all_even))   
-print(sum(all_even))</code></pre><h3 id="range-to-list-conversion">Range to list conversion</h3><p class="new">In a few cases, you will need to convert a <code>range</code> type into a list. The <code>range</code> 
+<div id="start" class="section">&nbsp;</div><h3 id="range-math">Range math</h3><p class="new">The math functions (min,max,sum) work as well:</p><pre><code>    print(min(all_even))   
+    print(max(all_even))   
+    print(sum(all_even))</code></pre><h3 id="range-to-list-conversion">Range to list conversion</h3><p class="new">In a few cases, you will need to convert a <code>range</code> type into a list. The <code>range</code> 
 type is actually an immutable sequence -- you can't change any of the values in a range.</p><p class="new">The following are some of the situations where you might want to convert it
  into a list (e.g. <code>as_list = list(all_even)</code>):</p><ul><li>you want to print it</li><li>you want to use math operators with it (e.g. <code>all_even * 3</code>)</li><li>you want to compare it for equality</li></ul><h4 id="range-into-list">Range into list</h4><p class="new"> Since the <code>range</code> function is a generator of items, you need to convert it
  into a list if you need full access to all the values for printing or to compare 

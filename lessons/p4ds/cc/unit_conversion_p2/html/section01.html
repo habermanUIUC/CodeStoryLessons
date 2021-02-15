@@ -19,18 +19,20 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Currency and Unit Conversion</h1><img alt="ds1.png" class="border2 float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/unit_conversion_p2/html/ds1.png"/><h2 id="the-currencyvolume-converter">The Currency/Volume Converter</h2><p class="new">In a previous lesson we created a function named <code>unit_converter</code> that 
 converted from USD/gallon to CAD/liter. The issue with <code>unit_converter</code> 
-is that it had a built in assumption -- regarding the input currency.  </p><p class="new">We will fix this by adding another parameter to be explicit about what 
-we want the input and output to be.  </p><h2 id="part-1">Part 1</h2><p class="new">For this project, you must write the code for the following function:</p><pre><code>def unit_converter(units, total_cost, 
+is that it had a built in assumption -- regarding the input currency.  </p><p class="new">We will fix this by adding another parameter to be explicit about the
+ conversion.  Both the 'from' currency and the 'to' currency will be added. </p><h2 id="part-1">Part 1</h2><p class="new">For this project, you must write the code for the following function:</p><pre><code>def unit_converter(units, total_cost, 
                    from_currency, to_currency):</code></pre><p class="new">The function <code>unit_converter</code> converts the <code>total_cost</code> in <code>from_currency</code> 
-for <code>units</code> expressed to units expressed in <code>from_currency</code> </p><ul><li><code>units</code>: volume in either gallons (for $) or liters (for C$)</li><li><code>total_cost</code>: USD dollars or CAD dollars paid for units</li><li><code>from_currency</code>: either '$' or 'C$'</li><li><code>to_currency</code>: either '$' or 'C$'</li></ul><p class="new">Here's a typical use:</p><pre><code>USD_per_gallon = unit_converter(61, 124.00, 'C$', '$')
+to <code>to_currency</code>. </p><ul><li><code>units</code>: number of gallons (for $) or liters (for C$)</li><li><code>total_cost</code>: USD dollars or CAD dollars paid for units</li><li><code>from_currency</code>: either '$' or 'C$'</li><li><code>to_currency</code>: either '$' or 'C$'</li></ul><p class="new">Here's a typical use:</p><pre><code># CAD/liter to USD/gallon
+USD_per_gallon = unit_converter(61, 124.00, 'C$', '$')
+# USD/gallon to CAD/liter 
 CAD_per_liter  = unit_converter(16, 45.0, '$', 'C$')</code></pre><p class="new">You should use the same constant values for (unit conversions and 
 exchange rates):</p><pre><code>LITERS_PER_GALLON = 3.78541
 GALLONS_PER_LITER = 0.264172
 
 # exchange rates
 CAD_TO_USD = 0.76
-USD_TO_CAD = 1.31</code></pre><p class="new">You must handle all combinations of '$' and 'C$' for <code>from_currency</code> 
-and <code>to_currency</code>.  A $ to $ conversion would mean the answer is given in $/gallon.</p><p class="new">You can assume that if the <code>from_currency</code> is <code>'$'</code> then the <code>units</code> are 
+USD_TO_CAD = 1.31</code></pre><p class="new">You must handle all combinations of <code>'$'</code> and <code>'C$'</code> for <code>from_currency</code> 
+and <code>to_currency</code>.  A <code>'$'</code> to <code>'$'</code> conversion would mean the answer is given in $/gallon.</p><p class="new">You can assume that if the <code>from_currency</code> is <code>'$'</code> then the <code>units</code> are 
 gallons otherwise they are liters (we'll fix this later).</p><p class="new">The best strategy is to write the code that seems the clearest to you (perhaps 
 using lots of if statements) and that it passes the tests.  Write it so 
 that you understand it. Don't continue until you pass the tests.</p></div></div></body></html>
