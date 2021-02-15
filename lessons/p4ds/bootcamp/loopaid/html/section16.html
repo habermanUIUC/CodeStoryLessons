@@ -25,9 +25,9 @@
     d = build_lyrics(a_s+b_s, 2)
     print(lyrics_to_string(d))</code></pre><p class="new"><code>build_verse</code> should print:</p><pre><code>I, I, I, I Shake it off, I Shake it off, , I, I, I, I Shake it off, I Shake it off, ,</code></pre><h3 id="extra-credit-5-points">Extra Credit (+5 points)</h3><p class="new">Fix <code>lyrics_to_string</code> such that the trailing commas are removed.  The <code>build_verse</code> 
 function should now show up as:</p><pre><code>I, I, I, I Shake it off, I Shake it off, I, I, I, I Shake it off, I Shake it off,</code></pre><h2 id="sample-song-extra-credit-10">Sample Song (Extra Credit +10)</h2><p class="new">For extra credit, create the function <code>lyrics_to_song</code> which works a lot like
- <code>lyrics_to_string</code>:</p><ul><li>it must use the <code>enumerate</code> function</li><li>you can use <code>join</code> but not required</li></ul><p class="new">Note that <code>build_lyrics</code> does not change</p><pre><code>def test_song():
+ <code>lyrics_to_string</code>:</p><ul><li>it must use the <code>enumerate</code> function</li><li>you can use <code>join</code> but not required</li><li>see the example for how to format each line</li></ul><p class="new">Note that the function <code>build_lyrics</code> does not change.</p><pre><code>def test_song():
     lyrics = build_lyrics(build_lyrics('I', 3) + build_lyrics('I Shake it off', 2), 3)
     song = lyrics_to_song(lyrics)
-    print(song)</code></pre><p class="new">The output should be:</p><pre><code>1: I, I, I, I Shake it off, I Shake it off
+    print(song)</code></pre><p class="new">The output should match what is shown below:</p><pre><code>1: I, I, I, I Shake it off, I Shake it off
 2: I, I, I, I Shake it off, I Shake it off
 3: I, I, I, I Shake it off, I Shake it off</code></pre></div></div></body></html>
