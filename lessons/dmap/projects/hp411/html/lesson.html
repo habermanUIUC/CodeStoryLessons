@@ -21,13 +21,12 @@
 you will use tf•idf to determine which document best matches a set of query
  words. Don't panic if you're not sure how to start, we will guide you
   through the process.  Always take the time to make sure you understand each
-   step along the way.</p><div class="clear-both"></div><h2 id="the-setup">The Setup</h2><div class="clear-both border border-gray-600 float-left mr-3 mt-3"><video class="border-0" controls="" width="400"><source src="https://storage.googleapis.com/uicourse/lessons/harrypotter411.mp4" type="video/mp4"/></video></div><p class="new">You've been hired by a bookstore to write the search engine for finding the 
-appropriate Harry Potter book based what the customer is interested in. For example, 
-suppose a reader wants to learn about 'dementors'. Which Harry Potter book would you recommend? 
-This of course would be difficult if you never read any of the books.  We are going 
-to let the computer 'read' the entire collection for us (in milliseconds-second time !) 
-and put the power of tf•idf behind the search engine. The video on the left shows 
-what you need to demo to the bookstore owner.</p><h1 class="section" id="section2">The HP Corpus</h1><img alt="hp1.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp1.png"/><img alt="hp2.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp2.png"/><img alt="hp3.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp3.png"/><img alt="hp4.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp4.png"/><img alt="hp5.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp5.png"/><img alt="hp6.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp6.png"/><img alt="hp7.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp7.png"/><div class="clear-both"></div><p class="new">Luckily, this lesson has the text for all seven Harry Potter books. The text for each
+   step along the way.</p><div class="clear-both"></div><h2 id="the-setup">The Setup</h2><div class="clear-both border border-gray-600 float-left mr-3 mt-3"><video class="border-0" controls="" width="400"><source src="https://storage.googleapis.com/uicourse/lessons/harrypotter411.mp4" type="video/mp4"/></video></div><p class="new">You've been hired by the local bookstore to write the search engine for finding the 
+appropriate Harry Potter book based what the customer is interested in. </p><p class="new">For example, suppose a reader wants to learn about 'dementors'. Which Harry Potter 
+book would you recommend? This of course would be difficult if you never read 
+any of the books. We are going to let the computer 'read' the entire collection 
+for us (in milliseconds-second time !) and put the power of tf•idf behind 
+the search engine. The video on the left shows what you need to demo to the bookstore owner.</p><h1 class="section" id="section2">The HP Corpus</h1><img alt="hp1.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp1.png"/><img alt="hp2.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp2.png"/><img alt="hp3.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp3.png"/><img alt="hp4.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp4.png"/><img alt="hp5.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp5.png"/><img alt="hp6.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp6.png"/><img alt="hp7.png" class="iw100 float-left m-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/hp7.png"/><div class="clear-both"></div><p class="new">Luckily, this lesson has the text for all seven Harry Potter books. The text for each
  has already been normalized and tokenized (you will do that in another lesson!). 
  The text for each book is a single line of text. So all the punctuation, sentences, paragraphs, and 
    chapters are removed and the text is ready to be tokenized.  Each file is
@@ -97,7 +96,8 @@ back      6.564520
 one       6.545177
 know      6.365976
 got       6.293305
-didn      6.293305</code></pre><p class="new">Go ahead and add 'said' the the list of stopwords and re-run <code>test_print</code>.</p><h3 id="a-pause-for-testing">A Pause for Testing</h3><p class="new">Even though we are on our way to building a query engine, you might have
+didn      6.293305</code></pre><p class="new">Go ahead and add 'said' the the list of stopwords and re-run <code>test_print</code>. 
+What happened?</p><h3 id="a-pause-for-testing">A Pause for Testing</h3><p class="new">Even though we are on our way to building a query engine, you might have
  noticed we have taken a lot of time to write some code and then test that
  code. This model of iterative, test-driven programming is what you always
  want to do.  Usually, you will use a full test harness that you can test
@@ -122,13 +122,13 @@ def test_single_query(query):
 
 test_single_query('harry potter')</code></pre><p class="new">For this example, the query has two words; so the sparse matrix will have
  exactly two non zero values in it.  Be sure you can answer the following
- questions:</p><ul><li><strong>Q1:</strong> what happens if you pass in a string that the model hasn't seen? (e.g INFO490)</li><li><strong>Q2:</strong> what happens if you pass in a string with duplicate values in it?</li></ul><h1 class="section" id="section3">Measuring Similarity</h1><img alt="HPImposter.png" class="iw200 bg-blue-200 float-right ml-3 border mt-1 py-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/HPImposter.png"/><p class="new">Here's where you are: </p><ul><li>You have a document matrix, where each row represents a Harry Potter book (td •idf values).</li><li>You have a query vector, where each column represents a tf value for each word
+ questions:</p><ul><li><strong>Q1:</strong> what happens if you pass in a string that the model hasn't seen? (e.g INFO490)</li><li><strong>Q2:</strong> what happens if you pass in a string with duplicate values in it?</li></ul><h1 class="section" id="section3">Measuring Similarity</h1><img alt="HPImposter.png" class="iw200 bg-blue-200 float-right ml-3 border mt-1 py-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/HPImposter.png"/><p class="new">Here's where you are: </p><ul><li>You have a document matrix, where each row represents a Harry Potter book (td•idf values).</li><li>You have a query vector, where each column represents a tf value for each word
 (actually it's a tf•idf value, but all the idf values are 1.  Do you know why?)</li></ul><p class="new">NOW, we just need to measure how similar the query vector (a single document) 
-is to each row in the matrix.  The row in the matrix that is most similar to the query wins. 
-We need a way to compare two vectors and determine how 'similar' they are. </p><p class="new">One easy way to think about calculating similarity is using the distance
- formula between two points.  Each point has an x and y component.  So each
- point is a vector of length two.  And the distance between two points is
- simply the square root of the sum of squared differences:</p><img alt="math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D"/><br/><p class="new">However, this formula has some issues that we will discuss in detail on a
+is to each row in the matrix. The row in the matrix that is most similar to the query wins. 
+We need a way to compare two vectors and determine how 'similar' they are. </p><h2 id="close-but-not-good-enough">Close, but not good enough</h2><p class="new">One easy way to think about calculating similarity is using the distance
+ formula between two points. Each point has an x and y component.  So each
+ point is a vector of length two. And the distance between two points is
+ simply the square root of the sum of squared differences:</p><img alt="math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D"/><p class="new">However, this formula has some issues that we will discuss in detail on a
  lesson that covers different distance metrics.  For now, we are going to use a
 metric called cosine similarity -- which is used for determining how close 
 two documents (as vectors) are (because it normalizes the length of each
@@ -155,16 +155,15 @@ def print_matching_document(matrix, q_vector):
  run time exception if the condition is not met (and print the corresponding
  message).  However, in production code, you will usually automatically
  remove them.  They are a great tool while developing code to help capture
- the semantics of a possible error.  Also note (when you run this code) the
- returned value from <code>cosine_similarity</code>. Be sure to type the above code in 
-and run it.  It will help. </p><p class="new">With that as an example, finish the following code block:</p><ul><li><code>find_matching_document</code> returns a tuple of the index and distance of the <code>matrix</code> 
+ the semantics of a possible error.</p><p class="new">Also note (when you run this code) the returned value from <code>cosine_similarity</code>. Be 
+sure to type the above code in and run it. It will help. </p><p class="new">With that as an example, finish the following code block:</p><ul><li><code>find_matching_document</code> returns a tuple of the index and distance of the <code>matrix</code> 
 that is closest to <code>q_vector</code>
 <ul><li>the first value of the tuple is the index, the second is the the distance</li></ul></li><li><code>find_match</code> builds the query vector from the query string
-  <ul><li>use the TfidfVectorizer's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" target="_blank">transform</a> method</li><li>it's essentially the same as <code>prepare_query_v1</code></li><li>returns the value from <code>find_matching_document</code></li></ul></li></ul><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics.pairwise import cosine_similarity
+  <ul><li>use the <code>TfidfVectorizer</code>'s <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" target="_blank">transform</a> method</li><li>it's essentially the same as <code>prepare_query_v1</code></li><li>returns the value from <code>find_matching_document</code></li></ul></li></ul><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics.pairwise import cosine_similarity
 def find_matching_document(matrix, q_vector):
    # return a tuple of
-   #  the index of the matrix (row) which is most similar to q_vector
-   #  the cosine distance 
+   # the index of the matrix (row) which is most similar to q_vector
+   # the cosine distance 
    return None,None
 
 def find_match(query, corpus_size=3):
@@ -197,8 +196,8 @@ the transform treated the query as a single 'unseen' document (one that it was
 never trained/fitted on).</p><p class="new">Finally, you used the cosine similarity metric to find the closest matching
  document.
 <br/></p><h1 class="section" id="section5">The User Interface (UI)</h1><p class="new">Like shopping at Honeydukes (HP; Prisoner of Azkaban -- go ahead and confirm it), 
-the excitement of being so close to the end is hard to contain.</p><p class="new">Think of the UI as a simple functional prototype.  You just need to show it can 
-be done. </p><p class="new">You have already written most of the code.  We will guide you through the missing
+the excitement of being so close to the end is hard to contain.</p><p class="new">Think of the user interface (UI) as a simple functional prototype.  You just need 
+to show it can be done.</p><p class="new">You have already written most of the code.  We will guide you through the missing
  parts.  Be sure to read the section after this code block for detailed information:</p><div class="ide code-starter clearfix"><pre><code>import matplotlib.pyplot as plt
 import LessonUtil as Util
 

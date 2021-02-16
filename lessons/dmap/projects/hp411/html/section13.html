@@ -17,13 +17,13 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Measuring Similarity</h1><img alt="HPImposter.png" class="iw200 bg-blue-200 float-right ml-3 border mt-1 py-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/HPImposter.png"/><p class="new">Here's where you are: </p><ul><li>You have a document matrix, where each row represents a Harry Potter book (td •idf values).</li><li>You have a query vector, where each column represents a tf value for each word
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Measuring Similarity</h1><img alt="HPImposter.png" class="iw200 bg-blue-200 float-right ml-3 border mt-1 py-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/hp411/html/HPImposter.png"/><p class="new">Here's where you are: </p><ul><li>You have a document matrix, where each row represents a Harry Potter book (td•idf values).</li><li>You have a query vector, where each column represents a tf value for each word
 (actually it's a tf•idf value, but all the idf values are 1.  Do you know why?)</li></ul><p class="new">NOW, we just need to measure how similar the query vector (a single document) 
-is to each row in the matrix.  The row in the matrix that is most similar to the query wins. 
-We need a way to compare two vectors and determine how 'similar' they are. </p><p class="new">One easy way to think about calculating similarity is using the distance
- formula between two points.  Each point has an x and y component.  So each
- point is a vector of length two.  And the distance between two points is
- simply the square root of the sum of squared differences:</p><img alt="math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D"/><br/><p class="new">However, this formula has some issues that we will discuss in detail on a
+is to each row in the matrix. The row in the matrix that is most similar to the query wins. 
+We need a way to compare two vectors and determine how 'similar' they are. </p><h2 id="close-but-not-good-enough">Close, but not good enough</h2><p class="new">One easy way to think about calculating similarity is using the distance
+ formula between two points. Each point has an x and y component.  So each
+ point is a vector of length two. And the distance between two points is
+ simply the square root of the sum of squared differences:</p><img alt="math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20distance(p1%2Cp2)%20%3D%20%5Csqrt%7B%20(p1.x%20-%20p2.x)%5E2%20%2B%20(p1.y%20-%20p2.y)%5E2%7D"/><p class="new">However, this formula has some issues that we will discuss in detail on a
  lesson that covers different distance metrics.  For now, we are going to use a
 metric called cosine similarity -- which is used for determining how close 
 two documents (as vectors) are (because it normalizes the length of each
@@ -50,9 +50,8 @@ def print_matching_document(matrix, q_vector):
  run time exception if the condition is not met (and print the corresponding
  message).  However, in production code, you will usually automatically
  remove them.  They are a great tool while developing code to help capture
- the semantics of a possible error.  Also note (when you run this code) the
- returned value from <code>cosine_similarity</code>. Be sure to type the above code in 
-and run it.  It will help. </p><p class="new">With that as an example, finish the following code block:</p><ul><li><code>find_matching_document</code> returns a tuple of the index and distance of the <code>matrix</code> 
+ the semantics of a possible error.</p><p class="new">Also note (when you run this code) the returned value from <code>cosine_similarity</code>. Be 
+sure to type the above code in and run it. It will help. </p><p class="new">With that as an example, finish the following code block:</p><ul><li><code>find_matching_document</code> returns a tuple of the index and distance of the <code>matrix</code> 
 that is closest to <code>q_vector</code>
 <ul><li>the first value of the tuple is the index, the second is the the distance</li></ul></li><li><code>find_match</code> builds the query vector from the query string
-  <ul><li>use the TfidfVectorizer's <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" target="_blank">transform</a> method</li><li>it's essentially the same as <code>prepare_query_v1</code></li><li>returns the value from <code>find_matching_document</code></li></ul></li></ul></div></div></body></html>
+  <ul><li>use the <code>TfidfVectorizer</code>'s <a href="https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.TfidfVectorizer.html" target="_blank">transform</a> method</li><li>it's essentially the same as <code>prepare_query_v1</code></li><li>returns the value from <code>find_matching_document</code></li></ul></li></ul></div></div></body></html>

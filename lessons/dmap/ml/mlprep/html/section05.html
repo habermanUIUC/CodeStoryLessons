@@ -58,15 +58,13 @@ One interesting aspect of the sklearn's implementation is that it uses the
   <strong><em>transform</em></strong>ing an input using the built model. </p><h2 id="parameters-and-hyper-parameters">Parameters and Hyper-Parameters</h2><p class="new">A machine learning model is essentially a mathematical formula with a number
  of parameters that needs to be 'learned' from the data. That is the essence of
   machine learning: fitting a model to the data. By training a model 
-  with existing data, we are able to fit the model parameters.</p><p class="new">  However, most machine learning algorithms offer a plethora of options and
-   parameters to use for building and training.  These parameters
-    are chosen by the data scientist and are based on experience and model
-     evaluation -- they are named the <em>hyper parameters</em> of the algorithm or
-      the resulting model.</p><pre><code>Depending on the type of hyper-parameter, tuning can be done via using the 
-validation dataset as well.
- </code></pre><h2 id="fitting-and-over-fitting">Fitting and Over fitting</h2><p class="new">As mentioned, <em>fitting</em> a model is the same as training a model.  However,
+  with existing data, we are able to fit the model parameters.</p><p class="new">However, most machine learning algorithms offer a plethora of options and 
+parameters to use for building and training. These parameters are chosen by the 
+data scientist and are based on experience and model evaluation -- they are named 
+the <em>hyper parameters</em> of the algorithm or the resulting model.</p><p class="new">Depending on the type of hyper-parameter, tuning can be done via using the 
+validation dataset as well.</p><h2 id="fitting-and-over-fitting">Fitting and Over fitting</h2><p class="new">As mentioned, <em>fitting</em> a model is the same as training a model.  However,
 things can go wrong quickly.  We can both <em>under</em>fit a model (our model 
-doesn't do a good job of prediction) or <em>over</em>fit a model.  In overfitting, 
+doesn't do a good job of prediction) or <em>over</em>fit a model. In overfitting, 
 our model fits the training data perfectly, but performs poorly on new (unseen) data.</p><p class="new"> We want to build a robust model such that we can give it new data (data 
  without a label) and predict one for it (accurately). Overfitting is where 
  the model uses invalid, misleading, wrong, impractical or noisy attributes 
@@ -82,7 +80,11 @@ our model fits the training data perfectly, but performs poorly on new (unseen) 
    if data.name == 'mike':
       return 'blue'
    #.... 10000 more statements like this</code></pre><p class="new">That 'model', although might have a 100% predication rate, 
-would fail (most likely) on new unforeseen data.</p><h2 id="batch-and-online-learning">Batch and Online Learning</h2><p class="new">You can also classify ML algorithms by whether or not they can learn
+would fail (most likely) on new unforeseen data.</p><h3 id="training-and-testing-pitfalls">Training and Testing pitfalls</h3><p class="new">One of the important aspects of building a model is to ensure that it tested
+ fairly.  If you always partition your data between training and testing sets
+  or that you always seed your initial values the same way, it becomes
+   possible to build a specific solution to tailor fit both the training and
+    testing sets.</p><h2 id="batch-and-online-learning">Batch and Online Learning</h2><p class="new">You can also classify ML algorithms by whether or not they can learn
  incrementally from a stream of data or only with a fixed dataset.</p><p class="new">In batch learning (a.k.a offline learning) the algorithm trains using the
  available data.  If new data becomes available, you must retrain the system.</p><p class="new">In online learning (a.k.a out-of-core learning), you can train the model by
  using sequential data (think of a live stream of stock market prices or network intrusion data coming from a

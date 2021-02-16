@@ -17,17 +17,17 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Machine Learning</h1><p class="new">In the 80's (the previous century), <strong>AI</strong> (or artificial intelligence) was the 'hot ' 
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Machine Learning</h1><p class="new">In the 80's (the previous century), <strong>AI</strong> (artificial intelligence) was the 'hot ' 
 word in technology.  In the 1990's and early 2000's, it was <strong>Data Mining</strong>. 
 In 2010, anything around <strong>Data Science</strong> started to explode.  Today, 
 it's <strong>Machine Learning</strong> (and its partner <strong>Deep Learning</strong>).  Much of all this 'hype' is actually
- closely related and this lesson attempts to unravel a bit of all the words you
- have most likely have heard -- but not quite sure how they all fit.</p><p class="new">Machine learning is filled with terminology and can become a bit overwhelming. 
-These words and concepts will become more familiar as we repeat them when we are 
-using specific algorithms. This lesson serves as an introduction to the ML 
+ closely related and this lesson attempts to unravel a bit of the vocabulary you
+ have most likely heard -- but not quite sure how they all fit.</p><p class="new">Machine learning is filled with terminology and can become a bit overwhelming. 
+These words and concepts will become more familiar as we repeat them when we
+ use specific algorithms. This lesson serves as an introduction to the ML 
 mountain we are about to climb.</p><h2 id="a-new-model-for-programming">A new <em>model</em> for programming</h2><p class="new">Almost everything we have done so far has looked like the image below:</p><img alt="modelA.png" class="my-3 center border iw600" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/modelA.png"/><p class="new">That is, we, the data scientist, created a program (or a set of functions). 
 That program is then given some data or input and it produces some output. </p><p class="new">The idea behind machine learning (ML for short) is that we still create a program
-that is given data.  However, that program's output is another program (usually
+that is given data. However, that program's output is <em>another</em> program (usually
 called a model):
 <img alt="modelB.png" class="my-3 center border iw600" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/modelB.png"/>That program/model is then given some input (new data) and then an 
 answer/predication/output is produced. </p><h2 id="the-black-box-and-model-confusion">The Black Box and ❓❓Model❓❓ Confusion</h2><img alt="blackBox.png" class="float-left border mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/blackBox.png"/><p class="new">In almost all cases, the output produced (the program) cannot be 'read' by 
@@ -35,19 +35,20 @@ a human to understand exactly what is happening; hence, it is usually referred t
 a black box (something we aren't meant to see or understand). Neural networks 
 (more about these later ) -- especially deep neural networks -- are notorious 
 for being obtuse and impenetrable.</p><p class="new">The word 'model' is <em>usually</em> used to refer to this black box (the output of 
-the ML algorithm).  However, the word 'model' is ALSO used to reference the
+the ML algorithm). However, the word 'model' is ALSO used to reference the
 ML algorithm itself.  For example, you may read about 'how to select the 
 best model' (a reference to the algorithm used) or how to train the model (a
  reference to the output produced) or as a reference to a specific mathematical 
  or probabilistic representation about the relationship between various 
- data attributes (a reference to the output).  We will attempt to use the word 
+ data attributes (a reference to the output). We will attempt to use the word 
  model as a reference to the <strong>output of the ML algorithm</strong>. 
 <br class="clear-both"/></p><h2 id="learning-from-data">Learning from Data</h2><p class="new">The word <strong>learning</strong> in this context means that the algorithm performs better
-as more data is given to it.  There are many formal definitions of ML, but it 
+as more data is given to it (or if it is given more time to iterate over the same data). 
+There are many formal definitions of ML, but it 
 basically means the performance improves (i.e. learns, makes less mistakes, 
 has a lower error rate) with more experience.  Experience is based on seeing and
-processing more data (or having more examples).  </p><blockquote><p class="new"><strong><em>ML Log</em></strong> Tom Mitchell (one of ML's pioneers) provides the following 
-definition: <br/>“A computer program is said to learn from experience E with respect to some class of 
+processing more data (having more examples or more iterations).  </p><blockquote><p class="new"><strong><em>ML Log</em></strong> Tom Mitchell (one of ML's pioneers) provides the following 
+definition for learning: <br/>“A computer program is said to learn from experience E with respect to some class of 
 tasks T and performance measure P, if its performance at tasks in T, as measured by P, 
 improves with experience E.”</p></blockquote><p class="new">One of <em>the</em> most important aspects of ML is that the quality of the model 
 generated depends almost entirely on both the quality and quantity of the
@@ -61,20 +62,18 @@ the algorithm processes all the data, an evaluation is made as to it's
   'training' the model.  It is how it "learns".  You may hear the word 'fitting' as well 
   to reference training and building the model -- which we will discuss soon.</p><h2 id="model-building-and-evaluation">Model Building and Evaluation</h2><img alt="ModelBuilding.png" class="border my-3 mr-3 float-left" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/ModelBuilding.png"/><p class="new">The image to the left presents an overview of the entire learning process.  The 
 dataset is partitioned into a training and validation sets. The algorithm
-uses the training set to <strong><em>fit</em> a model</strong> (fitting is synonymous with training). 
-The output, the model, is then validated (sometimes called <em>transformed</em>) against a subset of the data 
+uses the training set to <strong><em>fit</em> a model</strong> (fitting is synonymous with training). </p><p class="new">The output, the model, is then validated (sometimes called <em>transformed</em>) against a subset of the data 
 that it was <strong>not</strong> trained on.  If the evaluation metrics are not 
-within some pre established tolerance, the process repeats itself (a training <em>epoch</em>).</p><p class="new">You can think of the output of the ML algorithm as trying to find the best
-fit to a set of parameters to the black box.  The evaluation/transform stage
+within some pre-established tolerance, the process repeats itself (a training <em>epoch</em>).</p><p class="new">You can think of the output of the ML algorithm as trying to find the best
+fit to a set of parameters to the black box. The evaluation/transform stage
 is just using those parameters with the validation data.</p><p class="new">To make it even more confusing, some will call the validation dataset the
- <em>test</em> dataset.  The next section attempts to clarify the differences.</p><h2 id="model-selection">Model Selection</h2><img alt="ModelEvaluation.png" class="border mb-3 ml-3 iw300 float-right" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/ModelEvaluation.png"/><p class="new">There is also the idea of selecting the <em>best</em> model from different
+ <em>test</em> dataset. The next section attempts to clarify the differences.</p><h2 id="model-selection">Model Selection</h2><img alt="ModelEvaluation.png" class="border mb-3 ml-3 iw300 float-right" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/ModelEvaluation.png"/><p class="new">There is also the idea of selecting the <em>best</em> model from different
  algorithms.  You may be able to solve a problem using different ML techniques or by building
 different models with the same technique but with different parameter values (i.e. hyperparameters). 
 In this case, a <em>test</em> dataset is used that will help in determining which model to use.  </p><p class="new">The splitting of data into training, validation and testing sets is a
  standard approach in machine learning. However, if you have a small dataset
  splitting the data into smaller sets is problematic.  A technique called
-  cross-validation is used.  However, we will discuss the details of cross
-  -validation later.</p><br/><h2 id="model-prediction-">Model Prediction </h2><img alt="modelPredict.png" class="border iw400 my-3 mr-3 center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/modelPredict.png"/><p class="new">Once the model is built, trained and evaluated, it's time to use it.  The
+  cross-validation is used.  However, we will discuss the details of cross-validation later.</p><h2 id="model-prediction-">Model Prediction </h2><img alt="modelPredict.png" class="border iw400 my-3 mr-3 center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/modelPredict.png"/><p class="new">Once the model is built, trained and evaluated, it's time to use it.  The
  goal of most ML models is to offer some kind of prediction for the new data.
  Both the words 'predict' and 'transform' are used to reference the idea of
   pushing the new data through the model and hopefully end up with an accurate estimation/prediction.</p><h2 id="algorithm-selection-project-goals-and-data">Algorithm Selection: Project Goals And Data</h2><img alt="ML.png" class="inline mr-3 float-left" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/ml/mlprep/html/ML.png"/><p class="new">Much of our learning about ML (and teaching) involves trying to understand, 
