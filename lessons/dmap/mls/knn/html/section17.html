@@ -19,5 +19,15 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>from sklearn.neighbors import KNeighborsClassifier
 
-knn = KNeighborsClassifier(n_neighbors=11, p=2) # p == 2 euclidean
-knn.fit(X_train, y_train)</code></pre></div></div></div></body></html>
+def knn_demo():
+    # build the model
+    knn = KNeighborsClassifier(n_neighbors=11, p=2) # p == 2 euclidean
+
+    # train the model
+    ig = knn.fit(X_train, y_train)
+
+    # predict using the model
+    y_pred = knn.predict(X_test)
+    return y_pred
+    
+y_pred = knn_demo()</code></pre></div></div></div></body></html>

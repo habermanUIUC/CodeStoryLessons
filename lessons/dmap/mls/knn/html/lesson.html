@@ -180,8 +180,6 @@ with the code details and the libraries -- they will be filled in other lessons
 
     print(euclidean_distances(c2, t2))
     
-    import sklearn
-    print('The scikit-learn version is {}.'.format(sklearn.__version__))
     
 car_distances_part2()</code></pre></div><p class="new">As you can see, the first car (🚗) is now considered the closest to the test car. 
 In this situation the difference in mileage isn't enough to offset the fact 
@@ -219,11 +217,22 @@ but for now we can use sklearn to do the heavy lifting for us.</p><img alt="trai
 
 # Hold out 20% of the data for testing
 X_train, X_test, y_train, y_test = train_test_split(Xt, y, random_state=0, test_size=0.2)
-print(len(X_train), len(X_test))</code></pre></div><h2 id="model-fitting">Model fitting</h2><p class="new">Now we are ready for model fitting: (note that <code>K</code> is hardcoded to <code>11</code> but
- you should confirm why):</p><div class="ide code-starter clearfix"><pre><code>from sklearn.neighbors import KNeighborsClassifier
+print(len(X_train), len(X_test))</code></pre></div><h2 id="model-fitting-and-predicting">Model fitting (and predicting)</h2><p class="new">Now we are ready for model fitting: (note that <code>K</code> is hardcoded to <code>11</code> but
+ you should confirm why).  Once that is done we will predict using the test
+ dataset. </p><div class="ide code-starter clearfix"><pre><code>from sklearn.neighbors import KNeighborsClassifier
 
-knn = KNeighborsClassifier(n_neighbors=11, p=2) # p == 2 euclidean
-knn.fit(X_train, y_train)</code></pre></div><p class="new">There's not much to model building for KNN.  Other algorithms will have a more
+def knn_demo():
+    # build the model
+    knn = KNeighborsClassifier(n_neighbors=11, p=2) # p == 2 euclidean
+
+    # train the model
+    ig = knn.fit(X_train, y_train)
+
+    # predict using the model
+    y_pred = knn.predict(X_test)
+    return y_pred
+    
+y_pred = knn_demo()</code></pre></div><p class="new">There's not much to model building for KNN.  Other algorithms will have a more
  intensive 'training' cycles.</p><h2 id="evaluation">Evaluation</h2><p class="new">Off course we need to evaluate how well we did.  Much of ML is based on
  discussing how to reduce the error of a model (some metric used to measure
  the difference between what is predicted and what the actual value is).</p><h3 id="confusion-matrix">Confusion Matrix</h3><p class="new">The confusion matrix shows the different possible combinations of the actual
@@ -231,7 +240,11 @@ knn.fit(X_train, y_train)</code></pre></div><p class="new">There's not much to m
  problem, the following shows all the possible combinations between the
  target label (the 'true class') and the guess (the 'predicated class'): </p><img alt="confusion.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/confusion.png"/><ul><li>True Positive (TP): classifier correctly predicts the positive class as positive</li><li>True Negative (TN): classifier correctly predicts the negative class as negative</li><li>False Positive (FP): classifier incorrectly predicts the negative class as positive</li><li>False Negative (FN): classifier incorrectly predicts the positive class as negative</li></ul><p class="new">Depending on the situation, even having a low FP rate or a low FN can be the deciding factor.</p><p class="new">We will also use sklearn for getting the confusion matrix and other simple metrics:</p><div class="ide code-starter clearfix"><pre><code>from sklearn import metrics
 cm = metrics.confusion_matrix(y_test, y_pred)
-print(cm)</code></pre></div><p class="new">In this case we have 88 True Positives.</p><h3 id="accuracy">Accuracy</h3><p class="new">The overall accuracy of the model is the fraction of that were correctly 
+print(cm)</code></pre></div><p class="new">In this case we have 96 True Positives.</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> it's always possible that the results you get here will be
+ slightly different in another environment.  One of the main causes for that
+ is either the randomness used by the algorithms (even for generating
+ training/test splits) but also the version of the libraries used.</p></blockquote><pre><code>import sklearn
+print('The scikit-learn version is {}.'.format(sklearn.__version__))</code></pre><h3 id="accuracy">Accuracy</h3><p class="new">The overall accuracy of the model is the fraction of that were correctly 
 classified by the classifier </p><p class="new">Accuracy answers: what fraction of predictions did the model get right. </p><img alt="math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D"/><p class="new">To calculate accuracy, use the following formula: </p><img alt="math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D"/><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics import accuracy_score
 print(accuracy_score(y_test, y_pred))</code></pre></div><h4 id="precision">Precision</h4><p class="new">Related to accuracy is precision -- the fraction of positive predictions were
  actually positive.  </p><p class="new">Precision answers: What proportion of positive identifications was actually correct?</p><img alt="math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFP)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFP)%7D"/><pre><code>print(metrics.precision_score(y_actual, y_pred))</code></pre><h4 id="recall">Recall</h4><p class="new">Recall (also called sensitivity) is defined as the fraction of True Positives over 
@@ -321,7 +334,7 @@ are delayed until classification.</p><h3 id="knn-learning-applications">KNN Lear
  product or service based on similar items (behaviors, previous purchases, etc).</p><p class="new">For document retrieval, you can represent documents via tf*idf vectors and
  then use KNN.</p><p class="new">Outlier detection is also possible as trying to find instances that map far
  away from typical data points.</p><h1 class="section" id="section6">Lesson Assignment</h1><p class="new">This lesson is filled with important vocabulary and concepts. We will go much
- deeper in many of the topics covered with additioanl lessons. </p><p class="new">Be sure to re-read this lesson often to help your understanding. For this semester, 
+ deeper in many of the topics covered with additional lessons. </p><p class="new">Be sure to re-read this lesson often to help your understanding. For this semester, 
 only the result of doing the exercise will be required to pass all the tests. 
 Be sure to complete both parts.</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>knn</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">KNN</div><p class="text-center text-gray-800 text-xl">Won’t you be my Neighbor?</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">knn</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
 # print(ide.tester.test_notebook(verbose=True)) 

@@ -17,5 +17,9 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">In this case we have 88 True Positives.</p><h3 id="accuracy">Accuracy</h3><p class="new">The overall accuracy of the model is the fraction of that were correctly 
+<div id="start" class="section">&nbsp;</div><p class="new">In this case we have 96 True Positives.</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> it's always possible that the results you get here will be
+ slightly different in another environment.  One of the main causes for that
+ is either the randomness used by the algorithms (even for generating
+ training/test splits) but also the version of the libraries used.</p></blockquote><pre><code>import sklearn
+print('The scikit-learn version is {}.'.format(sklearn.__version__))</code></pre><h3 id="accuracy">Accuracy</h3><p class="new">The overall accuracy of the model is the fraction of that were correctly 
 classified by the classifier </p><p class="new">Accuracy answers: what fraction of predictions did the model get right. </p><img alt="math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D"/><p class="new">To calculate accuracy, use the following formula: </p><img alt="math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D"/></div></div></body></html>
