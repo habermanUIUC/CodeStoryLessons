@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang='en'><head><title>KNN</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h2,h3,p,pre{margin:0}ol,ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-right{float:right}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.clear-both{clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-1{margin-top:.25rem;margin-bottom:.25rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.ml-3{margin-left:.75rem}.max-w-sm{max-width:24rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-overview-card{font-family:"Times New Roman"!important}.lesson ol{list-style-type:decimal;list-style-position:inside;margin-left:1em}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.formula-block{margin-left:auto;margin-right:auto;margin-top:.25rem;margin-bottom:.75rem}img.formula-inline{margin-top:.25rem;margin-bottom:.25rem}img.border2{border:1px solid #94add4;margin-top:.5rem;margin-bottom:.75rem}img.iw400{height:auto;width:auto;max-width:400px}img.iw200{height:auto;width:auto;max-width:200px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<!DOCTYPE html><html lang='en'><head><title>KNN</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,h4,p,pre{margin:0}ol,ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3,h4{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-right{float:right}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.clear-both{clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-1{margin-top:.25rem;margin-bottom:.25rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.ml-3{margin-left:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}li>p{display:inline!important}.lesson ol{list-style-type:decimal;list-style-position:inside;margin-left:1em}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.formula-block{margin-left:auto;margin-right:auto;margin-top:.25rem;margin-bottom:.75rem}img.formula-inline{margin-top:.25rem;margin-bottom:.25rem}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border2{border:1px solid #94add4;margin-top:.5rem;margin-bottom:.75rem}img.iw400{height:auto;width:auto;max-width:400px}img.iw500{height:auto;width:auto;max-width:500px}img.iw300{height:auto;width:auto;max-width:300px}img.iw200{height:auto;width:auto;max-width:200px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
 <script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
 <script>
     let stateCheck = setInterval(function(){
@@ -17,91 +17,315 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/MachineLearningV2-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">KNN</div><p class="text-center mt-2 text-gray-800 text-xl">Won’t you be my Neighbor?</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#machine learning</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">KNN<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>mlprep</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">KNN</h1><h2 id="wont-you-be-my-neighbor">Won’t you be my Neighbor?</h2><p class="new">K-Nearest Neighbors or (a.k.a KNN) is an algorithm that provides a good 
-access point into machine learning.  The algorithm itself is not too
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/MachineLearningV2-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">KNN</div><p class="text-center mt-2 text-gray-800 text-xl">Won’t you be my Neighbor?</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#machine learning</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">KNN<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>mlprep</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">KNN</h1><h2 id="wont-you-be-my-neighbor">Won’t you be my Neighbor?</h2><img alt="neighbor.png" class="float-left mr-3 iw300 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/neighbor.png"/><p class="new">K-Nearest Neighbors or (aka KNN) is an algorithm that provides a good 
+access point into machine learning (ML). The algorithm itself isn't too
  difficult, but in order for it to perform well, it does require some of the
-  same principals used across many different techniques. It lends itself 
-  to understanding the entire process (the ML pipeline) from preparing the data to 
-  the necessity of splitting the data into training the testing sets. It also 
-  provides a great context in which we can discuss a lot of machine learning vocabulary.</p><p class="new">The ubiquity of KNN provides an accessible benchmark for which to compare other more complex
+  same principals used across many different ML techniques. </p><p class="new">KNN also lends itself to understanding the entire process (the ML pipeline) from preparing the
+   data, the necessity of splitting data into training the testing sets, 
+   to proper model evaluation. It also provides a great context in which we 
+   can address some of the machine learning vocabulary.</p><p class="new">The ubiquity of KNN provides an accessible benchmark for which to compare other more complex
   classifiers as well. However, after you see how it works, you may ask yourself 
-  'How is this even machine learning?'  We will <em>learn</em> about that too.</p><h3 id="supervised">Supervised</h3><p class="new">KNN is a supervised ML technique that is used mostly for classification. The 
-goal of KNN is to determine which class an unseen instance (or data point) belongs to. 
+  'How is this even machine learning?'  We will <em>learn</em> about that too.</p><h2 id="supervised">Supervised</h2><p class="new">KNN is a supervised ML technique that is used mostly for classification (assigning 
+a 'label' to an instance/datapoint). The goal of KNN is to determine 
+ which class an unseen instance (or data point) belongs to. 
 It can also be used for regression as well (predicting a numeric value).  It is 
-supervised in that it needs labeled data to indicate for which class each instance belongs.</p><h3 id="voting-on-similarity">Voting on Similarity</h3><p class="new">The KNN algorithm essentially picks the closest <em>K</em> neighbors to an unseen
- observation (the unlabeled data point). These <em>K</em> neighbors (K is odd) then
-  vote to declare to whom the new point is more similar.  Majority voting is
-   used.  For example, if K is 5, the 5 closest neighbors are selected.  If 3
-    of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very</em> rough outline of how the algorithm works:</p><pre><code>K=5
+supervised in that it needs labeled data that indicates for which class each
+ instance belongs.</p><p class="new">More formally, the goal of supervised ML is to learn a function <img alt="math?math=%5Clarge%20h%3A%20X%20%5Crightarrow%20Y" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20h%3A%20X%20%5Crightarrow%20Y" style="display:inline-block"/>so that given an unseen observation <code>x</code>, <code>h(x)</code>, the hypothesis, can confidently predict 
+the corresponding output <code>y</code>.</p><h2 id="voting-on-similarity">Voting on Similarity</h2><p class="new">The KNN algorithm essentially picks the closest <em>K</em> neighbors to an unseen
+ observation (the unlabeled data point). Each neighbor then votes to
+  declare the new point is most like them. Majority voting is then used (K
+   should be odd). 
+ For example, if K is 5, the 5 closest neighbors are selected to a new instance. 
+ If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very</em> rough outline of how the algorithm works:</p><pre><code>K=5
 # init with some large distances 
 top5 = [2**32 for i in range(0,K)] 
 for element in dataset:
    dist = calculate_distance(element, new_instance)
    add_if_closer(element, dist, top5)
-best = get_majority(top5)</code></pre><h3 id="metrics-on-similarity">Metrics on Similarity</h3><p class="new">We will have a dedicated lesson on distance metrics, but a common one for KNN
- is to use euclidean distance.  The distance between each attribute is
-  calculated, squared and summed up.  The square root of the result is taken
-   as a proxy for how close two points are.  Of course, this implies the
-    attributes themselves are numeric.  </p><img alt="math?math=%5CLarge%20d(u%2C%20v)%20%3D%20%5Csqrt%7B%5Cleft(u_1%20-%20v_1%20%5Cright)%5E2%20%2B%20%5Cdotsc%20%2B%20%5Cleft(u_n%20-%20v_n%20%5Cright)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20d(u%2C%20v)%20%3D%20%5Csqrt%7B%5Cleft(u_1%20-%20v_1%20%5Cright)%5E2%20%2B%20%5Cdotsc%20%2B%20%5Cleft(u_n%20-%20v_n%20%5Cright)%5E2%7D"/><p class="new">This is also known as the L2 Distance:
-  <img alt="math?math=%5CLarge%20L2%3D%7B%5Cleft%5CVert%7B%7D%7BD%7D%5Cright%5CVert%7B%7D%7D_2%20%3D%20%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5En%7B(u_i-v_i)%7D%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20L2%3D%7B%5Cleft%5CVert%7B%7D%7BD%7D%5Cright%5CVert%7B%7D%7D_2%20%3D%20%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5En%7B(u_i-v_i)%7D%5E2%7D"/></p><p class="new">The L2 distance scales well to using multiple attributes and is easy to compute.</p><p class="new">K-Nearest Neighbors assumes that similar items will be close together (in
- high dimensional space). So those items whose have the same attributes in
+best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting can also 
+use a weighted voting scheme based on distance.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
+ needs a metric to determine how 'far' two data instances are from each other.
+We will have a dedicated lesson on distance metrics, but a common one for KNN
+ is euclidean distance. The distance between each feature or attribute is
+  calculated, squared. These values are then summed up. The square root of the 
+  result is taken as a proxy for how close two points are. </p><img alt="math?math=%5CLarge%20d(u%2C%20v)%20%3D%20%5Csqrt%7B%5Cleft(u_1%20-%20v_1%20%5Cright)%5E2%20%2B%20%5Cdotsc%20%2B%20%5Cleft(u_n%20-%20v_n%20%5Cright)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20d(u%2C%20v)%20%3D%20%5Csqrt%7B%5Cleft(u_1%20-%20v_1%20%5Cright)%5E2%20%2B%20%5Cdotsc%20%2B%20%5Cleft(u_n%20-%20v_n%20%5Cright)%5E2%7D"/><p class="new">This is also known as the L2 Distance:
+  <img alt="math?math=%5CLarge%20L2%3D%7B%5Cleft%5CVert%7B%7D%7BD%7D%5Cright%5CVert%7B%7D%7D_2%20%3D%20%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5En%7B(u_i-v_i)%7D%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20L2%3D%7B%5Cleft%5CVert%7B%7D%7BD%7D%5Cright%5CVert%7B%7D%7D_2%20%3D%20%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5En%7B(u_i-v_i)%7D%5E2%7D"/></p><p class="new">The L2 distance scales well to using multiple attributes and is easy to compute. 
+Of course, this implies the attributes themselves are numeric.</p><h3 id="car-selection--">Car Selection 🚗🚓🚘🏎🚔 🏁</h3><p class="new">The following shows a small example that calculates L2 distances between 5 cars 
+and a test car. Each car has two attributes: 'miles (odometer reading)' and 'mpg (fuel economy').</p><p class="new">We want to know which of the 5 cars is closest to the test car (🚙).</p><div class="ide code-starter clearfix"><pre><code>import numpy as np
+import pandas as pd
+from sklearn.metrics.pairwise import euclidean_distances
+ 
+# force numpy to print w/out scientific notation
+np.set_printoptions(precision=2)
+np.set_printoptions(suppress=True)
+
+def car_distances():
+    df_cars = pd.DataFrame([[120000, 11,   '🚗'],   
+                            [250000, 11.5, '🚓'], 
+                            [175000, 15.8, '🚘'], 
+                            [350000, 17,   '🏎'], 
+                            [400000, 10,   '🚔']],
+                            columns=['miles', 'mpg', 'brand'])
+                            
+    test_car = pd.DataFrame([[175000, 11, '🚙']], columns=df_cars.columns)
+    cols =['miles', 'mpg']
+    print(euclidean_distances(df_cars[cols], test_car[cols]))
+car_distances()</code></pre></div><p class="new">Clearly, the third car (🚘) is the closet to the test car. However, this story
+ will be continued (🚙 ⓶).</p><h3 id="birds-of-a--">Birds of a 🪶 </h3><p class="new">K-Nearest Neighbors assumes that similar items will be close together (in
+ high dimensional space). So those items who have the same attributes in
   common (or very close to each other), will be of the same class -- 
-"Birds of a feather, flock together" or "Show me your friends, and I'll tell you who you are".</p><h2 id="a-k5-walk-through">A <em>K</em>5 Walk through</h2><img alt="voronoi1.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/voronoi1.png"/><p class="new">The following is a visual walk through of KNN with <code>K=5</code>.  KNN will use the
- dataset shown to the left on which to train.</p><ul><li>19 data points (8 red, 11 blue)</li></ul><br class="clear-both"/><img alt="voronoi2.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/voronoi2.png"/><p class="new">We then ask the model to classify a new point </p><ul><li>shown as the orange circle</li><li>the model needs to respond with either 'red' or 'blue':</li></ul><br class="clear-both"/><img alt="withOrange.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/withOrange.png"/><p class="new">KNN would then select the following points</p><ul><li>the 5 closest points are selected (i.e. <code>K=5</code>) based on L2 distance</li><li>the majority vote is 'blue'</li><li>the new point gets assigned the label 'blue'</li></ul><h2 id="decision-boundaries">Decision Boundaries</h2><img alt="hyperplane.png" class="float-right ml-3 iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/hyperplane.png"/><p class="new">The goal of many ML algorithms is to generate a decision boundary (e.g. line, 
+"Birds of a feather, flock together" and "Show me your friends, and I'll tell
+ you who you are" are two common phrases spoken by KNN.</p><h2 id="a-k5-walk-through">A <em>K</em>5 Walk through</h2><img alt="voronoi1.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/voronoi1.png"/><p class="new">The following is a visual walk through of the KNN algorithm. 
+We will use the dataset shown to the left on which to train.</p><ul><li>19 data points (8 red, 11 blue)</li><li><code>K = 5</code></li></ul><br class="clear-both"/><img alt="voronoi2.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/voronoi2.png"/><p class="new">We then ask the model to classify a new point </p><ul><li>new point is orange</li><li>the model needs to respond with either 'red' or 'blue':</li><li>the model selects the 5 nearest points to the new point</li></ul><br class="clear-both"/><img alt="withOrange.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/withOrange.png"/><p class="new">KNN (<code>k=5</code>) would then select the following points</p><ul><li>the points are selected based on L2 distance</li><li>the majority vote is 'blue'</li><li>the new point gets assigned the label 'blue'</li></ul><h2 id="decision-boundaries">Decision Boundaries</h2><img alt="db.png" class="float-right ml-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/db.png"/><p class="new">The goal of many ML algorithms is to generate a decision boundary (e.g. line, 
 hyperplane, surface) that partitions the instances into different spaces (one 
-for each class).</p><p class="new">If a point lies on a boundary, it's not clear which class it belongs to. The 
-boundary itself is ambiguous as the output label of a classifier could be either class.</p><p class="new">If the decision surface is a hyperplane, then the classification problem is linear, 
-and the classes are said to be <strong><em>linearly separable</em></strong>.</p><h3 id="k1-decision-boundaries">K1 Decision Boundaries</h3><img alt="voronoi3.png" class="float-left mr-3 iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/voronoi3.png"/><p class="new">Going back to our example, if K were 1, each point would have it's own decision
+for each class).</p><img alt="hyperplane.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/hyperplane.png"/><p class="new">If the decision surface is a hyperplane, then the classification problem is linear, 
+and the classes are said to be <strong><em>linearly separable</em></strong>.</p><p class="new">If a point lies on a boundary, it's not clear which class it belongs to. The 
+boundary itself is ambiguous as the output label of a classifier could be either class.</p><h3 id="k1-boundaries">K1 Boundaries</h3><img alt="voronoi3.png" class="float-left mr-3 iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/voronoi3.png"/><p class="new">Going back to our example, if <code>K=1</code>, each point would have its own decision
  boundary.  In fact a Voronoi diagram partitions a space in such a way that
   each region shares characteristics with KNN.</p><p class="new">In this example, each point defines a region such that if another point fell into 
 its region, it would be the closest point to the new point. Each data point 
 has a region for which it will vote for itself. </p><p class="new">KNN creates a decision boundary for classification.  In fact it can create 
-very complicated precise decision boundaries and is one of the reasons why 
-over-fitting can be an issue.  </p><h2 id="special-k">Special K</h2><img alt="specialK.jpeg" class="float-left mr-3 iw200" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/specialK.jpeg"/><p class="new">You maybe now be asking, "so how to pick the right K?".  Differnt <em>K</em> values
- will result in different decision boundaries.</p><p class="new"><em>K</em> for this algorithm is a hyper-parameter -- a parameter that is not
+very complicated, precise decision boundaries and is one of the reasons why 
+over-fitting can be an issue.  </p><h2 id="special-k">Special K</h2><img alt="specialK.png" class="float-right ml-3 iw200" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/specialK.png"/><p class="new">You maybe now be asking, "so how to pick the right K?".  Different <em>K</em> values
+ will result in different decision boundaries. Too small of a <em>K</em> will result
+ in a 'memorized' overfit model.  Too big, the model becomes simplistic.</p><p class="new">The <em>K</em> for this algorithm is a <strong><em>hyper-parameter</em></strong> -- a parameter that is not
  learned by the algorithm.  Hyper-parameters are selected through experience, 
- rules-of-thumb (best practices) and experimentation.</p><h3 id="start-with-sqrt">start with <code>sqrt</code></h3><p class="new">A good starting point is having K be equal to the square root of the number
+ rules-of-thumb (best practices), research, and experimentation.</p><p class="new">When a model has multiple hyper-parameters, it can result in many different
+ configurations in order to find an optimal configuration.</p><h3 id="start-with-sqrt">start with <code>sqrt</code></h3><p class="new">A good starting point is setting K to the square root of the number
  of instances in the data: <img alt="math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" style="display:inline-block"/></p><h3 id="make-it-odd">make it odd</h3><p class="new">However if K is even, you will decrease it by one.  Since voting is done by
- majority rules, an odd K will relieve you from breaking ties.</p><p class="new">Another adjustment is to make sure the K isn't equal to the number of classes
+ majority rules; an odd K will relieve you from breaking ties.</p><h3 id="multiple-classes">multiple classes</h3><p class="new">Another adjustment is to make sure K isn't equal to the number of classes
  you have. In a multi-class situation, you can still end up with ties. For 
- example, if you have 3 classes and K is three:</p><ol start="1"><li>red</li><li>green</li><li>blue</li></ol><p class="new">Who would win?
+ example, if you have 3 classes and <code>K=3</code> and the closest neighbors are:</p><ol start="1"><li>red</li><li>green</li><li>blue</li></ol><p class="new">Who would win?
 So K must not be a multiple of the number of classes in your labels. </p><h3 id="finding-k">finding K</h3><p class="new">Once we understand how to evaluate the KNN results, you can use a metric and
  just iterate over different values of K, selecting the one that gives you
-  the best performance.</p><h1 class="section" id="section2">Enough is Enough, where's the code?</h1><p class="new">With <em>all</em> of that behind us, let's take a look at how we can use sklern to
+  the best performance. If this is computationally infeasible, you can
+ experiment with just a few different <code>K</code>'s or use sampling to build a
+ smaller training set.</p><h1 class="section" id="section2">Enough is Enough</h1><h2 id="wheres-the-code">where's the code?</h2><p class="new">With <em>all</em> of that behind us, let's take a look at how we can use sklearn to
  <em>easily</em> get KNN up and running.</p><p class="new">We will use a popular dataset from the UCI Machine Learning Repository -- 
-although the original dataset seems to be <a href="https://archive.ics.uci.edu/ml/support/diabetes" target="_blank">missing</a>.</p><p class="new">That dataset is available via the <code>LessonUtil</code> module:</p><div class="ide code-starter clearfix"><pre><code>
-</code></pre></div><p class="new"> </p><p class="new"> 
-For this example we are using the 
-# Testing and Training
-importance of splitting the data</p><h1 class="section" id="section3">Model Evaluation</h1><p class="new">Confusion Matrix F1
-accuracy vs precision, etc</p><h3 id="non-parametric">Non parametric</h3><p class="new">Although KNN does indeed have a hyper-parameter (i.e. <em>K</em>), because it makes
+although the dataset seems to be <a href="https://archive.ics.uci.edu/ml/support/diabetes" target="_blank">missing</a>. 
+It is originally from the National Institute of Diabetes and 
+Digestive and Kidney Diseases. </p><p class="new">The objective is to diagnostically predict whether or not a patient has diabetes, 
+based on certain diagnostic measurements. Several constraints were placed on the 
+selection of these instances from a larger database. In particular, all patients 
+are females and at least 21 years old of Pima Indian heritage.</p><p class="new">That dataset is available via the <code>LessonUtil</code> module:</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+import pandas as pd
+import numpy as np
+
+
+def read_data():
+   p = Util.path_for_data('diabetes.csv')
+   df = pd.read_csv(p)
+   print(df.describe().T) # make the attributes rows (for easy viewing)
+   return df
+df = read_data()</code></pre></div><p class="new"> </p><p class="new">There are eight independent variables (Pregnancies, Glucose, Blood Pressure, 
+SkinThickness, Insulin, BMI, DiabetesPedigreeFunction, Age) and one dependent 
+variable (Outcome).</p><ul><li>Pregnancies: number of times pregnant</li><li>Glucose: plasma glucose concentration a 2 hours in an oral glucose tolerance test</li><li>BloodPressure: diastolic blood pressure (mm Hg)</li><li>SkinThickness: triceps skin fold thickness (mm)</li><li>Insulin: 2-Hour serum insulin (mu U/ml)</li><li>BMI: body mass index (weight in kg/(height in m)²)</li><li>DiabetesPedigreeFunction: genetic relationship of relatives</li><li>Age: in years</li><li>Outcome: class variable (0 or 1) 268 of 768 are 1, the others are 0</li></ul><h2 id="feature-selection">Feature Selection</h2><p class="new">The importance of selecting the <em>right</em> features cannot be overstated.  Usually 
+domain expertise is needed to help determine which attributes contribute to the outcome. 
+Other times, you will need to perform additional analysis just to ensure you
+ have the correct features or create new ones using techniques of feature
+ engineering. In many cases, you will need to remove/ignore unusable 
+attributes (we will discuss the <em>curse</em> of dimensionality a bit later).</p><p class="new">Also, since we know we are going to need to calculate distances, you may need to drop 
+non-quantitative measures (or numerically map them).  There's much to be considered 
+and we'll spend more time on this when we discuss feature engineering and 
+selection in another lesson. </p><p class="new">For our example, all the columns in the dataset are contributors to diabetes. </p><h2 id="cleaning-">Cleaning 🧹🧽</h2><p class="new">In almost every case (unless someone has already done the hard work), you will 
+need to figure out how you need to prepare the data. Most of the information 
+will come from knowing how the data was collected, processed, and stored. 
+Knowing the semantics, the value domain for each and how the information was
+ recorded is vital.  </p><p class="new">For this dataset, a zero indicates a missing value for any of the measurable
+ attributes. Using Pandas, you can get a count of all the columns (or rows) 
+that have zeros:</p><pre><code>print((df == 0).astype(int).sum(axis=0))</code></pre><p class="new">We will cover various techniques for handling missing values. Missing values 
+can be flagged in a number of ways (using special <code>NaN</code> (not a number), <code>-1</code>, <code>None</code>, <code>0</code>, etc).</p><p class="new">The columns <code>'Glucose', 'BloodPressure', 'SkinThickness', 'BMI', 'Insulin'</code> with zeros 
+indicate the value was never measured.  Let's replace those zeros with the mean.  </p><div class="ide code-starter clearfix"><pre><code>def prep_data(df):
+
+    # zero is used as a missing measurement
+    cols = ['Glucose', 'BloodPressure', 'SkinThickness', 'BMI', 'Insulin']
+    
+    # first change those values to np.NaN (a more meaningful value)
+    df[cols] = df[cols].replace(0, np.NaN)
+    
+    # show the count of rows that have columns with null values
+    print(df.isnull().sum())
+    
+    # replace with the mean
+    for c in cols:
+        mean = df[c].mean(skipna=True)
+        df[c].replace(np.NaN, mean, inplace=True)
+
+    return df
+
+df = prep_data(read_data())</code></pre></div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
+go over the idea with this example. For the columns that will be used in the 
+distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
+ calculations such that a change in each attribute will not have an equal
+ corresponding change in the distance. This is especially true if one attribute 
+is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
+affects the distance metric calculation. We can fix that by scaling the two
+ attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
+with the code details and the libraries -- they will be filled in other lessons
+ (this seems to be a re-occurring theme 🤔).</p><div class="ide code-starter clearfix"><pre><code>def car_distances_part2():
+    df_cars = pd.DataFrame([[120000, 11,   '🚗'],   
+                            [250000, 11.5, '🚓'], 
+                            [175000, 15.8, '🚘'], 
+                            [350000, 17,   '🏎'], 
+                            [400000, 10,   '🚔']],
+                            columns=['miles', 'mpg', 'brand'])
+                            
+    test_car = pd.DataFrame([[175000, 11, '🚙']], columns=df_cars.columns)
+    cols =['miles', 'mpg']
+
+    from sklearn.preprocessing import StandardScaler
+    std_scaler = StandardScaler()
+    c2 = std_scaler.fit_transform(df_cars[cols])
+    t2 = std_scaler.transform(test_car[cols])
+
+    print(euclidean_distances(c2, t2))
+    
+    import sklearn
+    print('The scikit-learn version is {}.'.format(sklearn.__version__))
+    
+car_distances_part2()</code></pre></div><p class="new">As you can see, the first car (🚗) is now considered the closest to the test car. 
+In this situation the difference in mileage isn't enough to offset the fact 
+that both cars (🚗 and 🚙) have identical MPG values.</p><h2 id="what-not-to-normalize">What <em>not</em> to normalize</h2><p class="new">Since the problem we are working is supervised, you won't necessarily want to
+ normalize the classification labels. For a regression problem, you may want to 
+normalize the output/target values. </p><p class="new">First, let's split the independent variables (<code>x</code>) (aka input, features, attributes, 
+predictors) from the dependent (<code>y</code>) (aka target, output, response):</p><div class="ide code-starter clearfix"><pre><code>X = df.iloc[:, 0:8]  # all rows, cols 0 through 7
+y = df.iloc[:, 8]    # all rows, col 8 is the outcome, the label</code></pre></div><blockquote><p class="new"><strong><em>Coder's Log</em></strong> Note rather than using hard-coded indices, a better way to 
+isolate the columns you want is to use their names.  That way you don't have to worry about column 
+order in the datasets.  For this example it won't matter since we are using 
+all the columns. But if the <code>Outcome</code> attribute changed positions in the dataset, 
+your hard-coded indices would also need to be updated:</p></blockquote><pre><code>cols = ['Glucose', 'BloodPressure', ... ]
+X = df[cols]
+y = df['Outcome']</code></pre><p class="new">Now we can easily normalize the dependent variables:</p><div class="ide code-starter clearfix"><pre><code>from sklearn.preprocessing import StandardScaler
+
+sc = StandardScaler() # [-1, 1]
+Xt = sc.fit_transform(X)</code></pre></div><h2 id="model-building">Model Building</h2><p class="new">There's not much to do for actual building of the KNN model using sklearn. 
+You <em>could</em> easily do this:</p><pre><code>from sklearn.neighbors import KNeighborsClassifier
+
+def find_k(instances):
+    k = int(np.sqrt(len(instances)))
+    if k%2 == 0:
+        k -= 1
+    return k
+    
+K = find_k(y)
+knn = KNeighborsClassifier(n_neighbors=K, p=2) # p == 2 euclidean
+knn.fit(Xt,y)</code></pre><p class="new">You <em>could</em> do that. BUT the issue is you are fitting the model to the entire 
+dataset (i.e. <strong><code>knn.fit(Xt, y)</code></strong>). Whatever accuracy the model creates, there's 
+no way to evaluate it on <em>unseen</em> instances. We can fix that by splitting the 
+data into training and testing sets.</p><h2 id="training-and-testing-sets">Training and Testing sets</h2><p class="new">You will usually want to split the data in such a way that you can hold out 
+instances to use to test the model. The mechanics and techniques for 
+splitting the data into training, testing and validation sets is <em>another</em> lesson, 
+but for now we can use sklearn to do the heavy lifting for us.</p><img alt="train_test.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/train_test.png"/><p class="new">The code below simply splits the dataset into a 80/20 training/testing sets:</p><div class="ide code-starter clearfix"><pre><code>from sklearn.model_selection import train_test_split
+
+# Hold out 20% of the data for testing
+X_train, X_test, y_train, y_test = train_test_split(Xt, y, random_state=0, test_size=0.2)
+print(len(X_train), len(X_test))</code></pre></div><h2 id="model-fitting">Model fitting</h2><p class="new">Now we are ready for model fitting: (note that <code>K</code> is hardcoded to <code>11</code> but
+ you should confirm why):</p><div class="ide code-starter clearfix"><pre><code>from sklearn.neighbors import KNeighborsClassifier
+
+knn = KNeighborsClassifier(n_neighbors=11, p=2) # p == 2 euclidean
+knn.fit(X_train, y_train)</code></pre></div><p class="new">There's not much to model building for KNN.  Other algorithms will have a more
+ intensive 'training' cycles.</p><h2 id="evaluation">Evaluation</h2><p class="new">Off course we need to evaluate how well we did.  Much of ML is based on
+ discussing how to reduce the error of a model (some metric used to measure
+ the difference between what is predicted and what the actual value is).</p><h3 id="confusion-matrix">Confusion Matrix</h3><p class="new">The confusion matrix shows the different possible combinations of the actual
+ label and the predicated label. For a binary (2-class) classification
+ problem, the following shows all the possible combinations between the
+ target label (the 'true class') and the guess (the 'predicated class'): </p><img alt="confusion.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/confusion.png"/><ul><li>True Positive (TP): classifier correctly predicts the positive class as positive</li><li>True Negative (TN): classifier correctly predicts the negative class as negative</li><li>False Positive (FP): classifier incorrectly predicts the negative class as positive</li><li>False Negative (FN): classifier incorrectly predicts the positive class as negative</li></ul><p class="new">Depending on the situation, even having a low FP rate or a low FN can be the deciding factor.</p><p class="new">We will also use sklearn for getting the confusion matrix and other simple metrics:</p><div class="ide code-starter clearfix"><pre><code>from sklearn import metrics
+cm = metrics.confusion_matrix(y_test, y_pred)
+print(cm)</code></pre></div><p class="new">In this case we have 88 True Positives.</p><h3 id="accuracy">Accuracy</h3><p class="new">The overall accuracy of the model is the fraction of that were correctly 
+classified by the classifier </p><p class="new">Accuracy answers: what fraction of predictions did the model get right. </p><img alt="math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D"/><p class="new">To calculate accuracy, use the following formula: </p><img alt="math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D"/><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics import accuracy_score
+print(accuracy_score(y_test, y_pred))</code></pre></div><h4 id="precision">Precision</h4><p class="new">Related to accuracy is precision -- the fraction of positive predictions were
+ actually positive.  </p><p class="new">Precision answers: What proportion of positive identifications was actually correct?</p><img alt="math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFP)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFP)%7D"/><pre><code>print(metrics.precision_score(y_actual, y_pred))</code></pre><h4 id="recall">Recall</h4><p class="new">Recall (also called sensitivity) is defined as the fraction of True Positives over 
+all True classes.  </p><p class="new">Recall answers: What proportion of actual positives was identified correctly?</p><img alt="math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFN)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFN)%7D"/><p class="new">This is used where classification of positives are high priority (e.g. security).</p><pre><code>print(metrics.recall_score(y_actual, y_pred))</code></pre><p class="new">Here's more information on <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html" target="_blank">sklearn metrics</a>.</p><h3 id="f1-score-">F1 Score </h3><p class="new">To fully evaluate the effectiveness of a model, you must examine both precision 
+and recall. The two are often in tension. That is, improving precision typically 
+reduces recall and vice versa. The F1 Score (F-Score) is needed when you want to 
+seek a balance between precision and recall. It is like a weighted average -- 
+specifically it is the harmonic mean of the two.</p><p class="new">The F1 Score is combines both precision and recall into a single measurement: </p><img alt="math?math=%5CLarge%20%5Cfrac%7B2%5Ctimes%7Bprecision%7D%7B%5Ctimes%7Brecall%7D%7D%7D%7Bprecision%2Brecall%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B2%5Ctimes%7Bprecision%7D%7B%5Ctimes%7Brecall%7D%7D%7D%7Bprecision%2Brecall%7D"/><p class="new">It is useful when you have an uneven class distribution and is considered 
+a better indicator of a model's performance than accuracy. See <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics" target="_blank">the documentation</a>
+ for more details.</p><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics import f1_score
+print(f1_score(y_test, y_pred))</code></pre></div><h2 id="small-adjustments">Small Adjustments</h2><p class="new">Before claiming victory (or defeat), there's a few things to take under
+ consideration.</p><h3 id="normalization">normalization</h3><p class="new">Consider <em>where</em> we did the data normalization.  We applied the 
+standardization (which relies on the mean and variance of the data) to the entire 
+dataset. This is not quite right. The normalization step should be applied to only 
+to the test data. The data held out for testing is suppose to be 'unseen' so 
+technically, we can't allow those instances to affect the mean and variance. If 
+a normalization technique uses characteristics of the data (e.g. mean, max, 
+min, range, etc), it's best to apply them to the test data only. </p><p class="new">For sklearn you can use the <code>fit_transform</code> method for the training data and 
+reuse the same transformer for the testing data via <code>transform</code> method.</p><pre><code>X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)</code></pre><p class="new">Note we <em><code>fit</code></em> the data to the training set and <em><code>transform</code></em> the testing data 
+(it's using the parameters of the data distribution with which it was fitted).</p><h3 id="k-again"><em>K</em> again</h3><p class="new">It might also be wise to work with different <em>K</em> values.  Each model's error
+ can be plotted against a set of hyper-parameters to determine a valid set.</p><h1 class="section" id="section3">Exercises</h1><p class="new">Let's build a more robust ML pipeline to work with the KNN model.</p><h2 id="part-1-knn-data-prep">Part 1: KNN data prep</h2><p class="new">Create a function named <code>prep_knn_data</code></p><ul><li>reads in the diabetes dataset</li><li>normalizes the relevant columns using mean</li><li>returns the independent variables and the dependent variables</li></ul><p class="new">See usage example below (you are just re-organizing what has already been done.) </p><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="part-2-knn-pipeline">Part 2: KNN pipeline</h2><p class="new">Create a function named <code>knn_pipeline</code> that allows for easy testing for various <code>k</code> values.</p><ul><li>parameters: <code>X_train, X_test, y_train, y_test, k</code></li><li>normalizes via <code>StandardScaler</code> (fit the <code>X_train</code> data)</li><li>returns the predicted y values</li></ul><p class="new">The following should work when everything is done:</p><pre><code>X,y = prep_knn_data()
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_size=0.2)
+y_pred = knn_pipeline(X_train, X_test, y_train, y_test, 11)
+
+print(metrics.confusion_matrix(y_test, y_pred))
+print(f1_score(y_test, y_pred))
+print(accuracy_score(y_test, y_pred))</code></pre><p class="new">You should see</p><pre><code>[[94 13]
+ [16 31]]
+0.6813186813186813
+0.8116883116883117</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h1 class="section" id="section4">Managing Error</h1><p class="new">As mentioned in the evaluation section, managing the error of a model is a
+ significant part of ML.</p><p class="new">The error of a model is made up <em>irreducible</em> and <em>reducible</em> parts:</p><img alt="math?math=%5CLarge%20Error%3D%5Ctext%7Birreducible%7D%20%2B%20%5Ctext%7Breducible%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20Error%3D%5Ctext%7Birreducible%7D%20%2B%20%5Ctext%7Breducible%7D"/><ul><li><strong><em>irreducible error</em></strong> cannot be reduced.  The error may be coming from
+something the model is not able to capture (unknown variables) or from
+something adding noise to the data (inaccurate measurements, etc).</li><li><strong><em>reducible error</em></strong> is made up of <strong><em>bias</em></strong> and <strong><em>variance</em></strong>.</li></ul><img alt="math?math=%5CLarge%20Error%3Dnoise%5E2%20%2B%20%7Bbias%5E2%7D%20%2B%20%7Bvariance%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20Error%3Dnoise%5E2%20%2B%20%7Bbias%5E2%7D%20%2B%20%7Bvariance%7D"/><ul><li>noise (unavoidable error)</li><li>bias (incorrect assumptions)</li><li>variance (variability of training samples)</li></ul><h2 id="bias-">Bias </h2><p class="new">The bias error is simply the difference between the predicated value and the
+ actual value. The word bias within the context of describing the error of a model refers to
+ the accuracy or quality of the predictions:</p><ul><li><strong>low</strong> bias: on average, the model accurately estimates the true parameter(s) from
+training data</li><li><strong>high</strong> bias: the model makes inaccurate predictions. the average predicated values are far 
+from the actual values (under-fitting via a simple model)</li></ul><h3 id="an-underfitted-model">An Underfitted Model</h3><img alt="underfit.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/underfit.png"/><p class="new">When a model is too simple it <em>under</em>fits the data. It does not take into 
+account all the information in the data. </p><p class="new">For KNN, setting <code>k=n</code> would end up using the class with the highest number of 
+instances in the training set.</p><h3 id="a-word-on-bias">A word on bias</h3><p class="new">The word bias contains negative connotations. We have all heard stories
+ of how a ML algorithm made bad decisions because it was biased. Using an 
+analogy in this context, bias can be thought as having a ‘bias’ towards people. If someone is 
+highly biased, they are more likely to make wrong assumptions. However, if
+ someone has no bias, they may have no concerns trying to pet a grizzly bear. </p><p class="new">Without any bias ML algorithms could not generalize to be useful 
+(see <a href="http://dml.cs.byu.edu/~cgc/docs/mldm_tools/Reading/Need%20for%20Bias.pdf" target="_blank">mitchel</a>). 
+Without a bias in linear regression (i.e. <img alt="math?math=%5Clarge%20y%3Dmx%2Bb" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%3Dmx%2Bb" style="display:inline-block"/>), all lines would go 
+through the origin. It would be infeasible to build an accurate regression model 
+for almost all datasets.</p><h2 id="variance">Variance</h2><p class="new">Variance describes the variability of the predictions for a given point among 
+different instantiations of the training data with the model.</p><ul><li><strong>low</strong> variance implies the estimate does not change as much as the
+training set varies</li><li><strong>high</strong> variance model performs well on the training data but not on the test or
+validation data. It does not generalize well (overfitting via a complex model).</li></ul><h3 id="an-overfitted-model">An Overfitted Model</h3><img alt="kis1.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/kis1.png"/><p class="new">You can actually get your model to be 100% accurate by fitting to the entire
+ dataset and setting <code>k=1</code>. In this case, the decision boundaries get tightly
+ wrapped around each instance. This is classic case of overfitting the data. </p><p class="new">When a model overfits the data, it does not (usually) generalize well for new
+ predictions. There are strategies in addition to the ones shown here on
+ preventing overfitting (or building a well generalized model). </p><h2 id="fixing">Fixing</h2><p class="new">Since a model will typically be unable to capture the full relationship of
+ the data, it will be <em>bias</em>ed (regardless of parameters or with any amount
+ of data). There is also, unfortunately, a tradeoff between bias and variance: 
+you can't minimize both bias and variance.</p><img alt="b_v_tradeoff.png" class="center iw500 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/b_v_tradeoff.png"/><p class="new">Hence, A good model is where both bias and variance errors are balanced. You 
+could (and should) verify this by looking at the score metrics for both the 
+training and testing sets for different values of <code>K</code>.</p><pre><code>print('train', knn.score(X_train, y_train))
+print('test', knn.score(X_test, y_test))</code></pre><ul><li><p class="new">High Bias — Low Variance (underfitting):</p><ul><li>The predictions will be similar to one another but on average, they are inaccurate.</li></ul></li><li><p class="new">Low Bias — High Variance (overfitting):</p><ul><li>Models are somewhat accurate but inconsistent on averages. A small change in 
+the data can cause a large error.</li></ul></li></ul><p class="new">The following attempts to summarize the bias-variance landscape:  Note on the 
+diagonal 'dimension' models move from simple under-fitting to complex over-fitting.</p><img alt="bias_variance.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/bias_variance.png"/><p class="new">In some cases we can use techniques to make sure we don't overfit or underfit
+ a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. The are accurate and consistent 
+on averages. However, this is not always possible and there is usually a
+ tradeoff. We can see the bias/variance tradeoff with KNN.</p><p class="new">When k is small (<code>k=1</code>) there is high variance (sensitive to sample randomness), 
+and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">When k is large(<code>k=n</code>) there is high bias. The model is not flexible and is
+ overly simple (ignores training) and underfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
+go up; test errors go down). </p><h1 class="section" id="section5">The ML Lexicon 📓 </h1><p class="new">Let's go over a few additional terms using the context of the KNN algorithm.</p><h2 id="non-parametric">Non Parametric</h2><p class="new">Although KNN does indeed have a hyper-parameter (i.e. <em>K</em>), because it makes
  no assumptions on distribution of the underlying data (is it normal, bi
  -modal, random) it is considered to be a <em>non-parametric</em> algorithm.  In
   this context, the word 'parameter/parametric' refers to any necessary
    parameters needed to describe the data it can work with.
    Some learning models assume a Gaussian distribution and if the underlying
     data were non-Gaussian, the algorithm would make poor predictions (or
-     even dangerous ones -- depending on the situation).</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make
- predictions.  In stead in memorizes (or uses) the training instances as its
-  knowledge base.  So KNN is trivial to build (it costs nothing), but can be
-   computational expensive (and have a large memory footprint) to use.</p><h1 class="section" id="section4">Where's the learning?o</h1><p class="new">It doesn't really "learn" from the training data, it just compares predictors 
-to the nearby training data.</p><p class="new">That is one way to learn, don't you agree? It's called lazy learning. 
-The type of learning we typically think of is called eager learning (the one that 
-actually involves learning), but both are considered learning methods.</p><p class="new">Edit: I remember a nice analogy from my professor: think of writing an exam 
-next week where you can bring whatever you want. The lazy way, the KNN way, 
-is to bring all the exercises you did in class and look for similar tasks when 
-you start the exam in order to answer the questions. The eager way involves 
-studying the material up front. Both are valid methods to approach the exam.</p><p class="new">It is a lazy learner because it does not have a training phase but rather 
-memorizes the training dataset. All computations are delayed until classification.</p><p class="new">Case-Based Learning Algorithm -The algorithm uses raw training instances from the 
-problem domain to make predictions and is often referred to as an 
-instance based or case-based learning algorithm. 
-Case-based learning implies that KNN does not explicitly learn a model. 
-Rather it memorizes the training instances/cases which are then used as “knowledge” 
-for the prediction phase. Given an input, when we ask the algorithm to predict a label, 
-it will make use of the memorized training instances to give out an answer.</p><p class="new">KNN is a non-parametric and lazy learning algorithm. 
-Non-parametric means there is no assumption for underlying data distribution. 
-In other words, the model structure determined from the dataset</p><p class="new">from <a href="https://sebastianraschka.com/faq/docs/lazy-knn.html" target="_blank">https://sebastianraschka.com/faq/docs/lazy-knn.html</a>
-K-NN is a lazy learner because it doesn’t learn a discriminative function from the training data but “memorizes” the training dataset instead.
- the logistic regression algorithm learns its model weights (parameters) during training time. In contrast, there is no training time in K-NN. Although this may sound very convenient, this property doesn’t come without a cost: The “prediction” step in K-NN is relatively expensive! Each time we want to make a prediction, K-NN is searching for the nearest neighbor(s) in the entire training set! (Note that there are certain tricks such as BallTrees and KDtrees to speed this up a bit.)
- o</p><h1 class="section" id="section5">decision surface</h1><p class="new">Recommendation systems</p><h1 class="section" id="section6">bias vs variance</h1><p class="new"><a href="https://medium.com/datadriveninvestor/bias-and-variance-in-machine-learning-51fdd38d1f86" target="_blank">https://medium.com/datadriveninvestor/bias-and-variance-in-machine-learning-51fdd38d1f86</a>
-<a href="https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229" target="_blank">https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229</a></p></div></div></body></html>
+     even dangerous ones -- depending on the situation).</p><h2 id="learning-what-learning">Learning? What learning?</h2><p class="new">One could claim that KNN doesn't really "learn" from the training data, it just 
+compares predictors to the nearby training data.</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make
+ predictions. Instead in memorizes (or uses) the training instances as its
+  knowledge base. So KNN is trivial to build (it costs nothing), but can be
+   computational expensive (and have a large memory footprint) to use since
+ it needs to iterate through all the instances..</p><p class="new">This is accurate, but it <em>is</em> learning (in a more broad sense). Specifically, 
+it's called lazy learning, memory-based, instance-based or case-based learning.</p><h3 id="eager-and-lazy-learning">Eager and Lazy Learning</h3><p class="new">The type of learning we typically think of is called <strong><em>eager</em></strong> learning (where
+ the algorithm attempts to learn a discriminative function from the training
+ data). KNN simply “memorizes” the training dataset instead. All computations 
+are delayed until classification.</p><h3 id="knn-learning-applications">KNN Learning Applications</h3><p class="new">KNN can be used with recommendation systems and provides an excellent
+ baseline for custom approaches to solving the problem of recommending a
+ product or service based on similar items (behaviors, previous purchases, etc).</p><p class="new">For document retrieval, you can represent documents via tf*idf vectors and
+ then use KNN.</p><p class="new">Outlier detection is also possible as trying to find instances that map far
+ away from typical data points.</p><h1 class="section" id="section6">Lesson Assignment</h1><p class="new">This lesson is filled with important vocabulary and concepts. We will go much
+ deeper in many of the topics covered with additioanl lessons. </p><p class="new">Be sure to re-read this lesson often to help your understanding. For this semester, 
+only the result of doing the exercise will be required to pass all the tests. 
+Be sure to complete both parts.</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>knn</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">KNN</div><p class="text-center text-gray-800 text-xl">Won’t you be my Neighbor?</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">knn</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>

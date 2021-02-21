@@ -17,13 +17,25 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
-go over the idea with this example. For the columns that will be used in the 
-distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
- calculations such that a change in each attribute will not have an equal
- corresponding change in the distance. This is especially true if one attribute 
-is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
-affects the distance metric calculation. We can fix that by scaling the two
- attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
-with the code details and the libraries -- they will be filled in other lessons
- (this seems to be a re-occurring theme 🤔).</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def car_distances_part2():
+    df_cars = pd.DataFrame([[120000, 11,   '🚗'],   
+                            [250000, 11.5, '🚓'], 
+                            [175000, 15.8, '🚘'], 
+                            [350000, 17,   '🏎'], 
+                            [400000, 10,   '🚔']],
+                            columns=['miles', 'mpg', 'brand'])
+                            
+    test_car = pd.DataFrame([[175000, 11, '🚙']], columns=df_cars.columns)
+    cols =['miles', 'mpg']
+
+    from sklearn.preprocessing import StandardScaler
+    std_scaler = StandardScaler()
+    c2 = std_scaler.fit_transform(df_cars[cols])
+    t2 = std_scaler.transform(test_car[cols])
+
+    print(euclidean_distances(c2, t2))
+    
+    import sklearn
+    print('The scikit-learn version is {}.'.format(sklearn.__version__))
+    
+car_distances_part2()</code></pre></div></div></div></body></html>

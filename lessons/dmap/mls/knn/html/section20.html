@@ -17,13 +17,5 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
-go over the idea with this example. For the columns that will be used in the 
-distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
- calculations such that a change in each attribute will not have an equal
- corresponding change in the distance. This is especially true if one attribute 
-is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
-affects the distance metric calculation. We can fix that by scaling the two
- attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
-with the code details and the libraries -- they will be filled in other lessons
- (this seems to be a re-occurring theme 🤔).</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">In this case we have 88 True Positives.</p><h3 id="accuracy">Accuracy</h3><p class="new">The overall accuracy of the model is the fraction of that were correctly 
+classified by the classifier </p><p class="new">Accuracy answers: what fraction of predictions did the model get right. </p><img alt="math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B%5Ctext%7B%23%20of%20correctly%20classified%20points%7D%7D%7B%5Ctext%7Btotal%20number%20of%20points%7D%7D"/><p class="new">To calculate accuracy, use the following formula: </p><img alt="math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B(TP%2BTN)%7D%7B(TP%2BTN%2BFP%2BFN)%7D"/></div></div></body></html>

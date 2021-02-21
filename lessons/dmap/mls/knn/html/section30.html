@@ -17,13 +17,24 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
-go over the idea with this example. For the columns that will be used in the 
-distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
- calculations such that a change in each attribute will not have an equal
- corresponding change in the distance. This is especially true if one attribute 
-is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
-affects the distance metric calculation. We can fix that by scaling the two
- attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
-with the code details and the libraries -- they will be filled in other lessons
- (this seems to be a re-occurring theme 🤔).</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section5">The ML Lexicon 📓 </h1><p class="new">Let's go over a few additional terms using the context of the KNN algorithm.</p><h2 id="non-parametric">Non Parametric</h2><p class="new">Although KNN does indeed have a hyper-parameter (i.e. <em>K</em>), because it makes
+ no assumptions on distribution of the underlying data (is it normal, bi
+ -modal, random) it is considered to be a <em>non-parametric</em> algorithm.  In
+  this context, the word 'parameter/parametric' refers to any necessary
+   parameters needed to describe the data it can work with.
+   Some learning models assume a Gaussian distribution and if the underlying
+    data were non-Gaussian, the algorithm would make poor predictions (or
+     even dangerous ones -- depending on the situation).</p><h2 id="learning-what-learning">Learning? What learning?</h2><p class="new">One could claim that KNN doesn't really "learn" from the training data, it just 
+compares predictors to the nearby training data.</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make
+ predictions. Instead in memorizes (or uses) the training instances as its
+  knowledge base. So KNN is trivial to build (it costs nothing), but can be
+   computational expensive (and have a large memory footprint) to use since
+ it needs to iterate through all the instances..</p><p class="new">This is accurate, but it <em>is</em> learning (in a more broad sense). Specifically, 
+it's called lazy learning, memory-based, instance-based or case-based learning.</p><h3 id="eager-and-lazy-learning">Eager and Lazy Learning</h3><p class="new">The type of learning we typically think of is called <strong><em>eager</em></strong> learning (where
+ the algorithm attempts to learn a discriminative function from the training
+ data). KNN simply “memorizes” the training dataset instead. All computations 
+are delayed until classification.</p><h3 id="knn-learning-applications">KNN Learning Applications</h3><p class="new">KNN can be used with recommendation systems and provides an excellent
+ baseline for custom approaches to solving the problem of recommending a
+ product or service based on similar items (behaviors, previous purchases, etc).</p><p class="new">For document retrieval, you can represent documents via tf*idf vectors and
+ then use KNN.</p><p class="new">Outlier detection is also possible as trying to find instances that map far
+ away from typical data points.</p></div></div></body></html>

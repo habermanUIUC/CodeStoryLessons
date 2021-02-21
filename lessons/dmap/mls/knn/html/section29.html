@@ -17,13 +17,42 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
-go over the idea with this example. For the columns that will be used in the 
-distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
- calculations such that a change in each attribute will not have an equal
- corresponding change in the distance. This is especially true if one attribute 
-is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
-affects the distance metric calculation. We can fix that by scaling the two
- attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
-with the code details and the libraries -- they will be filled in other lessons
- (this seems to be a re-occurring theme 🤔).</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Managing Error</h1><p class="new">As mentioned in the evaluation section, managing the error of a model is a
+ significant part of ML.</p><p class="new">The error of a model is made up <em>irreducible</em> and <em>reducible</em> parts:</p><img alt="math?math=%5CLarge%20Error%3D%5Ctext%7Birreducible%7D%20%2B%20%5Ctext%7Breducible%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20Error%3D%5Ctext%7Birreducible%7D%20%2B%20%5Ctext%7Breducible%7D"/><ul><li><strong><em>irreducible error</em></strong> cannot be reduced.  The error may be coming from
+something the model is not able to capture (unknown variables) or from
+something adding noise to the data (inaccurate measurements, etc).</li><li><strong><em>reducible error</em></strong> is made up of <strong><em>bias</em></strong> and <strong><em>variance</em></strong>.</li></ul><img alt="math?math=%5CLarge%20Error%3Dnoise%5E2%20%2B%20%7Bbias%5E2%7D%20%2B%20%7Bvariance%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20Error%3Dnoise%5E2%20%2B%20%7Bbias%5E2%7D%20%2B%20%7Bvariance%7D"/><ul><li>noise (unavoidable error)</li><li>bias (incorrect assumptions)</li><li>variance (variability of training samples)</li></ul><h2 id="bias-">Bias </h2><p class="new">The bias error is simply the difference between the predicated value and the
+ actual value. The word bias within the context of describing the error of a model refers to
+ the accuracy or quality of the predictions:</p><ul><li><strong>low</strong> bias: on average, the model accurately estimates the true parameter(s) from
+training data</li><li><strong>high</strong> bias: the model makes inaccurate predictions. the average predicated values are far 
+from the actual values (under-fitting via a simple model)</li></ul><h3 id="an-underfitted-model">An Underfitted Model</h3><img alt="underfit.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/underfit.png"/><p class="new">When a model is too simple it <em>under</em>fits the data. It does not take into 
+account all the information in the data. </p><p class="new">For KNN, setting <code>k=n</code> would end up using the class with the highest number of 
+instances in the training set.</p><h3 id="a-word-on-bias">A word on bias</h3><p class="new">The word bias contains negative connotations. We have all heard stories
+ of how a ML algorithm made bad decisions because it was biased. Using an 
+analogy in this context, bias can be thought as having a ‘bias’ towards people. If someone is 
+highly biased, they are more likely to make wrong assumptions. However, if
+ someone has no bias, they may have no concerns trying to pet a grizzly bear. </p><p class="new">Without any bias ML algorithms could not generalize to be useful 
+(see <a href="http://dml.cs.byu.edu/~cgc/docs/mldm_tools/Reading/Need%20for%20Bias.pdf" target="_blank">mitchel</a>). 
+Without a bias in linear regression (i.e. <img alt="math?math=%5Clarge%20y%3Dmx%2Bb" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%3Dmx%2Bb" style="display:inline-block"/>), all lines would go 
+through the origin. It would be infeasible to build an accurate regression model 
+for almost all datasets.</p><h2 id="variance">Variance</h2><p class="new">Variance describes the variability of the predictions for a given point among 
+different instantiations of the training data with the model.</p><ul><li><strong>low</strong> variance implies the estimate does not change as much as the
+training set varies</li><li><strong>high</strong> variance model performs well on the training data but not on the test or
+validation data. It does not generalize well (overfitting via a complex model).</li></ul><h3 id="an-overfitted-model">An Overfitted Model</h3><img alt="kis1.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/kis1.png"/><p class="new">You can actually get your model to be 100% accurate by fitting to the entire
+ dataset and setting <code>k=1</code>. In this case, the decision boundaries get tightly
+ wrapped around each instance. This is classic case of overfitting the data. </p><p class="new">When a model overfits the data, it does not (usually) generalize well for new
+ predictions. There are strategies in addition to the ones shown here on
+ preventing overfitting (or building a well generalized model). </p><h2 id="fixing">Fixing</h2><p class="new">Since a model will typically be unable to capture the full relationship of
+ the data, it will be <em>bias</em>ed (regardless of parameters or with any amount
+ of data). There is also, unfortunately, a tradeoff between bias and variance: 
+you can't minimize both bias and variance.</p><img alt="b_v_tradeoff.png" class="center iw500 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/b_v_tradeoff.png"/><p class="new">Hence, A good model is where both bias and variance errors are balanced. You 
+could (and should) verify this by looking at the score metrics for both the 
+training and testing sets for different values of <code>K</code>.</p><pre><code>print('train', knn.score(X_train, y_train))
+print('test', knn.score(X_test, y_test))</code></pre><ul><li><p class="new">High Bias — Low Variance (underfitting):</p><ul><li>The predictions will be similar to one another but on average, they are inaccurate.</li></ul></li><li><p class="new">Low Bias — High Variance (overfitting):</p><ul><li>Models are somewhat accurate but inconsistent on averages. A small change in 
+the data can cause a large error.</li></ul></li></ul><p class="new">The following attempts to summarize the bias-variance landscape:  Note on the 
+diagonal 'dimension' models move from simple under-fitting to complex over-fitting.</p><img alt="bias_variance.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/bias_variance.png"/><p class="new">In some cases we can use techniques to make sure we don't overfit or underfit
+ a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. The are accurate and consistent 
+on averages. However, this is not always possible and there is usually a
+ tradeoff. We can see the bias/variance tradeoff with KNN.</p><p class="new">When k is small (<code>k=1</code>) there is high variance (sensitive to sample randomness), 
+and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">When k is large(<code>k=n</code>) there is high bias. The model is not flexible and is
+ overly simple (ignores training) and underfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
+go up; test errors go down). </p></div></div></body></html>

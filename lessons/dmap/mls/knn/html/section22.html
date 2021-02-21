@@ -17,13 +17,12 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
-go over the idea with this example. For the columns that will be used in the 
-distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
- calculations such that a change in each attribute will not have an equal
- corresponding change in the distance. This is especially true if one attribute 
-is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
-affects the distance metric calculation. We can fix that by scaling the two
- attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
-with the code details and the libraries -- they will be filled in other lessons
- (this seems to be a re-occurring theme 🤔).</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h4 id="precision">Precision</h4><p class="new">Related to accuracy is precision -- the fraction of positive predictions were
+ actually positive.  </p><p class="new">Precision answers: What proportion of positive identifications was actually correct?</p><img alt="math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFP)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFP)%7D"/><pre><code>print(metrics.precision_score(y_actual, y_pred))</code></pre><h4 id="recall">Recall</h4><p class="new">Recall (also called sensitivity) is defined as the fraction of True Positives over 
+all True classes.  </p><p class="new">Recall answers: What proportion of actual positives was identified correctly?</p><img alt="math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFN)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7BTP%7D%7B(TP%2BFN)%7D"/><p class="new">This is used where classification of positives are high priority (e.g. security).</p><pre><code>print(metrics.recall_score(y_actual, y_pred))</code></pre><p class="new">Here's more information on <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html" target="_blank">sklearn metrics</a>.</p><h3 id="f1-score-">F1 Score </h3><p class="new">To fully evaluate the effectiveness of a model, you must examine both precision 
+and recall. The two are often in tension. That is, improving precision typically 
+reduces recall and vice versa. The F1 Score (F-Score) is needed when you want to 
+seek a balance between precision and recall. It is like a weighted average -- 
+specifically it is the harmonic mean of the two.</p><p class="new">The F1 Score is combines both precision and recall into a single measurement: </p><img alt="math?math=%5CLarge%20%5Cfrac%7B2%5Ctimes%7Bprecision%7D%7B%5Ctimes%7Brecall%7D%7D%7D%7Bprecision%2Brecall%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20%5Cfrac%7B2%5Ctimes%7Bprecision%7D%7B%5Ctimes%7Brecall%7D%7D%7D%7Bprecision%2Brecall%7D"/><p class="new">It is useful when you have an uneven class distribution and is considered 
+a better indicator of a model's performance than accuracy. See <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics" target="_blank">the documentation</a>
+ for more details.</p></div></div></body></html>

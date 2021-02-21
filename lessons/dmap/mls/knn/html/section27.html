@@ -17,13 +17,13 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="data-normalization">Data Normalization</h2><p class="new">Although (again) we cover data normalization techniques in another lesson, let's 
-go over the idea with this example. For the columns that will be used in the 
-distance based calculations, it's vital that they are all on the same scale. </p><p class="new">Having attributes on different scales will affect the distance
- calculations such that a change in each attribute will not have an equal
- corresponding change in the distance. This is especially true if one attribute 
-is an order of magnitude larger/smaller than the others.</p><h3 id="the-rest-of-the--story">The <em>rest</em> of the 🚗 story</h3><p class="new">For the car dataset, the mileage is on a different scale than MPG and consequently 
-affects the distance metric calculation. We can fix that by scaling the two
- attributes to the <code>[-1,1]</code> range.</p><p class="new">The following scales the previous car data using z -scores. Don't be too concerned 
-with the code details and the libraries -- they will be filled in other lessons
- (this seems to be a re-occurring theme 🤔).</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="part-2-knn-pipeline">Part 2: KNN pipeline</h2><p class="new">Create a function named <code>knn_pipeline</code> that allows for easy testing for various <code>k</code> values.</p><ul><li>parameters: <code>X_train, X_test, y_train, y_test, k</code></li><li>normalizes via <code>StandardScaler</code> (fit the <code>X_train</code> data)</li><li>returns the predicted y values</li></ul><p class="new">The following should work when everything is done:</p><pre><code>X,y = prep_knn_data()
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_size=0.2)
+y_pred = knn_pipeline(X_train, X_test, y_train, y_test, 11)
+
+print(metrics.confusion_matrix(y_test, y_pred))
+print(f1_score(y_test, y_pred))
+print(accuracy_score(y_test, y_pred))</code></pre><p class="new">You should see</p><pre><code>[[94 13]
+ [16 31]]
+0.6813186813186813
+0.8116883116883117</code></pre></div></div></body></html>
