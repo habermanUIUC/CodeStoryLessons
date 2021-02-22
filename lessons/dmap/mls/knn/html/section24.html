@@ -27,5 +27,4 @@ a normalization technique uses characteristics of the data (e.g. mean, max,
 min, range, etc), it's best to apply them to the test data only. </p><p class="new">For sklearn you can use the <code>fit_transform</code> method for the training data and 
 reuse the same transformer for the testing data via <code>transform</code> method.</p><pre><code>X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)</code></pre><p class="new">Note we <em><code>fit</code></em> the data to the training set and <em><code>transform</code></em> the testing data 
-(it's using the parameters of the data distribution with which it was fitted).</p><h3 id="k-again"><em>K</em> again</h3><p class="new">It might also be wise to work with different <em>K</em> values.  Each model's error
- can be plotted against a set of hyper-parameters to determine a valid set.</p></div></div></body></html>
+(it's using the parameters of the data distribution with which it was fitted).</p></div></div></body></html>

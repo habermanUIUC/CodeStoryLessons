@@ -23,16 +23,18 @@ variable (Outcome).</p><ul><li>Pregnancies: number of times pregnant</li><li>Glu
 domain expertise is needed to help determine which attributes contribute to the outcome. 
 Other times, you will need to perform additional analysis just to ensure you
  have the correct features or create new ones using techniques of feature
- engineering. In many cases, you will need to remove/ignore unusable 
-attributes (we will discuss the <em>curse</em> of dimensionality a bit later).</p><p class="new">Also, since we know we are going to need to calculate distances, you may need to drop 
-non-quantitative measures (or numerically map them).  There's much to be considered 
+ engineering and dimensionality reduction. In many cases, you will need to remove/ignore unusable 
+attributes (we will discuss the <em>curse</em> of dimensionality a bit later).</p><p class="new">Also, since we are going to need to calculate distances, you may need to drop 
+non-quantitative measures (or numerically map them). There's much to be considered 
 and we'll spend more time on this when we discuss feature engineering and 
-selection in another lesson. </p><p class="new">For our example, all the columns in the dataset are contributors to diabetes. </p><h2 id="cleaning-">Cleaning 🧹🧽</h2><p class="new">In almost every case (unless someone has already done the hard work), you will 
+selection in another lesson. </p><p class="new">For our example, all the columns in the dataset are contributors to diabetes. </p><h2 id="cleaning--and-preparation-">Cleaning 🧹🧽 and Preparation 🧑‍🍳</h2><p class="new">In almost every case (unless someone has already done the hard work), you will 
 need to figure out how you need to prepare the data. Most of the information 
 will come from knowing how the data was collected, processed, and stored. 
 Knowing the semantics, the value domain for each and how the information was
- recorded is vital.  </p><p class="new">For this dataset, a zero indicates a missing value for any of the measurable
- attributes. Using Pandas, you can get a count of all the columns (or rows) 
+ recorded is vital.</p><p class="new">Another important aspect is to get the data in the proper format. This usually 
+takes a significant amount of time.   </p><p class="new">For this dataset, we won't have to wrangle, filter or change the data format. 
+However, we will need to handle missing data. A zero indicates a missing value 
+for some of the measurable attributes.</p><p class="new">Using Pandas, you can get a count of all the columns (or rows) 
 that have zeros:</p><pre><code>print((df == 0).astype(int).sum(axis=0))</code></pre><p class="new">We will cover various techniques for handling missing values. Missing values 
 can be flagged in a number of ways (using special <code>NaN</code> (not a number), <code>-1</code>, <code>None</code>, <code>0</code>, etc).</p><p class="new">The columns <code>'Glucose', 'BloodPressure', 'SkinThickness', 'BMI', 'Insulin'</code> with zeros 
-indicate the value was never measured.  Let's replace those zeros with the mean.  </p></div></div></body></html>
+indicate the value was never measured.  Let's replace those zeros with the mean:</p></div></div></body></html>

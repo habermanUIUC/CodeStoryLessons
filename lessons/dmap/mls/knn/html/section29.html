@@ -34,7 +34,9 @@ highly biased, they are more likely to make wrong assumptions. However, if
 (see <a href="http://dml.cs.byu.edu/~cgc/docs/mldm_tools/Reading/Need%20for%20Bias.pdf" target="_blank">mitchel</a>). 
 Without a bias in linear regression (i.e. <img alt="math?math=%5Clarge%20y%3Dmx%2Bb" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%3Dmx%2Bb" style="display:inline-block"/>), all lines would go 
 through the origin. It would be infeasible to build an accurate regression model 
-for almost all datasets.</p><h2 id="variance">Variance</h2><p class="new">Variance describes the variability of the predictions for a given point among 
+for almost all datasets.</p><p class="new">The bigger problem with bias in ML is when the training data doesn't
+ accurately reflect the population for which the model will be used. The
+ model in this case will be <em>biased</em> towards data most similar to the training data.</p><h2 id="variance">Variance</h2><p class="new">Variance describes the variability of the predictions for a given point among 
 different instantiations of the training data with the model.</p><ul><li><strong>low</strong> variance implies the estimate does not change as much as the
 training set varies</li><li><strong>high</strong> variance model performs well on the training data but not on the test or
 validation data. It does not generalize well (overfitting via a complex model).</li></ul><h3 id="an-overfitted-model">An Overfitted Model</h3><img alt="kis1.png" class="float-left mr-3 iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/kis1.png"/><p class="new">You can actually get your model to be 100% accurate by fitting to the entire
@@ -43,16 +45,17 @@ validation data. It does not generalize well (overfitting via a complex model).<
  predictions. There are strategies in addition to the ones shown here on
  preventing overfitting (or building a well generalized model). </p><h2 id="fixing">Fixing</h2><p class="new">Since a model will typically be unable to capture the full relationship of
  the data, it will be <em>bias</em>ed (regardless of parameters or with any amount
- of data). There is also, unfortunately, a tradeoff between bias and variance: 
-you can't minimize both bias and variance.</p><img alt="b_v_tradeoff.png" class="center iw500 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/b_v_tradeoff.png"/><p class="new">Hence, A good model is where both bias and variance errors are balanced. You 
+ of data). There is, unfortunately, a tradeoff between bias and variance: 
+you can't minimize both.</p><img alt="b_v_tradeoff.png" class="center iw500 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/b_v_tradeoff.png"/><p class="new">Hence, A good model is where both bias and variance errors are balanced. You 
 could (and should) verify this by looking at the score metrics for both the 
 training and testing sets for different values of <code>K</code>.</p><pre><code>print('train', knn.score(X_train, y_train))
 print('test', knn.score(X_test, y_test))</code></pre><ul><li><p class="new">High Bias — Low Variance (underfitting):</p><ul><li>The predictions will be similar to one another but on average, they are inaccurate.</li></ul></li><li><p class="new">Low Bias — High Variance (overfitting):</p><ul><li>Models are somewhat accurate but inconsistent on averages. A small change in 
 the data can cause a large error.</li></ul></li></ul><p class="new">The following attempts to summarize the bias-variance landscape:  Note on the 
 diagonal 'dimension' models move from simple under-fitting to complex over-fitting.</p><img alt="bias_variance.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/bias_variance.png"/><p class="new">In some cases we can use techniques to make sure we don't overfit or underfit
  a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. The are accurate and consistent 
-on averages. However, this is not always possible and there is usually a
- tradeoff. We can see the bias/variance tradeoff with KNN.</p><p class="new">When k is small (<code>k=1</code>) there is high variance (sensitive to sample randomness), 
-and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">When k is large(<code>k=n</code>) there is high bias. The model is not flexible and is
- overly simple (ignores training) and underfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
-go up; test errors go down). </p></div></div></body></html>
+on averages. As mentioned, this is not always possible and there is usually a
+ tradeoff. We can see the bias/variance tradeoff with KNN.</p><p class="new">When k is large(<code>k=n</code>) there is high bias. The model is not flexible and is
+ overly simple (ignores training) and underfits the data.</p><p class="new">When k is small (<code>k=1</code>) there is high variance (sensitive to sample randomness), 
+and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
+go up; test errors go down). </p><h3 id="k-again"><em>K</em> again</h3><p class="new">It is wise to work with different <em>K</em> values.  Each model's error
+ can be plotted against a set of hyper-parameters to determine a valid set.</p></div></div></body></html>

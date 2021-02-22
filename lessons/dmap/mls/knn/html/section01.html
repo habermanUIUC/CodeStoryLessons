@@ -17,33 +17,33 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">KNN</h1><h2 id="wont-you-be-my-neighbor">Won’t you be my Neighbor?</h2><img alt="neighbor.png" class="float-left mr-3 iw300 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/neighbor.png"/><p class="new">K-Nearest Neighbors or (aka KNN) is an algorithm that provides a good 
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">KNN</h1><h2 id="wont-you-be-my-neighbor">Won’t you be my <em>Neighbor</em>?</h2><img alt="neighbor.png" class="float-left mr-3 iw300 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/neighbor.png"/><p class="new">K-Nearest Neighbors or (aka KNN) is an algorithm that provides a good 
 access point into machine learning (ML). The algorithm itself isn't too
- difficult, but in order for it to perform well, it does require some of the
-  same principals used across many different ML techniques. </p><p class="new">KNN also lends itself to understanding the entire process (the ML pipeline) from preparing the
-   data, the necessity of splitting data into training the testing sets, 
-   to proper model evaluation. It also provides a great context in which we 
+ difficult, but in order for it to perform well, it does require using some of 
+ the same principals of many other ML techniques. </p><p class="new">KNN also lends itself to understanding the entire process from preparing the
+   data, the necessity of splitting data into training the testing sets, to 
+   proper model evaluation (the ML pipeline). It also provides a great context in which we 
    can address some of the machine learning vocabulary.</p><p class="new">The ubiquity of KNN provides an accessible benchmark for which to compare other more complex
-  classifiers as well. However, after you see how it works, you may ask yourself 
-  'How is this even machine learning?'  We will <em>learn</em> about that too.</p><h2 id="supervised">Supervised</h2><p class="new">KNN is a supervised ML technique that is used mostly for classification (assigning 
+  classifiers as well. However, after you see how it works, you may ask yourself, 
+  "How is this even machine learning?"  We will <em>learn</em> about that too.</p><h2 id="supervised">Supervised</h2><p class="new">KNN is a supervised ML technique that is used mostly for classification (assigning 
 a 'label' to an instance/datapoint). The goal of KNN is to determine 
- which class an unseen instance (or data point) belongs to. 
-It can also be used for regression as well (predicting a numeric value).  It is 
-supervised in that it needs labeled data that indicates for which class each
- instance belongs.</p><p class="new">More formally, the goal of supervised ML is to learn a function <img alt="math?math=%5Clarge%20h%3A%20X%20%5Crightarrow%20Y" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20h%3A%20X%20%5Crightarrow%20Y" style="display:inline-block"/>so that given an unseen observation <code>x</code>, <code>h(x)</code>, the hypothesis, can confidently predict 
-the corresponding output <code>y</code>.</p><h2 id="voting-on-similarity">Voting on Similarity</h2><p class="new">The KNN algorithm essentially picks the closest <em>K</em> neighbors to an unseen
+ which class an unseen instance (or data point) belongs to. It is supervised in 
+ that it needs labeled data that indicates for which class each instance belongs. 
+ KNN can also be used for regression as well (predicting a numeric value). </p><p class="new">More formally, the goal of supervised ML is to learn a function, the hypothesis, 
+<img alt="math?math=%5Clarge%20h%3A%20X%20%5Crightarrow%20Y" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20h%3A%20X%20%5Crightarrow%20Y" style="display:inline-block"/> so that given an unseen observation <code>x</code>, <code>h(x)</code> can 
+confidently predict the corresponding output <code>y</code>.</p><h2 id="voting-on-similarity">Voting on Similarity</h2><p class="new">The KNN algorithm essentially picks the closest <em>K</em> neighbors to an unseen
  observation (the unlabeled data point). Each neighbor then votes to
   declare the new point is most like them. Majority voting is then used (K
    should be odd). 
  For example, if K is 5, the 5 closest neighbors are selected to a new instance. 
- If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very</em> rough outline of how the algorithm works:</p><pre><code>K=5
+ If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very rough</em> outline of how the algorithm works:</p><pre><code>K=5
 # init with some large distances 
 top5 = [2**32 for i in range(0,K)] 
 for element in dataset:
    dist = calculate_distance(element, new_instance)
    add_if_closer(element, dist, top5)
-best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting can also 
-use a weighted voting scheme based on distance.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
+best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting with a 
+weighted voting scheme based on distance.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
  needs a metric to determine how 'far' two data instances are from each other.
 We will have a dedicated lesson on distance metrics, but a common one for KNN
  is euclidean distance. The distance between each feature or attribute is
@@ -51,4 +51,5 @@ We will have a dedicated lesson on distance metrics, but a common one for KNN
   result is taken as a proxy for how close two points are. </p><img alt="math?math=%5CLarge%20d(u%2C%20v)%20%3D%20%5Csqrt%7B%5Cleft(u_1%20-%20v_1%20%5Cright)%5E2%20%2B%20%5Cdotsc%20%2B%20%5Cleft(u_n%20-%20v_n%20%5Cright)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20d(u%2C%20v)%20%3D%20%5Csqrt%7B%5Cleft(u_1%20-%20v_1%20%5Cright)%5E2%20%2B%20%5Cdotsc%20%2B%20%5Cleft(u_n%20-%20v_n%20%5Cright)%5E2%7D"/><p class="new">This is also known as the L2 Distance:
   <img alt="math?math=%5CLarge%20L2%3D%7B%5Cleft%5CVert%7B%7D%7BD%7D%5Cright%5CVert%7B%7D%7D_2%20%3D%20%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5En%7B(u_i-v_i)%7D%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20L2%3D%7B%5Cleft%5CVert%7B%7D%7BD%7D%5Cright%5CVert%7B%7D%7D_2%20%3D%20%5Csqrt%7B%5Csum_%7Bi%3D1%7D%5En%7B(u_i-v_i)%7D%5E2%7D"/></p><p class="new">The L2 distance scales well to using multiple attributes and is easy to compute. 
 Of course, this implies the attributes themselves are numeric.</p><h3 id="car-selection--">Car Selection 🚗🚓🚘🏎🚔 🏁</h3><p class="new">The following shows a small example that calculates L2 distances between 5 cars 
-and a test car. Each car has two attributes: 'miles (odometer reading)' and 'mpg (fuel economy').</p><p class="new">We want to know which of the 5 cars is closest to the test car (🚙).</p></div></div></body></html>
+and a test car. Each car has two attributes: 'miles (odometer reading)' and 
+'mpg (fuel economy)'.</p><p class="new">We want to know which of the 5 cars is closest to the test car (🚙).</p></div></div></body></html>
