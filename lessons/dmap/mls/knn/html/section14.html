@@ -32,6 +32,12 @@ knn.fit(Xt,y)</code></pre><p class="new">You <em>could</em> do that. BUT the iss
 dataset (i.e. <strong><code>knn.fit(Xt, y)</code></strong>). Whatever accuracy the model creates, there's 
 no way to evaluate it on <em>unseen</em> instances. We can fix that by splitting the 
 data into training and testing sets.</p><h2 id="training-and-testing-sets">Training and Testing sets</h2><p class="new">You will usually want to split the data in such a way that you can hold out 
-instances to use to test the model. The mechanics and techniques for 
-splitting the data into training, testing and validation sets is <em>another</em> lesson, 
-but for now we can use sklearn to do the heavy lifting for us.</p><img alt="train_test.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/train_test.png"/><p class="new">The code below simply splits the dataset into a 80/20 training/testing sets:</p></div></div></body></html>
+instances to use to test the model. </p><h3 id="training-data">Training Data</h3><p class="new">The training dataset is used to train the model.  It is this data that the
+ model attempts to best fit and find a suitable model.</p><h3 id="validation-data">Validation Data</h3><p class="new">The validation dataset is used to measure the performance of the model.  You
+ can use the validation dataset to compare different versions of the model
+ that were built using different hyperparameters</p><h3 id="test-data">Test Data</h3><p class="new">If not properly done, it's possible for the ML practitioner to slowly build
+ models that <em>fit</em> the validation dataset.  The purpose of the test dataset
+ is to have a final 'unseen' dataset to use to measure a models performance. </p><p class="new">In this lesson, we will be using the word 'test' data to simply mean the
+ non-training data used to measure performance. The mechanics and techniques 
+for splitting the data into training, testing and validation sets is <em>another</em> lesson. </p><img alt="train_test.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/train_test.png"/><p class="new">We will use sklearn to do the heavy lifting for us. The code below simply 
+splits the dataset into a 80/20 training/testing sets:</p></div></div></body></html>

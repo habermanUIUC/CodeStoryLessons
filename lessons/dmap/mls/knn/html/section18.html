@@ -21,6 +21,6 @@
  intensive 'training' cycles.</p><h2 id="evaluation">Evaluation</h2><p class="new">Off course we need to evaluate how well the model did. Much of ML is based on
  discussing how to reduce the error of a model (some metric used to measure
  the difference between what is predicted and what the actual value is).</p><h3 id="confusion-matrix">Confusion Matrix</h3><p class="new">The confusion matrix shows the different possible combinations of the actual
- label and the predicated label. For a binary (2-class) classification
- problem, the following shows all the possible combinations between the
+ label (e.g. <code>y</code>) and the predicated label (e.g. <code>y_pred</code>). For a binary (2-class) 
+classification problem, the following shows all the possible combinations between the
  target label (the 'true class') and the guess (the 'predicated class'): </p><img alt="confusion.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/confusion.png"/><ul><li>True Positive (TP): classifier correctly predicts the positive class as positive</li><li>True Negative (TN): classifier correctly predicts the negative class as negative</li><li>False Positive (FP): classifier incorrectly predicts the negative class as positive</li><li>False Negative (FN): classifier incorrectly predicts the positive class as negative</li></ul><p class="new">Depending on the situation, even having a low FP rate or a low FN can be the deciding factor.</p><p class="new">We will also use sklearn for getting the confusion matrix and other simple metrics:</p></div></div></body></html>
