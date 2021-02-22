@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang='en'><head><title>Word2Vec</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,h4,p,pre{margin:0}ol,ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}table{border-collapse:collapse}h1,h2,h3,h4{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-right{float:right}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.clear-both{clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-3{margin-top:.75rem;margin-bottom:.75rem}.mx-3{margin-left:.75rem;margin-right:.75rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.ml-3{margin-left:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.mr-6{margin-right:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}table{border-spacing:10px;border:1px solid #666;border-collapse:collapse!important;margin-bottom:1em}td{padding:0 10px 10px 10px}thead{border:.5px solid #778899}table td+td{border-left:2px solid #778899}li>p{display:inline!important}.lesson ol{list-style-type:decimal;list-style-position:inside;margin-left:1em}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw400{height:auto;width:auto;max-width:400px}img.iw300{height:auto;width:auto;max-width:300px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/MachineLearningV1-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Word2Vec</div><p class="text-center mt-2 text-gray-800 text-xl">Building Word Embeddings</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#word vectors</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Word2Vec<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>word embeddings</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>intro to ML</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Word2Vec</h1><p class="new">The previous lesson on word embeddings introduced the idea of creating
+vectors from words. With these vectors we are able to 'math' on words and
+show relationships. More importantly, these word embeddings can be used as
+ input into other ML algorithms.  </p><p class="new">This lesson is all about how to create those 
+vectors from text as well as how to use an already trained word embedding model.</p><h2 id="what-is-word2vec">What is word2vec?</h2><p class="new">Word2Vec is a machine learning algorithm developed in 2013. Specifically, it 
+uses a neural network (2 layers) and is trained with unlabeled data. 
+Since the data is raw text, there is no 'label' to work with, it's an 
+unsupervised ML technique. You can read an <a href="https://arxiv.org/abs/1301.3781" target="_blank">overview</a> and 
+<a href="https://arxiv.org/pdf/1301.3781.pdf" target="_blank">the paper</a>.</p><p class="new">The open source project (<a href="https://github.com/tmikolov/word2vec" target="_blank">https://github.com/tmikolov/word2vec</a>) is written in
+ C; however, the Python gensim (pronounced jen-sim) library provides a Python
+  implementation.</p><p class="new">For this lesson, we are going to use a dataset from Kaggle regarding the
+ make and model for cars.  It is already included in this notebook.</p><div class="ide code-starter clearfix"><pre><code>import gzip
+import gensim
+import pandas as pd
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.simplefilter(action='ignore', category=UserWarning)
+
+import LessonUtil as Util
+
+def build_dataset_raw():
+
+  # here's an example of how to use a zipped (compressed) file
+  filename = Util.path_for_data('cars.csv.gz')
+  # https://www.kaggle.com/CooperUnion/cardataset?select=data.csv
+  file = gzip.open(filename, 'rb')
+
+  # clean and tokenize the text
+  return [gensim.utils.simple_preprocess(line) for line in file]
+
+def test_raw():
+  document = build_dataset_raw()
+  print(document[0])  # make note of the column names
+  print(document[10]) # row '9'
+  
+test_raw()</code></pre></div><p class="new">The <code>warnings.simplefilter</code> is a way to prevent the showing of a few warnings 
+that <code>gensim</code> is using a soon to be depreciated library.</p><p class="new">The above example shows how you open a compressed file in Python.  Many data
+ sets are very large and may only be available in a compressed format.  The
+example also shows how you can use <code>gensim</code> to process data as well.  You 
+can <a href="https://radimrehurek.com/gensim/utils.html#gensim.utils.simple_preprocess" target="_blank">read</a>
+about the gensim API (how to use the methods and functions) for pre-processing as well.</p><p class="new">Instead of using the raw data, let's make use of Pandas to help us clean the
+ data.  Take note of the <code>compression</code> parameter in <code>read_csv</code>:</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+def build_dataset():
+
+  # another way to read compressed data
+  filename = Util.path_for_data('cars.csv.gz')
+  df = pd.read_csv(filename, compression='gzip')
+
+  # feature selection
+  # select the fields we want to train word2vec on
+  features = ['Market Category','Vehicle Size','Vehicle Style',
+              'Engine Fuel Type','Transmission Type','Driven_Wheels']
+              
+  df = df[features]
+  doc = []
+  for index, row in df.iterrows(): 
+    line = [r for v in row.values for r in str(v).split(',')]
+    doc.append(line)
+  
+  return doc, df
+
+def test_pd_data():
+  document, df = build_dataset()
+  print(document[0][0:5])
+
+test_pd_data()
+
+# ==&gt; ['Factory Tuner', 'Luxury', 'High-Performance', 'Compact', 'Coupe']</code></pre></div><h3 id="exercise">Exercise</h3><p class="new">Update <code>build_dataset</code> such that you will create the field <code>Make_Model</code> in the
+ dataset.  Be sure to add this field to the front of each line of the output.
+The new field <code>Make_Model</code> combines the fields <code>Make</code> and <code>Model</code> with a
+ single space between them.</p><p class="new">Once this is finished, <code>test_pd_data</code> should print out the following:</p><pre><code>['BMW 1 Series M', 'Factory Tuner', 'Luxury', 'High-Performance', 'Compact']</code></pre><p class="new">You should also confirm that there are 928 unique Make_Models in the dataset.</p><h2 id="model-building">Model Building</h2><p class="new">For creating word2vec models, gensim's <code>Word2Vec</code> class is available. It
+ essentially implements the classic algorithm mentioned in the beginning. In
+the next code cell, re-type in the following:</p><pre><code>def build_model_v0(doc):
+  model = gensim.models.Word2Vec(doc)
+  return model
+
+def test_v0():
+    document, df = build_dataset()
+    model = build_model_v0(document)
+    print(len(model.wv.vocab))
+
+test_v0()</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><p class="new">Note that the <code>.wv</code> property of the model is the word vector object that
+ provides access into the word vectors themselves.</p><h2 id="model-evaluation--extrinsic-vs-intrinsic-evaluation">Model Evaluation:  Extrinsic vs Intrinsic evaluation</h2><p class="new">Of course, we have no idea to how 'good' the default <code>Word2Vec</code> function is 
+at building word embeddings. We need a way to evaluate it. 
+For evaluating how useful/accurate the word embeddings are, there are two
+different ways to assess them: intrinsically and extrinsically.</p><p class="new">In <strong>intrinsic</strong> evaluation, you are assessing the performance on a very 
+specific task or sub-task for the vectors themselves. For example, one task
+ might be how many word analogies are correctly identified.  </p><p class="new">In <strong>extrinsic</strong> evaluation, you are using your word vectors as input into 
+another NLP process (e.g. named entity recognition, classification, another neural network).</p><p class="new">For this example, we will evaluate our simple model using a few intrinsic 
+evaluations:</p><ol start="1"><li>Do the word vectors capture all the make/models of the car set?</li><li>How accurate are the car similarities?  For example, we would expect 
+'Toyota Camry' and 'Nissan Van' to be closer than 'Toyota Camry' and 'Mercedes-Benz SLK-Class'.</li></ol><br/><p class="new">Read, understand, and run the following code:</p><div class="ide code-starter clearfix"><pre><code>def evaluate_model(model, df=None):
+
+  output = ''
+  if df is not None:
+    unique_set = df['Make_Model'].unique()
+    missing=0
+    for mm in unique_set:
+      if mm not in model.wv.vocab:
+        missing += 1
+    output += "{:d} models are missing of {:d}\n".format(missing, len(unique_set))
+  
+  try:
+    t = 'Toyota Camry'
+    other = ['Honda Accord', 'Nissan Van', 'Mercedes-Benz SLK-Class']
+    for o in other:
+      output += t + '-&gt;' + o + ' ' + "{:0.4f}\n".format(model.wv.similarity(t,o))
+      
+    tuples = model.wv.most_similar(positive='Honda Odyssey', topn=3)
+    for mm, v in tuples:
+      output += mm + ', '
+    output = output.strip(', ')
+    
+  except KeyError as e:
+    output += "\nError:" + str(e)
+
+  return output
+
+def test_v0():
+  document, df = build_dataset()
+  model = build_model_v0(document)
+  print(evaluate_model(model, df))
+
+test_v0()</code></pre></div><p class="new">What did you notice for <code>test_v0</code>? Of course, this isn't a thorough testing 
+suite; but it helps to show some simple relationships. Ideally, you would 
+come up with score/metric for your evaluation function.</p><h3 id="tuning-our-algorithm">Tuning Our Algorithm</h3><p class="new">There's another parameter (many actually) that we can use to configure
+ <code>Word2Vec</code>. These parameters (called hyper parameters) along with our evaluation
+ function can be used to build an accurate model based on our dataset.  The
+ values of these hyper-parameters come from experience and trail-and-error.</p><p class="new">The first parameter is <code>min_count</code> whose default value is 5. There are many
+car models that only appear a few times and these cars are being dropped. 
+Let's update our model to use this parameter:</p><pre><code>def build_model_v1(doc):
+  model = gensim.models.Word2Vec(
+          doc,
+          min_count=1, # only ignore words that occur less than 1 times
+          ) 
+  return model</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><pre><code># add the following code to the above cell (`build_model_v1`) and run `test_v1`
+def test_v1():
+  document, df = build_dataset()
+  model = build_model_v1(document)
+  print(evaluate_model(model,df))
+
+test_v1()</code></pre><p class="new">That's much better (your output will be different, but all the car models should
+ be there):</p><pre><code>0 models are missing of 928
+Toyota Camry-&gt;Honda Accord 0.9584
+Toyota Camry-&gt;Nissan Van 0.9442
+Toyota Camry-&gt;Mercedes-Benz SLK-Class 0.6755
+Toyota Previa, Pontiac Montana, Chevrolet Uplander</code></pre><h2 id="randomness-of-ml">Randomness of ML</h2><p class="new">You may see different numbers in your output than what is shown. Many machine learning 
+algorithms use randomization to make sure things are evenly spaced out in 
+high dimensional space to start.  So if you re-run your above model, 
+you should see different results each time -- but on average, your results 
+should be close on each run.</p><h3 id="cpus-and-threads">CPUS and Threads</h3><p class="new">However, this randomness causes issues with reproducibility.  We can control the
+ randomness by doing a few things.  The main issue for <code>Word2Vec</code> is that the
+work it does is split across many threads.  You can think of a thread as an
+ independent worker.  Usually you want to at least match the number of CPUs 
+to the number of threads. That way if you have multiple CPUS, you can take
+advantage of parallel processing.  For this lesson, we will not worry about
+ how to find the number of CPUS our VM has.  But you can get this information
+ from within a Python program.</p><pre><code>import multiprocessing
+print(multiprocessing.cpu_count())</code></pre><blockquote><p class="new"><strong><em>Coder's Log</em></strong>  a <strong>process</strong> is an active program.  It has it's own
+ memory and resources.  A <strong>thread</strong> is 'lightweight' in that it can share the
+ same memory of it's parent process.  Processes are isolated; threads are not.</p></blockquote><p class="new">When work is split up between threads, each thread may be assigned different
+ units of work, finish at different times and their results may be combined
+ differently.  At the cost of being less efficient, we can tell <code>Word2Vec</code> to
+ only use a single thread.  That will stop the randomness.  Note that there
+ is also a <code>seed</code> hyperparameter that can also be used to control randomness.</p><p class="new">Go back to the previous code cell and update your code (and <strong>run</strong> it):</p><pre><code>def build_model_v1(doc):
+  model = gensim.models.Word2Vec(
+             doc,
+             min_count=1, # ignore words that occur less than 1 times
+             workers=1
+          ) 
+  return model
+  
+def test_v1():
+  document, df = build_dataset()
+  model = build_model_v1(document)
+  print(evaluate_model(model,df))
+
+test_v1()</code></pre><p class="new">You should now see consistent numbers between multiple runs. Here's the
+ output we get (your output will be slightly different):</p><pre><code>0 models are missing of 928
+Toyota Camry-&gt;Honda Accord 0.9773
+Toyota Camry-&gt;Nissan Van 0.9501
+Toyota Camry-&gt;Mercedes-Benz SLK-Class 0.4989
+GMC Jimmy, Ford Five Hundred, GMC Envoy</code></pre><h2 id="windows-of-context">Windows of Context</h2><p class="new">The output of word2vec is a set of word vectors. And each word vector is
+ essentially the same as shown in the previous lesson on word embeddings. 
+The goal of the algorithm is to have words with similar context occupy close spatial positions.  As 
+discussed in the word embeddings lesson, the cosine similarity can be used as
+ a metric of closeness.</p><p class="new">For word2vec there is a concept of defining both a 'target word' and 'context
+ words'. Below shows an example of the target word '<code>by</code>' 
+with its context window (<code>word is known the company it</code>):</p><pre><code>             target word
+                 👇
+a word is known [by] the company it keeps
+  👆          👆     👆           👆        
+     context            context</code></pre><p class="new">For the window of size <strong><code>n</code></strong> the contexts are defined by capturing <strong><code>n</code></strong> 
+words to the left of the target and <strong><code>n</code></strong> words to its right. This window of 
+context (shown here to be size 3) slides along the text.  So the next word 
+that is processed is <code>the</code>:</p><pre><code>                target word
+                    👇
+a word is known by [the] company it keeps
+       👆       👆       👆            👆        
+         context            context</code></pre><p class="new">Given that information, it's clear that where the target word appears in the
+ document and the size of the context window can affect the quality of the
+ output. If the window is too small, 'meaning' becomes very narrow.  If the
+ window is too big, words no longer separate from each other.</p><h3 id="exercise">Exercise</h3><p class="new">Go all the way back to the code cell that creates the function <code>build_dataset</code>.
+Move the column <code>'Make_Model'</code> from the front of the list to the second
+ position.  Now Re-run the cell with <code>build_dataset</code> in it. 
+You should see the following (from the output of <code>test_pd_data</code>:</p><pre><code>['Factory Tuner', 'Luxury', 'High-Performance', 'BMW 1 Series M', 'Compact']</code></pre><p class="new">Now re-run the cell with test_v1():</p><pre><code>test_v1()</code></pre><p class="new">Notice that the position of where the make/model appears in the document
+ affects the result (the similarity of Camry and Accord went <strong>down</strong>).  We 
+can avoid this issue by creating a wide context window.</p><p class="new">The default window size is 5.  Do the following modifications:</p><ul><li>update <code>build_model_v1</code> to be the following:</li></ul><pre><code>def build_model_v1(doc):
+  model = gensim.models.Word2Vec(
+             doc,
+             min_count=1, # ignore words that occur less than 1 times
+             workers=1,   # one thread to remove randomness
+             window=10,   # wide window size
+          ) 
+  return model</code></pre><p class="new">When you re-run the cell (<code>test_v1()</code>) the output becomes:</p><pre><code>0 models are missing of 928
+Toyota Camry-&gt;Honda Accord 0.9734
+Toyota Camry-&gt;Nissan Van 0.9292
+Toyota Camry-&gt;Mercedes-Benz SLK-Class 0.1101
+Dodge Ramcharger, Pontiac Montana, GMC Jimmy</code></pre><h2 id="epoch-training">Epoch Training</h2><img alt="Epoch.png" class="border iw400 my-4 float-right ml-3 mr-6" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/Epoch.png"/><p class="new">As we saw in the ML Prep lesson, each machine learning algorithm involves
+ iteration over the dataset to help adjust and improve. Initially, the 
+word vectors are assigned random locations in very high dimensional space. 
+As the algorithm iterates, these word vectors move closer to neighborhoods with 'similar words'.  </p><p class="new">Remember, that 'closeness' is defined by how similar these words are.  And 
+being similar, means the words share similar contexts. </p><div class="clear-both"></div><p class="new">So you expect common misspellings and upper/lower case versions of the 
+same word to be located near each other in high dimensional space.
+<img alt="3DWordVectors.png" class="border iw400 my-4 mr-3 float-left" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/3DWordVectors.png"/>The image to the left shows how the days of the week (orange circle) 
+might be near each other.  Also similar relationships would have similar
+ distances (e.g. king to queen and uncle to aunt)</p><p class="new">You can control how many times word2vec iterates on it training through the <code>iter</code> parameter
+ (whose default is 5).  Let's up this to 15.  Of course, this is a choice
+ that comes from experimentation and evaluation.  If your corpus is huge, you
+ may not have enough years to iterate.</p><p class="new">Let's create another function:</p><div class="ide code-starter clearfix"><pre><code>def build_model_v2(doc):
+  model = gensim.models.Word2Vec(
+          doc,
+          min_count=1, # ignore words that occur less than 2 times
+          workers=1,   # threads to use
+          window=10,   # size of window around the target word
+          iter=15      # 15 epochs
+          )  
+  return model
+
+def test_v2():
+  document, df = build_dataset()
+  model = build_model_v2(document)
+  print(evaluate_model(model,df))
+  
+test_v2()</code></pre></div><p class="new">The output should look close to the following:</p><pre><code>0 models are missing of 928
+Toyota Camry-&gt;Honda Accord 0.8234
+Toyota Camry-&gt;Nissan Van 0.6933
+Toyota Camry-&gt;Mercedes-Benz SLK-Class -0.0498
+Ford Aerostar, GMC Safari, Dodge Caravan</code></pre><p class="new">That this looks a lot better. The three similar vans are correct and
+the Camry and Mercedes have a lot more distance between them (negative in fact). 
+Note:  your output will look slightly different.  But you should see an improvement.</p><h2 id="high-dimensional-space">High Dimensional Space</h2><p class="new">As we saw in the word embeddings lesson, word vectors have a length 
+(we saw that spaCy uses 300) that indicates how many dimensions each word 
+contains.  The default for word2vec is 100. </p><p class="new">This is another hyper-parameter that you can adjust.  There's no perfect number. 
+The larger your corpus is the more dimensions you will need. The cars dataset 
+is very small so it would be good to know how many dimensions capture the 
+similarities between cars.</p><p class="new">You want the smallest number of dimensions necessary to do well on your 
+evaluation metrics (and no more).  Too many dimensions become space inefficient 
+as your corpus size increase and could result in <strong>overfitting</strong> (when the
+ model doesn't generalize well).</p><p class="new">Update <code>build_model_v2</code> to allow the number of dimensions to be passed in. </p><pre><code>def build_model_v2(doc, ndim=100):
+  model = gensim.models.Word2Vec(
+          doc,
+          min_count=1, # ignore words that occur less than 2 times
+          workers=1,   # threads to use
+          window=10,   # size of window around the target word
+          iter=15      # 15 epochs
+          size=ndim,   # how big the output vectors (spacy == 300)
+          )  
+  return model</code></pre><h3 id="exercise">Exercise</h3><p class="new">Experiment with using 25, 50, 75, 100, 150, 200. Update <code>test_v2</code> to 
+call <code>build_model_v2</code> in a loop of the different sizes. </p><p class="new">What do you notice and where would you decide to put the cutoff?  </p><h1 class="section" id="section2">Two Ways To Train</h1><p class="new">Word2Vec uses a neural network as it's algorithm and architecture. We will 
+go into more detail in the lesson on using neural networks. For now, 
+we will simplify things a bit just so we can stay focused on the task at hand. </p><p class="new">Word2vec provides two very different ways to structure the neural network for 
+learning the distributed representations of words that try to minimize the 
+computational complexity (how long it takes to run). These two underlying 
+architectures are the continuous bag-of-words model (CBOW) and a continuous Skip-gram (Skip Gram) model. Each uses a 
+different metric to evaluate the training of the model.</p><h2 id="continuous-bag-of-words-cbow-training">Continuous bag-of-words (CBOW) training</h2><img alt="cbow.png" class="border iw300 my-4 float-left mx-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/cbow.png"/><p class="new">In this method, a window of words surrounding the 'target' word (i.e. the
+ context) is used in an attempt to predict the target word. </p><p class="new">It's a 'bag of words' in that the actual order of the surrounding words is 
+not used in the analysis.  It uses a continuous probability distribution to 
+represent the context words (rather than discrete counting).</p><p class="new">The input into CBOW is a vector representation of a group of context words, 
+the goal is to get the most appropriate target word which will be within 
+the vicinity of the group of words. </p><h2 id="skip-gram-training">Skip-gram training</h2><img alt="skipgram.png" class="border iw300 my-4 float-left mx-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/skipgram.png"/><p class="new">For CBOW, if you have enough context, the goal is to predict the word.  In the
+skip-gram 'model', if you are given a target word, the output is the set of 
+context words (i.e. words who appeared in close proximity to the target).</p><p class="new">Essentially the task the neural network is solving is to find which context words 
+can appear given a target word. After training the neural network, if we 
+input any target word into the neural network, it will give a vector output 
+which represents the words which have a high probability of appearing near the given word.</p><h2 id="choosing-between-the-two">Choosing between the two</h2><p class="new">The author of word2vec <a href="https://groups.google.com/g/word2vec-toolkit/c/NLvYXU99cAM/m/E5ld8LcDxlAJ" target="_blank">summarizes the differences</a> 
+of CBOW and SkipGram:</p><ul><li>Skip-gram: works well with small amount of the training data, represents well even rare words or phrases</li><li>CBOW: several times faster to train than the skip-gram, slightly better accuracy for the frequent words</li></ul><h4 id="summary-of-differences">Summary of Differences</h4><table><thead><tr><th>Architecture</th><th>Predicts the</th><th>Strengths</th></tr></thead><tbody><tr><td>Skip-Gram (SG)</td><td>Context words (given the target)</td><td>• small corpus<br/>• represents rare words well</td></tr><tr><td>CBOW</td><td>Target word (given the context)</td><td>• fast<br/>• represents frequent words better</td></tr></tbody></table><p class="new">The default training method of word2vec is CBOW. But since our car dataset is
+ so small, let's try the skipgram model by using the <code>sg</code> named parameter:</p><div class="ide code-starter clearfix"><pre><code>def build_model_v3(doc):
+  model = gensim.models.Word2Vec(
+            doc,
+            min_count=1, # ignore words that occur less than 2 times
+            workers=1,   # threads to use
+            window=10,   # size of window around the target word
+            iter=15,     # how many times to iterate over the corpus (train)
+            size=100,    # how big the output vectors (spacy == 300)
+            sg=1,        # 0 == CBOW (default) 1 == skip gram
+          )     
+  return model
+
+def test_v3():
+  document, df = build_dataset()
+  model = build_model_v3(document)
+  print(evaluate_model(model,df))</code></pre></div><p class="new">When you run it, you should see something similar to </p><pre><code>0 models are missing of 928
+Toyota Camry-&gt;Honda Accord 0.8568
+Toyota Camry-&gt;Nissan Van 0.8036
+Toyota Camry-&gt;Mercedes-Benz SLK-Class 0.5291
+GMC Safari, Chevrolet Astro, Dodge Caravan</code></pre><p class="new">In order to evaluate the accuracy between CBOW or skip-gram, we would need a more
+extensive test suite.  But you can see that skip-gram did perform very well.</p><h2 id="negative-sampling">Negative Sampling</h2><p class="new">Without getting into the details (they will come), training a neural network
+ (NN) is very time consuming.  A NN is made up of connected nodes and layers.
+<img alt="NN.png" class="iw300 my-3 border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/NN.png"/>You can also think of each connection (a line or edge between nodes) as
+ having a 'weight' that needs to be adjusted.  As the size of the vocabulary 
+increases (the number of unique words in the corpus) so does the complexity of the internal 
+architecture (i.e. a lot more nodes, edges and weights to adjust).</p><p class="new">Negative sampling addresses the complexity issue by having each training sample 
+modify only a small percentage of the nodes/weights (rather than all of them). 
+With negative sampling, we randomly select just a small number of “negative” 
+words to update the weights for. In this context, a “negative” word is one 
+for which we want the network to output a 0). </p><p class="new">Another option for the training method is called soft-max. Soft-max is
+ computational expensive and is usually referred to as hierarchical soft-max
+ which is an optimized implementation. We can cover the details of these
+ algorithms when we get to neural networks.</p><p class="new">For word2vec, the default negative sampling parameter is set to 5.  Update the 
+function <code>build_model_v3</code> to include 15 to be the value:</p><pre><code>   negative=15,</code></pre><p class="new">When you re-run, <code>test_v3</code>, you should see results similar to the following:</p><pre><code>0 models are missing of 928
+Toyota Camry-&gt;Honda Accord 0.8977
+Toyota Camry-&gt;Nissan Van 0.8216
+Toyota Camry-&gt;Mercedes-Benz SLK-Class 0.6351
+GMC Safari, Ford Windstar, Chevrolet Astro</code></pre><p class="new"> </p><h2 id="saving-and-loading-models">Saving and Loading Models</h2><p class="new">Once you train a model (which can take hours, days, weeks, months?), you will 
+want to save it to a file so you can just reload the trained model. The model 
+you save is significantly smaller than the corpus you used to train it.</p><p class="new">For gensim, you can save models via the <code>save</code> method.  Update your <code>test_v3</code> 
+function to include saving the model:  </p><h4 id="saving-models">Saving Models</h4><pre><code>def test_v3():
+  document, df = build_dataset()
+  model = build_model_v3(document)
+  print(evaluate_model(model,df))
+  model.save('carmodel.skipgram')
+
+test_v3()</code></pre><h4 id="loading-models">Loading Models</h4><p class="new">You can reload saved models just as easily:</p><pre><code>def test_load():
+  md2 = gensim.models.Word2Vec.load('carmodel.skipgram')
+  print(evaluate_model(md2))</code></pre><h1 class="section" id="section3">GloVe (2014)</h1><p class="new">Another algorithm for creating word embeddings is <a href="https://nlp.stanford.edu/pubs/glove.pdf" target="_blank">GloVe</a> 
+(Global Vectors for Word Representation) out of Stanford. GloVe focuses on 
+words co-occurrences over the whole corpus. Its embeddings relate to the 
+probabilities that two words appear together.  </p><p class="new">We will not go into detail with using GloVe.  One of the issues for us, is
+ that GloVe is implemented in the C language. A few Python wrappers or 'toy' 
+implementations exist.  However, we can still use glove in the colab
+ environment.  </p><h2 id="building-a-model-with-glove-optional">Building a model with GloVe (optional)</h2><p class="new">This section (on building GloVe models) is optional, but it does show 
+you how you could work with glove in this environment.  It's much easier to 
+use GloVe on your own machine (assuming you have access to a compiler).</p><p class="new">In the next cell, we are actually going to compile and run the GloVe software
+on the VM running the colab notebook.  This is NOT Python code, so it will not
+run in a Python environment.  </p><div class="ide code-starter clearfix"><pre><code>def install_build_glove():
+  # copy the software to the VM
+  !git clone https://github.com/stanfordnlp/GloVe.git glove
+  # compile the software
+  !cd glove &amp;&amp; make
+  # copy a small dataset for GloVe to use
+  !cp /content/info490/INFO490Assets/src/datasets/books/hp/harryPotter.txt /content/sample_data
+
+install_build_glove()</code></pre></div><p class="new">After that is run:</p><ol start="1"><li>Use the Files 'Icon' on the left side and navigate to content/glove</li><li><p class="new">double click the <code>demo.sh</code> file. 
+<img alt="files.png" class="center iw300" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/files.png"/></p></li><li><p class="new">change the following lines: note that <code>CORPUS</code>, <code>VECTOR_SIZE</code> are changed and a 
+few lines at the top are commented out.</p></li></ol><pre><code># Makes programs, downloads sample data, trains a GloVe model, and then evaluates it.
+# One optional argument can specify the language used for eval script: matlab, octave or [default] python
+
+# delete the lines or comment them out
+# make
+# if [ ! -e text8 ]; then
+#   if hash wget 2&gt;/dev/null; then
+#     wget http://mattmahoney.net/dc/text8.zip
+#   else
+#     curl -O http://mattmahoney.net/dc/text8.zip
+#   fi
+#   unzip text8.zip
+#   rm text8.zip
+# fi
+
+CORPUS=/content/sample_data/harryPotter.txt
+VOCAB_FILE=vocab.txt
+COOCCURRENCE_FILE=cooccurrence.bin
+COOCCURRENCE_SHUF_FILE=cooccurrence.shuf.bin
+BUILDDIR=build
+SAVE_FILE=vectors
+VERBOSE=2
+MEMORY=4.0
+VOCAB_MIN_COUNT=5
+VECTOR_SIZE=100
+MAX_ITER=15
+WINDOW_SIZE=10
+BINARY=2
+NUM_THREADS=8
+X_MAX=10
+
+# everything else is the same</code></pre><ol start="4"><li>once that is done, (you can close the demo.sh tab), run the next code cell</li></ol><div class="ide code-starter clearfix"><pre><code>from gensim.scripts.glove2word2vec import glove2word2vec
+from gensim.models import KeyedVectors
+
+def run_glove():
+  !cd glove ; ./demo.sh
+
+def test_glove():
+  # convert glove to word2vec format
+  w2v_info = glove2word2vec('glove/vectors.txt', 'vec.word2vec')
+  print('voc. size, vector size', w2v_info)
+
+  # now read in the format
+  hp_model = KeyedVectors.load_word2vec_format('vec.word2vec', binary=False)
+  print(type(hp_model))
+  print(hp_model.most_similar('Harry', topn=5))
+    
+run_glove()
+test_glove()</code></pre></div><p class="new">In the output you should see:</p><pre><code>vector size: 100
+vocab size: 1976</code></pre><p class="new">Now you can run the model, load it and print out words close to 'Harry':</p><p class="new">A few quick notes.</p><ul><li><code>KeyedVectors.load_word2vec_format</code> is used and not <code>gensim.models.Word2Vec.load</code></li><li>the returned type is <code>gensim.models.keyedvectors.Word2VecKeyedVectors</code> which 
+is the same as what we have been using in this lesson</li></ul><p class="new">You can play around with different parameters, but you should see 'Ron' 
+and 'Hagrid' close to 'Harry'.  The text itself could be preprocessed to get 
+better results as well.  We'll have a separate project dedicated to 
+processing the text of Harry Potter to create word embeddings.</p><h2 id="loading-glove-models">Loading GloVe Models</h2><p class="new">Now that we see how to create GloVe models and that gensim can easily load
+ models from either algorithm.  There's no clear 'winner' in terms of the
+ resulting models.  It's best to try each (if you can afford the time) and
+ compare the results.  GloVe is faster, so many will use GloVe based on that
+ factor alone.  There are many pre-built models available in GloVe format</p><p class="new">The <a href="https://nlp.stanford.edu/projects/glove/" target="_blank">GloVe website</a> has models 
+available. As does the <a href="https://github.com/RaRe-Technologies/gensim-data" target="_blank">gensim respository</a>. 
+However, an <a href="https://radimrehurek.com/gensim/downloader.html" target="_blank">api</a> is 
+available to download these datasets.  The next cell provides a simple
+ demonstration.  You should install the models (this can take a few minutes
+ to do so).</p><div class="ide code-starter clearfix"><pre><code>import gensim.downloader as api
+import time
+
+def load_glove_model(resource):
+  #print(api.info())
+  print(api.info(resource))
+  st = time.time()
+  
+  # download the model, unzip, convert it 
+  model = api.load(resource)
+  
+  print("load time", time.time() - st)
+  return model
+
+#gw50 = load_glove_model('glove-wiki-gigaword-50')   # 66 MB,  about a minute
+#gt200 = load_glove_model('glove-twitter-200')       # 758 MB, about 7 minutes</code></pre></div><h2 id="testing-models">Testing Models</h2><p class="new">As we saw earlier, testing and evaluation are critical steps in the ML
+ process. For these public models, we can assume the author already completed 
+these tasks. However, you can test it using the simple analogies to see which
+model performs best for you needs:</p><pre><code>def simple_show(model):
+  try:
+    vec_king = model.wv['king']
+    print("dimensions", len(vec_king))
+    print(model.wv.most_similar(positive=['woman', 'king'], negative=['man'], topn=1))
+    print(model.wv.most_similar(positive=['hamburger', 'canada'], negative=['us'], topn=10))
+  except KeyError as e:
+    print(str(e))
+    
+# assuming you already loaded the gt200 model
+# simple_show(gt200)</code></pre><h3 id="word-analogies-test-suite">Word Analogies Test Suite</h3><p class="new">A classic set of word analogies is also available to use 
+(see <a href="https://github.com/nicholas-leonard/word2vec/blob/master/questions-words.txt" target="_blank">https://github.com/nicholas-leonard/word2vec/blob/master/questions-words.txt</a>)</p><p class="new">The word2vec model also provides a way to do the evaluation easily as well:</p><pre><code>model.wv.evaluate_word_analogies</code></pre><p class="new">See <a href="https://radimrehurek.com/gensim/models/keyedvectors.html" target="_blank">the documentation</a> 
+for more information.</p><h1 class="section" id="section4">fastText  (2016)</h1><p class="new">Facebook's implementation for creating word embeddings and sentence
+ classification is called fastText. It is written in C++ and supports 
+ multiprocessing during training.  It's word vectors are actually sub-words. 
+You can read about it <a href="https://arxiv.org/pdf/1607.04606.pdf" target="_blank">here</a>.  You can even install the
+ <code>fasttext</code> Python library.  The process of installing and evaluating the
+ models will be very straightforward.  Unfortunately, we have to end this
+lesson at some point.
+</p><h1 class="section" id="section5">Summary</h1><p class="new">There's a lot going on in this lesson.  So much in fact that the tests for this
+lesson will only confirm that you wrote the necessary functions.  We'll have a 
+separate lesson that allows you to work on a corpus and build your own word
+ embeddings.</p><h2 id="trained-datasets">Trained Datasets</h2><p class="new">The following models are available for use:</p><ul><li>github.com/3Top/word2vec-api</li><li>nlp.stanford.edu/projects/glove</li></ul><h1 class="section" id="section6">Lesson Assignment</h1><p class="new">If you followed along with the lesson, you should be good to go. Your
+ notebook will not be 'run' in the traditional way since all the model
+ building (and loading) takes too long. But be sure that all the functions
+are properly written.</p><p class="new">Be sure to comment out any calls to the following functions before submitting
+ to Gradescope:</p><ul><li><code>run_glove</code></li><li><code>test_glove</code></li><li><code>load_glove_model</code></li></ul><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>word2vec</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Word2Vec</div><p class="text-center text-gray-800 text-xl">Building Word Embeddings</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">word2vec</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>
