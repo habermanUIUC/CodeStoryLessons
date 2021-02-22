@@ -17,5 +17,13 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">Finally, you can remove all the items in a list by using the <code>clear</code> method:</p><pre><code>a.clear()</code></pre><h2 id="reversing">Reversing</h2><p class="new">Mutable sequences have a <code>reverse</code> method that can be used to put the items
- in a sequence in reverse order:</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">You can also use <code>pop</code> to remove an element at a specific index:</p><pre><code>a = [7,8,9,10]
+val = a.pop(2) # remove item at index 2
+print(val, a)</code></pre><p class="new">You can use the keyword <code>del</code> to delete a specific element in a list:</p><pre><code>a = [7,8,9,10]
+del a[0]      # remove the first element
+print(a)</code></pre><p class="new">If you want to delete a specific value, the <code>remove</code> method will first 
+search for that value and remove it:</p><pre><code>a = [7,8,9,10]
+a.remove(9)
+print(a)</code></pre><p class="new">In general, be careful with <code>remove</code> as it does search the entire list 
+looking for the element to remove. It can be very slow and expensive.</p><p class="new">If you request to remove an item not in the list, Python will generate an error. 
+You can use the <code>in</code> keyword as a guard:</p></div></div></body></html>

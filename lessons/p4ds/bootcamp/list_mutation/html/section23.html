@@ -17,8 +17,12 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Avoiding Mutation</h1><p class="new">You might be wondering why the need for the tuple type and its immutability? 
-Imagine you had a dataset and wanted to calculate some statistics on it. You 
-certainly wouldn't want some function to remove (or add or update) items to 
-your dataset.  </p><p class="new">Take a few moments to understand the issues with the following implementation 
-of a function that calculates an average from a list of numbers:</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def trouble():
+    t = (1,2,3)  # NOTE the matching parentheses
+    s = "Hello"
+    r = range(1,4)
+
+    # try this, but then comment it out
+    t[0] = 0 
+    s[0] = 'B'   
+    r[0] = 0</code></pre></div></div></div></body></html>

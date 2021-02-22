@@ -17,9 +17,15 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
-# print(ide.tester.test_notebook(verbose=True)) 
-
-# once you are ready -- run this 
-# ide.tester.download_solution() 
-</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">The problem is that a dubious client (a client is code the calls a library, API, 
+or function) could destroy your service:</p><pre><code>def dubious_client():
+    get_temperatures()
+    print(get_temperatures())
+    get_temperatures().clear()
+    print(get_temperatures())</code></pre><p class="new">Be sure to call <code>dubious_client</code> so you understand the problem. Do not move 
+forward unless you are comfortable knowing what the issue is.</p><ul><li>Fix <code>get_temperatures</code> so that the data it returns is protected from the above situation.</li><li>Be sure to use/keep the <code>history</code> variable. The tests expect it to hold the history of temperatures.</li><li>Be sure to copy the <code>fetch_temp_from_internet</code> code into the editor.</li><li>DO NOT change <code>dubious_client</code>.</li><li>Once you fix <code>get_temperatures</code>, <code>dubious_client</code> should no longer work. You
+must comment out any call to it before submitting your code:</li></ul><pre><code># dubious_client()</code></pre><blockquote><p class="new"><strong><em>Coder's Log</em></strong> the line inside <code>dubious_client</code> (<code>get_temperatures().clear()</code>) is 
+called a chained method call.  You are invoking the method <code>clear</code> on the
+ object that is returned from <code>get_temperatures</code>. Terse and long chained methods 
+come at the cost of understanding. We will see more chained method calls
+ throughout the course. </p></blockquote></div></div></body></html>
