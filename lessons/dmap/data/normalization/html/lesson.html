@@ -1,0 +1,551 @@
+<!DOCTYPE html><html lang='en'><head><title>Data Normalization (part 1)</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,h4,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3,h4{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-1{margin-top:.25rem;margin-bottom:.25rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.formula-block{margin-left:auto;margin-right:auto;margin-top:.25rem;margin-bottom:.75rem}img.formula-inline{margin-top:.25rem;margin-bottom:.25rem}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw400{height:auto;width:auto;max-width:400px}img.iw500{height:auto;width:auto;max-width:500px}img.iw300{height:auto;width:auto;max-width:300px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/DataOnTheRun-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Data Normalization (part 1)</div><p class="text-center mt-2 text-gray-800 text-xl">Normalizing &amp; Scaling 𝚍ª𝐓🅰</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#cleaning</span><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#standardization</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Data Normalization (part 1)<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>ML Preparation</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Data Normalization (part 1) </h1><h2 id="normalizing-amp-scaling--">Normalizing &amp; Scaling 𝚍ª𝐓🅰 </h2><p class="new">This lesson is about preparing your data so that machine learning algorithms
+ can be more accurate and efficient.  We will discuss various
+  techniques that all fall under the categories of data standardization, 
+  cleaning, scaling, etc.  We'll use the umbrella term normalization. 
+  Although even that term means something different when talking about vector normalization.</p><p class="new">The overall goal of data normalization is about reducing redundancy and
+ improving accuracy and integrity of the data and for any techniques that 
+ will use the data. The process of normalizing has its roots in
+  relational databases where the goal is to restructure the tables and 
+  relationships to get them into 'normal' form to reduce data redundancy.</p><h2 id="different-data-types-different-techniques-">Different Data Types, different techniques </h2><img alt="data.png" class="float-left mr-3 iw500 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/data.png"/><p class="new">You learned about the different ways to classify data in the previous class; 
+this lesson is looking at data at more granular level.  Although all data
+ is essentially grouped binary values (bits on or off), we will look at how to the
+  manage some of the most common categories in data-science including text, 
+  numeric, and categorical (a mix of text and numbers). </p><p class="new">Data normalization can be done just about any kind of data including audio, 
+image, text, numeric, and categorical data. We will go over some of the basic 
+strategies for handling several of these data types.  </p><p class="new">We will have an additional lesson that focuses on processing text data. What 
+follows are some common techniques we can use to apply rules to help bring some 
+consistency to handling both numeric and categorical attributes.</p><h1 class="section" id="section2">Cleaning the Mssing</h1><p class="new">Many of the techniques to 'normalize' the data will fail if the
+ transformation is done on a missing value. Missing values can truly be
+ absent (e.g. the dreaded double comma in csv files) or marked with a special
+ character like <code>None</code>, <code>NAN</code>, <code>NaN</code>, <code>nan</code>,<code>null</code>, <code>NULL</code>, <code>void</code>, 'n/a', 
+ or the empty string (i.e <code>''</code>). Pandas, NumPy, and Sklearn all provide ways to help with 
+  cleaning and normalizing data.</p><h2 id="a-titanic-example">A titanic example</h2><img alt="titanic.jpeg" class="float-left mr-3 iw300 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/titanic.jpeg"/><p class="new">The Titanic sank on April 15th, 1912 after hitting an iceberg. It had 
+roughly 2208 passengers and crew aboard (the exact number seems to 
+be <a href="http://www.icyousee.org/titanic.html" target="_blank">unknown</a>.) A few 
+good <a href="https://www.historyonthenet.com/the-titanic" target="_blank">references</a> for some 
+<a href="https://titanicfacts.net/titanic-passengers/" target="_blank">details</a> show the discrepancies 
+in the exact numbers.  </p><p class="new">The titanic dataset provides a good opportunity to work on a classic dataset
+ that is in need of some cleaning and normalization. This lesson includes one 
+ of the more complete datasets.  There are many available.</p><p class="new">We can load up the dataset and print out the first row so you can get a feel
+ for the data. You can <a href="http://campus.lakeforest.edu/frank/FILES/MLFfiles/Bio150/Titanic/TitanicMETA.pdf" target="_blank">read</a> 
+ about the meaning of each data field as well.</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+import pandas as pd
+import numpy as np
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 200)
+
+def build_titanic():
+  df = pd.read_csv(Util.path_for_data('titanic.csv'))
+  print('total rows', len(df))
+  
+  # add an extra passenger
+  extra = {'name': 'Jack Dawson', 'age': 28, 'id': len(df)+1, 'gender': 'male'}
+  df = df.append(extra, ignore_index=True)
+  
+  # add an extra field for using a custom transformer
+  df['sid'] = df['age'].apply(lambda x: 'NA' if np.isnan(x) else "{:.0f}".format(1912-x)).astype('string')
+  df['sid'].replace('NA', np.nan, inplace=True)
+  
+  return df.copy()
+
+df = build_titanic()
+print(df.head(1))</code></pre></div><h3 id="getting-the-missing-counts">Getting the missing counts</h3><p class="new">One of the first things you should do is get a count of which attributes have
+ missing values.  You can easily do this with pandas. In the example below, 
+we ask for all null (NaN) values and then <code>sum</code> them up.  When you look at
+ the result, any column with a non-zero value has missing data.</p><div class="ide code-starter clearfix"><pre><code>def show_missing(df):
+  print(df.isna().sum())
+
+show_missing(df)</code></pre></div><p class="new">You can see that 'age' has only 2 missing values. That is, 2 rows/instances
+ don't have a value for the 'age' column.  If a majority of your rows have
+ missing values for a certain attribute, the best strategy is to simply not use
+ that attribute in any of the analysis (e.g. country, ticketno, fare, sibsp, parch).</p><h3 id="imputing-the-missing">Imputing the missing</h3><p class="new">One of the most common ways to deal with missing values is to interpolate (e.g. 
+estimate or <em>impute</em>) the value from the values that are present.  </p><h4 id="pandas">Pandas</h4><p class="new">In the example below, we fill empty/missing values for the 'age' attribute with the
+ <em>mean</em> for that column. You can also use the calculated median, mode or a
+ constant as well.</p><div class="ide code-starter clearfix"><pre><code>def process_missing_age(df, debug=True):
+ 
+  # mask to select the rows where age is empty
+  mask = df.age.isna()
+
+  # calculate the mean (the replacement value)
+  replace_value = df.age.mean()
+  
+  # fill those values with the value calculated
+  df['age_clean']= df[mask].age.fillna(replace_value)
+  if debug:
+    # print out the updates
+    cols = ['id', 'name', 'age', 'age_clean']
+    print(df[mask][cols].head())
+    
+# pass in a copy, so we keep the original
+process_missing_age(df.copy())</code></pre></div><h4 id="sklearn">Sklearn</h4><p class="new">Another way to impute the missing is to use sklearn. The same 'age' column
+ is updated to the <em>mean</em> for any missing value.  Note how we create a new
+ attribute to hold the 'age' column that is free of any missing values.</p><p class="new">Also, read the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.impute.SimpleImputer.html" target="_blank">documentation</a>
+for different strategies you can use. Note sklearn's repeated <strong>fit</strong> and
+ <strong>transform </strong> process is applied here (even though there is no training and
+ fitting of models). </p><div class="ide code-starter clearfix"><pre><code>def process_missing_age_skl(df, debug=True):
+  from sklearn.impute import SimpleImputer
+  import numpy as np
+
+  # np.nan is the how pandas marks missing values
+  # replace with the mean
+  imr = SimpleImputer(strategy="mean", missing_values=np.nan)
+
+  # Impute values
+  values = df.age.values.reshape(-1,1)  
+  out = imr.fit_transform(values)
+  
+  # now we assign those values to a new column
+  df['im_age'] = out
+
+  if debug:
+    cols = ['id', 'name', 'age', 'im_age']
+    mask = df.age.isna()
+    print(df[mask][cols].head())
+    print('Missing')
+    print(df.isna()[cols].sum())
+
+process_missing_age_skl(df.copy())</code></pre></div><p class="new">A few lines of code to note.  See if you understand the following from the
+ above code block:</p><pre><code>  # Impute values
+  values = df.age.values.reshape(-1,1)  
+  out = imr.fit_transform(values)</code></pre><ul><li>sklearn needs its data in numpy/array form</li><li><code>.values</code> is the underlying numpy array</li><li><code>.reshape(-1,1)</code> reshapes the data to a single feature/column</li><li><code>-1,1</code> means all rows, 1 column</li></ul><p class="new">It's also possible to use a more 'user-friendly' version as well:</p><pre><code>  # Impute values
+  features = ['age']
+  values = df[features]
+  out = imr.fit_transform(values)</code></pre><p class="new">In this case, we can actually <em>fit</em> and <em>transform</em> multiple columns.  If you
+ do that it's important to take caution on how you assign the result back to
+ the pandas dataframe.</p><h3 id="deleting-the-missing-instances-rows">Deleting the missing instances (rows)</h3><p class="new">Another, perhaps drastic, technique is to simply remove any row that has a missing
+ value for any of the attributes you need. This strategy is fine if you have
+ plenty of data.  You can also decide to delete only if an instance has 
+multiple missing attributes.</p><h3 id="predicting-the-missing-">Predicting the missing; </h3><p class="new">Another viable option is to use a machine learning algorithm to figure out
+ which value <em>should</em> be used to replace the missing. Although we haven't 
+discussed the K-Nearest Neighbors (KNN) algorithm (a supervised ML algorithm for both 
+classification and regression), it's a viable solution if you want a more
+ robust strategy than simple statistical (e.g. mean, median, mode) replacement.
+ If there's enough time, we will have a lesson on KNN.</p><h1 class="section" id="section3">Categorical Data</h1><img alt="dataCat.png" class="float-left mr-3 iw300 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/dataCat.png"/><p class="new">For handling categorical data or data whose attribute values are labels/text, 
+the main focus is being consistent for handling the different categories. 
+The goal is to map each label/category to a unique number.</p><p class="new">Many of the same rules apply for text cleaning; however, if the label is
+ coming from a computer, process, sensor, or standardized input, much of 
+the cleaning is already done for you. That is, you don't have to worry about
+ different labels having the same semantic meaning.  For example, if your categories are
+ coming from a web form, you would have to deal with misspellings, etc.</p><h2 id="mapping-labels-to-numbers">Mapping labels to numbers</h2><p class="new">All machine learning algorithms need a numeric representation of any text value.
+If you have categorical attributes whose values are strings, you will need to
+ map these values to a number.</p><h3 id="nominal-attributes">Nominal Attributes</h3><p class="new">For simple categorical data where there is no ranking order of the values, 
+we can simply map the labels to numbers.  In Pandas, it's very straight forward. 
+You can use the <code>.astype("category").cat.codes</code> on any categorical data type:</p><pre><code>df['g_code'] = df['gender'].astype("category").cat.codes</code></pre><p class="new">Because the process is so straight forward, we can create a utility function
+ to help us map any column:</p><div class="ide code-starter clearfix"><pre><code>def category_to_number(df, col_name, new_name, debug=True):
+
+  # map the categories to unique integers (starting at 0)
+  df[new_name] = df[col_name].astype("category").cat.codes
+
+  if debug:
+    values = df[col_name].unique()
+    print('{:d} unique values for {:s}:'.format(len(values), col_name), values)
+    # show how many rows are in each group
+    print(df.groupby([col_name]).count()[new_name].reset_index())
+    print(df.groupby([col_name]).count()[new_name].sum())
+    
+  return df
+  
+# map gender to a 0/1 code
+cols = ['gender', 'g_code']
+df2 = category_to_number(df.copy(), *cols)  # putting * to good use
+print(df2[cols][0:10]) # first 10 rows</code></pre></div><h4 id="handling-missing-values">handling missing values</h4><p class="new">For the 'gender' column, there are no missing values. However if there are
+ any missing values, those values get marked with a -1 by default. If you
+ want to keep the np.nan values for missing you can simply do a replace:</p><pre><code>df2['g_code'] = df2['g_code'].replace(-1, np.nan)</code></pre><h4 id="port-of-embarkation">port of embarkation</h4><p class="new">We can use the same function to map port of embarkation, which does have some
+ missing values.  Let's take a look at how pandas handles those missing values. 
+Be sure to understand how pandas treats the missing values</p><div class="ide code-starter clearfix"><pre><code># map port of embarkation (C, Q, S) 
+# C = Cherbourg, Q = Queenstown, S = Southampton,  B = ??
+cols = ['embarked', 'e_code']
+df = category_to_number(df.copy(), *cols)  
+print(df[cols][0:10]) # first 10 rows
+mask = df.embarked.isna()
+print(df[mask])</code></pre></div><h4 id="codebook-warning-">Codebook WARNING </h4><p class="new">As you may have noticed, there's not much control over which numbers will be
+ assigned to which categories.  If you needed 'Cherbourg' to be a specific
+ numeric value (because of an outside requirement or codebook -- a document
+ that specifies how the mappings are done), you would have to adjust the
+ algorithm.  The next section discusses, one possible solution.</p><h3 id="ordinal-mapping">Ordinal Mapping</h3><p class="new">When your categorical attributes have an inherent ranking (e.g. review of
+ stars, likert scales, etc), you can define your own value map that 
+maintains the order as well.</p><blockquote><p class="new"><strong><em>Likert's Log</em></strong> As a word of caution, just because there's an order of
+ 'rank' to your values, these values are still not 'numeric'. <br/>For example, if you had a survey that ranked items using a [Strongly Agree, Agree, 
+Neither, Disagree, Strongly Disagree] scale or you asked someone to rank an 
+issue from 1 to 5, don't assume you can work with averages. Also, the
+ interval between different values isn't mathematically stable. For example, 
+the difference between 'Strongly Agree' and 'Agree' cannot be assumed to be 
+the same as the difference between 'Disagree' and 'Strongly Disagree'.
+<br/>Using counts, medians, and modes is usually the best you can do.</p></blockquote><p class="new">With Pandas, you can use the <code>map</code> function to create custom rank values:</p><pre><code>df[new_name] = df[column_name].map(kv_map)</code></pre><p class="new">Let's use that pattern to map the <code>class</code> attribute that categorizes both the
+ passengers and crew.  Note that all the crew gets the value 4.</p><div class="ide code-starter clearfix"><pre><code>def map_class_attribute(df, debug=True):
+
+  # map 1st/2nd/3rd class as ordinal 1st &lt; 2nd &lt; 3rd + missing
+  # replace nan with the value 'unknown'
+  df['class'].fillna('unknown', inplace=True)
+  # assign the labels values
+  ord_map = {'3rd':3, '2nd':2, '1st':1, 
+             'engineering crew':4, 
+             'victualling crew':4, 
+             'restaurant staff':4, 
+             'deck crew':4, 'unknown':0}
+            
+  # apply the map to the 'class' attribute
+  df['o_class'] = df['class'].map(ord_map)
+ 
+  if debug:
+    print(df['class'].unique().tolist())
+    # show how many rows are in each group
+    print(df.groupby(['class']).count()['o_class'].reset_index())
+
+  return df
+
+df_class = map_class_attribute(df.copy())
+print(df_class.head())</code></pre></div><p class="new">Once we have those numeric values, it's pretty easy to separate everyone 
+into crew and passengers:</p><div class="ide code-starter clearfix"><pre><code>def print_passenger_class_stats(df):
+  is_crew = df['o_class'].isin([4])
+
+  # any of these will work
+  is_pass = df['o_class'].isin([1,2,3])
+  is_pass = (df['o_class'] &lt; 4 ) &amp; (df['o_class'] &gt; 0)
+  is_pass = ~is_crew  # will include the unknowns
+  
+  print('crew', len(df[is_crew]))
+  print('pass', len(df[is_pass]))
+
+# this assumes map_class_attribute is done
+print_passenger_class_stats(df_class.copy())</code></pre></div><h3 id="binary-fields">Binary Fields</h3><p class="new">Sometimes you may want an attribute to simply indicate a simple Yes/No, On/Off, Have/not-Have value.</p><p class="new">For example, we can add a <strong><code>is_passenger</code></strong> attribute to the data.  This field
+ will either be 0 (False) or 1 (True) indicating if the person was a
+ passenger on the ship (as opposed to being part of the crew.)</p><div class="ide code-starter clearfix"><pre><code>def create_binary_field(df, debug=True):
+  # Binary Fields
+  from sklearn.preprocessing import Binarizer
+  binarizer = Binarizer(threshold=3, copy=True)  # &lt;= 3 asssing 
+  column_values = binarizer.fit_transform(df.o_class.values.reshape(-1, 1))
+  
+  # flip the values (1 -&gt; 0; 0 -&gt; 1)
+  df['is_passenger'] = 1 - column_values  
+  if debug:
+    print(column_values)
+    print(df.head(5))
+
+print(create_binary_field(df_class.copy()))</code></pre></div><p class="new">
+</p><h3 id="one-hot-encoding">One Hot Encoding</h3><p class="new">As mentioned in a previous lesson, one hot encoding simply assigns either 
+a 1 or a 0 to an attribute if that attribute is present or not.  It's an
+ extension of using the <code>Binarizer</code>. The issue is that for 
+categorical (nominal or ordinal), it's not accurate that some values
+ will be 'higher' than other only because their mapping value was larger.  As
+ we just saw, if you map category labels, for example, to the numbers 0 
+through 100 (or 0.0 to 1.0), the ML algorithm may think the higher values
+ contributes more to some correlation or calculation than the lower values. It's 
+also useful just to mark some attributes as being present or not. This is
+ where one hot encoding becomes useful.</p><p class="new">In the previous section we built a simple one-hot attribute (<code>is_passenger</code>), 
+this example takes an entire column of categorical values and builds
+ separate one-hot columns for each unique value.  It's simply a convenient
+ way to create one-hot attributes.  The image below shows an example of the 
+result of one hot encoding of the embankment attribute:
+<img alt="onehot.png" class="center mr-3 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/onehot.png"/></p><div class="ide code-starter clearfix"><pre><code>def one_hot_encoding(df):
+  import numpy as np
+  from sklearn.preprocessing import OneHotEncoder
+  
+  onehot = OneHotEncoder(dtype=np.int, sparse=True)
+
+  # fill in any missing values with 'UNK'
+  df['embarked'].fillna('UKN', inplace=True)
+  values = df['embarked'].values.reshape(-1, 1)
+  values = onehot.fit_transform(values).toarray() # it is sparse
+  labels = onehot.categories_
+
+  return pd.DataFrame(values, columns=labels)
+  
+df_hot = one_hot_encoding(df.copy())
+print(df_hot.tail(20))</code></pre></div><p class="new">The panda's <code>get_dummies</code> method provides another way to do one-hot encoding: </p><pre><code>print(pd.get_dummies(df['embarked'], dummy_na=True))</code></pre><h2 id="binningdiscretizating-features">Binning/Discretizating Features</h2><p class="new">Although not strictly for categorical data, Another option is to put data into
+ bins.  Pandas provides the <code>cut</code> method to create custom bins: </p><div class="ide code-starter clearfix"><pre><code># binning data
+def bin_demo1(df):
+  # set up custom bins
+  bins =   [ 0,       3,      8,      16,           21,     35,      55,  200] 
+  labels = ['infant','child','youth','young adult','adult','middle','senior']
+  age_bins = pd.cut(df['age'], bins=bins, labels=labels, right=False)
+  df['age_cat'] = age_bins
+  print(df['id age age_cat'.split()].head(10))
+  return df
+
+df_bin = bin_demo1(df.copy())</code></pre></div><p class="new">Sklearn provides a similar preprocessing utility class for binning, named
+ <code>KBinsDiscretizer</code>.  It has the familiar <strong>fit</strong> and <strong>transform</strong> API.  It
+ also requires that the attribute has no missing values.</p><div class="ide code-starter clearfix"><pre><code>def bin_demo2(df):
+  # uniform bins
+  from sklearn.preprocessing import KBinsDiscretizer
+
+  # this must be done first
+  df['age'].fillna(df['age'].mean(), inplace=True)
+  
+  binner = KBinsDiscretizer(n_bins=8, encode='ordinal', strategy='uniform')
+  values = binner.fit_transform(df['age'].values.reshape(-1, 1))
+  df['age_cat2'] = values
+  print(df['id age age_cat age_cat2'.split()].head(10))
+
+bin_demo2(df_bin.copy())</code></pre></div><p class="new">We can even use the same class to create one-hot encoded bins. By changing it's strategy. 
+Be sure to <a href="https://scikit-learn.org/dev/modules/generated/sklearn.preprocessing.KBinsDiscretizer.html" target="_blank">read</a>
+its documentation.</p><div class="ide code-starter clearfix"><pre><code>def bin_demo3(df):
+  # one hot binning
+  from sklearn.preprocessing import KBinsDiscretizer
+
+  bin_count = 4
+  df['age'].fillna(df['age'].mean(), inplace=True)
+  binner = KBinsDiscretizer(n_bins=bin_count, encode='onehot-dense', strategy='uniform')
+  values = binner.fit_transform(df['age'].values.reshape(-1, 1))
+  labels = ['bin {:d}'.format(i) for i in range(1, bin_count+1)]
+
+  df2 = pd.DataFrame(values, columns=labels)
+  df2['age'] = df['age']
+  print(df2.head(10))
+
+bin_demo3(df.copy())</code></pre></div><h1 class="section" id="section4">Numeric Data</h1><img alt="dataNum.png" class="float-left mr-3 iw300 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/dataNum.png"/><p class="new">The goal for normalizing numeric data is essentially same: you want your
+ values to accurately represent the underlying measurement.  However, there's
+ an additional consideration called scaling (or <em>feature scaling</em>). The idea
+ is that you don't want the units of one feature (i.e. column/attribute) to
+ overshadow the units of another.</p><h1 class="section" id="section5">Feature Scaling Data</h1><p class="new">One of the most important transformation to make is to ensure each of your
+ numeric attributes are scaled so that one attribute's units are in the same
+ 'scale' as others.  Feature scaling standardizes the value range of 
+features of the data. </p><h2 id="-"> </h2><p class="new">Let's go over some vocabulary relevant for feature 'scaling':</p><ul><li><strong>Rescaling</strong> a feature vector (think columns of data) means to add or subtract 
+a constant and then multiply or divide by a constant, as you would do to change the 
+units of measurement of the data, for example, to convert a temperature from Celsius to Fahrenheit.</li><li><strong>Normalizing</strong> a feature vector usually means dividing each element by the <em>norm</em> (L1 or L2) of the
+vector (<img alt="math?math=%5Clarge%20%5C%7Cx%5C%7C" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5C%7Cx%5C%7C" style="display:inline-block"/>). However, for this lesson it will refer to a type of rescaling.</li><li><strong>Standardizing</strong> a vector means subtracting a measure of location (mean or
+median) and dividing by a measure of scale (e.g. standard deviation).</li></ul><h2 id="min-max-scaling-">Min-Max Scaling </h2><h3 id="aka-min-max-normalization">(a.k.a Min-Max Normalization)</h3><p class="new">In min-max scaling, you transform the data such that the features are within a 
+specific range usually [0, 1].</p><p class="new">Scaling is important for algorithms where distance between data points is important. 
+You want to avoid attributes working together but are on different scales. For example, having 
+one attribute measured in feet while the other is in pounds while another is in miles, 
+will wreak havoc on the ML algorithm's calculations.</p><img alt="math?math=%5CLarge%20x'%20%3D%20%5Cfrac%7Bx%20-%20x_%7Bmin%7D%7D%7Bx_%7Bmax%7D%20-%20x_%7Bmin%7D%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20x'%20%3D%20%5Cfrac%7Bx%20-%20x_%7Bmin%7D%7D%7Bx_%7Bmax%7D%20-%20x_%7Bmin%7D%7D"/><p class="new">You can see how the min-max formula scales by the data range (also called
+ peak-to-peak).  Run the code below to view some of the values that are used
+ to scale each data item:</p><div class="ide code-starter clearfix"><pre><code>import numpy as np
+
+def fare_stats(df):
+  df['fare'].fillna(df['fare'].mean(), inplace=True)
+
+  print(df['fare'].min())
+  min_fair = np.min(df['fare'])
+  max_fair = np.max(df['fare'])
+  print(min_fair, max_fair)
+  print(np.ptp(df['fare']))
+
+df = build_titanic()
+fare_stats(df.copy())</code></pre></div><h3 id="exercise-">Exercise </h3><p class="new">Create a function named <code>fare_min_max_scaled_np</code> that uses NumPy to scale the
+ attributes using the min-max formula given above.  </p><ul><li>You can only use NumPy to do the calculations.</li><li>Add the new values to an attribute named <code>fare_mms</code></li><li>You must return the dataframe</li></ul><div class="ide code-starter clearfix"><pre><code>def fare_min_max_scaled_np(df):
+  pass</code></pre></div><p class="new">Be sure to write your own test for <code>fare_min_max_scaled_np</code> function. How 
+will you confirm that the operation succeeded?</p><pre><code>def test_fare_mms(df):
+    pass
+    
+test_fare_mms(df.copy())</code></pre><h3 id="sklearns-min-max-scalar">Sklearn's Min-Max Scalar</h3><p class="new">Sklearn also provides a simple <code>minmax_scale</code> function.  We can use it to
+ confirm our results as well.  Below also shows how sklearn uses the fit
+ &amp; transform methods on its <code>MinMaxScaler</code>.  In this case, <code>fit</code> would
+ calculate the min and max first; <code>transform</code> then applies the formula to all the data.</p><div class="ide code-starter clearfix"><pre><code>from sklearn.preprocessing import minmax_scale
+from sklearn.preprocessing import MinMaxScaler
+
+def fare_min_max_scaled(df):
+  df['fare_scaled'] = minmax_scale(df['fare'])
+
+  # fit &amp; transform way
+  scaler = MinMaxScaler()
+  s_values = scaler.fit_transform(df['fare'].values.reshape(-1,1))
+  df['fare_scaled2'] = s_values
+  print(df['fare fare_scaled fare_scaled2'.split()].head(10))
+
+fare_min_max_scaled(df.copy())</code></pre></div><h2 id="mean-normalization-mean-centering">Mean Normalization Mean Centering</h2><p class="new">Another version of Min-Max Scaling is named <strong>mean normalization</strong>. In this case,<br/>the mean is subtracted from each value (rather than the minimum value). </p><p class="new">Note that <strong>Mean centering</strong> is the subtraction part -- and it can be done without 
+any further scaling. The dividing by the data range provides the scaling part.</p><h2 id="z-score-scaling-standardization-">Z-Score Scaling; Standardization </h2><p class="new">Sometimes it's important that an attribute has certain statistical
+ requirements. We can 'normalize' (here <em>normalize</em> is used in the statistical sense) 
+the values such that the data is centered at 0 with a standard deviation of 1. This 
+technique is called z-score scaling or just <strong>standardization</strong> or z-score normalization.</p><p class="new">Z-score scaling is done using the following formula: 
+<img alt="math?math=%5CLarge%20x'%20%3D%20%5Cfrac%7Bx%20-%20x_%7Bmean%7D%7D%7B%5Csigma%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20x'%20%3D%20%5Cfrac%7Bx%20-%20x_%7Bmean%7D%7D%7B%5Csigma%7D"/></p><p class="new">Here <img alt="math?math=%5Clarge%20x" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20x" style="display:inline-block"/> is the original feature vector, <img alt="math?math=%5Clarge%20x_%7Bmean%7D" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20x_%7Bmean%7D" style="display:inline-block"/> is the mean of 
+that feature vector, and σ is its standard deviation. By subtracting the mean 
+from the distribution, you are essentially shifting it towards left or right by 
+amount equal to mean.  By dividing by the standard deviation σ, you are 
+changing the shape of distribution. </p><p class="new">The <strong>new</strong> standard deviation of this standardized distribution is 1 and μ = 0.</p><p class="new">With sklearn, you can do this transformation using the <code>scale</code> function or the
+ <code>StandardScaler</code> class:</p><div class="ide code-starter clearfix"><pre><code>from sklearn.preprocessing import scale
+from sklearn.preprocessing import StandardScaler
+
+def fare_z_scaled(df):
+
+  # simple way
+  df['fare_z'] = scale(df['fare'])
+
+  # fit &amp; transform way
+  scaler = StandardScaler()
+  s_values = scaler.fit_transform(df['fare'].values.reshape(-1,1))
+  df['fare_z2'] = s_values
+  print(df['fare fare_z fare_z2'.split()].head(10))
+
+fare_z_scaled(df.copy())</code></pre></div><h2 id="outlier-detection">Outlier Detection</h2><p class="new">Having outliers in the dataset, can affect scaling.  Although there are
+ machine learning algorithms to help with outlier detection, there are a
+ couple of simple approaches.</p><h3 id="removing-the-outliers-">Removing the outliers </h3><p class="new">A very quick way to isolate the outliers is to remove those values that are over 2.5
+ standard deviations away from the rest of the values.</p><div class="ide code-starter clearfix"><pre><code>import numpy as np
+def find_fare_outliers(df):
+  df['fare'].fillna(df['fare'].mean(), inplace=True)
+  data = df['fare'].values.reshape(-1,1)
+
+  m = np.mean(data)
+  s = np.std(data)
+
+  # identify outliers
+  cut_off = s * 3.5 # pick any number of standard deviations (usually &gt;= 2.0)
+  lower, upper = m - cut_off, m + cut_off
+  # identify outliers
+  outliers = [x for x in data if x &lt; lower or x &gt; upper]
+  print("{:d} outliers: min {:.2f} max {:.2f}".format(len(outliers), np.min(outliers), np.max(outliers)))
+  
+  # remove outliers
+  # outliers_removed = [x for x in data if x &gt;= lower and x &lt;= upper]
+
+find_fare_outliers(df.copy())</code></pre></div><p class="new">You can actually remove the outliers by uncommenting the last line.</p><h2 id="robust-scaling">Robust Scaling</h2><p class="new">The mean is highly sensitive to outliers. Sklearn's <code>RobustScaler</code> using 
+IQR (interquartile range) to keep all values between the 25th and 75 quartile. 
+It subtracts the column's median and divides by the interquartile range.</p><p class="new">This <em>scales</em> the data using</p><img alt="math?math=%5CLarge%20x%3D%5Cdfrac%7Bx_i%20-%20Q_2(x)%7D%7BQ_3(x)%20-%20Q_1(x)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20x%3D%5Cdfrac%7Bx_i%20-%20Q_2(x)%7D%7BQ_3(x)%20-%20Q_1(x)%7D"/><p class="new">RobustScaler can be used when you want to reduce the effects of having many outliers. 
+However, removing unimportant outliers (see above) should also be done.</p><h2 id="confused--">Confused 🤷🤔 ?</h2><p class="new">It's not necessarily easy to know which technique to use. The best strategy
+is to evaluate models with the data prepared using different techniques. 
+Sometimes, it's a combination of a few of the methods. </p><p class="new">There are a few guidelines to help make a first approximation:</p><ul><li>if the distribution of the quantity is normal, then it should be standardized,</li><li>if the distribution is not normal, the data should be normalized. This applies if the range of quantity values is large (10s, 100s, etc.) or small (0.01, 0.0001).</li></ul><ul><li><strong><code>Min-Max Scaler</code></strong>
+<ul><li>Re-scales to predetermined range [0–1]</li><li>Typical neural network algorithm require data that on a 0-1 scale.</li><li>Doesn’t change distribution’s center (doesn’t correct skewness)</li><li>The distribution of the feature (or any transformations of the feature ) isn’t Gaussian</li><li>Feature falls within a bounded interval (sensitive to outliers)</li></ul></li><li><strong><code>Standard Scaler</code></strong>
+<ul><li>Shifts distribution’s mean to 0 and unit variance</li><li>No predetermined range</li><li>Best to use on data that is approximately normally distributed clustering, PCA (those that rely on using variance)</li></ul></li><li><strong><code>Robust Scaler</code></strong>
+<ul><li>0 mean and unit variance</li><li>Use of quartile ranges makes this less sensitive to (a few) outliers</li><li>No predetermined range</li></ul></li></ul><h2 id="custom-cleaning">Custom Cleaning</h2><p class="new">Sometimes, it's necessary to provide cleaning beyond what a library has to
+ offer.  Sklearn's <code>FunctionTransformer</code> can be used in these situations. For example, 
+the dataset has an 'sid' field which is actually a string representing the
+ birth year of the person on board the Titanic.  If you wanted to do 'math' on 
+that field, a <code>FunctionTransformer</code> could be used to convert that string into a number:</p><p class="new">The following code (you should implement it) demonstrates how to convert a
+ string field (<code>sid</code>) to an integer.  Once that is done, the field can be
+ used like any valid numeric attribute:</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> You may see references to integer (int for short) or
+ floating point (float for short).  These are different ways to represent
+ numbers.  A floating point is a number with a decimal point (e.g 123.45) 
+and an integer has no decimal place (whole numbers). Floating point numbers 
+have more precision. </p></blockquote><pre><code>import numpy as np
+from sklearn.preprocessing import FunctionTransformer
+
+def string_to_float(v):
+  # v is an array of values
+  return v.astype(np.float)
+
+def string_to_int(v):
+  # v is an array of values
+  return v.astype(np.int)
+
+def clean_sid(df):
+
+  # first clean any missing values
+  mode = df['sid'].mode()[0]
+  df['sid'].fillna(mode, inplace=True)
+  
+  # because 'sid' is pandas StringArray, reshape(-1,1) won't work
+  # print(type(df['sid'].values))
+
+  # either of these will work
+  values = df['sid'].values
+  # OR
+  # attribute = ['sid']
+  # values = df[attribute]
+
+  transformer = FunctionTransformer(string_to_int)
+  df['sid'] = transformer.fit_transform(values)
+  return df</code></pre><p class="new">The following code cell demonstrates the custom cleaning: </p><div class="ide code-starter clearfix"><pre><code>def clean_sid(df):
+   # need to implement this function
+   # using the FunctionTransformer
+   pass
+   
+def demo_custom_cleaning(df):
+  try:
+    # this will not work
+    df['sid'] = df['sid'] - 1912 
+  except Exception as e:
+    print('invalid math')
+
+  # clean it so we can do math on it
+  df_c = clean_sid(df)
+
+  df_c['sid'] = 1912 - df_c['sid']
+  print(df_c.head())
+
+demo_custom_cleaning(df.copy())</code></pre></div><h2 id="pandas-coercion-">Pandas Coercion </h2><p class="new">Although sklearn's <code>FunctionTransformer</code> is incredibly flexible, for simple
+ type conversion (string-to-int, int-to-string, etc), you can use panda's
+ <code>to_numeric</code> method.  If any issues happen in the coercion, <code>np.nan</code> will be
+ used:</p><pre><code>values = pd.to_numeric(df['xyz_column'], errors='coerce')</code></pre><p class="new">The <code>to_numeric</code> method will convert values to floats (real numbers). If you
+ want the conversion to be a specific type (like integer) you can either use
+ the <code>downcast</code> <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.to_numeric.html" target="_blank">flag</a> or the <code>astype</code> method:</p><pre><code>values = df['xyz'].astype(int) # if any issues, an exception is thrown
+values = df['xyz'].astype(int, errors='ignore') # ignore those exceptions</code></pre><h2 id="date-and-time-care">Date and Time Care</h2><p class="new">Handling date and time attributes is a mix of working with text, categorical, 
+and numerical.  How you handle the attribute just depends on the level 
+of granularity and its purpose.  For example, if you are just marking the month of
+ a purchase, treating dates at the 'month' level as a category is perfectly
+ reasonable.  However, if you are working with timestamps of events, then
+ these become numeric fields that you need to work with.</p><p class="new">Deciding to scale a date/time field is also application specific.  If the
+ year of when a car was manufactured becomes important, than that field can
+ be treated as an integer.  Another issue is that more recent years will have
+ a higher weight (the scaled number would be closer to 1) than those that
+ happened early on.  This may or may not be what you want.</p><h2 id="what-is-regularization----it-sounds-like-normalization">What is Regularization -- it sounds like normalization?</h2><p class="new">Regularization has to do with preventing overfitting.  They are the techniques
+ used to reduce the error by fitting a function appropriately on the given 
+training set and avoid overfitting. </p><p class="new">Regularization can be controlled via hyperparameters (those values that are
+ given to configure the algorithm to build a model. Going into the 
+specifics of regularization would be difficult here since it's more 
+appropriate to discuss this when we are trying to avoid over-fitting
+ by adjusting the loss (or objective function).  You may hear about L1/L2
+ regularization which uses the same 'math' as L1, L2 normalization.</p><p class="new">As a reminder, <strong>Overfitting</strong> is when the model doesn't generalize the 'pattern' being learned, 
+but 'memorizes' it instead. <strong>Regularization</strong> attempts to prevent models from 
+overfitting by using a hyperparameter to affecting the parameters or weights the model is learning.</p><h1 class="section" id="section6">Lesson Assignment</h1><h2 id="cleaning-cars">Cleaning Cars</h2><img alt="cars.png" class="float-left mr-3 iw400 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/data/normalization/html/cars.png"/><p class="new">This lesson will be using a classic dataset on automobiles. The origin of 
+this dataset can be found <a href="http://lib.stat.cmu.edu/datasets/" target="_blank">here</a>. </p><p class="new">However, before we can use it for any machine learning algorithms, it needs <em>a lot</em>
+ of cleaning. We will guide you through all the steps that need to be done. 
+Be sure to print out the dataset (df.head()) so you can first familiarize
+ yourself with the data.</p><p class="new">For all questions you can solve by using the information in this lesson and
+ (if necessary) the official pandas. (e.g. see <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.replace.html" target="_blank">replace</a>). </p><h2 id="build-the-cars">Build the cars</h2><p class="new">Create a function named <code>build_cars</code> that does the following:</p><ul><li>loads 'cars.csv' into a pandas dataframe</li><li>returns the dataframe</li></ul><pre><code>def build_cars():
+   # return the pandas dataframe with cars.csv loaded
+   # use LessonUtil to get the path of the data
+   return None</code></pre><div class="ide code-starter clearfix"><pre><code>import numpy as np
+import pandas as pd
+import LessonUtil as Util
+
+pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 200)</code></pre></div><h2 id="clean-columns">Clean Columns</h2><p class="new">Now do the following to the dataframe</p><ul><li>removes the <code>notes</code> and <code>id</code> columns</li><li>remove all spaces from column names</li><li>replaces all empty string values with <code>np.nan</code>
+<ul><li>see <code>DataFrame.replace</code> method for one possible option</li></ul></li></ul><pre><code>def clean_columns(df):
+   return df</code></pre><ul><li>You can use the <code>df.rename</code> or <code>df.columns.str</code> (which allows you access to
+all the string methods).</li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="test-as-you-go">Test as you go</h2><p class="new">Be sure to test each cleaning step before moving to the next one</p><pre><code>ide.tester.test_functionality('clean_columns')</code></pre><h2 id="clean-nan-values-">Clean <code>nan</code> values </h2><p class="new">For the following columns replace all empty/missing values with the requested value</p><h3 id="clean-the-mpg-field">clean the <code>mpg</code> field</h3><p class="new">Create a function named <code>clean_mpg</code> </p><ul><li>replaces missing values with the median value</li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h3 id="clean-the-time-to-60-field">clean the <code>time-to-60</code> field</h3><p class="new">Create a function named <code>clean_t60</code> </p><ul><li>replaces missing values with the median value</li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h3 id="clean-the-year-field">clean the <code>year</code> field</h3><p class="new">Create a function named <code>clean_year</code> </p><ul><li>replaces missing values with the mode</li><li>converts the field to an integer value</li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h3 id="clean-the-cubicinches-field">clean the <code>cubicinches</code> field</h3><p class="new">Create a function named <code>clean_ci</code> </p><ul><li>replaces missing values with the mode</li><li>converts the field to an integer value by using the <code>FunctionTransformer</code></li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h3 id="clean-the-weightlbs-field">clean the <code>weightlbs</code> field</h3><p class="new">Create a function named <code>clean_wlb</code> </p><ul><li>replaces missing values with the mean</li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h3 id="clean-the-brand-field">clean the <code>brand</code> field</h3><p class="new">Create a function named <code>clean_brand</code> </p><ul><li>remap this categorical field:
+<ul><li><code>US</code> becomes 0</li><li><code>Europe</code> becomes 1</li><li><code>Japan</code> becomes 2</li></ul></li><li>place the new value in the field <code>manf</code></li></ul><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="scaling-features">Scaling Features</h2><p class="new">Create a function named <code>scale_features</code> that transforms a list of column names
+to [0,1] using sklearn's min-max scaling.</p><ul><li>return a <em>new</em> dataframe with the scaled columns</li></ul><p class="new">For example, this code</p><pre><code>df_sub = scale_features(cars_df, ['mpg', 'hp])
+print(df_sub.head())</code></pre><p class="new">would generate this output (before and after)</p><pre><code>    mpg   hp
+0  22.0   69
+1  16.0  100
+2  14.0  165
+3  31.9   71
+4  17.0  140
+        mpg        hp
+0  0.327869  0.125000
+1  0.163934  0.293478
+2  0.109290  0.646739
+3  0.598361  0.135870
+4  0.191257  0.510870</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="flip-features">Flip Features</h2><p class="new">For the 'time-to-60' a lower value is 'better'. We can remap this column
+ so those cars with fast 'time-to-60' values (low numbers) are close to 1 and
+ those with slow 'time-to-60' values (high numbers) are close to 0.  We can
+ simply invert these values.  </p><p class="new">Create a function called <code>flip_features</code> that takes a dataframe list of 
+ column names that inverts the values.  For example, for the following code:</p><pre><code>dfs = scale_features(dfc.copy(), ['time-to-60'])
+print(dfs.head(5))
+print(flip_features(dfs.copy(), ['time-to-60']).head(5))</code></pre><p class="new">The output would look like this:</p><pre><code>   time-to-60  (OLD)
+0    0.000000
+1    0.631579
+2    0.315789
+3    0.421053
+4    0.263158
+   time-to-60  (Flipped)
+0    1.000000
+1    0.368421
+2    0.684211
+3    0.578947
+4    0.736842</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>normalization</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Data Normalization (part 1)</div><p class="text-center text-gray-800 text-xl">Normalizing &amp; Scaling 𝚍ª𝐓🅰</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">normalization</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>

@@ -43,7 +43,7 @@ for element in dataset:
    dist = calculate_distance(element, new_instance)
    add_if_closer(element, dist, top5)
 best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting with a 
-weighted voting scheme based on distance.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
+weighted voting scheme based on distance or domain knowledge.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
  needs a metric to determine how 'far' two data instances are from each other.
 We will have a dedicated lesson on distance metrics, but a common one for KNN
  is euclidean distance. The distance between each feature or attribute is
@@ -264,16 +264,20 @@ specifically it is the harmonic mean of the two.</p><p class="new">The F1 Score 
 a better indicator of a model's performance than accuracy. See <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics" target="_blank">the documentation</a>
  for more details.</p><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics import f1_score
 print(f1_score(y_test, y_pred))</code></pre></div><h2 id="small-adjustments">Small Adjustments</h2><p class="new">Before claiming victory (or defeat), there's a few things to take under
- consideration.</p><h3 id="normalization">normalization</h3><p class="new">Consider <em>where</em> we did the data normalization.  We applied the 
+ consideration.</p><h3 id="normalization">normalization</h3><p class="new">Consider <em>where</em> we did the data normalization. We applied the 
 standardization (which relies on the mean and variance of the data) to the entire 
-dataset. This is not quite right. The normalization step should be applied to only 
-to the test data. The data held out for testing is suppose to be 'unseen' so 
-technically, we can't allow those instances to affect the mean and variance. If 
-a normalization technique uses characteristics of the data (e.g. mean, max, 
-min, range, etc), it's best to apply them to the test data only. </p><p class="new">For sklearn you can use the <code>fit_transform</code> method for the training data and 
-reuse the same transformer for the testing data via <code>transform</code> method.</p><pre><code>X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)</code></pre><p class="new">Note we <em><code>fit</code></em> the data to the training set and <em><code>transform</code></em> the testing data 
-(it's using the parameters of the data distribution with which it was fitted).</p><h1 class="section" id="section3">Exercises</h1><p class="new">Let's build a more robust ML pipeline to work with the KNN model.</p><h2 id="part-1-knn-data-prep">Part 1: KNN data prep</h2><p class="new">Create a function named <code>prep_knn_data</code></p><ul><li>reads in the diabetes dataset</li><li>normalizes the relevant columns using mean</li><li>returns the independent variables and the dependent variables</li></ul><p class="new">See usage example below (you are just re-organizing what has already been done.) </p><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="part-2-knn-pipeline">Part 2: KNN pipeline</h2><p class="new">Create a function named <code>knn_pipeline</code> that allows for easy testing for various <code>k</code> values.</p><ul><li>parameters: <code>X_train, X_test, y_train, y_test, k</code></li><li>normalizes via <code>StandardScaler</code> (fit the <code>X_train</code> data)</li><li>returns the predicted y values</li></ul><p class="new">The following should work when everything is done:</p><pre><code>X,y = prep_knn_data()
+dataset. This is not quite right. </p><p class="new">The normalization step should be applied to the training and test data but we
+ must be careful <em>how</em> the normalization is done. The data held out for 
+testing is suppose to be 'unseen' so technically, we can't allow those 
+instances to affect the mean and variance. If a normalization technique uses 
+characteristics of the data (e.g. mean, max, min, range, etc), we need to
+ separate training normalization from testing normalization.</p><p class="new">With sklearn, we can do this using the <code>_fit_</code> and <code>_transform_</code> methods:</p><ul><li>you will <code>fit_transform</code> the training data.  The <code>fit</code> part will find the mean and
+standard deviation. The <code>transform</code> part will scale the data using those parameter.</li><li>you will then <em>only</em> <code>transform</code> the testing data.</li></ul><p class="new">Let's repeat that: you will use the <code>fit_transform</code> method for the training data and 
+reuse the same transformer for normalizing the testing data via <code>transform</code> method. It's 
+using the parameters of the data distribution with which it was fitted.</p><pre><code>X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)</code></pre><p class="new"><code>&lt;comment&gt;
+Note we _</code>fit<code>_ the data to the training set and _</code>transform`_ the testing data 
+&lt;/comment&gt;</p><h1 class="section" id="section3">Exercises</h1><p class="new">Let's build a more robust ML pipeline to work with the KNN model.</p><h2 id="part-1-knn-data-prep">Part 1: KNN data prep</h2><p class="new">Create a function named <code>prep_knn_data</code></p><ul><li>reads in the diabetes dataset</li><li>normalizes the relevant columns using mean</li><li>returns the independent variables and the dependent variables</li></ul><p class="new">See usage example below (you are just re-organizing what has already been done.) </p><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="part-2-knn-pipeline">Part 2: KNN pipeline</h2><p class="new">Create a function named <code>knn_pipeline</code> that allows for easy testing for various <code>k</code> values.</p><ul><li>parameters: <code>X_train, X_test, y_train, y_test, k</code></li><li>normalizes via <code>StandardScaler</code> (fit the <code>X_train</code> data)</li><li>returns the predicted y values</li></ul><p class="new">The following should work when everything is done:</p><pre><code>X,y = prep_knn_data()
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0, test_size=0.2)
 y_pred = knn_pipeline(X_train, X_test, y_train, y_test, 11)
 
@@ -324,18 +328,18 @@ on averages. As mentioned, this is not always possible and there is usually a
 and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
 go up; test errors go down). </p><h3 id="k-again"><em>K</em> again</h3><p class="new">It is wise to work with different <em>K</em> values.  Each model's error
  can be plotted against a set of hyper-parameters to determine a valid set.</p><h1 class="section" id="section5">The ML Lexicon 📓 </h1><p class="new">Let's go over a few additional terms using the context of the KNN algorithm.</p><h2 id="non-parametric">Non Parametric</h2><p class="new">Although KNN does indeed have a hyper-parameter (i.e. <em>K</em>), because it makes
- no assumptions on distribution of the underlying data (is it normal, bi
- -modal, random) it is considered to be a <em>non-parametric</em> algorithm.  In
-  this context, the word 'parameter/parametric' refers to any necessary
-   parameters needed to describe the data it can work with.
-   Some learning models assume a Gaussian distribution and if the underlying
-    data were non-Gaussian, the algorithm would make poor predictions (or
-     even dangerous ones -- depending on the situation).</p><h2 id="learning-what-learning">Learning? What learning?</h2><p class="new">One could claim that KNN doesn't really "learn" from the training data, it just 
-compares predictors to the nearby training data.</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make
- predictions. Instead in memorizes (or uses) the training instances as its
-  knowledge base. So KNN is trivial to build (it costs nothing), but can be
-   computational expensive (and have a large memory footprint) to use since
- it needs to iterate through all the instances..</p><p class="new">This is accurate, but it <em>is</em> learning (in a more broad sense). Specifically, 
+ no assumptions on distribution of the underlying data (is it normal, bi-modal, 
+random) it is considered to be a <em>non-parametric</em> algorithm. In this context, 
+the word 'parameter/parametric' refers to any necessary parameters needed to 
+describe the data it can work with. Some learning models assume a Gaussian 
+distribution and if the underlying data were non-Gaussian, the algorithm would 
+make poor predictions (or even dangerous ones -- depending on the situation).</p><h2 id="learning-what-learning">Learning? What learning?</h2><p class="new">One could claim that KNN doesn't really "learn" from the training data, it just 
+compares predictors to the nearby training data. But we actually consider
+ that a type of learning.</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make predictions. 
+Instead in memorizes (or uses) the training instances as its knowledge base. 
+So KNN is trivial to build (it costs nothing), but can be computational 
+expensive (and have a large memory footprint) to use since it needs to iterate 
+through all the instances..</p><p class="new">This is accurate, but it <em>is</em> learning (in a more broad sense). Specifically, 
 it's called lazy learning, memory-based, instance-based or case-based learning.</p><h3 id="eager-and-lazy-learning">Eager and Lazy Learning</h3><p class="new">The type of learning we typically think of is called <strong><em>eager</em></strong> learning (where
  the algorithm attempts to learn a discriminative function from the training
  data). KNN simply “memorizes” the training dataset instead. All computations 

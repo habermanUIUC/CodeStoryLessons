@@ -43,7 +43,7 @@ for element in dataset:
    dist = calculate_distance(element, new_instance)
    add_if_closer(element, dist, top5)
 best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting with a 
-weighted voting scheme based on distance.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
+weighted voting scheme based on distance or domain knowledge.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
  needs a metric to determine how 'far' two data instances are from each other.
 We will have a dedicated lesson on distance metrics, but a common one for KNN
  is euclidean distance. The distance between each feature or attribute is

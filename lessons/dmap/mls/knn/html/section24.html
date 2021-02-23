@@ -18,13 +18,17 @@
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><h2 id="small-adjustments">Small Adjustments</h2><p class="new">Before claiming victory (or defeat), there's a few things to take under
- consideration.</p><h3 id="normalization">normalization</h3><p class="new">Consider <em>where</em> we did the data normalization.  We applied the 
+ consideration.</p><h3 id="normalization">normalization</h3><p class="new">Consider <em>where</em> we did the data normalization. We applied the 
 standardization (which relies on the mean and variance of the data) to the entire 
-dataset. This is not quite right. The normalization step should be applied to only 
-to the test data. The data held out for testing is suppose to be 'unseen' so 
-technically, we can't allow those instances to affect the mean and variance. If 
-a normalization technique uses characteristics of the data (e.g. mean, max, 
-min, range, etc), it's best to apply them to the test data only. </p><p class="new">For sklearn you can use the <code>fit_transform</code> method for the training data and 
-reuse the same transformer for the testing data via <code>transform</code> method.</p><pre><code>X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)</code></pre><p class="new">Note we <em><code>fit</code></em> the data to the training set and <em><code>transform</code></em> the testing data 
-(it's using the parameters of the data distribution with which it was fitted).</p></div></div></body></html>
+dataset. This is not quite right. </p><p class="new">The normalization step should be applied to the training and test data but we
+ must be careful <em>how</em> the normalization is done. The data held out for 
+testing is suppose to be 'unseen' so technically, we can't allow those 
+instances to affect the mean and variance. If a normalization technique uses 
+characteristics of the data (e.g. mean, max, min, range, etc), we need to
+ separate training normalization from testing normalization.</p><p class="new">With sklearn, we can do this using the <code>_fit_</code> and <code>_transform_</code> methods:</p><ul><li>you will <code>fit_transform</code> the training data.  The <code>fit</code> part will find the mean and
+standard deviation. The <code>transform</code> part will scale the data using those parameter.</li><li>you will then <em>only</em> <code>transform</code> the testing data.</li></ul><p class="new">Let's repeat that: you will use the <code>fit_transform</code> method for the training data and 
+reuse the same transformer for normalizing the testing data via <code>transform</code> method. It's 
+using the parameters of the data distribution with which it was fitted.</p><pre><code>X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)</code></pre><p class="new"><code>&lt;comment&gt;
+Note we _</code>fit<code>_ the data to the training set and _</code>transform`_ the testing data 
+&lt;/comment&gt;</p></div></div></body></html>

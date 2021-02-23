@@ -18,18 +18,18 @@
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><h1 class="section" id="section5">The ML Lexicon 📓 </h1><p class="new">Let's go over a few additional terms using the context of the KNN algorithm.</p><h2 id="non-parametric">Non Parametric</h2><p class="new">Although KNN does indeed have a hyper-parameter (i.e. <em>K</em>), because it makes
- no assumptions on distribution of the underlying data (is it normal, bi
- -modal, random) it is considered to be a <em>non-parametric</em> algorithm.  In
-  this context, the word 'parameter/parametric' refers to any necessary
-   parameters needed to describe the data it can work with.
-   Some learning models assume a Gaussian distribution and if the underlying
-    data were non-Gaussian, the algorithm would make poor predictions (or
-     even dangerous ones -- depending on the situation).</p><h2 id="learning-what-learning">Learning? What learning?</h2><p class="new">One could claim that KNN doesn't really "learn" from the training data, it just 
-compares predictors to the nearby training data.</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make
- predictions. Instead in memorizes (or uses) the training instances as its
-  knowledge base. So KNN is trivial to build (it costs nothing), but can be
-   computational expensive (and have a large memory footprint) to use since
- it needs to iterate through all the instances..</p><p class="new">This is accurate, but it <em>is</em> learning (in a more broad sense). Specifically, 
+ no assumptions on distribution of the underlying data (is it normal, bi-modal, 
+random) it is considered to be a <em>non-parametric</em> algorithm. In this context, 
+the word 'parameter/parametric' refers to any necessary parameters needed to 
+describe the data it can work with. Some learning models assume a Gaussian 
+distribution and if the underlying data were non-Gaussian, the algorithm would 
+make poor predictions (or even dangerous ones -- depending on the situation).</p><h2 id="learning-what-learning">Learning? What learning?</h2><p class="new">One could claim that KNN doesn't really "learn" from the training data, it just 
+compares predictors to the nearby training data. But we actually consider
+ that a type of learning.</p><h3 id="instance-based">Instance Based</h3><p class="new">KNN does not explicitly learn a model that can be used later to make predictions. 
+Instead in memorizes (or uses) the training instances as its knowledge base. 
+So KNN is trivial to build (it costs nothing), but can be computational 
+expensive (and have a large memory footprint) to use since it needs to iterate 
+through all the instances..</p><p class="new">This is accurate, but it <em>is</em> learning (in a more broad sense). Specifically, 
 it's called lazy learning, memory-based, instance-based or case-based learning.</p><h3 id="eager-and-lazy-learning">Eager and Lazy Learning</h3><p class="new">The type of learning we typically think of is called <strong><em>eager</em></strong> learning (where
  the algorithm attempts to learn a discriminative function from the training
  data). KNN simply “memorizes” the training dataset instead. All computations 
