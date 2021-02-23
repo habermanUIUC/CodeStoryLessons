@@ -28,7 +28,8 @@ function should now show up as:</p><pre><code>I, I, I, I Shake it off, I Shake i
 As a hint to this one, it's a matter of using all the great string methods
  you learned about in the previous lesson. No need to search for anything
   outside of what has already been shown.</p><h2 id="sample-song-extra-credit-10">Sample Song (Extra Credit +10)</h2><p class="new">For extra credit, create the function <code>lyrics_to_song</code> which works a lot like
- <code>lyrics_to_string</code>:</p><ul><li>it must use the <code>enumerate</code> function</li><li>you can use <code>join</code> but not required</li><li>see the example for how to format each line</li></ul><p class="new">Note that the function <code>build_lyrics</code> does not change.</p><pre><code>def test_song():
+ <code>lyrics_to_string</code>:</p><ul><li>it must use the <code>enumerate</code> function</li><li>you can use <code>join</code> but not required</li><li>see the example for how to format each line</li><li>the newline character is <code>\n</code> -- it will generate the 'return' at the end
+of a line  (e.g. <code>print("hello\nthere")</code>)</li></ul><p class="new">Note that the function <code>build_lyrics</code> does not change.</p><pre><code>def test_song():
     lyrics = build_lyrics(build_lyrics('I', 3) + build_lyrics('I Shake it off', 2), 3)
     song = lyrics_to_song(lyrics)
     print(song)</code></pre><p class="new">The output should match what is shown below:</p><pre><code>1: I, I, I, I Shake it off, I Shake it off
