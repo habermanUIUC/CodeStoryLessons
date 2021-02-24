@@ -34,16 +34,15 @@ a 'label' to an instance/datapoint). The goal of KNN is to determine
 confidently predict the corresponding output <code>y</code>.</p><h2 id="voting-on-similarity">Voting on Similarity</h2><p class="new">The KNN algorithm essentially picks the closest <em>K</em> neighbors to an unseen
  observation (the unlabeled data point). Each neighbor then votes to
   declare the new point is most like them. Majority voting is then used (K
-   should be odd). 
- For example, if K is 5, the 5 closest neighbors are selected to a new instance. 
- If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very rough</em> outline of how the algorithm works:</p><pre><code>K=5
+   should be odd). Other voting schemes can also be used. For example, 
+   majority voting with a weighted voting scheme based on distance or domain knowledge.</p><p class="new">For example, if K is 5, the 5 closest neighbors to a new instance are selected. 
+If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very rough</em> outline of how the algorithm works:</p><pre><code>K=5
 # init with some large distances 
-top5 = [2**32 for i in range(0,K)] 
+closest = [2**32 for i in range(0,K)] 
 for element in dataset:
    dist = calculate_distance(element, new_instance)
-   add_if_closer(element, dist, top5)
-best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting with a 
-weighted voting scheme based on distance or domain knowledge.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
+   add_if_closer(element, dist, closest)
+best = get_majority(closest)</code></pre><p class="new">We will go through the algorithm in a bit.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
  needs a metric to determine how 'far' two data instances are from each other.
 We will have a dedicated lesson on distance metrics, but a common one for KNN
  is euclidean distance. The distance between each feature or attribute is

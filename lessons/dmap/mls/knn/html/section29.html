@@ -52,10 +52,10 @@ training and testing sets for different values of <code>K</code>.</p><pre><code>
 print('test', knn.score(X_test, y_test))</code></pre><ul><li><p class="new">High Bias — Low Variance (underfitting):</p><ul><li>The predictions will be similar to one another but on average, they are inaccurate.</li></ul></li><li><p class="new">Low Bias — High Variance (overfitting):</p><ul><li>Models are somewhat accurate but inconsistent on averages. A small change in 
 the data can cause a large error.</li></ul></li></ul><p class="new">The following attempts to summarize the bias-variance landscape:  Note on the 
 diagonal 'dimension' models move from simple under-fitting to complex over-fitting.</p><img alt="bias_variance.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/bias_variance.png"/><p class="new">In some cases we can use techniques to make sure we don't overfit or underfit
- a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. The are accurate and consistent 
+ a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. They are accurate and consistent 
 on averages. As mentioned, this is not always possible and there is usually a
  tradeoff. We can see the bias/variance tradeoff with KNN.</p><p class="new">When k is large(<code>k=n</code>) there is high bias. The model is not flexible and is
  overly simple (ignores training) and underfits the data.</p><p class="new">When k is small (<code>k=1</code>) there is high variance (sensitive to sample randomness), 
 and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
-go up; test errors go down). </p><h3 id="k-again"><em>K</em> again</h3><p class="new">It is wise to work with different <em>K</em> values.  Each model's error
+go up; test errors go down). </p><h3 id="k-again"><em>K</em> Again</h3><p class="new">It is wise to work with different <em>K</em> values.  Each model's error
  can be plotted against a set of hyper-parameters to determine a valid set.</p></div></div></body></html>

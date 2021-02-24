@@ -37,12 +37,12 @@ over-fitting can be an issue.  </p><h2 id="special-k">Special K</h2><img alt="sp
  in a 'memorized' overfit model.  Too big, the model becomes simplistic.</p><p class="new">The <em>K</em> for this algorithm is a <strong><em>hyper-parameter</em></strong> -- a parameter that is not
  learned by the algorithm.  Hyper-parameters are selected through experience, 
  rules-of-thumb (best practices), research, and experimentation.</p><p class="new">When a model has multiple hyper-parameters, it can result in many different
- configurations in order to find an optimal configuration.</p><h3 id="start-with-sqrt">start with <code>sqrt</code></h3><p class="new">A good starting point is setting K to the square root of the number
- of instances in the data: <img alt="math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" style="display:inline-block"/></p><h3 id="make-it-odd">make it odd</h3><p class="new">However if K is even, you will decrease it by one.  Since voting is done by
- majority rules; an odd K will relieve you from breaking ties.</p><h3 id="multiple-classes">multiple classes</h3><p class="new">Another adjustment is to make sure K isn't equal to the number of classes
+ configurations in order to find an optimal configuration.</p><h3 id="start-with-sqrt">Start with <code>sqrt</code></h3><p class="new">A good starting point is setting K to the square root of the number
+ of instances in the data: <img alt="math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" style="display:inline-block"/></p><h3 id="make-it-odd">Make it odd</h3><p class="new">However if K is even, you will decrease it by one.  Since voting is done by
+ majority rules; an odd K will relieve you from breaking ties.</p><h3 id="multiple-classes">Multiple classes</h3><p class="new">Another adjustment is to make sure K isn't equal to the number of classes
  you have. In a multi-class situation, you can still end up with ties. For 
  example, if you have 3 classes and <code>K=3</code> and the closest neighbors are:</p><ol start="1"><li>red</li><li>green</li><li>blue</li></ol><p class="new">Who would win?
-So K must not be a multiple of the number of classes in your labels. </p><h3 id="finding-k">finding K</h3><p class="new">Once we understand how to evaluate the KNN results, you can use a metric and
+So K must not be a multiple of the number of classes in your labels. </p><h3 id="finding-k">Finding K</h3><p class="new">Once we understand how to evaluate the KNN results, you can use a metric and
  just iterate over different values of K, selecting the one that gives you
   the best performance. If this is computationally infeasible, you can
  experiment with just a few different <code>K</code>'s or use sampling to build a

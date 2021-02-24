@@ -34,16 +34,15 @@ a 'label' to an instance/datapoint). The goal of KNN is to determine
 confidently predict the corresponding output <code>y</code>.</p><h2 id="voting-on-similarity">Voting on Similarity</h2><p class="new">The KNN algorithm essentially picks the closest <em>K</em> neighbors to an unseen
  observation (the unlabeled data point). Each neighbor then votes to
   declare the new point is most like them. Majority voting is then used (K
-   should be odd). 
- For example, if K is 5, the 5 closest neighbors are selected to a new instance. 
- If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very rough</em> outline of how the algorithm works:</p><pre><code>K=5
+   should be odd). Other voting schemes can also be used. For example, 
+   majority voting with a weighted voting scheme based on distance or domain knowledge.</p><p class="new">For example, if K is 5, the 5 closest neighbors to a new instance are selected. 
+If 3 of them are 'yellow', then the new point is deemed 'yellow'.</p><p class="new">Here's <em>very rough</em> outline of how the algorithm works:</p><pre><code>K=5
 # init with some large distances 
-top5 = [2**32 for i in range(0,K)] 
+closest = [2**32 for i in range(0,K)] 
 for element in dataset:
    dist = calculate_distance(element, new_instance)
-   add_if_closer(element, dist, top5)
-best = get_majority(top5)</code></pre><p class="new">Other voting schemes can also be used. For example, majority voting with a 
-weighted voting scheme based on distance or domain knowledge.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
+   add_if_closer(element, dist, closest)
+best = get_majority(closest)</code></pre><p class="new">We will go through the algorithm in a bit.</p><h2 id="metrics-on-similarity">Metrics on Similarity</h2><p class="new">The <em>main</em> component in the above pseudo code is <code>calculate_distance</code>.  KNN
  needs a metric to determine how 'far' two data instances are from each other.
 We will have a dedicated lesson on distance metrics, but a common one for KNN
  is euclidean distance. The distance between each feature or attribute is
@@ -91,12 +90,12 @@ over-fitting can be an issue.  </p><h2 id="special-k">Special K</h2><img alt="sp
  in a 'memorized' overfit model.  Too big, the model becomes simplistic.</p><p class="new">The <em>K</em> for this algorithm is a <strong><em>hyper-parameter</em></strong> -- a parameter that is not
  learned by the algorithm.  Hyper-parameters are selected through experience, 
  rules-of-thumb (best practices), research, and experimentation.</p><p class="new">When a model has multiple hyper-parameters, it can result in many different
- configurations in order to find an optimal configuration.</p><h3 id="start-with-sqrt">start with <code>sqrt</code></h3><p class="new">A good starting point is setting K to the square root of the number
- of instances in the data: <img alt="math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" style="display:inline-block"/></p><h3 id="make-it-odd">make it odd</h3><p class="new">However if K is even, you will decrease it by one.  Since voting is done by
- majority rules; an odd K will relieve you from breaking ties.</p><h3 id="multiple-classes">multiple classes</h3><p class="new">Another adjustment is to make sure K isn't equal to the number of classes
+ configurations in order to find an optimal configuration.</p><h3 id="start-with-sqrt">Start with <code>sqrt</code></h3><p class="new">A good starting point is setting K to the square root of the number
+ of instances in the data: <img alt="math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20K%3Dint(%5Csqrt%7Bn%7D)" style="display:inline-block"/></p><h3 id="make-it-odd">Make it odd</h3><p class="new">However if K is even, you will decrease it by one.  Since voting is done by
+ majority rules; an odd K will relieve you from breaking ties.</p><h3 id="multiple-classes">Multiple classes</h3><p class="new">Another adjustment is to make sure K isn't equal to the number of classes
  you have. In a multi-class situation, you can still end up with ties. For 
  example, if you have 3 classes and <code>K=3</code> and the closest neighbors are:</p><ol start="1"><li>red</li><li>green</li><li>blue</li></ol><p class="new">Who would win?
-So K must not be a multiple of the number of classes in your labels. </p><h3 id="finding-k">finding K</h3><p class="new">Once we understand how to evaluate the KNN results, you can use a metric and
+So K must not be a multiple of the number of classes in your labels. </p><h3 id="finding-k">Finding K</h3><p class="new">Once we understand how to evaluate the KNN results, you can use a metric and
  just iterate over different values of K, selecting the one that gives you
   the best performance. If this is computationally infeasible, you can
  experiment with just a few different <code>K</code>'s or use sampling to build a
@@ -264,7 +263,7 @@ specifically it is the harmonic mean of the two.</p><p class="new">The F1 Score 
 a better indicator of a model's performance than accuracy. See <a href="https://scikit-learn.org/stable/modules/model_evaluation.html#precision-recall-f-measure-metrics" target="_blank">the documentation</a>
  for more details.</p><div class="ide code-starter clearfix"><pre><code>from sklearn.metrics import f1_score
 print(f1_score(y_test, y_pred))</code></pre></div><h2 id="small-adjustments">Small Adjustments</h2><p class="new">Before claiming victory (or defeat), there's a few things to take under
- consideration.</p><h3 id="normalization">normalization</h3><p class="new">Consider <em>where</em> we did the data normalization. We applied the 
+ consideration.</p><h3 id="normalization">Normalization</h3><p class="new">Consider <em>where</em> we did the data normalization. We applied the 
 standardization (which relies on the mean and variance of the data) to the entire 
 dataset. This is not quite right. </p><p class="new">The normalization step should be applied to the training and test data but we
  must be careful <em>how</em> the normalization is done. The data held out for 
@@ -321,12 +320,12 @@ training and testing sets for different values of <code>K</code>.</p><pre><code>
 print('test', knn.score(X_test, y_test))</code></pre><ul><li><p class="new">High Bias — Low Variance (underfitting):</p><ul><li>The predictions will be similar to one another but on average, they are inaccurate.</li></ul></li><li><p class="new">Low Bias — High Variance (overfitting):</p><ul><li>Models are somewhat accurate but inconsistent on averages. A small change in 
 the data can cause a large error.</li></ul></li></ul><p class="new">The following attempts to summarize the bias-variance landscape:  Note on the 
 diagonal 'dimension' models move from simple under-fitting to complex over-fitting.</p><img alt="bias_variance.png" class="center iw400 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/knn/html/bias_variance.png"/><p class="new">In some cases we can use techniques to make sure we don't overfit or underfit
- a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. The are accurate and consistent 
+ a model -- but it is always a balancing act.</p><h2 id="knn-inaccuracies">KNN inaccuracies:</h2><p class="new">We want our models to have low bias and low variance. They are accurate and consistent 
 on averages. As mentioned, this is not always possible and there is usually a
  tradeoff. We can see the bias/variance tradeoff with KNN.</p><p class="new">When k is large(<code>k=n</code>) there is high bias. The model is not flexible and is
  overly simple (ignores training) and underfits the data.</p><p class="new">When k is small (<code>k=1</code>) there is high variance (sensitive to sample randomness), 
 and it does not generalize well. It has low bias and the model overfits the data.</p><p class="new">So as you increase <code>k</code>, the bias increases, but the variance decreases (training errors 
-go up; test errors go down). </p><h3 id="k-again"><em>K</em> again</h3><p class="new">It is wise to work with different <em>K</em> values.  Each model's error
+go up; test errors go down). </p><h3 id="k-again"><em>K</em> Again</h3><p class="new">It is wise to work with different <em>K</em> values.  Each model's error
  can be plotted against a set of hyper-parameters to determine a valid set.</p><h1 class="section" id="section5">The ML Lexicon 📓 </h1><p class="new">Let's go over a few additional terms using the context of the KNN algorithm.</p><h2 id="non-parametric">Non Parametric</h2><p class="new">Although KNN does indeed have a hyper-parameter (i.e. <em>K</em>), because it makes
  no assumptions on distribution of the underlying data (is it normal, bi-modal, 
 random) it is considered to be a <em>non-parametric</em> algorithm. In this context, 
