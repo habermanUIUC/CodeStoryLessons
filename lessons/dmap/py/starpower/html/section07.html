@@ -18,8 +18,8 @@
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><p class="new">In the above example *numbers is taking the list and unpacking it into its 
-elements (1,2,3 .. 10) and sending those individual elements to <code>add_me()</code>, with each element 
-as its own parameter.</p><p class="new">Similarly, you can use the <code>**</code> syntax to unpack a dictionary to send it to 
+elements (1, 2, 3, 4, .. 9) and sending those individual elements to <code>add_me()</code>, 
+with each element as its own parameter.</p><p class="new">Similarly, you can use the <code>**</code> syntax to unpack a dictionary to send it to 
 a function that accepts an infinite number of key/value pair arguments:</p><pre><code>def who_am_i(**kargs):
   for k,v in kargs.items():
     print(k,v)
