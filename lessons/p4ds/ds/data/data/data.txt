@@ -1,0 +1,11 @@
+ID Age Gender Height Blood Happy? #Children Smoke? Class
+01 25 F 1.62 B  Agree             0 No  I
+02 35 F 1.58 O  Strongly agree    1 Yes II
+03 44 M 1.35 A  Disagree          3 Yes I
+04 28 F 1.54 AB Disagree          0 No  III
+05 35 M 1.35 O  Indifferent       2 Yes I
+06 42 M 1.21 B  Agree             2 Yes IV
+07 36 F 1.76 A  Strongly disagree 1 No  IV
+08 38 M 1.57 A  Disagree          1 Yes V
+09 30 M 1.47 AB Indifferent       0 No  III
+10 40 F 1.18 B  Strongly agree    6 No  I
