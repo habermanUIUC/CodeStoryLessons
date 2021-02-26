@@ -21,7 +21,7 @@
 <img alt="idf-cv.png" class="mt-2 mb-4 mr-3 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf-skl/html/idf-cv.png"/></p><p class="new">The calculated values do not match (e.g. for the token 'i', we calculated 0.693; and sklearn's value is 1.511). 
 However the relative magnitudes of the words seems about correct. In order to
  get the numbers to match, you will need to adjust <em>both</em> your TF and IDF calculations and adjust the calculations that <code>TfidfTransformer</code> uses.</p><p class="new">One of the key points of this lesson is to understand and confirm the output of 
-various ]algorithms. It's almost always necessary to confirm or validate your 
+various algorithms. It's almost always necessary to confirm or validate your 
 implementation (or your use of another library) with a reference. 
 Let's go through all the adjustments.</p><h3 id="idf-formula">IDF Formula</h3><p class="new">We used the standard formula for idf as
 <img alt="math?math=%5CLarge%20idf_j%20%5C%2C%5C%2C%20%3D%20%5C%2C%5C%2C%20log(%5Cdfrac%7Bn%7D%7Bdf_j%20%7D)" class="mb-2 formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20idf_j%20%5C%2C%5C%2C%20%3D%20%5C%2C%5C%2C%20log(%5Cdfrac%7Bn%7D%7Bdf_j%20%7D)"/></p><p class="new">Sklearn's default idf formula is <strong>1 + math.log( (N+1)/(n+1) )</strong> where N is total number of documents and n is the 

@@ -21,8 +21,8 @@
 either <code>transform</code> or <code>fit_transform</code>?</p><pre><code>tf_idf_vector = tfidf_transformer.transform(doc_term_matrix)</code></pre><p class="new">It is actually a <em>sparse</em> matrix (<a href="https://docs.scipy.org/doc/scipy/reference/sparse.html" target="_blank">see sklearn doc</a>). 
 As you can imagine, as the set of documents become larger, there will a large set of words that only belong
 to a small set of documents; hence, the tf•idf matrix will contain mostly zeros.
-<img alt="sparse_doc.png" class="float-left mx-3 my-3 border iw300" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf-skl/html/sparse_doc.png"/></p><p class="new">The sklearn sparse matrix efficiently stores the necessary data.  Many of sklearn's algorithms can work with a sparse matrix
-as well as regular Numpy vectors.<br/><br class="clear-both"/></p><blockquote><p class="new"><em><strong>Coder's Log</strong></em>
+<img alt="sparse_doc.png" class="float-left mx-3 my-3 border iw300" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/text/tfidf-skl/html/sparse_doc.png"/></p><p class="new">The sklearn sparse matrix efficiently stores the necessary data.  Many of sklearn's 
+algorithms can work with a sparse matrix as well as regular Numpy vectors.<br/><br class="clear-both"/></p><blockquote><p class="new"><em><strong>Coder's Log</strong></em>
 As you become more familiar with using sparse matrices, you may come across
  references to <code>indptr</code>, <code>data</code>, <code>indices</code>. 
 The image below helps depict sklearn's efficient (via indirection
