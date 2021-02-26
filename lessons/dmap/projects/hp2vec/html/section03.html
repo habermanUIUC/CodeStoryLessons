@@ -30,13 +30,9 @@ import LessonUtil as Util
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def post_clean(book):
-  # you can use this function if you want to
-  # do any post book cleaning
-  return book
   
 def build_hp_dataset(count=3, stopwords=[]):
    # count is the number of documents in the corpus (harry potter books)
    # remove any stopwords
    # returns an array of documents
-   return [ post_clean(read_one()) ]</code></pre></div></div></div></body></html>
+   return [ read_one() ]</code></pre></div></div></div></body></html>

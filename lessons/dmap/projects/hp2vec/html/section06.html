@@ -17,11 +17,7 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>default_config = Util.build_config(corpus)
-print("Default config", default_config)
-
-config1 = Util.build_config(corpus, size=75, window=15, iter=75)
-config2 = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
-
-print("Custom config1", config1)
-print("Custom config2", config2)</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec.</p><p class="new">A few notes:</p><ul><li>You are free to add additional parameters to see if you can build an
+awesome model; however, for the lesson, only the above parameters in a
+configuration will be used.</li><li><code>iter</code> is capped at 100</li><li><code>size</code> is capped at 300</li><li>The <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec" target="_blank">Word2Vec documentation</a> 
+should be used for additional details.</li></ul></div></div></body></html>

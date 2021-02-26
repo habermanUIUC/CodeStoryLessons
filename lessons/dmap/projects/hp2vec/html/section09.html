@@ -17,18 +17,5 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def build_model(config):
-
-    model = gensim.models.Word2Vec(
-              config.doc,                  # each sentence is a HP book
-              size=min(config.size,300),   # how big the output vectors (spacy == 300)
-              window=config.window,        # size of window around the target word
-              min_count=config.min_count,  # ignore words that occur less than 2 times
-              sg=config.sg,                # 0 == CBOW (default) 1 == skip gram
-          
-              negative=config.negative,
-              # keep these the same
-              workers=1,  # threads to use
-              iter=min(config.iter, 100)  # max iterations is 100,
-    )
-    return model</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section5"><em>Running with the model</em></h1><p class="new">We now have enough in place to start the process of building a Word2Vec model
+ with Harry Potter Books. So Exciting. Below is a sample pipeline.</p><p class="new">Make sure you <em>understand</em> the pipeline inside <code>simple_test</code>.</p></div></div></body></html>

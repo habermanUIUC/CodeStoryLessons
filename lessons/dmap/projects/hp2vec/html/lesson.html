@@ -53,32 +53,27 @@ import LessonUtil as Util
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-def post_clean(book):
-  # you can use this function if you want to
-  # do any post book cleaning
-  return book
   
 def build_hp_dataset(count=3, stopwords=[]):
    # count is the number of documents in the corpus (harry potter books)
    # remove any stopwords
    # returns an array of documents
-   return [ post_clean(read_one()) ]</code></pre></div><p class="new">If you do any custom cleaning, put that inside the function <code>post_clean</code>. Note 
-that the analogies used to score the model are not cleaned using your function.</p><h1 class="section" id="section3">Configuring the Model </h1><p class="new">Once you have your corpus, the next step is to build a configuration that will
+   return [ read_one() ]</code></pre></div><h1 class="section" id="section3">Configuring the Model </h1><p class="new">Once you have your corpus, the next step is to build a configuration that will
  be used to configure the Word2Vec model. This lesson comes with a special
  class that you will use to create a configuration object.</p><pre><code>config = Util.build_config(corpus, size=75, window=15, iter=75)</code></pre><p class="new">Take a look below at how the configuration will be used to build a model:</p><pre><code>def build_model(config):
-    return gensim.models.Word2Vec(sentences=config.doc, size=config.size, ... )</code></pre><p class="new">The same hyperparameters that you can configure a Word2Vec model are in the
- configuration:</p><div class="ide code-starter clearfix"><pre><code>default_config = Util.build_config(corpus)
+    return gensim.models.Word2Vec(sentences=config.doc, size=config.size, ... )</code></pre><p class="new">The configuration object has the following fields:</p><p class="new"><code>['doc', 'size', 'window', 'min_count', 'sg', 'negative', 'iter', 'name']</code></p><ul><li>The same hyperparameters that you can configure a Word2Vec model are in the configuration</li><li>The <code>name</code> field allows you to name the configuration if you want to keep track of it.</li></ul><div class="ide code-starter clearfix"><pre><code>default_config = Util.build_config(corpus)
 print("Default config", default_config)
 
 config1 = Util.build_config(corpus, size=75, window=15, iter=75)
 config2 = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
 
 print("Custom config1", config1)
-print("Custom config2", config2)</code></pre></div><p class="new">The configuration object has the following fields:</p><p class="new"><code>['doc', 'size', 'window', 'min_count', 'sg', 'negative', 'iter', 'name']</code></p><p class="new">The <code>name</code> field allows you to name the configuration if you want to keep track of it.</p><h1 class="section" id="section4">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec.</p><p class="new">A few notes:</p><ul><li>You are free to add additional parameters to see if you can build an
+print("Custom config2", config2)</code></pre></div><h1 class="section" id="section4">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec.</p><p class="new">A few notes:</p><ul><li>You are free to add additional parameters to see if you can build an
 awesome model; however, for the lesson, only the above parameters in a
 configuration will be used.</li><li><code>iter</code> is capped at 100</li><li><code>size</code> is capped at 300</li><li>The <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec" target="_blank">Word2Vec documentation</a> 
 should be used for additional details.</li></ul><div class="ide code-starter clearfix"><pre><code>def build_model(config):
 
+    # no need to change anything
     model = gensim.models.Word2Vec(
               config.doc,                  # each sentence is a HP book
               size=min(config.size,300),   # how big the output vectors (spacy == 300)
@@ -95,7 +90,7 @@ should be used for additional details.</li></ul><div class="ide code-starter cle
  initialization.  This comes at the cost when trying to compare different
  versions of models. You can control some of this by setting <code>workers=1</code>. </p><p class="new">However, the results you get in this notebook will <strong>NOT</strong> be the same when 
 you submit on gradescope. They should be close though. </p><h1 class="section" id="section5"><em>Running with the model</em></h1><p class="new">We now have enough in place to start the process of building a Word2Vec model
- with Harry Potter Books. So Exciting. Below is a sample pipeline.</p><div class="ide code-starter clearfix"><pre><code>def simple_test():
+ with Harry Potter Books. So Exciting. Below is a sample pipeline.</p><p class="new">Make sure you <em>understand</em> the pipeline inside <code>simple_test</code>.</p><div class="ide code-starter clearfix"><pre><code>def simple_test():
     # build the harry potter corpus
     corpus = build_hp_dataset()
     
@@ -107,7 +102,7 @@ you submit on gradescope. They should be close though. </p><h1 class="section" i
 
     # let's hope harry is in there
     harry = model.wv['harry']
-    print(model.wv.most_similar(positive=['ron']))</code></pre></div><p class="new">Make sure you <em>understand</em> the pipeline inside <code>simple_test</code>.</p><h1 class="section" id="section6">Scoring the Model</h1><p class="new">Now with that in place, the <strong><em>fun</em></strong> begins.  It is your job to find the
+    print(model.wv.most_similar(positive=['ron']))</code></pre></div><p class="new">What do you see?  If you built a good model, would hope to see hermione near the top?</p><h1 class="section" id="section6">Scoring the Model</h1><p class="new">Now with that in place, the <strong><em>fun</em></strong> begins.  It is your job to find the
  best set of parameters (hyperparameters) to configure the Word2Vec model.</p><p class="new">The <code>LessonUtil</code> module has a set of tests you can use to evaluate your models.
 Each test looks like the following:</p><pre><code> (['ron'],       [],       ['hermione', 'harry']), 
  (['voldemort'], ['evil'], ['dumbledore']),</code></pre><p class="new">Each test has 3 components:</p><ul><li>the first component is the <em>positive</em> vectors</li><li>the second component is the <em>negative</em> vectors</li><li>the third component is a set of possible answers</li></ul><p class="new">Looking at the first example: <code>(['ron'], [],['hermione', 'harry'])</code></p><p class="new">Here the <strong>Ron</strong> vector should be close to either (or both) the <strong>Hermione</strong> or <strong>Harry</strong> vector.</p><p class="new">Looking at the second example: <code>(['voldemort'], ['evil'], ['dumbledore'])</code></p><p class="new">The vector that is the result of the <strong>Voldemort</strong> vector <code>-</code> the <strong>evil</strong> vector; 
@@ -132,6 +127,7 @@ is posted on a leaderboard to see which model performs the best.  </p><h2 id="ho
     # build the corpus
     # return the config with the best hyperparameters 
     # return Util.build_config(corpus, ... )
+    pass
 
 def do_experiments():
     # do what you need to do 

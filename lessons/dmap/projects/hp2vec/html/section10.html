@@ -17,7 +17,16 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="preventing-randomness">Preventing Randomness</h2><p class="new">Like most machine learning algorithms, randomization is introduced during
- initialization.  This comes at the cost when trying to compare different
- versions of models. You can control some of this by setting <code>workers=1</code>. </p><p class="new">However, the results you get in this notebook will <strong>NOT</strong> be the same when 
-you submit on gradescope. They should be close though. </p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def simple_test():
+    # build the harry potter corpus
+    corpus = build_hp_dataset()
+    
+    # build the configuration to try/experiment 
+    config = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
+    
+    # build the model with this configuration
+    model  = build_model(config)
+
+    # let's hope harry is in there
+    harry = model.wv['harry']
+    print(model.wv.most_similar(positive=['ron']))</code></pre></div></div></div></body></html>

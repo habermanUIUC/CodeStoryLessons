@@ -17,5 +17,7 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">If you do any custom cleaning, put that inside the function <code>post_clean</code>. Note 
-that the analogies used to score the model are not cleaned using your function.</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Configuring the Model </h1><p class="new">Once you have your corpus, the next step is to build a configuration that will
+ be used to configure the Word2Vec model. This lesson comes with a special
+ class that you will use to create a configuration object.</p><pre><code>config = Util.build_config(corpus, size=75, window=15, iter=75)</code></pre><p class="new">Take a look below at how the configuration will be used to build a model:</p><pre><code>def build_model(config):
+    return gensim.models.Word2Vec(sentences=config.doc, size=config.size, ... )</code></pre><p class="new">The configuration object has the following fields:</p><p class="new"><code>['doc', 'size', 'window', 'min_count', 'sg', 'negative', 'iter', 'name']</code></p><ul><li>The same hyperparameters that you can configure a Word2Vec model are in the configuration</li><li>The <code>name</code> field allows you to name the configuration if you want to keep track of it.</li></ul></div></div></body></html>

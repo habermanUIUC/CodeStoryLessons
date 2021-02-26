@@ -17,7 +17,7 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec.</p><p class="new">A few notes:</p><ul><li>You are free to add additional parameters to see if you can build an
-awesome model; however, for the lesson, only the above parameters in a
-configuration will be used.</li><li><code>iter</code> is capped at 100</li><li><code>size</code> is capped at 300</li><li>The <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec" target="_blank">Word2Vec documentation</a> 
-should be used for additional details.</li></ul></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="preventing-randomness">Preventing Randomness</h2><p class="new">Like most machine learning algorithms, randomization is introduced during
+ initialization.  This comes at the cost when trying to compare different
+ versions of models. You can control some of this by setting <code>workers=1</code>. </p><p class="new">However, the results you get in this notebook will <strong>NOT</strong> be the same when 
+you submit on gradescope. They should be close though. </p></div></div></body></html>

@@ -17,16 +17,20 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def simple_test():
-    # build the harry potter corpus
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section6">Scoring the Model</h1><p class="new">Now with that in place, the <strong><em>fun</em></strong> begins.  It is your job to find the
+ best set of parameters (hyperparameters) to configure the Word2Vec model.</p><p class="new">The <code>LessonUtil</code> module has a set of tests you can use to evaluate your models.
+Each test looks like the following:</p><pre><code> (['ron'],       [],       ['hermione', 'harry']), 
+ (['voldemort'], ['evil'], ['dumbledore']),</code></pre><p class="new">Each test has 3 components:</p><ul><li>the first component is the <em>positive</em> vectors</li><li>the second component is the <em>negative</em> vectors</li><li>the third component is a set of possible answers</li></ul><p class="new">Looking at the first example: <code>(['ron'], [],['hermione', 'harry'])</code></p><p class="new">Here the <strong>Ron</strong> vector should be close to either (or both) the <strong>Hermione</strong> or <strong>Harry</strong> vector.</p><p class="new">Looking at the second example: <code>(['voldemort'], ['evil'], ['dumbledore'])</code></p><p class="new">The vector that is the result of the <strong>Voldemort</strong> vector <code>-</code> the <strong>evil</strong> vector; 
+the hope is that result vector is close/similar to the <strong>Dumbledore</strong> vector.</p><p class="new"><code>veldemort - evil = dumbledore</code></p><h2 id="wheres-the-tests">Where's the Tests?</h2><p class="new">You can get and print out the tests for model evaluation as well:</p><pre><code>def print_tests():
+    tests = Util.tests
+    for t in tests:
+        print(t)</code></pre><h2 id="whos-keeping-score">Who's keeping Score?</h2><p class="new">The <code>LessonUtil</code> module also has a crude scorer for you to use:</p><pre><code>def simple_score():
     corpus = build_hp_dataset()
-    
-    # build the configuration to try/experiment 
     config = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
-    
-    # build the model with this configuration
     model  = build_model(config)
-
-    # let's hope harry is in there
-    harry = model.wv['harry']
-    print(model.wv.most_similar(positive=['ron']))</code></pre></div></div></div></body></html>
+    score = Util.score_model(model, debug=True)
+    print("total score", score)</code></pre><p class="new"><code>Util.score_model</code> uses <code>model.wv.most_similar</code> and then checks the result to
+ see if any of the expected words are found. The <code>topn</code> parameter is set to 25.</p><pre><code>result = model.wv.most_similar(positive=pos, negative=neg, topn=topn)</code></pre><h2 id="test-harness-">Test Harness </h2><p class="new">Be sure to wrap all your testing code in a function named <code>do_experiments</code>. 
+Do <strong>NOT</strong> build and test your models outside of this function.  Otherwise, when you
+ submit your notebook, your code could take a long time to run.</p><pre><code>def do_experiments():
+   # see simple_test for an example</code></pre></div></div></body></html>
