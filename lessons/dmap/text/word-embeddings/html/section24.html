@@ -17,7 +17,10 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Lesson Assignment </h1><p class="new">Using what you learned in this lesson, you are going to create a function named
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section4">Lesson Assignment </h1><p class="new">This lesson uses a significant amount of compute resources. The <code>ide.tester</code> 
+skips almost all the tests.  You will need to use gradescope for final
+ testing and credit. </p><p class="new">However, you have enough experience to create your own tests. Once the model
+ is loaded, each function shouldn't take too long to run in the notebook.</p><p class="new">Using what you learned in this lesson, you are going to create a function named
 <code>find_analogy</code>.  This function takes 2 arguments:</p><ul><li>the nlp object to use to get the spacy word vectors</li><li>an array of 3 strings (used as words)</li></ul><p class="new">The function returns a string: </p><ul><li>name/text of the closest word that completes the analogy</li></ul><h3 id="example-use">example use</h3><pre><code>print(find_analogy(nlp, ['france', 'paris', 'rome']))</code></pre><p class="new">This should print <code>Italy</code> or <code>italy</code> (case will not matter for an accepted answer). 
 One thing to remember is the order of the words given to <code>find_analogy</code> will matter. The
  same math formula is used so these analogies are 'hard' coded with how the
