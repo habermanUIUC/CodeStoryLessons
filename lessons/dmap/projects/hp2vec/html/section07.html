@@ -17,19 +17,11 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def build_model(config):
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>default_config = Util.build_config(corpus)
+print("Default config", default_config)
 
-    # no need to change anything
-    model = gensim.models.Word2Vec(
-              config.doc,                  # each sentence is a HP book
-              size=min(config.size,300),   # how big the output vectors (spacy == 300)
-              window=config.window,        # size of window around the target word
-              min_count=config.min_count,  # ignore words that occur less than 2 times
-              sg=config.sg,                # 0 == CBOW (default) 1 == skip gram
-          
-              negative=config.negative,
-              # keep these the same
-              workers=1,  # threads to use
-              iter=min(config.iter, 100)  # max iterations is 100,
-    )
-    return model</code></pre></div></div></div></body></html>
+config1 = Util.build_config(corpus, size=75, window=15, iter=75)
+config2 = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
+
+print("Custom config1", config1)
+print("Custom config2", config2)</code></pre></div></div></div></body></html>

@@ -40,7 +40,7 @@ shows how to read a single Harry Potter book.</p><pre><code>def read_one():
    # remove any stopwords
    # returns an array of documents (same size as count)
    return [ read_one() ]</code></pre><ul><li>You are free to experiment using any number of books from the
-collections; however, <strong>only books 1-3</strong> will be used for submitted to gradescope for evaluation.</li><li>You should remove stopwords if any are passed in.</li><li>You can get a list of words from a book by doing a simple <code>split</code> on the content.</li></ul><div class="ide code-starter clearfix"><pre><code>import gensim
+collections; however, <strong>only books 1-3</strong> will be used on gradescope for evaluation.</li><li>You should remove stopwords if any are passed in.</li><li>You can get a list of words from a book by doing a simple <code>split</code> on the content.</li></ul><div class="ide code-starter clearfix"><pre><code>import gensim
 from gensim.models import KeyedVectors
 
 import nltk
@@ -53,22 +53,12 @@ import LessonUtil as Util
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
-  
 def build_hp_dataset(count=3, stopwords=[]):
    # count is the number of documents in the corpus (harry potter books)
    # remove any stopwords
    # returns an array of documents
-   return [ read_one() ]</code></pre></div><h1 class="section" id="section3">Configuring the Model </h1><p class="new">Once you have your corpus, the next step is to build a configuration that will
- be used to configure the Word2Vec model. This lesson comes with a special
- class that you will use to create a configuration object.</p><pre><code>config = Util.build_config(corpus, size=75, window=15, iter=75)</code></pre><p class="new">Take a look below at how the configuration will be used to build a model:</p><pre><code>def build_model(config):
-    return gensim.models.Word2Vec(sentences=config.doc, size=config.size, ... )</code></pre><p class="new">The configuration object has the following fields:</p><p class="new"><code>['doc', 'size', 'window', 'min_count', 'sg', 'negative', 'iter', 'name']</code></p><ul><li>The same hyperparameters that you can configure a Word2Vec model are in the configuration</li><li>The <code>name</code> field allows you to name the configuration if you want to keep track of it.</li></ul><div class="ide code-starter clearfix"><pre><code>default_config = Util.build_config(corpus)
-print("Default config", default_config)
-
-config1 = Util.build_config(corpus, size=75, window=15, iter=75)
-config2 = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
-
-print("Custom config1", config1)
-print("Custom config2", config2)</code></pre></div><h1 class="section" id="section4">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec.</p><p class="new">A few notes:</p><ul><li>You are free to add additional parameters to see if you can build an
+   return [ read_one() ]</code></pre></div><h1 class="section" id="section3">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec. The next section will
+ describe how to create a configuration for <code>build_model</code> to use.</p><p class="new">A few notes:</p><ul><li>Most of the configuartion values are coming from the <code>config</code> parameter</li><li>You are free to add additional parameters to see if you can build an
 awesome model; however, for the lesson, only the above parameters in a
 configuration will be used.</li><li><code>iter</code> is capped at 100</li><li><code>size</code> is capped at 300</li><li>The <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec" target="_blank">Word2Vec documentation</a> 
 should be used for additional details.</li></ul><div class="ide code-starter clearfix"><pre><code>def build_model(config):
@@ -86,7 +76,17 @@ should be used for additional details.</li></ul><div class="ide code-starter cle
               workers=1,  # threads to use
               iter=min(config.iter, 100)  # max iterations is 100,
     )
-    return model</code></pre></div><h2 id="preventing-randomness">Preventing Randomness</h2><p class="new">Like most machine learning algorithms, randomization is introduced during
+    return model</code></pre></div><h1 class="section" id="section4">Configuring the Model </h1><p class="new">Now that you know how the model will be built AND you have your corpus, the next step 
+is to build a configuration that will be used to configure the Word2Vec model. 
+This lesson comes with a special class that you will use to create a configuration object.</p><pre><code>config = Util.build_config(corpus, size=75, window=15, iter=75)</code></pre><p class="new">Take a look below at how the configuration will be used to build a model:</p><pre><code>def build_model(config):
+    return gensim.models.Word2Vec(sentences=config.doc, size=config.size, ... )</code></pre><p class="new">The configuration object has the following fields:</p><p class="new"><code>['doc', 'size', 'window', 'min_count', 'sg', 'negative', 'iter', 'name']</code></p><ul><li>The same hyperparameters that you can configure a Word2Vec model are in the configuration</li><li>The <code>name</code> field allows you to name the configuration if you want to keep track of it.</li></ul><div class="ide code-starter clearfix"><pre><code>default_config = Util.build_config(corpus)
+print("Default config", default_config)
+
+config1 = Util.build_config(corpus, size=75, window=15, iter=75)
+config2 = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
+
+print("Custom config1", config1)
+print("Custom config2", config2)</code></pre></div><h2 id="preventing-randomness">Preventing Randomness</h2><p class="new">Like most machine learning algorithms, randomization is introduced during
  initialization.  This comes at the cost when trying to compare different
  versions of models. You can control some of this by setting <code>workers=1</code>. </p><p class="new">However, the results you get in this notebook will <strong>NOT</strong> be the same when 
 you submit on gradescope. They should be close though. </p><h1 class="section" id="section5"><em>Running with the model</em></h1><p class="new">We now have enough in place to start the process of building a Word2Vec model
@@ -102,7 +102,7 @@ you submit on gradescope. They should be close though. </p><h1 class="section" i
 
     # let's hope harry is in there
     harry = model.wv['harry']
-    print(model.wv.most_similar(positive=['ron']))</code></pre></div><p class="new">What do you see?  If you built a good model, would hope to see hermione near the top?</p><h1 class="section" id="section6">Scoring the Model</h1><p class="new">Now with that in place, the <strong><em>fun</em></strong> begins.  It is your job to find the
+    print(model.wv.most_similar(positive=['ron']))</code></pre></div><p class="new">What do you see? If you built a good model, would hope to see hermione near the top?</p><h1 class="section" id="section6">Scoring the Model</h1><p class="new">Now with that in place, the <strong><em>fun</em></strong> begins.  It is your job to find the
  best set of parameters (hyperparameters) to configure the Word2Vec model.</p><p class="new">The <code>LessonUtil</code> module has a set of tests you can use to evaluate your models.
 Each test looks like the following:</p><pre><code> (['ron'],       [],       ['hermione', 'harry']), 
  (['voldemort'], ['evil'], ['dumbledore']),</code></pre><p class="new">Each test has 3 components:</p><ul><li>the first component is the <em>positive</em> vectors</li><li>the second component is the <em>negative</em> vectors</li><li>the third component is a set of possible answers</li></ul><p class="new">Looking at the first example: <code>(['ron'], [],['hermione', 'harry'])</code></p><p class="new">Here the <strong>Ron</strong> vector should be close to either (or both) the <strong>Hermione</strong> or <strong>Harry</strong> vector.</p><p class="new">Looking at the second example: <code>(['voldemort'], ['evil'], ['dumbledore'])</code></p><p class="new">The vector that is the result of the <strong>Voldemort</strong> vector <code>-</code> the <strong>evil</strong> vector; 
@@ -125,9 +125,10 @@ See the lesson for details.</p><h2 id="step-2-experiment-">Step 2: Experiment </
 See the lesson for details.</p><h2 id="step-4--submit-to-gradescope--">Step 4:  Submit to gradescope.  </h2><p class="new">When you submit to gradescope, your model is built and scored. The score 
 is posted on a leaderboard to see which model performs the best.  </p><h2 id="how-many-points-will-you-get-">How many points will you get ?</h2><p class="new">The better your model performs, the more points you will earn (up to 100).</p><p class="new">You get 20 points just for following the directions 😀</p><p class="new">Your remaining 80 points are based on how many analogies you solve.</p><p class="new">Here's the grading scale (based on a test suite of 20 tests)</p><table><thead><tr><th>Correct</th><th>Score</th></tr></thead><tbody><tr><td>&gt; 14</td><td>100% of 80 points</td></tr><tr><td>&gt;= 12</td><td>95%</td></tr><tr><td>&gt;= 8</td><td>90%</td></tr><tr><td>&gt;= 6</td><td>80%</td></tr><tr><td>&lt; 6</td><td>70%</td></tr></tbody></table><p class="new">The default config, will get you 3 - 4 correct. </p><div class="ide code-starter clearfix"><pre><code>def get_best_config():
     # build the corpus
-    # return the config with the best hyperparameters 
-    # return Util.build_config(corpus, ... )
-    pass
+    corpus = build_hp_dataset()
+    
+    # TODO: return the config with the best hyperparameters 
+    return Util.build_config(corpus)
 
 def do_experiments():
     # do what you need to do 

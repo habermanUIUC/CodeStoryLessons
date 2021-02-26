@@ -19,9 +19,10 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def get_best_config():
     # build the corpus
-    # return the config with the best hyperparameters 
-    # return Util.build_config(corpus, ... )
-    pass
+    corpus = build_hp_dataset()
+    
+    # TODO: return the config with the best hyperparameters 
+    return Util.build_config(corpus)
 
 def do_experiments():
     # do what you need to do 

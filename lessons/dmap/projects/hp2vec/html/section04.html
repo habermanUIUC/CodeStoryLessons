@@ -17,7 +17,8 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Configuring the Model </h1><p class="new">Once you have your corpus, the next step is to build a configuration that will
- be used to configure the Word2Vec model. This lesson comes with a special
- class that you will use to create a configuration object.</p><pre><code>config = Util.build_config(corpus, size=75, window=15, iter=75)</code></pre><p class="new">Take a look below at how the configuration will be used to build a model:</p><pre><code>def build_model(config):
-    return gensim.models.Word2Vec(sentences=config.doc, size=config.size, ... )</code></pre><p class="new">The configuration object has the following fields:</p><p class="new"><code>['doc', 'size', 'window', 'min_count', 'sg', 'negative', 'iter', 'name']</code></p><ul><li>The same hyperparameters that you can configure a Word2Vec model are in the configuration</li><li>The <code>name</code> field allows you to name the configuration if you want to keep track of it.</li></ul></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Building the Model </h1><p class="new">You will build a word embedding model using Word2Vec. The next section will
+ describe how to create a configuration for <code>build_model</code> to use.</p><p class="new">A few notes:</p><ul><li>Most of the configuartion values are coming from the <code>config</code> parameter</li><li>You are free to add additional parameters to see if you can build an
+awesome model; however, for the lesson, only the above parameters in a
+configuration will be used.</li><li><code>iter</code> is capped at 100</li><li><code>size</code> is capped at 300</li><li>The <a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec" target="_blank">Word2Vec documentation</a> 
+should be used for additional details.</li></ul></div></div></body></html>
