@@ -25,10 +25,11 @@ while read -r line;do
     echo "doing ${TODO} ${line} ${dir} ${LESSON}"
     #echo "${SRC_DIR}"
     # cd to the directory so tar only keeps relative path
+    #     --exclude='*.ipynb' --exclude='*.gz' ${line} &> /tmp/log.txt
     cd "${root}"
     gtar --sort=name --owner=root:0 --group=root:0 --mtime='UTC 2021-01-01' \
          -cvf ${LESSON}.tar \
-         --exclude='*.ipynb' --exclude='*.gz' ${line} &> /tmp/log.txt
+         --exclude='*.ipynb' --exclude='*.tar.gz' ${line} &> /tmp/log.txt
     gzip -n ${LESSON}.tar
     /bin/mv ${LESSON}.tar.gz ${SRC_DIR}
     ls -la ${SRC_DIR}/*.gz
