@@ -26,6 +26,7 @@ while read -r line;do
     #echo "${SRC_DIR}"
     # cd to the directory so tar only keeps relative path
     #     --exclude='*.ipynb' --exclude='*.gz' ${line} &> /tmp/log.txt
+    # NOTE: some lessons have .gz datasets
     cd "${root}"
     gtar --sort=name --owner=root:0 --group=root:0 --mtime='UTC 2021-01-01' \
          -cvf ${LESSON}.tar \
