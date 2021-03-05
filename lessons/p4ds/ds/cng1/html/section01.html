@@ -1,0 +1,112 @@
+<!DOCTYPE html><html lang='en'><head><title>Cliff Note Generator</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}input{overflow:visible}[type=checkbox]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h2,h3,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}input:-ms-input-placeholder{color:#a0aec0}input::-ms-input-placeholder{color:#a0aec0}input::-moz-placeholder{color:#a0aec0}h1,h2,h3{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}input{padding:0;line-height:inherit;color:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-orange-300{--bg-opacity:1;background-color:#fbd38d;background-color:rgba(251,211,141,var(--bg-opacity))}.bg-green-200{--bg-opacity:1;background-color:#c6f6d5;background-color:rgba(198,246,213,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.border-indigo-500{--border-opacity:1;border-color:#667eea;border-color:rgba(102,126,234,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.cursor-pointer{cursor:pointer}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.font-sans{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.leading-normal{line-height:1.5}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.opacity-0{opacity:0}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-3{padding:.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.absolute{position:absolute}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-2\/3{width:66.666667%}.w-full{width:100%}@media (min-width:768px){.md\:w-2\/3{width:66.666667%}}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw300{height:auto;width:auto;max-width:300px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}.tab{font-size:1rem;border-color:#8c6728}.tab-content{max-height:0;max-width:100%;transition:max-height .35s}.tab input:checked~.tab-content{max-height:100vh}.tab input:checked+label{padding:1rem;border-left-width:2px;border-color:#6574cd;background-color:#f8fafc;color:#6574cd}.tab label::after{float:right;right:0;top:0;display:block;width:1em;height:1.5em;line-height:1.5;font-size:1rem;text-align:center;transition:all .35s}.tab input[type=checkbox]+label::after{content:"+";font-weight:700;border-width:1px;border-radius:9999px;border-color:#8c6728}.tab input[type=checkbox]:checked+label::after{transform:rotate(315deg);background-color:#6574cd;color:#f8fafc}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Data Science &amp; 🐍: Cliff Note Generator  </h1><img alt="cliff_notes.jpeg" class="float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/cng1/html/cliff_notes.jpeg"/><p class="new">Imagine that you had a Python function (or program) that accepted the text 
+of a book as input and returned a summary of that book: the characters, 
+the plot, the sentiment, etc. chapter by chapter.  I always dreamed of 
+having that machinery in 9th grade.  Our first data science project will 
+be just that (well a modest version).  A full version would need to use 
+machine learning and advanced NLP (natural language processing) and text 
+analysis. However, we will start with what we currently know and continue 
+to build on it as we get new ideas and more experience and knowledge -- it's how all great software gets built.</p><p class="new">We will use this text analysis example to introduce concepts and techniques 
+in data science to make sense of data (and to learn a lot of new Python 
+libraries and techniques).</p><h2 id="the-pipeline">The Pipeline</h2><p class="new">The previous lesson introduced the idea of a data processing pipeline where 
+each stage depends on the previous stage to transform raw data to information. 
+We will briefly discuss the first three stages within this example.</p><h3 id="pipeline-stage-1-understanding-the-context-">Pipeline Stage 1: Understanding the context </h3><p class="new">The main focus of the first stage is to understand the problem being solved 
+and the goals of the entire project.  The initial scope of our Cliff Note 
+Generator (CNG) will be to generate word counts for a given body of text.  </p><p class="new">For our first example, we will use the text (freely available) of 
+<em>The Adventures of Huckleberry Finn</em> and generate a simple "table" with two
+ columns: word and count.  For example, our goal is to produce the 
+ following table (the words and numbers are fictitious):</p><pre><code>word,  count 
+the,   400 
+Tom,   305 
+Polly, 206</code></pre><p class="new">This 'table' can then be converted based on how we want to communicate the 
+results (raw data saved in a file or database, a spreadsheet or comma 
+separated values (csv), a visualization, etc).  In many situations you won't 
+necessarily know ahead of time what format your results need to be in until 
+you start working with the data and understand the analysis and the needs of everyone involved.  </p><p class="new">This table will be a first attempt to find the most popular words in a novel. 
+Perhaps we might hypothesize that we would be able to identify the characters 
+this way.  Is this a reliable method to find the characters of a novel? 
+What if we removed all the common words like 'the', 'a', 'an', etc.?  </p><p class="new">We will have more to say about this, but you need to critically think 
+about the potential issues of the method being used for the desired goal in any data science problem.</p><h3 id="pipeline-stage-2-collecting-the-data-finding-accessing-and-reading-the-data">Pipeline Stage 2: Collecting the data (finding, accessing and reading the data)</h3><p class="new">Once you know the problem is solved, the next step is to figure out 
+what data is available to help answer the question being asked or solve the 
+problem, and to determine how to access it (if possible).  </p><p class="new">There are many ways to get the text of a book.  <a href="https://www.gutenberg.org" target="_blank">Project Gutenberg</a> 
+and <a href="https://www.hathitrust.org" target="_blank">HaitiTrust</a> are two sites (among many) that offer 
+open source versions of many classics (and even more that never made it to that 
+level of aspiration).  You might also find pdfs (Portable Document Format) of 
+books which can be converted to text (or you can just copy and paste the 
+text from the document itself sometimes).  For some, you might have images 
+of a book that had OCR (optical character recognition) applied to each page. </p><p class="new">The OCR process is another data science pipeline where the computation part 
+involves machine learning.  The final product is essentially a program that 
+takes an image as input and generates 'text' from that image. The resulting 
+text is usually never perfect, but it is much better than hand transcribing (another option).</p><p class="new">Another potential issue at this stage is understanding the access rights of the data. 
+Although not legal advice, in general, personal use of text that is not to be 
+distributed and is used for research and analysis falls under fair use of 
+copyright owned material.  Please read the following:</p><ul><li><a href="https://www.copyrightuser.org/understand/exceptions/text-data-mining/" target="_blank">https://www.copyrightuser.org/understand/exceptions/text-data-mining/</a></li><li><a href="https://guides.nyu.edu/fairuse" target="_blank">https://guides.nyu.edu/fairuse</a></li><li><a href="https://www.nolo.com/legal-encyclopedia/fair-use-rule-copyright-material-30100.html" target="_blank">https://www.nolo.com/legal-encyclopedia/fair-use-rule-copyright-material-30100.html</a></li></ul><p class="new">Since the text we are using is indeed in the public domain, we don't have to 
+address the topic of fair use but understanding these issues is necessary.</p><p class="new">One of the biggest issues of building a generalized data processing 
+framework is that the structure of every book is slightly different. You 
+can't rely on a way that consistently (and perfectly) finds the start of the 
+book's contents (e.g. there's preface material, table of contents, 
+illustrations, etc).  Take a look at these two books: </p><ul><li><a href="http://www.gutenberg.org/files/2701/2701-0.txt" target="_blank">Moby Dick</a></li><li><a href="http://www.gutenberg.org/files/76/76-0.txt" target="_blank">Huckleberry Finn</a></li></ul><p class="new">Although they come from the same repository, the two books have very different characteristics.</p><p class="new">For now, we are going to just focus on ONE document from Project Gutenberg. 
+To keep things even more focused,  the first chapter of Huckleberry Finn 
+is isolated into a separate file -- just to keep us from getting EASILY side 
+tracked and dropping down a rabbit hole of trying to build rules to capture 
+the text properly.  In general when you first start out developing an 
+algorithm for data analysis, starting with a small, simple, cleaned 
+version of the data will help you stay focused.  Once you think you 
+have things working, you can then expand the data set until you end up 
+working with the rawest version of the data.  Eventually the CNG will 
+take the"raw" text from a Project Gutenberg book; but for now we aren't 
+going to figure out how to get this data programmatically. It is an issue 
+we will come back and solve (a Python Topics lesson -- Remote I/O).</p><p class="new">In this case, the data will be coming from a website.  Other situations 
+will require you to read databases or process documents. Once you start 
+thinking about how you will parse and convert your data, you're actually in the 
+third stage.  This stage is about finding the right data (or at least what 
+you think is the right data) and accessing it.</p><h3 id="pipeline-stage-3-cleaning-the-data-ie-data-preparation">Pipeline Stage 3: Cleaning the data (i.e. data preparation)</h3><p class="new">In this stage you ask how to best prepare and clean the data for analysis?
+Take a look at the Huckleberry Finn data via the above URL (use another 
+browser tab or window).  What do you see?  Where is the actual text for 
+the book's contents? (yes go ahead and find it). How would you separate the 
+useful data from the unusable programmatically?  How do we break the text 
+into parts (e.g. chapters, paragraphs, sentences, phrases, words, 
+letters, etc) that can be used for our specific analysis?  More questions that 
+you will need to know how to answer.  </p><p class="new">In addition to deciding how to parse the data into the necessary parts to 
+make the analysis, this step is also concerned with cleaning or 
+normalizing the data.  Cleaning the data involves making 
+decisions on how to handle missing values, incorrect values (like OCR text 
+or misspellings).  There are several options to discuss, but we don't have to 
+worry about missing, invalid or bad data in this case -- we have it all.  </p><p class="new">Another part of this stage is getting the data ready for whatever the 
+analysis stage will require.  For this project, the analysis is to simply 
+count the words and put them in descending order (those with the highest 
+word counts will be 'first').  So the task at hand is to figure out how to 
+take the text and break it into a list of words.</p><p class="new"><strong>Data normalization</strong> (or standardization) is about preparing the data such 
+that processes further down the pipeline work on a standardized version of 
+the data.  As an example, the process (or function) that attempts to 
+find the names of people in a body of text needs to make some assumptions 
+of the incoming text (the language, what token(s) are used to separate 
+individual words, etc).  The process that builds a visualization also makes 
+some assumptions about the incoming data as well.  Each process should 
+document what assumptions are made regarding the format and expectations of 
+the incoming data.  At the same time, when you write a data processing component, 
+the fewer restrictions you require by writing robust code, the more reusable 
+you are making that component so that it can be used in other pipelines.</p><p class="new">However as you will see, moving the data from what's available at Project 
+Gutenberg to what we have here did take some processing. At some point 
+copy &amp; paste will not work or scale for a project. However, it's a perfectly viable strategy 
+for now:  get your analysis to work on cleaned and normalized data. You can 
+always add additional steps to move data into the format that's required 
+by your code.</p><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-4" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-4"><span> How each stage in the pipeline depends on the previous stage </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-5" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-5"><span> What stage usually involves the most amount of work </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div></div></div></body></html>
