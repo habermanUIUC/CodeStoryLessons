@@ -19,12 +19,12 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><h1 class="section" id="section2">Python Decorators</h1><p class="new">Although we will have a separate lesson on decorators, let's go over some
  basics. Decorators are <em>functions</em> that wrap around another function, method or even class.
-A decorator adds capabilitiy to the thing it is wrapping.  A decorator should
+A decorator adds capability to the thing it is wrapping.  A decorator should
  never affect the core functionality.  It simply 'decorates' or adds some
  flourish.</p><p class="new">In Python, a decorator uses the <code>@</code> syntax:</p><pre><code>@some_decorator</code></pre><p class="new">The name of the decorator (e.g. <code>some_decorator</code>) is just a Python function
  that will wrap the item being decorated. Decorators are a way embellish a 
 class/methods and add functionality but without having to write additional code.  </p><p class="new">In a later lesson, we can learn how to create our own decorators, for now we will 
-go over a few common Python decororators.</p><h2 id="decorating-your-attributes">Decorating your attributes</h2><p class="new">The <em>best</em> way to solve the attribute get/set issue is to use Python
+go over a few common Python decorators.</p><h2 id="decorating-your-attributes">Decorating your attributes</h2><p class="new">The <em>best</em> way to solve the attribute get/set issue is to use Python
  <strong>decorators</strong>. Decorated attributes are named <em>properties</em>.</p><h3 id="example-of-read-only-properties-">Example of read-only properties </h3><p class="new">Classes can set up attributes to be read-only or allow both reading and writing. 
 The following shows how to set a property to be read-only:</p><pre><code>class Point2D(object):
 

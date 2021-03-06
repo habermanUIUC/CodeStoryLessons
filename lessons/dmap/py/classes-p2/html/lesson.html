@@ -102,12 +102,12 @@ print(p1)
 p1.x = 100  
 print(p1)</code></pre></div><h1 class="section" id="section2">Python Decorators</h1><p class="new">Although we will have a separate lesson on decorators, let's go over some
  basics. Decorators are <em>functions</em> that wrap around another function, method or even class.
-A decorator adds capabilitiy to the thing it is wrapping.  A decorator should
+A decorator adds capability to the thing it is wrapping.  A decorator should
  never affect the core functionality.  It simply 'decorates' or adds some
  flourish.</p><p class="new">In Python, a decorator uses the <code>@</code> syntax:</p><pre><code>@some_decorator</code></pre><p class="new">The name of the decorator (e.g. <code>some_decorator</code>) is just a Python function
  that will wrap the item being decorated. Decorators are a way embellish a 
 class/methods and add functionality but without having to write additional code.  </p><p class="new">In a later lesson, we can learn how to create our own decorators, for now we will 
-go over a few common Python decororators.</p><h2 id="decorating-your-attributes">Decorating your attributes</h2><p class="new">The <em>best</em> way to solve the attribute get/set issue is to use Python
+go over a few common Python decorators.</p><h2 id="decorating-your-attributes">Decorating your attributes</h2><p class="new">The <em>best</em> way to solve the attribute get/set issue is to use Python
  <strong>decorators</strong>. Decorated attributes are named <em>properties</em>.</p><h3 id="example-of-read-only-properties-">Example of read-only properties </h3><p class="new">Classes can set up attributes to be read-only or allow both reading and writing. 
 The following shows how to set a property to be read-only:</p><pre><code>class Point2D(object):
 
@@ -186,7 +186,7 @@ a.do_something_better()</code></pre><p class="new">Where <code>do_something_bett
  called <em>static</em> methods.  They should never rely on the state of the class instance.
 You could always move a static method outside of the class to achieve the
  same effect, but it's put <em>inside</em> the class to indicate that it provides
- some sort of utility for all instances -- it's semantically related. </p><p class="new">Static methods are marked (or created) using the <code>@staticmethod</code> decororator.</p><p class="new">Here's an example. Assume you have created a <code>Person</code> class, but you want to
+ some sort of utility for all instances -- it's semantically related. </p><p class="new">Static methods are marked (or created) using the <code>@staticmethod</code> decorator.</p><p class="new">Here's an example. Assume you have created a <code>Person</code> class, but you want to
  provide the capability to test if someone could create a <code>Person</code> instance.</p><p class="new">In this case, a <code>Person</code> must have two names.</p><div class="ide code-starter clearfix"><pre><code>class Person(object):
 
     def __init__(self, name):
@@ -201,7 +201,7 @@ You could always move a static method outside of the class to achieve the
 
 Person.is_full_name('Michael Haberman')
 Person.is_full_name('Mike')</code></pre></div><p class="new">Notice that the class name was used to access the static method.  And the
- method <code>is_full_name</code> doesn't rely on a specific instance.</p><h2 id="decorators-for-static-class-factories">Decorators for Static Class Factories</h2><p class="new">Anthor useful decorator is <code>@classmethod</code>. Sometimes you want the class to
+ method <code>is_full_name</code> doesn't rely on a specific instance.</p><h2 id="decorators-for-static-class-factories">Decorators for Static Class Factories</h2><p class="new">Another useful decorator is <code>@classmethod</code>. Sometimes you want the class to
  provide a way to create instances for you.  </p><p class="new">In the next example, note how the variable <code>cls</code> is used to create the instance.
 For <code>@classmethod</code>s, the class is passed into the method as the first argument.</p><div class="ide code-starter clearfix"><pre><code>class BetterPerson(object):
 
