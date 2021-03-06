@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang='en'><head><title>Manipulating Image Data</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,h4,h5,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3,h4,h5{font-size:inherit;font-weight:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.clear-both{clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-1\/3{width:33.333333%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}h5{color:#000!important}ul{margin-bottom:30px}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw100{height:auto;width:auto;max-width:100px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/CodeChallenges-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Manipulating Image Data</div><p class="text-center mt-2 text-gray-800 text-xl">Purrfect Class Fun</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#python</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Manipulating Image Data<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>classes-p1</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>classes-p2</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Manipulating Image Data </h1><p class="new">Do not start this lesson until you finished all the prerequisites.</p><h2 id="purrfect-class-fun-"><em>Purr</em>fect Class Fun </h2><p class="new">This lesson provides an opportunity to get more experience with building
+ Python classes as well as learning how to manipulate image data.</p><h2 id="image-convolution-">Image Convolution </h2><p class="new">For this part of the lesson, you are going to read in (using numpy) some
+ image data and encapsulate it within a class.  You will also be able to
+ query pixels, display the image and run a convolution kernel (details coming) 
+to compress (reduce its size) it.</p><h2 id="rcimage"><code>RCImage</code></h2><p class="new">Be sure to read the next few sections before you start coding.</p><p class="new">Create a class named <code>RCImage</code> </p><h3 id="the-constructor-">The Constructor </h3><p class="new">The constructor accepts a filename. </p><h3 id="attributes-">Attributes </h3><p class="new">The class will have the following attributes. Be sure to use the Python
+ conventions to mark these as attributes as 'private'.</p><ul><li><code>image_data</code></li><li><code>width</code></li><li><code>height</code></li></ul><h4 id="decorating-width-and-height-as-read-only">decorating width and height as read-only</h4><ul><li>Make both <code>width</code> and <code>height</code> attributes be read-only properties</li><li>Add a method named <code>get_pixels</code> that returns the image_data</li></ul><h3 id="methods">Methods</h3><h4 id="reading-image-data">reading image data</h4><h5 id="init"><code>__init__</code></h5><p class="new">The constructor will use the numpy's <code>np.load</code> function to read into a 3-dimensional 
+matrix (height x width x 3) which is contained in the <code>filename</code> parameter:</p><pre><code>image_data = np.load(filename)</code></pre><p class="new">If you save a numpy array (using <code>np.save</code>) to a file, you can read in that 
+data using <code>np.load</code>.</p><p class="new">After you read in the image data, set both the <code>height</code> and the <code>width</code> properties.</p><h4 id="pretty-printing">pretty printing</h4><h5 id="repr"><code>__repr__</code></h5><p class="new">Add the <code>__repr__</code> method so printing looks like the following:</p><pre><code>w:&lt;the_width&gt; h:&lt;the_height&gt;</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="testing-rcimage-">Testing <code>RCImage</code> </h2><p class="new">Once this is done, the following should work:</p><pre><code>fn = 'fun.npy'
+path = Util.path_for_data(fn)
+np_image = RCImage(path)
+print(np_image.width, np_image.height)
+print(np_image.get_pixels().shape)
+print(np_image)</code></pre><p class="new">You should see the following output:</p><pre><code>400 454
+(454, 400, 3)
+w:400 h:454</code></pre><div class="ide code-starter clearfix"><pre><code>import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+import numpy as np
+import LessonUtil as Util
+
+class RCImage(object):
+    pass
+    
+def test_image():
+    fn = 'fun.npy'
+    path = Util.path_for_data(fn)
+    np_image = RCImage(path)
+    print(np_image.width, np_image.height)
+    print(np_image)
+
+test_image()</code></pre></div><h2 id="image-displaying">Image Displaying</h2><p class="new">The next thing we want to do is make sure the image data can be viewed to
+ confirm everything is working.</p><h3 id="display"><code>display</code></h3><p class="new">Add a method named <code>display</code> to RCImage that has a default named parameter <code>size</code> set to 6.</p><p class="new">Here's the code (which we saw in the colormap lesson):</p><pre><code>fig, ax = plt.subplots(figsize=(size, size))
+ax.imshow(self.get_pixels()) 
+return fig</code></pre><p class="new">As a reminder, when you add code to a class (or a function) in a notebook, you 
+still need to run the cell so the newest version of your code is loaded in
+ memory.</p><h2 id="testing-display-">Testing <code>display</code> </h2><p class="new">Add the following line to <code>test_image</code>:</p><pre><code>fig = np_image.display()</code></pre><div class="ide code-starter clearfix"><pre><code># test it again
+test_image()</code></pre></div><p class="new">When you run <code>test_image</code>, you should now see the following:</p><img alt="imageOrigin.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/imageOrigin.png"/><p class="new">There's a few things to take note of in the image:</p><ul><li>The origin (0,0) is the upper left-hand corner.  Not all graphic libraries
+will use this as the origin, but it is pretty common.</li><li>The pixel data is accessed via (row, col) format. This is how matplotlib
+assumes the format of the data -- which aligns with numpy.</li><li>Because of the row,col format when you create an image matrix, you need to
+specify the dimensions as (height <code>x</code> width)</li></ul><blockquote><p class="new"><strong><em>Coder's Log</em></strong> Most image libraries 'flip' the pixel data and use (x,y) 
+coordinates to access the pixel data.  In this case the 'x' axis is going
+ down and the <code>y</code> axis is going across. If your images are upside down or flipped, 
+most likely this is the result of mixing matplotlib with another library. The fix is easy. </p></blockquote><h2 id="getting-pixels-and-locating-colors">Getting Pixels and Locating Colors</h2><p class="new">There are many formats in which an image can be stored (png, jpeg, gif, etc). 
+Regardless, after you read in the data, you essentially have a 2D matrix of
+ pixels.  Each pixel will have 3 to 4 components </p><ul><li>the 'red' channel [0,1]</li><li>the 'green' channel [0,1]</li><li>the 'blue' channel [0,1]</li><li>the 'alpha' or transparency 'channel' [0,1] (1.0 means nothing from the
+background will show through -- it's completely opaque.)</li><li>the data can also be in the range of [0, 255] as well; however, matplotlib
+assumes the data has been scaled to [0, 1] for display.</li></ul><p class="new">The current image is a 454 x 400 matrix.  Each cell in the matrix is a pixel
+ of three values (r,g,b).  The numpy <code>shape</code> for the data is (454, 400, 3).</p><img alt="catEye.png" class="float-left mr-3 border iw100" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/catEye.png"/><p class="new">At pixel location, (225, 285) -- that's row 225, column 285 is a yellow pixel 
+(i.e. (255.0, 255.0, 0). It's right in the middle of the right eye. 
+We will use that marker to make sure our pixel access is working.</p><h3 id="getpixel"><code>get_pixel</code></h3><p class="new">Add a method named <code>get_pixel</code> that has parameters: <code>row</code>, <code>col</code>, <code>scale</code>. 
+The parameter <code>scale</code> has a default value of <code>False</code>.</p><ul><li>This function returns the r,b,g triple at location <code>row</code>, <code>col</code>.</li><li>If <code>scale</code> is <code>True</code>, it multiplies the r,b,g values by 255.0.</li></ul><h2 id="testing-pixels">Testing Pixels</h2><p class="new">Feel free to move the previous code cell to here, to keep all the working
+ code together. You should see <code>[1.0 1.0 0]</code> (i.e. yellow) when you run the
+ following code:</p><div class="ide code-starter clearfix"><pre><code>def test_image_pixels():
+    fn = 'fun.npy'
+    path = Util.path_for_data(fn)
+    np_image = RCImage(path)
+    pixel = np_image.get_pixel(225, 285)
+    print(pixel)
+test_image_pixels()</code></pre></div><h2 id="findcolor-"><code>find_color</code> </h2><p class="new">Add a method named <code>find_color</code> </p><ul><li>has three named parameters: <code>r</code>, <code>g</code>, <code>b</code>.</li><li>each parameter has a default value of 0.</li><li>returns an array of tuples.  Each tuple contains the row,col values where
+the color was found in the image data</li><li>you can assume <code>r,g,b</code> are [0, 255] based</li></ul><h2 id="testing-color-locating">Testing Color Locating</h2><p class="new">Once that is finished, the following code can be added to <code>test_image_pixels</code>.</p><pre><code>locations = np_image.find_color(255, 255)
+print(locations)</code></pre><p class="new">It should print <code>[(225, 285)]</code></p><h1 class="section" id="section2">Image Convolution</h1><p class="new">The next step will be to change the image based on something called a kernel.
+An <em>image kernel</em> is a small matrix (e.g. 16x16) that can be used to extract
+ information from another image. We are going to do something similar.  </p><h2 id="image-compression-aka-pixelating-thumbnails">Image Compression (a.k.a. pixelating, thumbnails)</h2><img alt="slidingWindow.png" class="float-left iw100 mb-3 mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/slidingWindow.png"/><p class="new">We are going to slide a fixed size window over the image. You can imagine a 
+grid being overlaid the image. Then for all the pixels that are in the window, 
+we calculate the average. The average value becomes the new pixel in the new
+ image. More details are given below as well.</p><div class="flex content center clear-both"><img alt="cat.png" class="w-1/3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/cat.png"/><img alt="catGrid.png" class="w-1/3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/catGrid.png"/><img alt="catBlock.png" class="w-1/3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/catBlock.png"/></div><br/><p class="new"><strong>Caution</strong>. It may appear that the 3rd picture has as many pixels as the
+ original -- where every 16x16 block is replaced by a single color. 
+<img alt="catThumb.png" class="border float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/catThumb.png"/>But what is really happening is the 256 pixels (16x16) are being replaced by one. 
+The actual picture is more like the one to the left.  When you take a 'small' 
+picture and enlarge it (as shown above), you can clearly see the pixelization effect.
+This is essentially what happens when you compress an image. It's called 'lossy' 
+compression because it's impossible to reconstruct the original image from the
+ new (smaller version) image.</p><h2 id="creating-an-average-">Creating an Average </h2><h3 id="rgbimagekernel"><code>RGBImageKernel</code></h3><ul><li>create a class named <code>RGBImageKernel</code></li><li>it has only one method named <code>apply</code></li><li><code>apply</code> has a single parameter, named <code>matrix</code></li></ul><p class="new">The matrix is a 2-dimensional numpy array where each value is a tuple of (r,g,b) 
+components (or you can think of it as a 3D matrix as well). The following is
+ an example of how it should be used:</p><div class="ide code-starter clearfix"><pre><code># 4x4x3 matrix
+matrix = np.array([
+  # red         green      blue
+ [[0.8980392,  0.78431374, 0.5647059 ],
+  [0.8745098,  0.7529412,  0.5058824 ],
+  [0.8901961,  0.7764706,  0.5137255 ],
+  [0.91764706, 0.80784315, 0.6313726 ]],
+
+ [[0.89411765, 0.7921569,  0.6039216 ],
+  [0.9019608 , 0.8039216,  0.5529412 ],
+  [0.89411765, 0.7764706,  0.47058824],
+  [0.92156863, 0.8039216,  0.5568628 ]],
+
+ [[0.8666667,  0.7764706,  0.5294118 ],
+  [0.9411765,  0.8392157,  0.6156863 ],
+  [0.9254902,  0.8039216,  0.5882353 ],
+  [0.9098039,  0.7921569,  0.5254902 ]],
+
+ [[0.92156863, 0.81960785, 0.5882353 ],
+  [0.91764706, 0.7882353,  0.5372549 ],
+  [0.9372549,  0.83137256, 0.6117647 ],
+  [0.9254902,  0.8117647,  0.5882353 ]]])
+  
+def test_kernel():
+   # print(matrix.shape) # 4,4,3
+   kernel = RGBImageKernel()
+   v = kernel.apply(matrix)  
+   # this is the answer
+   ans = (0.90857843625, 0.7975490375, 0.5615196275000001)
+   print(np.allclose(v, ans))</code></pre></div><h3 id="notes">Notes</h3><ul><li>the kernel must work with any sized <code>n</code>x<code>m</code> matrix. However, you can
+assume the values at each matrix cell is an r,g,b triple.</li><li>you can use any method you want to build an average pixel value, but numpy's 
+various <code>stack</code> methods (<code>stack</code>, <code>vstack</code>, <code>hstack</code>) can be useful (but not required).</li></ul><h2 id="creating-a-compressed-image">Creating a compressed image</h2><p class="new">Finally, we are ready to build a compressed image. </p><h3 id="rcimageapply"><code>RCImage.apply</code></h3><p class="new">Create a method named <code>apply</code> for the class <code>RCImage</code>. The method has two parameters:</p><ul><li><code>kernel</code> which is of type <code>RGBImageKernel</code></li><li><code>size</code> which is the size of the window (e.g. <code>size x size</code>).  Its default
+value is 16</li></ul><p class="new">The method's first priority is to create a new image.  You can use <code>np.zeros</code> for this:</p><pre><code>pixels = np.zeros( ... )</code></pre><h4 id="algorithm-and-hints">Algorithm and Hints</h4><p class="new">The main idea is to slide a window (<code>size x size</code>) over the image.  Take the subset 
+of pixels inside the window and use the <code>kernel</code> to create an average. 
+You will then set a new pixel to this value.</p><pre><code>pixels[row,col] = new_value</code></pre><p class="new">The process is shown in the image below (for the right ear of the cat).</p><img alt="16x16.png" class="center mb-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/image_compress/html/16x16.png"/><p class="new">Using numpy's slicing syntax is an easy way to get the window of pixels. It's
+ essentially the <em>same</em> syntax what Python uses for lists. You don't need to 
+do it this way, but it makes it a bit easier.</p><p class="new">The following is the overall process (details are left to the reader).</p><pre><code>pixels = create_matrix(new_height, new_width)
+for row in rows:
+    for col in cols:
+        window_of_data = build_subset(row, col, size)
+        pixels[row,col] = kernel.apply(window_of_data)
+return pixels</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="testing-">Testing </h2><p class="new">For a crude test, you <em>could</em> do the following:</p><pre><code>np_image = RCImage(path)
+kernel = RGBImageKernel()
+pixels = np_image.apply(kernel, 16)
+# use matplotlib to display the pixels</code></pre><p class="new">However, let's use our <code>RCImage</code> class to do the same thing.  </p><h3 id="better-constructor">Better constructor</h3><p class="new">Add another parameter (<code>img_data</code>) to the constructor of <code>RCImage</code>. Adjust
+ both parameters (<code>filename</code> and <code>img_data</code>) to have a default value of <code>None</code>.</p><p class="new">If <code>img_data</code> is valid (isn't <code>None</code>), set the internal image data attribute to the
+ parameter. Otherwise, read from the file, as usual.</p><h3 id="building-the-final-image">Building the Final Image</h3><p class="new">Now we are ready!</p><div class="ide code-starter clearfix"><pre><code>def create_compressed_image():
+
+    # show the original
+    fn = 'fun.npy'
+    path = Util.path_for_data(fn)
+    np_image = RCImage(path)
+    ig = np_image.display()
+    
+    # create an effect
+    kernel = RGBImageKernel()
+    pix = np_image.apply(kernel, size=16)
+    
+    # use the result as a new image to show !!
+    b_img = RCImage(img_data=pix)
+    ig = b_img.display()</code></pre></div><h2 id="testing-with-the-tester">Testing with the Tester</h2><p class="new">You can test with the <code>ide</code> as well:</p><pre><code>print(ide.tester.list_tests())
+#ide.tester.test_functionality('kernel')
+#ide.tester.test_functionality('convolution')</code></pre><h2 id="creating-classes-is-awesome-">Creating Classes is Awesome </h2><p class="new">As you can see, by using classes, allows you to easily reuse code and allow
+ the code to work on their own instances.  For example, you can now try out
+ different pixelization effects.  Be sure to experiment with different window
+ sizes. Imagine how hard this would be if all we had were a set of functions to work
+ with for the following (you should do the same):</p><pre><code>    fn = 'fun.npy'
+    path = Util.path_for_data(fn)
+    np_image = RCImage(path)
+    
+    kernel = RGBImageKernel()
+    pix4 = np_image.apply(kernel, size=4)
+    pix8 = np_image.apply(kernel, size=8)
+    i4 = RCImage(img_data=pix4)
+    i8 = RCImage(img_data=pix8)
+    ig = i4.display()
+    ig = i8.display()
+    
+    # apply another round of compression
+    pixX = i4.apply(kernel, size=4)
+    iX = RCImage(img_data=pixX)
+    ig = iX.display()</code></pre><h2 id="image-kernels-bonus-material">Image Kernels (bonus material)</h2><p class="new">Actual image convolution using image kernels, involves essentially the same
+ process:  you slide a window over an image and apply a function over those
+ pixels.  This is <em>usually</em> done with matrix multiplication. That is the window 
+of pixels is multiplied by a convolution matrix. The output of the multiplication 
+is the new value.</p><p class="new">Feature detection, sharpening, blurring, edge detection, etc are usually done
+ using a kernel.  This is part of the machinery behind convolutional neural
+ networks (neural networks designed to do feature detection on images).</p><p class="new">The following code demonstrates the idea of multiplying by kernel to find 
+the average r,g,b values for a window of pixels. It is <strong>NOT</strong> recommended that 
+you try to solve your image convolution this way.</p><div class="ide code-starter clearfix"><pre><code>import matplotlib.patches as patches
+
+
+def demo_convolution(window):
+
+  # this kernel creates an 'average'
+  kernel = np.ones((4,4)) * 1/4
+
+  # matrix multiplication 
+  out = window * kernel
+  # sum up the r,g,b,alpha
+  ave_pixel = np.sum(out, axis=0)
+
+  # print(kernel)
+  # print(window)
+  # print(out)
+  # print(ave_pixel)
+
+  # 'plot' the results
+  fig, ax = plt.subplots(figsize=(4, 4))
+  ax.imshow([[r] for r in window]) 
+  ax.add_patch(patches.Rectangle((0, -0.5),0.5,4.0, facecolor = ave_pixel))
+  ax.xaxis.set_visible(False) 
+  ax.yaxis.set_visible(False)
+  ax.set_frame_on(False)
+  
+four_colors = np.array([
+  [0.4980392,  0.78431374, 0.5647059, 1.0], 
+  [0.6745098,  0.1529412,  0.9058824, 1.0],
+  [0.8901961,  0.5764706,  0.0137255, 1.0],
+  [0.41764706, 0.40784315, 0.4313726, 1.0]])
+
+blue_window = np.array([
+  [0,  0,  1, 1.0],                   # blue
+  [0,  0,  1, 1.0],
+  [135/255,  206/255,  235/255, 1.0], # sky-blue
+  [135/255,  206/255,  235/255, 1.0]])
+
+demo_convolution(blue_window)
+demo_convolution(four_colors)</code></pre></div><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>image_compress</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Manipulating Image Data</div><p class="text-center text-gray-800 text-xl">Purrfect Class Fun</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">image_compress</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>
