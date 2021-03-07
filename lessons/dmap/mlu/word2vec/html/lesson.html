@@ -360,13 +360,13 @@ implementations exist.  However, we can still use glove in the colab
 you how you could work with glove in this environment.  It's much easier to 
 use GloVe on your own machine (assuming you have access to a compiler).</p><p class="new">In the next cell, we are actually going to compile and run the GloVe software
 on the VM running the colab notebook.  This is NOT Python code, so it will not
-run in a Python environment.  </p><div class="ide code-starter clearfix"><pre><code>def install_build_glove():
+run in a Python environment.  </p><p class="new">Note: Spring 2021.  The resource path should be </p><p class="new"><code>/content/sandbox_tmp/INFO490Assets/lessons/dmap/mlu/word2vec/data/harryPotter.txt</code></p><pre><code>!cp /content/sandbox_tmp/INFO490Assets/lessons/dmap/mlu/word2vec/data/harryPotter.txt /content/sample_data</code></pre><div class="ide code-starter clearfix"><pre><code>def install_build_glove():
   # copy the software to the VM
   !git clone https://github.com/stanfordnlp/GloVe.git glove
   # compile the software
   !cd glove &amp;&amp; make
   # copy a small dataset for GloVe to use
-  !cp /content/info490/INFO490Assets/src/datasets/books/hp/harryPotter.txt /content/sample_data
+  !cp /content/sandbox_tmp/INFO490Assets/lessons/dmap/mlu/word2vec/data/harryPotter.txt /content/sample_data
 
 install_build_glove()</code></pre></div><p class="new">After that is run:</p><ol start="1"><li>Use the Files 'Icon' on the left side and navigate to content/glove</li><li><p class="new">double click the <code>demo.sh</code> file. 
 <img alt="files.png" class="center iw300" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mlu/word2vec/html/files.png"/></p></li><li><p class="new">change the following lines: note that <code>CORPUS</code>, <code>VECTOR_SIZE</code> are changed and a 
