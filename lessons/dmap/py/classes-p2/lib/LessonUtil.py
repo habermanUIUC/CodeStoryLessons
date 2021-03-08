@@ -37,7 +37,7 @@ def plot_lines(lines):
   fig,axes = plt.subplots()
   colors = ['orange', 'b', 'y', 'b', 'g']
   for idx, line in enumerate(lines):
-    print(line.p1.x, line.p1.y, line.p2.x, line.p2.y)
+    # print(line.p1.x, line.p1.y, line.p2.x, line.p2.y)
     x = [line.p1.x, line.p2.x]
     y = [line.p1.y, line.p2.y]
     axes.plot(x,y, color = colors[idx%len(colors)])
