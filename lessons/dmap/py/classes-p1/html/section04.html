@@ -32,21 +32,20 @@ that can be imported. </p></blockquote><h2 id="class-syntax">Class Syntax</h2><p
 </code><code class="line-number">   def __init__(self, xp, yp):
 </code><code class="line-number">       self.x = xp
 </code><code class="line-number">       self.y = yp
-</code></pre></div><p class="new">Here's how to read that class definition:
-Let's look at this code line by line:</p><p class="new"><code>class Point2D(object):</code></p><ul><li>using the keyword <code>class</code>, we define a new class named <code>Point2D</code></li><li>when you create a class in Python you should <strong>Capitalize</strong> the first letter 
+</code></pre></div><p class="new">Let's look at this code line by line:</p><h3 id="class-definition">Class Definition</h3><p class="new"><code>class Point2D(object):</code></p><ul><li>using the keyword <code>class</code>, we define a new class named <code>Point2D</code></li><li>when you create a class in Python you should <strong>Capitalize</strong> the first letter 
 and use <em>CamelCase</em>. You can read more about <a href="https://www.python.org/dev/peps/pep-0008/#class-names" target="_blank">naming conventions</a></li><li>the thing named <code>object</code> inside the <code>()</code> is called the base class.  It is
 optional and we will discuss it in a later lesson.  But the Point2D class
-can do everything the <code>object</code> class can do.</li><li>the <code>:</code> marks the start of the class implementation</li></ul><p class="new"><code>def __init__(self, xp, yp):</code></p><ul><li>the keyword <code>def</code> is used just like for defining functions.</li><li>the name <code>__init__</code> is reserved for classes.  The <code>init</code> method (method is 
+can do everything the <code>object</code> class can do.</li><li>the <code>:</code> marks the start of the class implementation</li></ul><h3 id="class-constructorinitializer">Class Constructor/Initializer</h3><p class="new"><code>def __init__(self, xp, yp):</code></p><ul><li>the keyword <code>def</code> is used just like for defining functions.</li><li>the name <code>__init__</code> is reserved for classes.  The <code>init</code> method (method is 
 the name of a function inside a class) gets called when you create a new 
 object (i.e. an instance of the class). It is called the <strong>constructor method</strong>.</li><li>the double underscores <code>__</code> around the name <code>init</code> signal to the reader
 that the function is 'private'. Functions with the double underscore are called <em>dunder</em> 
 functions you can <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">read more</a> about them</li><li>this <code>init</code> method has three arguments: <code>self, xp, yp</code>.  The <code>self</code> argument refers to
 the <strong>specific instance of the class</strong>.  All other parameters after the <code>self</code> 
 argument can be given any valid Python variable name.  In this case 
-both <code>xp</code> and <code>yp</code> are just the names of the formal parameters.</li></ul><h3 id="an-important-note-about-respecting-privacy">An important note about respecting privacy</h3><p class="new">Those who use your code (including the author -- you), should <strong>never</strong> call methods 
+both <code>xp</code> and <code>yp</code> are just the names of the formal parameters.</li></ul><h4 id="an-important-note-about-respecting-privacy">An important note about respecting privacy</h4><p class="new">Those who use your code (including the author -- you), should <strong>never</strong> call methods 
 that begin with an <code>_</code> (single or double) outside of the class code. Python won't enforce it, but you 
 will announce to the world that you do not care about conventions, best
- practices, and building robust code.</p><p class="new"><code>self.x = xp</code></p><ul><li>this sets the internal variable <code>x</code> (meant to be managed only by the specific
+ practices, and building robust code.</p><h3 id="setting-instance-attributes">Setting Instance Attributes</h3><p class="new"><code>self.x = xp</code></p><ul><li>this sets the internal variable <code>x</code> (meant to be managed only by the specific
 instance of Point2D) to the value held in the parameter <code>xp</code></li><li><code>self.y = yp</code> does the same but with <code>y</code> and <code>yp</code></li><li>both <code>x</code> and <code>y</code> are called <em>attributes</em> (we'll see later how attributes
 become <strong>properties</strong>).</li></ul><h3 id="an-important-note-to-self">An important note to <code>self</code></h3><p class="new">The keyword <strong><em>self</em></strong> is used to refer to the specific memory location where
  the instance is living. It can <em>only</em> be used inside the class. Other languages use
