@@ -29,3 +29,21 @@ def read_data_file(filename):
     fn = path_for_data(filename)
     with open(fn, 'r') as fd:
         return fd.read()
+
+def plot_lines(lines):
+  import matplotlib.pyplot as plt
+  from matplotlib.ticker import MaxNLocator
+
+  fig,axes = plt.subplots()
+  colors = ['orange', 'b', 'y', 'b', 'g']
+  for idx, line in enumerate(lines):
+    print(line.p1.x, line.p1.y, line.p2.x, line.p2.y)
+    x = [line.p1.x, line.p2.x]
+    y = [line.p1.y, line.p2.y]
+    axes.plot(x,y, color = colors[idx%len(colors)])
+  axes.set_ylim(-1,20)
+  axes.set_xlim(-1,20)
+  axes.grid()
+  axes.yaxis.set_major_locator(MaxNLocator(integer=True))
+  axes.xaxis.set_major_locator(MaxNLocator(integer=True))
+  return fig
