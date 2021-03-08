@@ -20,10 +20,10 @@
 <div id="start" class="section">&nbsp;</div><p class="new">What happened? Do you see the issue?</p><p class="new">We created a line (and plotted it), then the <em>client</em> code (the one that is 
 using the library/module/class <em>changed</em> the <code>x</code> value for a <strong><em>point</em></strong>. This 
 had a strange side effect in that the <strong><em>line</em></strong> changed as well! </p><p class="new">Pause and consider what happened and why it <em>could</em> be bad.</p><p class="new">The user of the <code>Point2D</code> instance, modified the internal data of the instance, 
-<img alt="emoki.png" class="float-left mr-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/py/classes-p2/html/emoki.png"/>but neither the line nor the point instance were able to defend themselves. 
-This is the worst kind of code graffiti. Be sure you understand the issue. 
+<img alt="emoki.png" class="float-left mr-1" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/py/classes-p2/html/emoki.png"/>but neither the line nor the point instance were able to defend themselves. Even 
+though the graph of the new line looks fine, the <em>slope</em> of the line still remains the same!</p><p class="new">This is the worst kind of code graffiti. Be sure you understand the issue. 
 It's bad enough that the data for the point instance was modified, 
-but it also affected the line instance. </p><p class="new">This is a problem and we <strong><em>need</em></strong> to fix it.</p><h2 id="decorating-privacy">Decorating Privacy</h2><p class="new">The major issue is that a line's <code>slope</code> is based on the <code>x</code> and <code>y</code> values of the
+but it also affected the line instance. </p><p class="new">This is a problem and we <strong><em>need</em></strong> to fix it.</p><h2 id="conventional-privacy">Conventional Privacy</h2><p class="new">The major issue is that a line's <code>slope</code> is based on the <code>x</code> and <code>y</code> values of the
  points that make up a line. If a point value is changed, ideally, any
  calculation done that depends on the new value, needs to be updated as well.  </p><p class="new">In most cases, it's easiest just to 'wall off' the code to prevent such 
 invasions of privacy.</p><p class="new">The concept of variable <em>visibility</em> is about the access rights to a variable. 
