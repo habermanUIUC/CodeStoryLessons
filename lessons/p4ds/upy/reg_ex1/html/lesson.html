@@ -1,0 +1,309 @@
+<!DOCTYPE html><html lang='en'><head><title>Regular Expressions</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}input{overflow:visible}[type=checkbox]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,h4,p,pre{margin:0}ol,ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}input:-ms-input-placeholder{color:#a0aec0}input::-ms-input-placeholder{color:#a0aec0}input::-moz-placeholder{color:#a0aec0}h1,h2,h3,h4{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}input{padding:0;line-height:inherit;color:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-orange-300{--bg-opacity:1;background-color:#fbd38d;background-color:rgba(251,211,141,var(--bg-opacity))}.bg-green-200{--bg-opacity:1;background-color:#c6f6d5;background-color:rgba(198,246,213,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.border-indigo-500{--border-opacity:1;border-color:#667eea;border-color:rgba(102,126,234,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.cursor-pointer{cursor:pointer}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.font-sans{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.leading-normal{line-height:1.5}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.opacity-0{opacity:0}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-3{padding:.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.absolute{position:absolute}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-2\/3{width:66.666667%}.w-full{width:100%}@media (min-width:768px){.md\:w-2\/3{width:66.666667%}}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}li>p{display:inline!important}.lesson ol{list-style-type:decimal;list-style-position:inside;margin-left:1em}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw600{height:auto;width:auto;max-width:600px}img.iw400{height:auto;width:auto;max-width:400px}img.iw200{height:auto;width:auto;max-width:200px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}.tab{font-size:1rem;border-color:#8c6728}.tab-content{max-height:0;max-width:100%;transition:max-height .35s}.tab input:checked~.tab-content{max-height:100vh}.tab input:checked+label{padding:1rem;border-left-width:2px;border-color:#6574cd;background-color:#f8fafc;color:#6574cd}.tab label::after{float:right;right:0;top:0;display:block;width:1em;height:1.5em;line-height:1.5;font-size:1rem;text-align:center;transition:all .35s}.tab input[type=checkbox]+label::after{content:"+";font-weight:700;border-width:1px;border-radius:9999px;border-color:#8c6728}.tab input[type=checkbox]:checked+label::after{transform:rotate(315deg);background-color:#6574cd;color:#f8fafc}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/upy/reg_ex1/html/upy-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Regular Expressions</div><p class="text-center mt-2 text-gray-800 text-xl">Finding Patterns (part 1)</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#python</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">🐍  4 D.S.</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Regular Expressions<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>bootcamp</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>array slicing</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>comprehensions</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/upy/reg_ex1/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">University🐍: Regular Expressions (part 1) </h1><img alt="huckRegEx.png" class="border iw400 float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/upy/reg_ex1/html/huckRegEx.png"/><p class="new">Grab yourself a cup of coffee (or tea) and settle in; this lesson's a bit longer
+ than most. If you don't have the time to work through it slowly, reschedule a 
+ better time to do this lesson. If there's one thing that will help you parse 
+ and wrangle data the most, it's <strong><em>regular expressions</em></strong>. </p><p class="new">We have seen some <em>methods</em> (functions attached to objects) on the string data 
+type that provided some very handy capabilities.  For example <code>split()</code> transforms 
+a string into a list of tokens.  Similarly <code>strip()</code> and <code>replace()</code> gives an
+ easy way to remove or replace unwanted values.  The string has so many 
+ useful features that it's always worth re-visiting 
+ its <a href="https://docs.python.org/3.6/library/stdtypes.html#string-methods" target="_blank">documentation</a>. </p><p class="new"> However, even with mastery of all those methods, there are some things that 
+ would be extremely tedious if that's all we had to work with. Let's take a 
+ look at some examples.</p><h2 id="words-from-huck">Words from Huck</h2><p class="new">We will use the text from 'The Adventures of Huckleberry Finn' (from Project Gutenberg).<br/>Its content is available in the <code>LessonUtil</code> module but 
+also <a href="https://storage.googleapis.com/uicourse/data/huck.txt" target="_blank">here</a> for you to reference as well.</p><p class="new">Let's get the text into our notebook.  We will use this text throughout the
+ lesson.  If your notebook gets disconnected, you must run this cell before
+  continuing:</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+
+BOOK_TEXT = Util.read_huck()
+idx = BOOK_TEXT.find("CHAPTER II.")
+CHAPTER_ONE = BOOK_TEXT[0:idx].strip()
+
+print(CHAPTER_ONE[0:250])</code></pre></div><h2 id="finding-words">Finding Words</h2><p class="new">When doing text analysis, the first task is to figure out how to get all the 
+words from a passage of text. </p><p class="new">Let's take a quick look at how using string's <code>split()</code> method to get all the "words" 
+of a book falls short.</p><div class="ide code-starter clearfix"><pre><code>def find_words(text):
+    words = text.split()
+    uniq  = sorted(set(words))
+    print(len(uniq))
+
+find_words(BOOK_TEXT)</code></pre></div><p class="new">We get 13,104 'words'. However, in this set, words with different case (You and you) 
+will be considered different words.  We can fix this quickly:</p><div class="ide code-starter clearfix"><pre><code>def get_uniq_words(text):
+    words = text.split()
+    words  = sorted(words)
+    uniq = set([x.lower() for x in words])
+    return uniq
+    
+print(len(get_uniq_words(BOOK_TEXT)))</code></pre></div><p class="new">With this improvement, we get 12,615 words. However if you inspect the 
+contents of uniq (e.g list(uniq)[0:20]) words, we see a few issues:</p><ul><li>words have punctuation in them</li><li>phrases like <code>hi!--hi!</code> (those without spaces) are treated as a single word</li></ul><p class="new">If we pre-clean the text (i.e. before we <code>split()</code>) by removing all 
+punctuation except the single quote (so we don't split contractions -- e.g. ain't), 
+we end up with 6,893 unique tokens and 6,326 tokens after case normalization (validation 
+is left to the reader). However, that punctuation may be valuable in our analysis as well.</p><h1 class="section" id="section2">Enter Regular Expressions</h1><p class="new">As we have just seen, we need to do a double pass over the tokens, once to 
+remove unwanted punctuation and another to split the text based on whitespace (i.e. <code>str.split()</code>). 
+Although efficiency isn't always a goal, it becomes necessary as the datasets 
+grow. However, the goal in this lesson is to see if we can do this by 
+describing what we want to extract from the text, rather than writing a 
+lot of code to do it. </p><p class="new">The "tool" we are about to introduce, <em>regular expressions</em>, 
+provides a language to make it 'easy' to extract patterns from text. You don't 
+need to use them, but they become very handy to express what you want to extract, 
+rather than writing the code to tell the computer how to do it. This is 
+essentially the difference between imperative languages (like Python) and 
+declarative languages (like SQL). Although calling regular expressions a 
+declarative language is a bit of a stretch. The regular expression capability 
+is provided by the re module. You must include that module at the top of your 
+Python code to use regular expressions:</p><pre><code>import re</code></pre><p class="new">If the only thing you were interested in is tokenizing the text, then <code>split()</code> 
+would be fine. But we want the words. Of course we have to define what it 
+means to be a word. Let's say that a word is any <em>token</em> (a group of 1 or more characters) 
+that contains at least one letter.  With regular expressions, we can capture 
+that expression using a pattern. Using regular expressions is usually three basic steps:</p><ol start="1"><li>Define the pattern:</li></ol><pre><code>pattern = '[A-Za-z]+'</code></pre><ul><li>the pattern is always a string (hence, you need the quotes)</li><li>in this case, we put what we are looking for inside <code>[]</code> brackets. These brackets hold groups of 
+characters (called a character set or <em>character class</em>). So <code>[A-Z]</code> means <strong>match</strong> any 
+uppercase letter (<code>[a-z]</code> matches any lowercase letter.</li><li>the <code>+</code> means 1 or more of the previous pattern or the thing to its left (in this case the stuff inside the brackets).</li><li>the bracket matches <em>unordered</em> characters -- regardless of the order of the 
+characters inside the brackets.</li></ul><p class="new">We would describe this pattern as "one or more characters that are either upper or lower case letters".  </p><br/><p class="new">The defined <code>pattern</code> would attempt to find any token that consists of all letters and any 
+non letter (something that is <strong>not</strong> <code>A-Za-z</code>) would serve as a split or demarcation point.</p><ol start="2"><li>Compile the pattern using the <code>re.compile()</code> method:</li></ol><pre><code> pattern = '[A-Za-z]+'
+ regex   = re.compile(pattern)</code></pre><p class="new">This creates a regular expression object that you can use to call different methods on. 
+In this lesson we will only be looking at the regular expression <code>findall</code> method. 
+The pattern is used to determine what to look for in a body of text.</p><ol start="3"><li>Use the <code>findall()</code> method on the object returned by compile. It's a regular expression object:</li></ol><pre><code>import re 
+def regex_find_words_demo(text):
+  pattern = '[A-Za-z]+'        #1  create a pattern
+  regex = re.compile(pattern)  #2  compile it
+  return regex.findall(text)   #3  return those tokens that match the pattern
+
+a = regex_find_words_demo(BOOK_TEXT)
+print(len(a))</code></pre><p class="new">Be sure to type and run this code (you should see 116,312)</p><div class="ide code-starter clearfix"><pre><code></code></pre></div><blockquote><p class="new"><strong><em>Coder's Log</em></strong>  This is indeed another lesson that if you don't run each 
+sample code and move to the next one without understanding what you just ran, 
+it will be impossible to learn the nuances being taught.</p></blockquote><p class="new">One small fix we need to do. The pattern finds words regardless of the 
+case (it is letter-case is insensitive).  So <code>findall()</code> will return the words in 
+their original case (it does NOT transform text). We need to be sure 
+words like 'You' and 'you' are treated as the same word. </p><p class="new">The normalization step is still needed with regular expressions.  Let's fix that.</p><p class="new">Type that in the following (either using a new code cell or a previous one). 
+When you run it, you should get 5,983 'words' -- any token that consists of all letters. </p><pre><code>def get_uniq_wordset(words):
+  return set([x.lower() for x in words])
+
+a = get_uniq_wordset(regex_find_words_demo(BOOK_TEXT))
+print(len(a))</code></pre><p class="new">Let's start adjusting the pattern to see how the number of words changes as
+ we change the pattern.  We will create a new function where we can pass in
+ the pattern for the regular expression engine to use: </p><div class="ide code-starter clearfix"><pre><code>import re 
+def regex_find_words(text, pattern):
+  regex = re.compile(pattern)  #2  compile it
+  return regex.findall(text)   #3  return those tokens that match the pattern
+
+pattern = '[A-Za-z]+'
+print(len(regex_find_words(BOOK_TEXT, pattern)))</code></pre></div><p class="new">Now let's consider keeping tokens that have numbers in them (e.g. 1st) or those 
+that are all numbers (e.g. 10 cents). We can extend our pattern to include 
+numbers (we use the character class <code>0-9</code>). </p><div class="ide code-starter clearfix"><pre><code>def pattern_demo():
+    pattern = '[0-9A-Za-z]+'
+    words = regex_find_words(BOOK_TEXT, pattern)
+    uniq = get_uniq_wordset(words)
+    
+    print(len(words))
+    print(len(uniq))
+
+pattern_demo()</code></pre></div><p class="new">Now the total is 5991 unique tokens. Can you use the set data type and the difference 
+method to find what numbers are now captured? (the answer is Yes, and you should do so now).</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> You can install a chrome extension to use regular expressions in
+ a find search. But an easier way is to use the developer's tool. <br/>Once you
+ bring up the text, select a word and ctrl/click to select "inspect" 
+(or use View-&gt;Developer-&gt;Developer Tools).<img alt="inspect.png" class="iw200" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/upy/reg_ex1/html/inspect.png"/><br/>Once inside developer tools, select 'Sources'. The search box allows you to
+ enter regular expressions! <img alt="devtools.png" class="iw600" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/upy/reg_ex1/html/devtools.png"/> It even 
+shows you the number of matches.</p></blockquote><h2 id="getting-closer">Getting Closer</h2><p class="new">So the question is why is this NOT 6,326 which we got using <code>split()</code>? The issue 
+is that with the regular expressions we didn't capture any punctuation except 
+the single quote. So we need to add that in:</p><pre><code>pattern = '[\'0-9A-Za-z]+'</code></pre><p class="new">Since the pattern is wrapped with single quotes you have to escape the single quote you 
+want to find (i.e. <code>\'</code>).  Alternatively, you could use double quotes:</p><pre><code>pattern = "['0-9A-Za-z]+"</code></pre><p class="new">Once you run that pattern.  You get the magical 6,326 match!</p><h2 id="raw-strings">Raw Strings</h2><p class="new">There's a small issue when a regular expression pattern contains any special 'commands' 
+(called escape or control sequences). We have already been using escape 
+sequences -- the '\n' is one of those special characters that is replaced with 
+a newline when it appears in a string. To tell Python NOT to ignore any 
+control sequences, you need to preface the string with an <code>r</code> -- which means a <em>raw</em> string. 
+You can see how this will affect the string evaluation in the following:</p><div class="ide code-starter clearfix"><pre><code>print( "Hello\nWorld\n", end='')
+print(r"Hello\nWorld\n", end='')</code></pre></div><p class="new">In the second <code>print</code> statement, the <code>\n</code> is printed as opposed to being 
+interpreted to force a return or linefeed.</p><p class="new">You can use the same raw string to print out unicode characters. We will 
+discuss unicode in another lesson. But you can think of it as a way to provide 
+a representation of all possible characters. Unicode provides a unique number 
+for every character, no matter what the platform, no matter what the program, 
+no matter what the language.  (more on unicode later).</p><div class="ide code-starter clearfix"><pre><code>print( "Hello\nWorld\n", end='')
+print(r'\U0001f441\U00002764\U0000FE0F\U0001f40d')
+print('\U0001f441\U00002764\U0000FE0F\U0001f40d')</code></pre></div><p class="new">Once again, you should know how the above two statements are treated differently 
+by prefacing one of the strings with <code>r</code>.</p><p class="new">With regular expression we ALWAYS use raw strings.</p><pre><code>pattern = r'[\'0-9A-Za-z]+'</code></pre><p class="new">We now have 6,326 unique words (after case normalization). Yikes. That's where 
+we were with <code>split()</code> and some pre processing! However, the story is not over.  </p><h2 id="back-to-huck-finn">Back to Huck Finn.</h2><p class="new">At this point, we need to inspect the tokens and decide if we are getting the 
+right values. For Huckleberry Finn, there's a lot of contractions and hyphenated 
+words. </p><p class="new">For example here's the text starting at line 5947: </p><pre><code>My breff mos' hop outer me; en I feel so--so--I doan' know HOW I feel.  I crope out, all a-tremblin', en crope aroun' en open de do' easy en slow, en poke my head in behine de chile, sof' en still, en all uv a sudden I says POW!</code></pre><blockquote><p class="new"><strong><em>Reader's Log</em></strong> You can use the sparknotes service to help translate this
+ passage: <a href="https://www.sparknotes.com/nofear/lit/huckfinn/chapter-23/page_3/" target="_blank">https://www.sparknotes.com/nofear/lit/huckfinn/chapter-23/page_3/</a></p></blockquote><p class="new">For this specific text, any word with a hyphen (e.g. sugar-hogshead) was split 
+into two (because we didn't include the hyphen in the regular expression). 
+But we also want to split words separated by two hyphens (e.g. Polly--Tom's).</p><p class="new">The issue is that in our pattern we are <em>excluding</em> words with a single hyphen in them. 
+Let's find them using the following pattern:</p><div class="ide code-starter clearfix"><pre><code>pattern = r"['A-Za-z0-9]+[-]['A-Za-z0-9]+"
+print(len(regex_find_words(BOOK_TEXT, pattern)))</code></pre></div><p class="new">This finds all the words that have a SINGLE hyphen (<code>[-]</code>) with at least one letter 
+before it and at least one letter after it.  There are 604 such words.<br/>Doing that without using regular expressions would be very tedious.</p><p class="new">We also can make that single hyphen optional by using the <code>?</code> (a special character 
+that means <code>0</code> or <code>1</code> of the previous pattern).</p><p class="new">With a few quick changes, we can quickly see the power of using a regular 
+expression to find different token patterns in the text.</p><div class="ide code-starter clearfix"><pre><code>pattern = r"['0-9A-Za-z]+-?['0-9A-Za-z]+"
+print(len(regex_find_words(BOOK_TEXT, pattern)))</code></pre></div><p class="new">We now have 6,678 tokens. Note that since the hyphen is the only character
+ in the brackets, we don't have use them (e.g. <code>[-]</code>? ).</p><p class="new">Don't worry, after a while reading the patterns becomes much easier. The 
+hardest thing to understand is the <code>+-?</code> in the middle. Here's how you would 
+read the pattern:</p><p class="new">"1 or more (that's the <code>+</code>) characters that can be a single quote, a letter, 
+or a number; FOLLOWED by a hyphen (<code>-</code>) that is optional (<code>?</code>) FOLLOWED by 1 or 
+more (the very last <code>+</code>) characters that are either a single quote, a letter or a number."</p><p class="new">The remaining issue is that this pattern forces all words to be at least 2 
+characters long.  We lose all the single character tokens (e.g.  a, 4, 3, o). We 
+can fix that in the next lesson.</p><h1 class="section" id="section3">A Few Regular Expression Mechanics</h1><p class="new">We now have seen enough to realize there's probably a lot of mechanics to 
+learn about using regular expressions. You won't have to ever memorize them, 
+but you should know what you can do. You can always look up the syntax later.</p><h2 id="specific-sequences">Specific Sequences</h2><p class="new">If you wanted to find a specific string, you can just specify the exact order:</p><pre><code>pattern = r"Aunt-Polly"</code></pre><p class="new">This pattern would read "find the word Aunt followed by a dash and then 
+followed by the word Polly".  </p><h2 id="character-sets">Character Sets</h2><p class="new">The <strong>square brackets <code>[]</code></strong> are used to hold multiple characters or character
+ sets that can occur <em>in any order</em>. </p><p class="new"><code>[abc]</code>  matches <code>a</code> or <code>b</code> or <code>c</code>
+<code>[abc]+</code> matches any combination of the letters: <code>a</code>, <code>b</code>, <code>c</code> </p><pre><code>pattern = r"P[hoe]+l"</code></pre><p class="new">This pattern would find words that have a capital P followed by any
+ combination of <code>h,o,e</code> followed by an <code>l</code>.</p><p class="new">This pattern would match parts of <strong>Pol</strong>ly and <strong>Phel</strong>ps. Do you see why?</p><h2 id="matching-specific-counts-of-characters">Matching Specific Counts of Characters</h2><p class="new">We already have seen the <code>+</code> (1 or more of the previous character set). The 
+following shows how to specify the number of match counts that can 
+be used after a pattern:</p><pre><code>?     0 or 1 time
+*     0 or more times
++     1 or more times
+{m}   m times
+{m,}  at least m times
+{,n}  0 through n times (inclusive)
+{m,n} m through n times (inclusive)</code></pre><p class="new">The following pattern, specifies that the match must include two or more l's:</p><pre><code>pattern = r"P[hoe]+l{2,}"</code></pre><p class="new">We'll see some more examples of these soon.</p><h2 id="character-classes-and-special-symbols">Character Classes and Special Symbols</h2><p class="new">The following can be used to specify matching a character or a set of characters:</p><pre><code>.  match any character except \n 
+\. match the period
+\? match the question mark
+\s match whitespace \s+ one or more white spaces 
+\S match non whitespace
+\d match digits (same as [0-9])
+\D non digits (same as [^0-9])
+\w same as [a-zA-Z0-9_]+  (word character)
+\W same as [^a-zA-Z0-9_]+ (non word character or non alphanumeric)
+\' match a single quote
+\" match a double quote</code></pre><h3 id="example">Example</h3><p class="new">As an example, the pattern <code>.o{2}.[ed]</code> will match any letter (the <code>.</code>) followed by 2 o's (<code>o{2}</code>) 
+followed by any letter (.) and then followed either by an e or a d ([ed]).<br/>So this pattern would match:  looke, hoose, cooke.  Note that these are most 
+likely partial word matches. But that's correct since we didn't specify any 
+white space or word boundaries (to be discussed later).</p><h3 id="special-characters-">Special Characters </h3><p class="new">In a character set (the square brackets) any character in the brackets is a 
+literal (meaning it doesn't represent something else).  However, there are
+ four characters that are exceptions to this:</p><ol start="1"><li><code>^</code></li><li><code>-</code></li><li><code>]</code></li><li><code>\</code></li></ol><p class="new">In other words, if you wanted to match a caret <code>^</code> you would have to escape
+ it (e.g. <code>[\^abc]</code>) using the backslash <code>\</code> . </p><h2 id="the-anti-match">The Anti-Match</h2><p class="new">If you want to match anything BUT a specific character class, you add the 
+caret <code>^</code> as the first item in square brackets:</p><p class="new"><code>[^abc]</code> matches any thing BUT <code>a</code> or <code>b</code> or <code>c</code>.  The caret negates everything that
+ follows.</p><p class="new">This shows why the <code>^</code> is considered a special character when used inside
+ brackets.</p><h2 id="simplification">Simplification</h2><p class="new">As we have seen, the regular expression pattern can get a bit long and we are 
+always striving to keep the pattern as short and readable as possible. We can 
+clean up the pattern by telling the compiler of the regular expression to ignore case:</p><div class="ide code-starter clearfix"><pre><code>def find_words_v1(text):
+  pattern = '[_0-9a-z]+'
+  regex   = re.compile(pattern, re.IGNORECASE)
+  return regex.findall(text)
+  
+print(len(find_words_v1(BOOK_TEXT)))</code></pre></div><p class="new">Since we want to ignore the case (i.e. case insensitive) for the entire 
+pattern we just pass the <code>re.IGNORECASE</code> flag to the compiler.</p><p class="new">This is such a popular pattern that Python provides a special character (<code>\w</code>) 
+that represents the pattern above (including being case insensitive).  Either
+ create a new code cell or add the code to a previous one:</p><pre><code>def find_words_v2(text):
+  pattern = r'\w+'
+  regex   = re.compile(pattern)
+  return regex.findall(text)</code></pre><p class="new">So we can shorten our final pattern for Huckleberry Finn tokens as:</p><pre><code>def find_words_v3(text):
+  pattern = r"['\da-z]+-?['\da-z]+"
+  regex   = re.compile(pattern, re.IGNORECASE)
+  return regex.findall(text)</code></pre><h2 id="greedy-matching-">Greedy Matching *</h2><p class="new">One thing (among many) to remember is that the regular expression engine 
+will try to match the <em>longest</em> string possible. It's called <em>greedy</em> matching. 
+You can change that behavior, but we will save that for another lesson. 
+So if you have the pattern:</p><div class="ide code-starter clearfix"><pre><code>def find_words_v4(text):
+  pattern = r'ab.*'
+  reg_ex = re.compile(pattern, re.IGNORECASE)
+  return reg_ex.findall(text)
+
+text = "Abra abracadabra"
+print(find_words_v4(text))</code></pre></div><p class="new">This will match the entire string (and NOT 3 different 'ab' substrings). In 
+general if you have <code>.*</code> in your regular expression, it will most likely 
+match more than you want it too. In almost all cases, the greed will harm you.</p><h2 id="more-by-example">More By Example</h2><h3 id="finding-italicized">Finding Italicized</h3><p class="new">As a data scientist, it's important to be very familiar with the data being 
+processed. In this case after reading some of the raw text we notice that for 
+this book, italicized words or phrases are encoded by surrounding the word with 
+an underscore.  In Huckleberry Finn for example (from Chapter 2, line 243) the text:</p><pre><code>  Some thought it would be good to kill the families of boys that told the secrets.</code></pre><p class="new">Get's encoded as follows:</p><pre><code>  Some thought it would be good to kill the _families_ of boys that told the secrets.</code></pre><p class="new">Here's a quick example to find all italicized words: (those that begin and end with an underscore):</p><div class="ide code-starter clearfix"><pre><code>def find_words_v5(text):
+  pattern = r"_['A-Za-z0-9]+_"
+  regex   = re.compile(pattern)
+  return regex.findall(text)
+
+uniq = get_uniq_wordset(find_words_v5(BOOK_TEXT))
+print(len(uniq))</code></pre></div><p class="new">You should find 330 words that were emphasized in the book. </p><p class="new">However, phrases such as  "'Nough!--I _own up!_" would not be found. Can you see why?</p><h3 id="finding-digits">Finding Digits</h3><p class="new">To find all the tokens with only digits in them, we just update the pattern:</p><div class="ide code-starter clearfix"><pre><code>def find_words_v6(text):
+  pattern = r"[0-9]+"
+  regex   = re.compile(pattern)
+  return regex.findall(text)
+  
+uniq = get_uniq_wordset(find_words_v6(BOOK_TEXT))
+print(len(uniq))</code></pre></div><p class="new">We now can easily extract the 8 unique numeric tokens; ['200','300','25','10','1','2','3','4']</p><h2 id="experimenting">Experimenting</h2><p class="new">When testing regular expressions, it's easier to work with a small sample of 
+text to see if things are working or not. You can always extract a paragraph of text 
+from your book and test (using set differences) between different patterns, 
+what they match and what they don't.</p><p class="new">For example:</p><pre><code>sentence = "'Deed you _ain't!_  You never said no truer thing 'n that, you bet\nyou." 
+print(find_words_v4(sentence))</code></pre><h2 id="additional-normalization">Additional Normalization</h2><p class="new">You also can decide if you need to post normalize your tokens. It usually 
+depends on the project's goals and objectives and the regular expression used. 
+For example, the following could be done with the results from <code>findall()</code>:</p><ul><li>removing whitespace before or after the token</li><li>case normalization</li><li>replacing the contractions with the fully spelled set of words (e.g. can't becomes cannot)</li><li>decide on common spelling (e.g. can not becomes cannot)</li><li>removing the plural (e.g songs become song)</li><li>fix spelling errors</li><li><p class="new">stemming (a topic to be discussed in another lesson) which is similar to extracting the root of a word.</p><p class="new">We will leave all the tokens alone.</p></li></ul><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-10" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-10"><span> what is a regular expression </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-11" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-11"><span> why are regular expressions useful </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-12" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-12"><span> how do you create a regular expression in Python? </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-13" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-13"><span> what does <code>findall</code> return </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-14" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-14"><span> what does <code>.</code> match </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-15" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-15"><span> what does <code>*</code> match </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-16" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-16"><span> what does <code>\s</code> match </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-17" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-17"><span> what does <code>\d</code> match </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-18" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-18"><span> when do you use the <code>[]</code> notation </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div><h1 class="section" id="section4">Lesson Assignment</h1><p class="new">There is a lot to learn in this lesson. 
+Be sure to <strong>re-read</strong> it and type&amp;run all the examples. </p><p class="new">For all the questions in this lesson, you don't need to consult external 
+documentation (you can of course, but everything required to solve these 
+puzzles is given to you).  </p><p class="new">Notes:  </p><ul><li>If you already know regular expressions and perhaps know a different solution, 
+you still MUST ONLY USE what is taught in this lesson. Otherwise, you may not pass the tests.</li><li>Do NOT normalize the input or output. The tests are only looking at the results of the regular expression.</li><li>Use <a href="https://regex101.com" target="_blank">https://regex101.com</a> for an easier way to develop/debug a working regular expression (or see the Coder's Log on using chrome's developer's tool)</li><li>Testing hints are given at the end</li><li><strong>Do NOT use the 'or' symbol</strong> (e.g the pipe) -- it's something that will be 
+covered in the next lesson. For any question that asks to find 'this or that', 
+you need to use a standard regular expression shown in this lesson.</li></ul><p class="new">The answer to each question is the result of using <code>re.compile</code>. 
+All the questions will be using the text from Huckleberry Finn (<code>BOOK_TEXT</code>).</p><p class="new">The first
+ question is done for you to see how to format your answers.</p><h2 id="question-0--total-sentences">Question 0:  Total Sentences</h2><h4 id="write-the-regular-expression-to-find-all-the-sentences-">Write the regular expression to find all the sentences. </h4><p class="new">Assume that all sentences end with one of the following three punctuation marks: <code>? ! .</code> </p><h3 id="answer">Answer</h3><div class="ide code-starter clearfix"><pre><code>def q0():
+  pattern = r'[^?.!]+[?.!]+'  
+  return re.compile(pattern, re.IGNORECASE)</code></pre></div><p class="new">Which you read as "1 or more of any character that is NOT a terminator followed by 
+at least one terminator. A terminator is one of  (<code>? . !</code>)". </p><h3 id="testing">Testing</h3><p class="new">Once you have the question return the result of <code>re.compile</code>, you can test it
+ using <code>LessonUtil</code>.  </p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+tester = Util.HuckFinnAutoGrader()
+print(tester.test_question(q0, show_result_count=10))</code></pre></div><p class="new">You should get 5960 sentences (based on our definition). </p><p class="new">If you wanted to capture the ending " in sentences, you would add the quote: </p><pre><code>pattern = r'[^?.!]+[?.!"]'</code></pre><p class="new">If you wanted to include any extra punctuation that ends some sentences (sentences that end like this!!!!) you could add the + at the end:</p><pre><code>pattern = r'[^?.!]+[?.!"]+'</code></pre><p class="new">Note that the following sentence would be considered 2 sentences:</p><pre><code>Mr. Kean played Richmond.</code></pre><p class="new">So that 5960 is an approximation. We can do better, but the regular 
+expression required would become very complex and involve more mechanics 
+that we need to learn.</p><p class="new">The best way to solve this is to FIRST define some sample text:</p><div class="ide code-starter clearfix"><pre><code>def test_q0():
+   sample = "He pulled the lever all the way down to where it said full steam ahead. A bell rang. The motors made a grinding sound and the ferry began to move. The passengers were surprised because the captain was still on deck talking to the Man in the Yellow Hat. Who was running the boat? It was George!!!"
+   reg_ex = q0()
+   result = reg_ex.findall(sample)
+   print(len(result))</code></pre></div><p class="new">You get 6 for an answer. You can verify that by hand. Once you have it 
+working on sample text, then try it on the full text.</p><ul><li>all of your answers should be in the same format as <code>q0</code>.</li><li>return a compiled regular expression (with any flag if necessary).</li><li>the ONLY flag (if we use one) will be <code>re.IGNORECASE</code>. There are other flags, but those will be used in subsequent lessons.</li></ul><p class="new">Before asking for help. Be sure to test each part of your answer. Test it will a 
+few words, a short sentence, a long paragraph. Now that you know how to 
+slice and dice an array, it's easy to extract sections of text.</p><p class="new">You can also use the <code>ide.tester.test_functionality</code>, but it does <em>all</em> the
+ questions.  Using <code>LessonUtil</code> allows you to work on each question.</p><h2 id="question-1--">Question 1:  !!!</h2><h4 id="define-the-regular-expression-to-answer--">Define the regular expression to answer:  </h4><p class="new">How many times does an exclamation mark happen 3 times in a row?</p><ul><li>hint: 3</li></ul><div class="ide code-starter clearfix"><pre><code>def q1():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q1))</code></pre></div><h2 id="question-2--only-numbers-please">Question 2:  only numbers please</h2><h4 id="define-the-regular-expression-to-answer-">Define the regular expression to answer: </h4><p class="new">How many tokens consist of only numbers? </p><ul><li>hint: 8</li></ul><div class="ide code-starter clearfix"><pre><code>def q2():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q2))</code></pre></div><h2 id="question-3-cost-of-numbers">Question 3: cost of numbers</h2><h4 id="define-the-regular-expression-to-answer-">Define the regular expression to answer: </h4><p class="new">How many tokens represent money (i.e. a value that starts with a $) ?</p><ul><li>the $ has special meaning, you will need to escape it.</li></ul><div class="ide code-starter clearfix"><pre><code>def q3():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q3))</code></pre></div><h2 id="question-4--boom--boom">Question 4:  boom--boom</h2><h4 id="define-the-regular-expression-to-answer-">Define the regular expression to answer: </h4><p class="new">How many times is there a double dash within a word?  </p><ul><li>A word consists of only letters.</li><li>hint: 763</li></ul><div class="ide code-starter clearfix"><pre><code>def q4():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q4))</code></pre></div><h2 id="question-5--any-body-or-anybody">Question 5:  any body or Anybody</h2><h4 id="define-the-regular-expression-that-finds-">Define the regular expression that finds: </h4><p class="new"><strong>any body</strong> <strong>anybody</strong> or <strong>Any body</strong>.</p><ul><li>hint: 74</li></ul><div class="ide code-starter clearfix"><pre><code>def q5():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q5))</code></pre></div><h2 id="question-6-quote-me">Question 6: quote me</h2><h4 id="define-a-regular-expression-that-finds">Define a regular expression that finds:</h4><p class="new">single quoted words that contain at least 3 letters.</p><ul><li>hint: 7</li><li>a word is only letters</li></ul><div class="ide code-starter clearfix"><pre><code>def q6():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q6))</code></pre></div><h2 id="question-7-the-dr-the-mr-and-mrs">Question 7: the Dr., the Mr. and Mrs.</h2><h4 id="define-the-regular-expression-that-finds">Define the regular expression that finds:</h4><p class="new">any of the following (includes the period): Dr.  Mr.  Mrs. (that specific case as well)</p><ul><li>hint: 34</li></ul><div class="ide code-starter clearfix"><pre><code>def q7():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q7))</code></pre></div><h2 id="question-8-aw-shucks">Question 8: Aw Shucks</h2><h4 id="define-a-regular-expression-that-finds">Define a regular expression that finds:</h4><p class="new">any word that contains <code>huck</code></p><ul><li>this is a regular expression where you could use the greedy <code>*</code></li><li>a word consists of only letters</li><li>capitalization is not relevant</li><li>hint: 103</li></ul><div class="ide code-starter clearfix"><pre><code>def q8():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q8))</code></pre></div><h2 id="question-9-he-or-she">Question 9: he or she</h2><h4 id="define-a-regular-expression-that-finds">Define a regular expression that finds:</h4><p class="new">either <strong>he</strong> or <strong>she</strong> </p><ul><li>capitalization is not relevant</li><li>each must be surrounded by whitespace so the 'he' in 'them' would not be found.</li><li>hint: 2110</li></ul><div class="ide code-starter clearfix"><pre><code>def q9():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q9))</code></pre></div><h2 id="question-10-how-many-chapters">Question 10: How many chapters?</h2><h4 id="define-the-regular-expressions-to-find">Define the regular expressions to find:</h4><p class="new">the chapter markers in Huck Finn. </p><ul><li>the result should contain 43 items.</li></ul><div class="ide code-starter clearfix"><pre><code>def q10():
+  pattern = r''  # fill me in
+  return re.compile(pattern)
+  
+print(tester.test_question(q10))</code></pre></div><h2 id="testing-and-submissions">Testing and Submissions</h2><p class="new">Be sure to use <code>LessonUtil</code> for testing.
+Once everything is working, use the <code>ide.tester</code></p><div class="ide code-starter clearfix"><pre><code>print(ide.tester.test_functionality('first_10'))</code></pre></div><h2 id="extra-credit">Extra Credit.</h2><p class="new">To earn extra credit answer the following 3 questions:</p><h2 id="question-11-how-many-cents">Question 11: How many cents?</h2><h4 id="define-the-regular-expression-to-find-">Define the regular expression to find </h4><p class="new">a number followed by 'cents' as in "it costs 10 cents."</p><ul><li>Hint: 2</li></ul><h2 id="question-12-how-many-cents">Question 12: How many cents?</h2><h4 id="define-the-regular-expression-to-find-">Define the regular expression to find </h4><p class="new">spelled out numbers followed by 'cents' as in "it costs five cents."</p><ul><li>Hint: 19</li></ul><h2 id="question-13-how-many-cents">Question 13: How many cents?</h2><h4 id="define-the-regular-expression-to-find-">Define the regular expression to find </h4><p class="new">spelled out numbers that include a hyphen followed by 'cents' as in "it costs twenty-five cents."</p><ul><li>Hint: 2</li></ul><p class="new">The extra credit can be answered and tested like the first 10 questions.</p><div class="ide code-starter clearfix"><pre><code># define q11, q12, q13 here</code></pre></div><h2 id="food-for-thought--">Food For Thought.  </h2><p class="new">If you make the hyphen optional in question 13, how many numbers do you find?  </p><p class="new">Why isn't the answer 21?  (that is 19 + 2)</p><pre><code>print(ide.tester.test_functionality('extra_credit'))</code></pre><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>UP-RegEx[0-9]+</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Regular Expressions</div><p class="text-center text-gray-800 text-xl">Finding Patterns (part 1)</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">UP-RegEx[0-9]+</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div><p class="new">¹ You can tag any questions with RegEx[0-9]+ (that's a regex pun: use the specific number) on piazza.</p></div></div></body></html>
