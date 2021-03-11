@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang='en'><head><title>Cliff Note Generator</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,p,pre{margin:0}ol,ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.clearfix:after{content:"";display:table;clear:both}.font-sans{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-2{padding:.5rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-2\/3{width:66.666667%}.w-full{width:100%}@media (min-width:768px){.md\:w-2\/3{width:66.666667%}}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ol{list-style-type:decimal;list-style-position:inside;margin-left:1em}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/cng4/html/ds-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Cliff Note Generator</div><p class="text-center mt-2 text-gray-800 text-xl">Visualizations</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">🐍  4 D.S.</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Cliff Note Generator<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>bootcamp</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>local I/O</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>array slicing</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/cng4/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Cliff Note Generator (part 4) </h1><h2 id="computation-continued-visualizing-data">Computation Continued: Visualizing Data</h2><p class="new">Perhaps building data visualizations is one of the most rewarding parts of the 
+data science pipeline.  If built properly, a good visualization should easily 
+convey something interesting about the data that might have been overlooked 
+had it been buried inside a table or a spreadsheet.</p><p class="new">An easy way to visualize data in Python is to use the library <code>matplotlib</code>. 
+It's an old library that's a bit clunky to use, but it is very popular and 
+learning it will help you with other libraries that use matplotlib (as well as 
+understand and debug the billions of matplotlib lines of code out there in the wild).</p><p class="new">There will be several tutorials and readings on using matplotlib, but for now 
+we will do a gentle introduction to making a bar chart.  When you have data to 
+visualize, always choose the clearest way to convey what information you are 
+seeking. For a table of word counts, it's not fancy, but a bar chart gets 
+the job done.</p><img alt="ds1.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/cng4/html/ds1.png"/><p class="new">As you know, a bar chart just needs to display a value on the x axis (usually the label) 
+and a value on the y axis (usually the height of the bar). Color could be used for 
+another dimension, but for now we will focus on visualizing our table of words.</p><h2 id="experiments-in-order">Experiments In Order</h2><p class="new">There are a few experiments we want to try to demonstrate some of the issues 
+with creating visualizations with matplotlib.</p><h3 id="step-0-">Step 0. </h3><p class="new">We first need to load the <code>matplotlib</code> module. The following is standard practice: </p><pre><code>import matplotlib.pyplot as plt</code></pre><p class="new">The values defined in the next code cell is the same data from the previous
+ lesson (the output of the <code>build_table</code> and <code>top_n</code> from the previous lesson is a dictionary and list respectively)</p><p class="new">The variable <code>sorted</code> contains the same data; it's an array of tuples. Each 
+tuple has 2 elements, the first is the word and the second is the count. 
+We will use this data for the visualizations.</p><div class="ide code-starter clearfix"><pre><code>import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+# some data to use
+data = {'you': 2, "don't": 1, 'know': 1, 'about': 2, 'me': 1, 'without': 2, 'have': 1, 'read': 1, 'a': 2, 'book': 4, 'by': 2, 'the': 6, 'name': 1, 'of': 2, 'adventures': 1, 'tom': 1, 'sawyer': 1, 'but': 3, 'that': 4, "ain't": 1, 'no': 1, 'matter': 1, 'was': 3, 'made': 1, 'mr': 1, 'mark': 1, 'twain': 1, 'and': 3, 'he': 3, 'told': 3, 'truth': 2, 'mainly': 2, 'there': 1, 'things': 1, 'which': 2, 'stretched': 1, 'is': 4, 'nothing': 1, 'i': 2, 'never': 1, 'seen': 1, 'anybody': 1, 'lied': 1, 'one': 1, 'time': 1, 'or': 3, 'another': 1, 'it': 1, 'aunt': 3, 'polly': 3, 'widow': 2, 'maybe': 1, 'mary': 2, "tom's": 1, 'she': 1, 'douglas': 1, 'all': 1, 'in': 1, 'mostly': 1, 'true': 1, 'with': 1, 'some': 1, 'stretchers': 1, 'as': 1, 'said': 1, 'before': 1}
+
+sorted = [('the', 6), ('book', 4), ('that', 4), ('is', 4), ('but', 3), ('was', 3), ('and', 3), ('he', 3), ('told', 3), ('or', 3), ('aunt', 3), ('polly', 3), ('you', 2), ('about', 2), ('without', 2), ('a', 2), ('by', 2), ('of', 2), ('truth', 2), ('mainly', 2), ('which', 2), ('i', 2), ('widow', 2), ('mary', 2), ("don't", 1), ('know', 1), ('me', 1), ('have', 1), ('read', 1), ('name', 1), ('adventures', 1), ('tom', 1), ('sawyer', 1), ("ain't", 1), ('no', 1), ('matter', 1), ('made', 1), ('mr', 1), ('mark', 1), ('twain', 1), ('there', 1), ('things', 1), ('stretched', 1), ('nothing', 1), ('never', 1), ('seen', 1), ('anybody', 1), ('lied', 1), ('one', 1), ('time', 1), ('another', 1), ('it', 1), ('maybe', 1), ("tom's", 1), ('she', 1), ('douglas', 1), ('all', 1), ('in', 1), ('mostly', 1), ('true', 1), ('with', 1), ('some', 1), ('stretchers', 1), ('as', 1), ('said', 1), ('before', 1)]</code></pre></div><h3 id="step-1-">Step 1. </h3><p class="new">Run the following code as is (that is don't remove any other comments). 
+The current code creates a file named simpleBar.png. </p><div class="ide code-starter clearfix"><pre><code>def simple_vis(filename):
+  # Make a fake dataset:
+  height = [ 3,  12,   5,  18,  45]
+  bars   = ('A', 'B', 'C', 'D', 'E')
+  x_pos = range(len(bars)) # simple 
+  
+  # uncomment line per directions
+  #plt.figure(0) 
+  
+  # Create bars
+  plt.bar(x_pos, height)
+   
+  # Create names on the x-axis
+  plt.xticks(x_pos, bars)
+   
+  # 'Show' the graphic  
+  # plt.show() # not needed in colab 
+  plt.savefig(filename)
+  print("created", filename)
+
+simple_vis('simpleBar.png')</code></pre></div><blockquote><p class="new"><strong><em>Coder's Log</em></strong> In colab/jupyter you don't need to 'show' the figure 
+(e.g. <code>plt.show()</code> or <code>fig.show()</code>. It gets displayed automatically. However, if
+ you are working in a non-interactive environment, you will need to call <code>show</code>.</p></blockquote><h3 id="step-2-">Step 2. </h3><p class="new">Now run the next code block </p><div class="ide code-starter clearfix"><pre><code>def visualize(tuples, filename):
+  labels = []
+  counts = []
+  for t in tuples:
+    labels.append(t[0])
+    counts.append(t[1])
+    
+  x_pos = range(len(labels))
+  
+  #plt.figure(1) # uncomment line per directions
+  
+  bars = plt.bar(x_pos, counts)
+  
+  plt.xlabel('word',  fontsize=12)
+  plt.ylabel('count', fontsize=12)
+  plt.xticks(x_pos, labels, fontsize=8, rotation=30)
+  plt.title('Word Usage')
+  plt.savefig(filename)
+  
+  print("created", filename)
+  
+top_10 = sorted[0:10]
+visualize(top_10, 'top10A.png')</code></pre></div><p class="new">The bar chart seems to clearly communicate what word is <em>the</em> most popular.</p><h3 id="step-3-">Step 3. </h3><p class="new">Now run the code as follows:</p><div class="ide code-starter clearfix"><pre><code>simple_vis('simpleBarB.png')
+top_10 = sorted[0:10]
+visualize(top_10, 'top10B.png')</code></pre></div><p class="new">We are running the same code but creating two visualizations. Do you see the problem?</p><p class="new">The colors and the Y axis are messed up. The issue is that matplotlib shares state when 
+creating graphs (or figures). In other words when you create a graph, any subsequent 
+graph is affected by properties you set creating the first graph. This can be a 
+feature or a pain and it's one of those issues (of many) that you will run into 
+when using libraries -- you really need to read the documentation and understand 
+how the library works and how it is expected to be used.</p><p class="new">In our case, we can fix this by uncommenting the lines:</p><pre><code>plt.figure(0) # inside of simple_vis
+plt.figure(1) # inside of visualize</code></pre><p class="new">We are essentially telling matplotlib to keep the two graphs separate (do not share state).
+Rerun the code such that both graphs are created and both graphs generate the correct image.</p><ol start="1"><li>Make the code changes above (and re-running the code)</li><li>Run this code.</li></ol><div class="ide code-starter clearfix"><pre><code>simple_vis('simpleBarC.png')
+top_10 = sorted[0:10]
+visualize(top_10, 'top10C.png')</code></pre></div><h1 class="section" id="section2">A Better Approach to Matplotlib</h1><p class="new">The issue with the above solution is that you have to make sure each 
+visualization built in a session does not share state. At one point it was 
+assumed that you would build one visualization (called the active state) 
+and rely on this state.  However, as people started to build more complex 
+sets of visualizations in a single session, this sharing of state became an issue.</p><p class="new">Take a look at the next code cell. It uses something called the 'object oriented interface' (abbreviated OO). 
+The OO API (application programming interface -- the functions and methods 
+we can call on a library) is a way of designing a solution using separate classes and types.  </p><div class="ide code-starter clearfix"><pre><code>def visualize_better(tuples, filename):
+  
+  labels = []
+  counts = []
+  for t in tuples:
+    labels.append(t[0])
+    counts.append(t[1])
+    
+  x_pos = range(len(labels))
+  
+  # use the object API
+  fig = plt.figure()
+  ax  = fig.add_subplot(111) 
+  #ax = fig.add_subplot(1,1,1) # same as above
+  
+  # create the bars
+  bars = ax.bar(x_pos, counts)
+  
+  ax.set_xlabel('word',  fontsize=12)
+  ax.set_ylabel('count', fontsize=12)
+  
+  ax.set_xticks(x_pos)
+  ax.set_xticklabels(labels, fontsize=8, rotation=30)
+  ax.set_title('Word Usage')
+  
+  #fig.show()
+  fig.savefig(filename)
+  
+  # return the figure
+  # allows the caller to customize
+  # do NOT return plt
+  return fig
+  
+top_10 = sorted[0:10]
+fig = visualize_better(top_10, 'top10C.png')</code></pre></div><blockquote><p class="new"><strong><em>Coder's Log</em></strong> if you return a figure from a function (and the call to that function is the last line of code in a 
+cell, it will get displayed (so you may see two graphs). Assigning it into a variable 
+prevents this behavior.</p></blockquote><p class="new">Using this API, building visualizations is not only easier but there is also a 
+clear separation of state between visualizations.  We will only use this 
+API moving forward. However there are lots of matplotlib tutorials that only 
+show the shared state way (do <em>not</em> use that code).</p><h2 id="round-one-wrap-up">Round One Wrap-up.</h2><p class="new">It's not a great visualization is it?  But it is a start.  We proved that we 
+can take the text of a book (well a subsection of one) and process the words to 
+make a bar chart of the top most frequently used words.  A few weeks ago you 
+didn't know any Python (and perhaps didn't know how to program). So you have 
+actually accomplished a great deal.</p><p class="new">We certainly can make a lot of improvements to not only the final output, 
+but to each step in the pipeline.  We will be addressing some of the 
+enhancements in the next set of lessons.</p><h2 id="the-mountain-that-is-matplotlib">The Mountain that is Matplotlib</h2><p class="new">Learning how to build visualizations using matplotlib will involve a lot 
+more learning than just showing you some code that builds a bar graph. It's 
+important to know how graphics are composed.  For this lesson, we are just 
+starting our journey and we will have a dedicated lesson that describes the 
+library in more detail.</p><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"></div></div></div><h1 class="section" id="section3">Lesson Assignment</h1><p class="new">Take a look at the documentation for <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html" target="_blank">pyplot.bar</a>. 
+It returns a container of the bars created. Your task is to color the highest bar red. 
+That is the bar that represents the word with the highest count should be colored red.</p><h2 id="better-visualizations">Better Visualizations</h2><p class="new">Create a new function named <code>visualize_high(tuples, filename)</code></p><ul><li>It will generate a graph named using <code>filename</code>.</li><li>This plot will look very similar to top10A.png but the word with the highest count will be colored red.</li><li>For this assignment you must use the object oriented API for building your visualization -- 
+You must (and should) look at the code and see the differences otherwise, this step will not make any sense.</li><li>Be sure to return the figure</li><li>More hints in the next section</li></ul><div class="ide code-starter clearfix"><pre><code># put your solution here</code></pre></div><h2 id="testing">Testing</h2><p class="new">Be sure to test your code as well. Once your graph looks great (feel free to 
+augment based on the documentation), you can submit your solution.</p><p class="new">Hints:  </p><ul><li><a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html" target="_blank">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html</a></li><li><a href="https://matplotlib.org/2.0.2/api/colors_api.html" target="_blank">https://matplotlib.org/2.0.2/api/colors_api.html</a></li><li>You should not need to add a lot of code to do this</li><li>You can color the other bars any way you see fit, but the one bar needs to be 'red'</li></ul><div class="ide code-starter clearfix"><pre><code>print(ide.tester.list_tests())</code></pre></div><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>DS-CNG-VIS</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Cliff Note Generator</div><p class="text-center text-gray-800 text-xl">Visualizations</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">DS-CNG-VIS</span></div><div class="text-gray-700 text-base"> </div><div class="text-gray-700 text-base">Readings</div><div class="text-xs p-2 border border-solid border-gray-500 bg-gray-300"> <div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html" target="_blank">https://matplotlib.org/api/_as_gen/matplotlib.pyplot.bar.html</a></div><div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://matplotlib.org/2.0.2/api/colors_api.html" target="_blank">https://matplotlib.org/2.0.2/api/colors_api.html</a></div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>

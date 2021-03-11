@@ -124,7 +124,10 @@ def _do_find(result, expected, debug=False):
 def get_tests():
     return tests
 
-def find_in_model(model, pos=[], neg=[], expected=[], topn=10, debug=False):
+MAX_DIM = 300
+TOP_N = 25
+
+def find_in_model(model, pos=[], neg=[], expected=[], topn=TOP_N, debug=False):
     try:
         result = model.wv.most_similar(positive=pos, negative=neg, topn=topn)
         idx = _do_find(result, expected, debug)
@@ -133,12 +136,10 @@ def find_in_model(model, pos=[], neg=[], expected=[], topn=10, debug=False):
         idx = None
     return idx
 
-MAX_DIM = 300
-TOP_N = 25
-def score_model(model, debug=True):
+def score_model(model, debug=True, topn=TOP_N):
     total_found = 0
     for t_idx, t in enumerate(tests):
-        idx = find_in_model(model, pos=t[0], neg=t[1], expected=t[2], debug=debug)
+        idx = find_in_model(model, pos=t[0], neg=t[1], expected=t[2], topn=topn, debug=debug)
         if idx is not None:
             total_found += 1
     return total_found

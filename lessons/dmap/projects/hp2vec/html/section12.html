@@ -29,7 +29,7 @@ the hope is that result vector is close/similar to the <strong>Dumbledore</stron
     corpus = build_hp_dataset()
     config = Util.build_config(corpus, 5, 2, 1, 1, 5, 30)
     model  = build_model(config)
-    score = Util.score_model(model, debug=True)
+    score = Util.score_model(model, debug=True, topn=25)
     print("total score", score)</code></pre><p class="new"><code>Util.score_model</code> uses <code>model.wv.most_similar</code> and then checks the result to
  see if any of the expected words are found. The <code>topn</code> parameter is set to 25.</p><pre><code>result = model.wv.most_similar(positive=pos, negative=neg, topn=topn)</code></pre><h2 id="test-harness-">Test Harness </h2><p class="new">Be sure to wrap all your testing code in a function named <code>do_experiments</code>. 
 Do <strong>NOT</strong> build and test your models outside of this function.  Otherwise, when you
