@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang='en'><head><title>Regression</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h2,h3,h4,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}table{border-collapse:collapse}h1,h2,h3,h4{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-1{margin-top:.25rem;margin-bottom:.25rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-2{padding:.5rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}.lesson-footer{margin-top:50px;margin-top:20px}table{border-spacing:10px;border:1px solid #666;border-collapse:collapse!important;margin-bottom:1em}td{padding:0 10px 10px 10px}thead{border:.5px solid #778899}table td+td{border-left:2px solid #778899}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.formula-block{margin-left:auto;margin-right:auto;margin-top:.25rem;margin-bottom:.75rem}img.formula-inline{margin-top:.25rem;margin-bottom:.25rem}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw600{height:auto;width:auto;max-width:600px}img.iw400{height:auto;width:auto;max-width:400px}img.iw300{height:auto;width:auto;max-width:300px}img.iw200{height:auto;width:auto;max-width:200px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/MachineLearningV2-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Regression</div><p class="text-center mt-2 text-gray-800 text-xl">Predicting real values</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#machine learning</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Regression<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>mlprep</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>Python classes</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Regression</h1><p class="new">As we may remember, there are two major machine learning techniques under the
+ supervised ML category: <strong>regression</strong> and <strong>classification</strong>. Both use 'labeled' data 
+ to build a model for prediction (usually). If the prediction is a real valued
+  number, it falls under the category of <em>regression</em>. If the prediction is a
+   categorical or discrete values, it's called <em>classification</em>. And to add
+    some confusion, <em>logistic</em> regression is a type of classification.</p><h2 id="linear-regression">Linear Regression</h2><p class="new">Linear regression is one of those words (like calculus or linear algebra) 
+where we have probably have heard of it before (perhaps in a high school
+ algebra class, or a college statistics class), but may not <em>know</em> (or
+  forgotten) what it does or how it works.</p><p class="new"> Recently, it seems to have made a comeback and the fields of data science and 
+ machine learning are trying to claim 'ownership' of it. Linear regression 
+ is a technique that goes back to the early 1800's and is strongly
+  rooted in the field of statistics. </p><h2 id="linear-vs-polynomial-fitting">Linear vs Polynomial Fitting</h2><p class="new">This lesson's focus is on regression, but specifically linear regression.
+   Linear regression uses the equation of a line as its 'model'. Here a
+    straight line is used to represent the data (the best it can). </p><img alt="lineWDots.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/lineWDots.png"/><p class="new">If the line needs to become a curve, it becomes <em>polynomial</em> regression. We will look 
+at this later in the lesson. </p><h2 id="single-vs-multiple-independent-variables">Single vs Multiple Independent Variables</h2><p class="new"> When there is only <em>one</em> independent variable involved (also called the
+  predictor, explanatory), it's called <em>simple</em> linear regression or
+   <em>univariate</em> linear regression. If more than one independent variable is involved, 
+   it called <em>multiple</em> (or <em>multivariate</em>) linear regression. 
+  If regression is used without any qualifiers, it's usually simple, linear regression. </p><p class="new">In all possible configurations, mastering the simple linear regression model
+ makes understanding all the others fall into place -- much of the techniques
+  stay the same, just in 'higher' dimensions. </p><br/><h3 id="a-simple-goal">A Simple Goal</h3><p class="new">The goal of linear regression is to find the best fitting line for a set of 
+points/objects in a dataset. Once you have this line, it can be used to make
+ predictions (assuming the line does a good job of modeling the data).</p><img alt="line20-2.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/line20-2.png"/><h1 class="section" id="section2">A Line, revisited</h1><p class="new">As we saw in a previous lesson, a line is defined by its slope and y
+ intercept. The equation of line <img alt="math?math=%5Clarge%20y%3Dmx%2Bb" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%3Dmx%2Bb" style="display:inline-block"/> is the heart of linear
+  regression. </p><p class="new">If you think of this equation as a function, it could be written as</p><pre><code>def f(x):
+  return m * x + b</code></pre><ul><li><code>y</code> is the output of the function (the dependent, response, outcome variable)</li><li><code>x</code> is the input to the function (the independent, predictor, explanatory variable)</li><li><code>m</code> represents the slope</li><li><code>b</code> represents the <code>y</code> intercept (the value when <code>x</code> is zero)</li></ul><p class="new">Note that this equation, <img alt="math?math=%5Clarge%20y%20%3D%20mx%20%2B%20b" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%20%3D%20mx%20%2B%20b" style="display:inline-block"/> is sometime referred to as
+ <em>polynomial</em> equation of degree 1 (i.e. first degree polynomial). If you had 
+ an equation that looked like <code>y = ax² + bx + c</code>, you would call it a quadratic¹ 
+ equation. To solve this, you set <code>y</code> to <code>0</code> and use the quadratic equation to 
+ find the values of <code>x</code>. But we digress.</p><p class="new">There are different algorithms for linear regression (the focus of this lesson), 
+but essentially, each is trying to determine or find a line's slope (<code>m</code>) and 
+   its y-intercept (<code>b</code> or <code>y0</code>).</p><h2 id="a-dataset-of-2-points">A dataset of 2 Points</h2><img alt="line.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/line.png"/><p class="new">The simplest line (as shown above), can be derived by 2 points. The
+ resulting line 'perfectly fits' the data (the 2 points). Each point is on
+  the calculated line; the distance from the line to each point is zero.  If
+   the dataset has a small number of samples, we need to use additional metrics
+    if we want to make any claims with statistical confidence.</p><h2 id="a-dataset-of-3-points-or-more-">A dataset of 3 Points (or more) </h2><p class="new">When you add additional points to the data, calculating the slope and y-intercept is 
+no longer trivial. You can pick any two points from the dataset to create
+ a line; however, there will be no line that passes through all the other points
+  (unless they are all one the line -- that is, they are some linear combination 
+  of the two selected points).</p><p class="new">The goal of linear regression is to find the <em>best fitting line</em>. We define
+ 'best fitting' as the line that minimizes the sum of the squared distances
+  between the y values in the dataset (the actual values) and the y
+   values calculated from the fitted line ŷ (y-hat).
+<img alt="fittedLine.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/fittedLine.png"/></p><h2 id="the-objective-function">The Objective Function</h2><p class="new">The sum of squared distances is called the sum of squared errors (SSE) or
+ <strong><em>residuals</em></strong>. So the goal of linear regression is to minimize the following
+  function (be sure to understand this, before moving on) for the <code>n</code> data observations:</p><img alt="math?math=%5CLarge%20SSE%20%3D%20%5Csum_%7Bi%3D1%7D%5En%20(y_i%20-%20%5Chat%7By_i%7D)%5E2" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20SSE%20%3D%20%5Csum_%7Bi%3D1%7D%5En%20(y_i%20-%20%5Chat%7By_i%7D)%5E2"/><p class="new">How do we do that? That is how can one select the line (defined by its slope
+ and y-intercept) such that the SSE is minimized? </p><p class="new">Well, that <strong><em>is</em></strong> the field of linear regression. This lesson will look at 
+different techniques to fit a line to a dataset that minimized the SSE and 
+some ways to apply regression to a dataset. In math, statistics, and machine 
+learning, they use different techniques to take the data and 'figure out' 
+which line best models the data.</p><p class="new">Once we find the line that minimizes <code>SSE</code>, we can then calculate other statistics to
+  help us understand the correlation (if any) between the data attributes 
+  (i.e. "is there a linear relationship between <code>x</code> and <code>y?</code>").</p><h1 class="section" id="section3">A page out of Stats 101 (literally)</h1><img alt="page.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/page.png"/><h2 id="a-statisticians-view-of-linear-regression">A Statistician's View of Linear Regression</h2><p class="new">The above image is taken from page 450 from <em>Learning From Data</em> (2ⁿᵈ edition). 
+But any statistics book on linear regression will have the formulas
+ necessary to find the slope and y-intercept of the regression line (the one
+  that minimizes SSE).  </p><p class="new">In this example, we are going to use the same dataset the book uses and go over 
+the formulas (the dataset comes from a fictitious sociologist investigating 
+the relationship between the number of years mothers attend college and the 
+number of years their daughters attend college).</p><img alt="table20-1.png" class="iw400 border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/table20-1.png"/><p class="new">Let's load up the data. The following function uses pandas to load the
+ dataset, but then returns two parallel numpy arrays, one for the <code>x</code> (the
+  independent variable) attribute and one for the <code>y</code> (the dependent variable) attribute.</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+import pandas as pd
+import numpy as np
+
+def xy_from_file(p, x, y, show=False):
+    df = pd.read_csv(p)
+    if show:
+        df['XY'] = df[x] * df[y]
+        print(df.head())
+    x_values = df[x].values
+    y_values = df[y].values
+    return x_values, y_values
+
+xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter', show=True)</code></pre></div><h2 id="all-those-s-">All those ∑'s 😨</h2><p class="new">Looking at Table 20-1, we now need to calculate the various summation
+ quantities (e.g. <code>∑x, ∑y, ∑x², ∑y²</code>, etc). These will be used for determining 
+the slope and y-intercept of a line.  Luckily we can use numpy to make this 
+very straightforward:</p><div class="ide code-starter clearfix"><pre><code>def find_line(x,y):
+
+    x_sum  = np.sum(x)             # ∑x
+    y_sum  = np.sum(y)             # ∑y
+    xy_sum = np.sum(x * y)         # ∑(xy)
+  
+    x2_sum = np.sum(np.square(x))  # ∑(x²)
+    y2_sum = np.sum(np.square(y))  # ∑(y²)
+
+    x_ave  = np.mean(x) 
+    y_ave  = np.mean(y)</code></pre></div><h2 id="ready-for-plugin">Ready for plugin'</h2><img alt="slopeFormula.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/slopeFormula.png"/><p class="new">The above image gives all the necessary formulas for calculating the slope
+ and y-intercept with the above calculations.</p><p class="new">Add the following code to <code>find_line</code>.</p><pre><code>    n = np.size(x)
+    dx = (n * xy_sum - x_sum * y_sum)
+    dy = (n * x2_sum - x_sum * x_sum)
+  
+    slope = dx/dy
+    y0 = y_ave - slope * x_ave  # y0 is the same as b
+  
+    print("y = {:.3f}x + {:.3f}".format(slope, y0))</code></pre><p class="new">The following should now work:</p><div class="ide code-starter clearfix"><pre><code>xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+find_line(xv, yv)</code></pre></div><p class="new">You should see <code>y = 1.500x + 0.500</code>. Which confirms the example.</p><h2 id="measuring-the-strength-of-the-the-linear-relationship-">Measuring the Strength of the the Linear Relationship </h2><p class="new">Given any dataset, we can always fit a line to it. And by definition it will
+ be the best fitting line. But the question of how well the dependent variable's
+ variation is explained by the dependent variable needs to be addressed.</p><p class="new">The following image depicts some of the important calculations we can make to
+ help answer that question: 
+<img alt="SST.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/SST.png"/></p><h3 id="sst-sse-mse">SST, SSE, MSE</h3><p class="new">SST is the total variation between the average y (dependent variable) and
+ each point.  It is the sum of the squared differences.  Using NumPy it is
+ simply:</p><pre><code>    SST = np.sum(np.square(y - y_ave))</code></pre><p class="new">SSE is the sum of the squared residuals.  It is what the least squares method
+ is minimizing. The <strong>M</strong>ean <strong>S</strong>quared <strong>E</strong>rrors is a scaled version of the SSE. 
+It is the SSE divided by the number of observations. It will be a useful measurement 
+in an upcoming lesson. </p><h3 id="r-and-r">R and R²</h3><p class="new">As we saw, regression finds the best-fitting straight line; <em>correlation</em> is
+ used to describe the <em>strength</em> of the relationship.  The Pearson correlation 
+coefficient, R, helps determine if two variables are strongly related. It basically 
+measures how much of the variability of the dependent variable is explained 
+by the independent variable. The Pearson correlation statistic measures this strength.
+It's range is -1 to +1. Values close to 0 imply the variables are unrelated. 
+<img alt="r.png" class="center mt-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/r.png"/></p><p class="new">R² is of course related to R but is easier to interpret.  It is calculated via</p><img alt="math?math=%5CLarge%20R%5E2%20%3D%20%5Cfrac%7BVar(mean)%20-%20Var(line)%7D%7BVar(mean)%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20R%5E2%20%3D%20%5Cfrac%7BVar(mean)%20-%20Var(line)%7D%7BVar(mean)%7D"/><p class="new">Var(mean) </p><ul><li>variance around the mean (looking at the y values)</li><li>sum of the squared differences from the mean (between the actual y and the mean)</li><li>SST (or SSM == SST/n)</li></ul><p class="new">Var(line) </p><ul><li>variance around the actual and predicted values</li><li>sum of the squared difference between actual value and predicted value</li><li>SSE (or MSE == SSE/n)</li></ul><p class="new">So based on our previous discussion, R² can also be defined as</p><img alt="math?math=%5CLarge%20R%5E2%20%3D%20%5Cfrac%7BSST%20-%20SSE%7D%7BSST%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20R%5E2%20%3D%20%5Cfrac%7BSST%20-%20SSE%7D%7BSST%7D"/><h4 id="r-as-a-percentage">R² as a Percentage</h4><p class="new">The R² range is [0, 1] and can be thought of as a percentage: it is the 
+percentage of variation explained by the relationship between the two variables. </p><h4 id="20-1-example">20-1 example:</h4><p class="new">For the 20-1 data, R² is 0.94. The daughter/mother relationship accounts for
+ 94% of the variation in the data.</p><h2 id="the-p-value-">The p-value </h2><img alt="p-value.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/p-value.png"/><p class="new">From statistics, the p-value is the probability that random chance generated 
+the data under investigation. It can be used to determine if R² is statistically 
+significant or not. A low p-value, tells you if the R² value is due to 
+chance (or something equal or rarer). </p><p class="new">Although we won't calculate it, several of the libraries we will use, do give
+ you a p-value as well.  </p><h1 class="section" id="section4">Exercise </h1><h2 id="part-of-the-lesson-requirements">(part of the Lesson requirements)</h2><h3 id="linearregressionols-"><code>LinearRegressionOLS</code> </h3><p class="new">Create a class named <code>LinearRegressionOLS</code> whose constructor takes an x
+ and y array of values. It calculates (using only numpy) and saves the
+ following as instance attributes (attribute name in parenthesis):</p><ul><li>the x values (<code>x</code>)</li><li>the y values (<code>y</code>)</li><li>the slope (<code>slope</code>)</li><li>the y intercept (<code>y0</code>)</li><li>the SSE (<code>SSE</code>)</li><li>r², the correlation coefficient squared (<code>r2</code>)</li></ul><h3 id="easy-printing">Easy printing</h3><p class="new">Implement the method so that printing a <code>LinearRegressionOLS</code> instance 
+will be similar to <code>find_line</code>.</p><p class="new">Most of the work has been done for you. It's now a matter of encapsulating
+ all the information in a Python class.</p><div class="ide code-starter clearfix"><pre><code>class LinearRegressionOLS(object):
+   pass</code></pre></div><p class="new">Once done the following should work:</p><pre><code>import LessonUtil as Util
+
+# same data from Table 20-1
+xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+stats_line = LinearRegressionOLS(xv, yv)
+print(stats_line, "({:.3f})".format(stats_line.SSE))
+
+# data from Table 20-2; different dataset (same book, p.458)
+xv, yv = xy_from_file(Util.path_for_data('data20-2.csv'), 'SUGAR', 'TIME')
+stats_line = LinearRegressionOLS(xv, yv)
+print(stats_line, "({:.3f})".format(stats_line.SSE))</code></pre><p class="new">The output should be:</p><pre><code>y = 1.500x + 0.500 (1.000)
+y = 2.906x + 7.312 (376.500)</code></pre><h3 id="prediction">Prediction</h3><p class="new">Of course we can use this model to make predictions as well -- that's one of
+ the main reasons for using linear regression. Although the accuracy of the 
+prediction is based on the quality of the data as well as the true correlation of the dependent
+ variable (<code>y</code>) with the independent variable (<code>x</code>).</p><p class="new">Add the following method (<code>predict</code>) to your <code>LinearRegressionOLS</code> 
+class so one can use it to make predictions. Once it is done the following should work:</p><pre><code>prediction = model.predict(x_value)</code></pre><h3 id="drawing-the-line">Drawing the line</h3><p class="new">With the other methods in place, the next thing we want to do is draw the regression model.<br/>Add the following code to your class so we can display the data points and
+ the fitted line:</p><pre><code>def display(self, equal_aspect=False):
+
+    fig, axes = plt.subplots(1,1)
+    
+    # plot the points
+    axes.scatter(self.x, self.y, s=75, color='gray')
+    
+    # plot the fitted line
+    x1 = np.min(self.x)
+    y1 = self.predict(x1)
+    x2 = np.max(self.x) + 0.25
+    y2 = self.predict(x2)
+    axes.plot([x1, x2], [y1,y2], color='blue')
+    
+    if equal_aspect:
+        # make the axis' look nice
+        max_v = np.max(np.maximum(self.x, self.y)) + 0.25
+        axes.set_ylim(0, max_v)
+        axes.set_xlim(0, max_v)
+        axes.set_aspect('equal')
+    
+    return fig</code></pre><p class="new">Once this is done, you should have a nice looking graph that mimics the image
+ taken from the textbook:</p><img alt="table20-1chart.png" class="iw300 border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/table20-1chart.png"/><div class="ide code-starter clearfix"><pre><code>xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+stats_line = LinearRegressionOLS(xv, yv)
+stats_line.display(True)
+print(stats_line)</code></pre></div><h1 class="section" id="section5">Finding the Line</h1><p class="new">We now know that the goal of regression is to find the fitted line that minimizes the 
+SSE (the objective function), but we haven't really explained how one goes from this formula: </p><img alt="math?math=%5CLarge%20SSE%20%3D%20%5Csum_%7Bi%3D1%7D%5En%20(y_i%20-%20%5Chat%7By_i%7D)%5E2" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20SSE%20%3D%20%5Csum_%7Bi%3D1%7D%5En%20(y_i%20-%20%5Chat%7By_i%7D)%5E2"/><p class="new">to the calculations we used (from the textbook) to find the slope and y-intercept:</p><img alt="ols.png" class="center iw200" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/ols.png"/><h2 id="enter-stage-right-calculus">Enter stage right, calculus</h2><img alt="calculus.png" class="float-left iw200 mr-3 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/calculus.png"/><p class="new">The answer to that important question lies on a path that goes through algebra
+ and calculus. </p><p class="new">The idea is that you take the derivative of the objective function, set it to zero and go
+   through algebraic hoops to arrive at the solution.  </p><p class="new">The derivative of a function speaks to how the function changes with respect to 
+a change in a variable or input. It measures the 'steepness' of the graph. Where the 
+derivative is zero, is where the objective function (SSE) is at a minimum. The slope 
+is zero -- it is not changing. Luckily we will not only skip the proof, but we 
+will let you read it 
+<a href="https://storage.googleapis.com/uicourse/pdfs/RegressionProof.pdf" target="_blank">here</a> and 
+<a href="https://storage.googleapis.com/uicourse/dmap/SSE-derivations.pdf" target="_blank">here</a>.</p><p class="new">This is the essence of differential calculus. If you have a function, there's
+ a set of rules you can use to find that function's derivative. Once 
+you have the derivative, you can set it to zero (where its slope is at
+ a minimum) and solve for the other parts of the equation. So at the end of the derivation, 
+the SSE function is at a minimum when the slope and y-intercept are set to
+ the following values: </p><ul><li><img alt="math?math=%5Clarge%20y_0%20%3D%20%5Coverline%7By%7D%20-%20m%20%5Coverline%7Bx%7D" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y_0%20%3D%20%5Coverline%7By%7D%20-%20m%20%5Coverline%7Bx%7D" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20m%20%3D%20%5Cfrac%7BS_%7Bxy%7D%7D%7BS_%7Bxx%7D%7D" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20m%20%3D%20%5Cfrac%7BS_%7Bxy%7D%7D%7BS_%7Bxx%7D%7D" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20S_%7Bxy%7D%3D%5Csum(x_i%20-%20%5Coverline%7Bx%7D)(y_i%20-%20%5Coverline%7By%7D)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20S_%7Bxy%7D%3D%5Csum(x_i%20-%20%5Coverline%7Bx%7D)(y_i%20-%20%5Coverline%7By%7D)" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20S_%7Bxx%7D%3D%5Csum(x_i%20-%20%5Coverline%7Bx%7D)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20S_%7Bxx%7D%3D%5Csum(x_i%20-%20%5Coverline%7Bx%7D)%5E2" style="display:inline-block"/></li></ul><h2 id="a-small-crack-to-let-the-ml-light-in">A small crack to let the ML light in.</h2><p class="new">The caveat to using calculus to minimize a cost function is that not all functions 
+are differentiable. Also the above methods require you to accept using SSE as
+ the cost function. This is where the machine learning people stepped in and
+ said 〝Hey, we know how to deal with that situation(s).〞 But we are getting
+ ahead of ourselves. </p><h1 class="section" id="section6">Welcome, Linear Algebra</h1><h2 id="if-you-give-a-linear-algebraist-a-set-of-equations-">If you give a linear algebraist a set of equations, ...</h2><p class="new">The method we just outlined <em>is</em> the method of <strong>o</strong>rdinary <strong>l</strong>east 
+<strong>s</strong>quares (OLS) and why it's part of the class name you created. As you may
+ have noticed, for a large dataset
+, there
+ are
+ many 'passes' over the data to build all those summations. When someone who
+ lives and breaths linear algebra and sees things like ∑(xy)², they
+ immediately think of matrices to do that math.</p><p class="new">We can, through more mathematical gymnastics, solve for SSE using linear algebra.
+This is, we can find where SSE is at minimum using matrices. </p><p class="new">This is in fact, how most mathematical libraries implement regression. Perhaps
+ you have heard of LAPACK and BLAS -- two very popular libraries for doing 
+linear algebra (SciPy builds upon those libraries).</p><h3 id="closed-form-solutions">Closed Form Solutions</h3><p class="new">First we are going to present the 'closed form' solution. Then we will
+ take it apart to understand how it works. It is considered a 'closed form' 
+because there is an exact solution with a finite amount of data. To understand 
+what is a closed form solution is, it might be best to look at something that is 
+not: </p><img alt="math?math=%5CLarge%20y%3D4x%20%2B%206x%5E2%20%2B%20%5Cfrac%7B22%7D%7B3%7Dx%5E3%20%2B%20%5Cfrac%7B95%7D%7B12%7Dx%5E4%20%2B%20..." class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20y%3D4x%20%2B%206x%5E2%20%2B%20%5Cfrac%7B22%7D%7B3%7Dx%5E3%20%2B%20%5Cfrac%7B95%7D%7B12%7Dx%5E4%20%2B%20..."/><p class="new">That function is <em>not</em> in closed form because the summation never ends. However, 
+the function <img alt="math?math=%5Clarge%20y%20%3D%20%5Cfrac%7B2%20%2B%20x%5E2%7D%7B1-x%7De%5Ex" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%20%3D%20%5Cfrac%7B2%20%2B%20x%5E2%7D%7B1-x%7De%5Ex" style="display:inline-block"/> does provides the same answer to the problem
+ but with a closed form solution.</p><h2 id="linear-algebra-">Linear Algebra ⚙️</h2><p class="new">The closed form solution to find both the slope and y intercept expressed
+ using matrices is</p><img alt="math?math=%5CLarge%20A%20%3D(X%5ETX)%5E%7B-1%7DX%5ETY" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20A%20%3D(X%5ETX)%5E%7B-1%7DX%5ETY"/><p class="new"><code>X, A, Y</code> 
+are defined as follows:</p><img alt="math?math=%5CLarge%20X%3D%0A%5Cbegin%7Bbmatrix%7D%0A1%20%26%20x_1%20%5C%5C%0A1%20%26%20x_2%20%5C%5C%0A1%20%26%20x_3%20%5C%5C%0A..%20%26%20..%20%5C%5C%0A1%20%26%20x_n%20%0A%5Cend%7Bbmatrix%7D%0A%5Cquad%20Y%3D%0A%5Cbegin%7Bbmatrix%7D%0Ay_1%20%5C%5C%0Ay_2%20%5C%5C%0Ay_3%20%5C%5C%0A..%20%5C%5C%0Ay_n%20%0A%5Cend%7Bbmatrix%7D%0A%5Cquad%20A%3D%0A%5Cbegin%7Bbmatrix%7D%0Ab%20%5C%5C%0Am%20%5C%5C%0A%5Cend%7Bbmatrix%7D%0A" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20X%3D%0A%5Cbegin%7Bbmatrix%7D%0A1%20%26%20x_1%20%5C%5C%0A1%20%26%20x_2%20%5C%5C%0A1%20%26%20x_3%20%5C%5C%0A..%20%26%20..%20%5C%5C%0A1%20%26%20x_n%20%0A%5Cend%7Bbmatrix%7D%0A%5Cquad%20Y%3D%0A%5Cbegin%7Bbmatrix%7D%0Ay_1%20%5C%5C%0Ay_2%20%5C%5C%0Ay_3%20%5C%5C%0A..%20%5C%5C%0Ay_n%20%0A%5Cend%7Bbmatrix%7D%0A%5Cquad%20A%3D%0A%5Cbegin%7Bbmatrix%7D%0Ab%20%5C%5C%0Am%20%5C%5C%0A%5Cend%7Bbmatrix%7D%0A"/><p class="new">The <code>ᵀ</code> is for <em>transform</em>, and the <code>⁻¹</code> is for the matrix <em>inverse</em> (which 
+we will go over).</p><h3 id="welcome-back-">Welcome Back •</h3><p class="new">Assuming we are a bit rusty on our linear algebra (and who isn't, really), let's 
+go through it.  The majority of operations are just two matrices multiplied
+ together (i.e. the dot product).  Below is a review of how dot product works with
+ vectors and matrices:</p><img alt="dot.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/dot.png"/><p class="new">The dot product is perfect for multiplying and summing up quantities.</p><h3 id="xx-"><code>(XᵀX)</code> </h3><p class="new">The following shows the result of multiplying a matrix transform with itself:
+<img alt="XTX.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/XTX.png"/></p><p class="new">The transform simply changes a column vector into a row vector (and vice versa). 
+Note how the final answer contains some key summations (be sure to confirm 
+the results with the OLS implementation).</p><div class="ide code-starter clearfix"><pre><code>xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+
+n = len(xv)
+ones = np.ones(n)
+X = np.column_stack( (ones, xv) )
+print(X)
+print(X.T)
+XTX = X.T.dot(X)
+print(XTX)</code></pre></div><h3 id="xx-"><code>(XᵀX)⁻¹</code> </h3><h4 id="taking-the-inverse-of-a-matrix-">Taking the inverse of a matrix (<code>⁻¹</code>)</h4><p class="new">When you multiply a matrix by its inverse, you get the <em>identity</em> matrix (a
+ matrix with all 0's except with 1's down the diagonal. A few algebraic steps
+ were done to get to the following simplification of what <code>(XᵀX)⁻¹</code> becomes:</p><img alt="XTXI.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/XTXI.png"/><p class="new">Also note that SSx is defined (as we saw earlier) as </p><img alt="SSx.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/SSx.png"/><div class="ide code-starter clearfix"><pre><code>XTX_I = np.linalg.inv(XTX)
+print(XTX_I)
+
+# show the identity matrix   
+print(XTX_I.dot(XTX))</code></pre></div><h3 id="xy-"><code>XᵀY</code> </h3><p class="new">The final part gives us the ∑y and ∑(xy):
+<img alt="XTY.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/XTY.png"/></p><div class="ide code-starter clearfix"><pre><code>y = np.matrix(yv[:,]).T
+print(y)
+print(X.T.dot(y))</code></pre></div><h3 id="all-together-now-xxxy-">All together now: <code>(XᵀX)⁻¹XᵀY</code> </h3><p class="new">You can now put all the parts together and with using only linear algebra, 
+you can solve for the best fitting line in one equation:</p><div class="ide code-starter clearfix"><pre><code>A = np.linalg.inv(X.T.dot(X)).dot(X.T).dot(y)
+print(A)
+y0    = A[0]
+slope = A[1]
+
+stats_line = LinearRegressionOLS(xv, yv)
+print(np.isclose(stats_line.slope,slope))
+print(np.isclose(stats_line.y0,y0))</code></pre></div><p class="new">Be mindful that it's essentially the same formulas used in the OLS solution.</p><h2 id="the-datascience-toolkit">The DataScience Toolkit</h2><p class="new">NumPy, SciPy and scikit-learn (and many others) provide linear regression
+ solvers. Depending on the selected algorithm, you can find both OLS and
+ matrix implementations. All three provide access to their source code
+ and you can <a href="https://github.com/scipy/scipy/blob/v1.5.4/scipy/stats/_stats_mstats_common.py#L15-L144" target="_blank">dig</a> 
+into the <a href="https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.linalg.lstsq.html#numpy.linalg.lstsq" target="_blank">details</a>.</p><h3 id="numpy">NumPy</h3><p class="new">Numpy's version is a bit tricky, since you need to get the data into matrix form:</p><div class="ide code-starter clearfix"><pre><code>def numpy_lr(x,y):
+
+  import numpy as np
+  A = np.vstack([x, np.ones(len(x))]).T
+
+  # also scipy.linalg.lstsq
+  p, res, rnk, s = np.linalg.lstsq(A, y, rcond=None)
+  slope = p[0]
+  y0    = p[1]
+  
+  result = "y = {:.3f}x + {:.3f}".format(slope, y0)
+  print(result)
+
+  r2 = 1 - res / np.sum((y - y.mean())**2)
+  print('r^2', r2[0])
+  
+xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+numpy_lr(xv,yv)</code></pre></div><h3 id="scipy">SciPy</h3><p class="new">Scipy's version is the most straightforward (it also provides a p-value):</p><div class="ide code-starter clearfix"><pre><code>def scipy_lr(x,y):
+
+  from scipy import stats
+  
+  slope, y0, r_value, p_value, std_err = stats.linregress(x, y)
+  
+  result = "y = {:.3f}x + {:.3f}".format(slope, y0)
+  print(result)
+  print('r^2', r_value**2)
+  
+xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+scipy_lr(xv,yv)</code></pre></div><h3 id="sklearn">Sklearn</h3><p class="new">Sklearn's linear regression uses the familiar <code>fit</code> method.</p><div class="ide code-starter clearfix"><pre><code>def sklearn_lr(x,y):
+
+  from sklearn.linear_model import LinearRegression
+  from sklearn.metrics import r2_score
+  
+  lr = LinearRegression().fit(x.reshape(-1, 1), y)
+  slope = lr.coef_[0]
+  y0    = lr.intercept_
+  
+  result = "y = {:.3f}x + {:.3f}".format(slope, y0)
+  print(result)
+
+  y_fit = xv * slope + y0
+  print('r^2', r2_score(yv, y_fit))
+
+xv, yv = xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')
+sklearn_lr(xv,yv)</code></pre></div><h2 id="extensions-to-linear-regression">Extensions to linear regression</h2><h3 id="more-variables">More Variables</h3><p class="new">Once you have a good handle on using linear regression to solve univariate
+ problems, the extension (multi-variate regression) is simply adding more
+ independent variables.  The matrix math generalizes nicely.</p><h3 id="higher-order">Higher Order</h3><p class="new">You can also try to fit a curve to your dataset and move away from linear
+ regression into polynomial regression.  Usually one visualizes the data (or
+ is getting poor results from linear regression) before deciding to fit a
+ higher order polynomial to the dataset. You also risk overfitting the data
+ as well when you add higher degree polynomials.
+<img alt="overfitting.png" class="center iw600 my-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/overfitting.png"/></p><h3 id="logistic-regression">Logistic Regression</h3><p class="new">Rather than predicting a continuous value, logistic regression is used
+ when you want to predict if something is either True or False. It fits an
+ 'S-curve' to the data rather than a straight line. </p><img alt="logistic.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/logistic.png"/><p class="new">We will see it a later lesson.</p><h1 class="section" id="section7">Welcome Machine Learning</h1><p class="new">As you add more independent variables, both OLS and the matrix versions can 
+spin out of control. OLS becomes a mess; the summations for working with
+ just two independent variables already becomes a task of managing a lot of summations.</p><p class="new">The linear algebra solution does generalize nicely for adding additional
+ attributes; however, finding the inverse of a matrix is computationally 
+expensive, uses a lot of memory, and is only guaranteed to work under certain
+ conditions.</p><p class="new">The fundamental approach to solving linear regression is to produce an answer
+ using all the data -- all at once. There's another approach: iterative. That is, we 
+solve linear regression by looking at each data point, one at a time. The process 
+of doing this is called gradient descent.  </p><p class="new">At its core, linear regression is parameter estimation. It attempts to estimate 
+a slope and a y-intercept.  However, the estimation, under certain conditions, is perfect. 
+The method of gradient descent is ML's tour de force for parameter estimation.</p><h2 id="gradient-descent-gd">Gradient Descent (GD)</h2><p class="new">Gradient descent is NOT specific to linear regression, it can be used anytime 
+you need to do parameter estimation. Gradient descent is a core algorithm used in 
+many optimization problems found in statistics, machine learning and data science. 
+It's also the main work-horse behind powering neural networks (updating the 
+weights in back propagation).</p><p class="new">We will have a separate lesson on gradient descent (GD). But we will push the re-formulation 
+of linear regression into the world of GD before we go.</p><p class="new">Let's start with the equation of a line:</p><ul><li><img alt="math?math=%5Clarge%20y%20%3D%20mx%20%2B%20b" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20y%20%3D%20mx%20%2B%20b" style="display:inline-block"/></li></ul><p class="new">Now change it into a function:</p><ul><li><img alt="math?math=%5Clarge%20f(x)%20%3D%20mx%20%2B%20b" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20f(x)%20%3D%20mx%20%2B%20b" style="display:inline-block"/></li></ul><p class="new">Replace the slope and y intercept with generic <img alt="math?math=%5Clarge%20w_i" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20w_i" style="display:inline-block"/>eights</p><ul><li><img alt="math?math=%5Clarge%20f(x)%20%3D%20w_0%20%2B%20w_1x" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20f(x)%20%3D%20w_0%20%2B%20w_1x" style="display:inline-block"/></li></ul><p class="new">Similarly, we can change the objective function MSE (SSE/n) from this</p><ul><li><img alt="math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20f(x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20f(x_i)%20)%5E2" style="display:inline-block"/></li></ul><p class="new">into this:</p><ul><li><img alt="math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/></li></ul><p class="new">We use ½ of MSE -- to make the math easier (spoiler alert). This is essentially 
+the cost function we will minimize in the next lesson.  </p><p class="new">It is common convention to use a J (for Jacabian) to denote the cost function.</p><ul><li><img alt="math?math=%5Clarge%20J(w_0%2C%20w_1)%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20J(w_0%2C%20w_1)%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/></li></ul><p class="new">Some may use the word <em>loss</em> function to discuss a single training example and 
+use <em>cost</em> function to measure with respect to the entire training set. The 
+words however, are used (a lot) interchangeably.</p><h1 class="section" id="section8">Lesson Assignment</h1><h2 id="part-1-finish-linearregressionols-">Part 1: Finish <code>LinearRegressionOLS</code> </h2><p class="new">Make sure your <code>LinearRegressionOLS</code> class is working as outlined. 
+It will be tested against the Table 20-2 dataset which measures sugar
+ consumption (independent variable) and activity scores (dependent variable).</p><h2 id="part-2-gradient-descent-preparation">Part 2: Gradient Descent Preparation</h2><p class="new">You will create a class named <code>LinearRegressionGD</code> whose constructor takes an
+ x and y numpy array (named <code>xv</code> and <code>yv</code>). </p><p class="new">You will also create a method named <code>plot_mse</code> that plots the MSE (mean squared error) 
+for various values for either the slope or y-intercept of a line. The method
+ signature is discussed below.</p><p class="new">For example the graph below shows various values used for y0 and the
+ resulting MSE value (for the 20-2 dataset):</p><img alt="labeledMSE.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/labeledMSE.png"/><p class="new">Each point on the graph is the result of creating a line with the given 
+y-intercept and then calculating the MSE for that particular line.</p><p class="new">For this lesson, use the following definition of MSE:</p><ul><li><img alt="math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/></li></ul><h3 id="plotmse-"><code>plot_mse</code> </h3><p class="new">Create a method named <code>plot_mse</code> which will plot MSE on the y-axis and
+ either slope or the y-intercept.</p><ul><li><code>plot_mse</code> had 3 parameters: <code>v_values</code>, <code>slope=None</code>, <code>y0=None</code></li><li><code>v_values</code> is the vector of either slopes or y0's to plot</li><li>it creates a figure (i.e. <code>fig, axes = plt.subplots(figsize=(6,6)</code>) for plotting</li><li>return the figure</li></ul><div class="ide code-starter clearfix"><pre><code>import matplotlib.pyplot as plt
+
+class LinearRegressionGD(object):
+
+    # constructor has two parameters
+    # xv the vector of x values
+    # yv the vector of y values
+    pass</code></pre></div><p class="new">Be sure to label your graphs properly. Use the variables <code>plot_y0</code> and <code>plot_slope</code> 
+to help navigate the input vector (<code>v_values</code>).</p><pre><code>    plot_y0    = y0 is None and slope is not None
+    plot_slope = slope is None and y0 is not None
+    assert plot_y0 or plot_slope, 'bad call'</code></pre><h2 id="testing">Testing</h2><p class="new">Be sure to test your function locally using the two provided datasets. For 
+example, if you did the following:</p><pre><code># load up the dataset
+xv, yv = xy_from_file(Util.path_for_data('data20-2.csv'), 'SUGAR', 'TIME')
+lr_gd = LinearRegressionGD(xv,yv)
+
+# from our linear regression analysis, we know
+# y = 2.90625x + 7.31250
+
+# generate different values for y0
+y0_v = np.linspace(-10,20,50)
+# add in the known 'best' y0
+y0_v = np.sort(np.append(y0_v, 7.31250)) 
+
+# plot different y0's against MSE
+# note the named parameter slope (whose default value is None)
+lr_gd.plot_mse(y0_v, slope=2.90625)</code></pre><p class="new">You would get the following graph:</p><img alt="y0VSmse.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/y0VSmse.png"/><p class="new">Similarly, you can use the same method to plot different values for the
+ slope against MSE:</p><pre><code># fill the s_v array with different 'slope' values
+# note the named parameter y0 (whose default value is None)
+lr_gd.plot_mse(s_v, y0=7.31250)</code></pre><p class="new">You would see:</p><img alt="slopeVSmse.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/linear_regression/html/slopeVSmse.png"/><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>linearRegression</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Regression</div><p class="text-center text-gray-800 text-xl">Predicting real values</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">linearRegression</span></div><div class="text-gray-700 text-base"> </div><div></div><div class="text-gray-700 text-base">References and Additional Readings</div><div class="text-xs p-2 border border-solid border-gray-500 bg-gray-300"> <div class="text-gray-700 px-4 m-2">• <!-- --> <a href="http://stat.math.uregina.ca/~kozdron/Teaching/Regina/252Winter05/Handouts/least_squares.pdf" target="_blank">http://stat.math.uregina.ca/~kozdron/Teaching/Regina/252Winter05/Handouts/least_squares.pdf</a></div><div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://max.pm/posts/ols_matrix/" target="_blank">https://max.pm/posts/ols_matrix/</a></div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div><p class="new">¹Don't confuse quadratic as degree 4, In Latin, the word "quadrus" means a 
+square (because it has four sides) and "quadratus" means "squared." </p><table><thead><tr><th>degree</th><th>name</th><th>shape</th><th>dimension</th></tr></thead><tbody><tr><td>1</td><td>linear</td><td>line</td><td>1</td></tr><tr><td>2</td><td>quadratic</td><td>square</td><td>2</td></tr><tr><td>3</td><td>cubic</td><td>cube</td><td>3</td></tr><tr><td>4</td><td>quartic</td><td>-</td><td>4</td></tr><tr><td>5</td><td>quintic</td><td>-</td><td>5</td></tr></tbody></table><p class="new">Quadratus is the Latin for "square" due to there being four sides on a square. The 
+second power of a number is called its square because if we have an integer, 
+and construct a square with that number of items on each side, the total number 
+will be its second power. For example, a 4×4 square having 16 items:</p><pre><code>* * * *
+* * * *
+* * * *
+* * * *</code></pre><p class="new">Sources
+<a href="http://mathforum.org/library/drmath/view/52572.html" target="_blank">http://mathforum.org/library/drmath/view/52572.html</a></p></div></div></body></html>
