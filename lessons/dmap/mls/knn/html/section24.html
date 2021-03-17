@@ -29,6 +29,4 @@ characteristics of the data (e.g. mean, max, min, range, etc), we need to
 standard deviation. The <code>transform</code> part will scale the data using those parameter.</li><li>you will then <em>only</em> <code>transform</code> the testing data.</li></ul><p class="new">Let's repeat that: you will use the <code>fit_transform</code> method for the training data and 
 reuse the same transformer for normalizing the testing data via <code>transform</code> method. It's 
 using the parameters of the data distribution with which it was fitted.</p><pre><code>X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)</code></pre><p class="new"><code>&lt;comment&gt;
-Note we _</code>fit<code>_ the data to the training set and _</code>transform`_ the testing data 
-&lt;/comment&gt;</p></div></div></body></html>
+X_test = sc.transform(X_test)</code></pre></div></div></body></html>
