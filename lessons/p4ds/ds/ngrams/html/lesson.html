@@ -1,0 +1,153 @@
+<!DOCTYPE html><html lang='en'><head><title>N-grams</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}input{overflow:visible}[type=checkbox]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h2,h3,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}input:-ms-input-placeholder{color:#a0aec0}input::-ms-input-placeholder{color:#a0aec0}input::-moz-placeholder{color:#a0aec0}h1,h2,h3{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}input{padding:0;line-height:inherit;color:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-orange-300{--bg-opacity:1;background-color:#fbd38d;background-color:rgba(251,211,141,var(--bg-opacity))}.bg-green-200{--bg-opacity:1;background-color:#c6f6d5;background-color:rgba(198,246,213,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.border-indigo-500{--border-opacity:1;border-color:#667eea;border-color:rgba(102,126,234,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.cursor-pointer{cursor:pointer}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.clearfix:after{content:"";display:table;clear:both}.font-sans{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.leading-normal{line-height:1.5}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.opacity-0{opacity:0}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-3{padding:.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.absolute{position:absolute}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-2\/3{width:66.666667%}.w-full{width:100%}@media (min-width:768px){.md\:w-2\/3{width:66.666667%}}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.iw600{height:auto;width:auto;max-width:600px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}.tab{font-size:1rem;border-color:#8c6728}.tab-content{max-height:0;max-width:100%;transition:max-height .35s}.tab input:checked~.tab-content{max-height:100vh}.tab input:checked+label{padding:1rem;border-left-width:2px;border-color:#6574cd;background-color:#f8fafc;color:#6574cd}.tab label::after{float:right;right:0;top:0;display:block;width:1em;height:1.5em;line-height:1.5;font-size:1rem;text-align:center;transition:all .35s}.tab input[type=checkbox]+label::after{content:"+";font-weight:700;border-width:1px;border-radius:9999px;border-color:#8c6728}.tab input[type=checkbox]:checked+label::after{transform:rotate(315deg);background-color:#6574cd;color:#f8fafc}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/ngrams/html/ds-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">N-grams</div><p class="text-center mt-2 text-gray-800 text-xl">more than one</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">🐍  4 D.S.</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">N-grams<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>bootcamp</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>array slicing</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>regular expressions</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/ngrams/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">N-grams</h1><h2 id="more-than-one">more than one</h2><p class="new">You have now done the data science pipeline process from gathering raw data, 
+transforming it, to creating a simple visualization. This first round 
+is usually called <strong>exploratory</strong> analysis. For you, it was mostly about 
+learning the nuances of Python and understanding the different pipeline stages. 
+We purposely required that you do most of the hard work rather than use 
+libraries to do it. It's critical that you, the data scientist, are competent 
+enough with your programming skills that you don't feel trapped because 
+some library doesn't do exactly what you need it to do -- they usually don't. 
+Your programming (and critical thinking) skills are much more valuable than 
+your ability to read documentation. This class is purposely designed not to 
+be a recipe class. Once you have mastered the basic programming concepts, 
+incorporating new libraries into your workflows is the easy part. </p><h2 id="recap">Recap</h2><p class="new">Right now we have a pipeline that will produce a list of the most frequently 
+used words (top_n) in a body of text. This by itself could be useful when 
+comparing different author's writing styles, genres, music lyrics, etc. 
+The 'technical' term for what we have built is a <strong>term-frequency table</strong>.  </p><p class="new">Term frequency measures how frequently a term occurs in a document. Since documents 
+are different in length, it is possible that a term would appear much more in 
+long documents than in shorter ones. Thus, the term frequency is often divided 
+by the document length (aka. the total number of terms or tokens in the document) 
+as a way of normalization. We will visit this concept again when we learn about 
+tf-idf (term frequency inverse document frequency) which is used to evaluate 
+how important a word is to a document. It helps identify which terms 'separate' 
+the documents from each other.</p><p class="new">The term frequency table is also the input to tools that build word clouds 
+where the most frequently used words are displayed in a larger font with 
+bolder colors. This simple technique gets a lot of exposure because it 
+communicates the idea quickly and is more interesting to look at (vs our bar chart).  </p><img alt="ds1.png" class="center iw600" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/ngrams/html/ds1.png"/><h1 class="section" id="section2">A BoW Model </h1><p class="new">When your text analysis drops the context (the order, structure, how the word is used) 
+in which the words were used (like in the above word cloud), it's typically 
+called a <strong>bag of word</strong>s model.  This model is very useful to extract features 
+where the analysis is only concerned with whether or not a word was used. 
+The bag of words is simplified to involve only the following:</p><ul><li>A vocabulary of words (usually normalized to contain only letters, ignoring case)</li><li>A measure of presence of known words (e.g. a count)</li></ul><p class="new">In this model, we say the feature is each count of the word.</p><h2 id="improvements">Improvements</h2><p class="new">In our second time around we are not only going to make some improvements to each 
+step of the current process by using more powerful techniques and additional 
+analysis but also to offload some of the coding to libraries. We can incrementally 
+improve our simple model of analysis by making small, but important adjustments.</p><h2 id="n-grams">N-grams</h2><p class="new">What you have accomplished (without perhaps knowing it), is that you built a 
+language model based on single words called uni-grams. You essentially have a 
+distribution model over single word usage. This concept can be expanded to 
+include co-occurring words (words that follow each other) called bi-grams, 
+sequences of three words that occur together (tri-grams)-- and so on. <strong>N-grams</strong> 
+are basically a set of co-occurring words within a given window.  For example, 
+using the following sentence:</p><pre><code>We went to a clump of bushes, and Tom made everybody swear to keep the
+secret, and then showed them a hole in the hill, right in the thickest part of the bushes.</code></pre><p class="new">We can show the bigrams (the variable <code>N</code>, is usually used and for bigrams, <code>N == 2</code>) 
+for the first few windows:
+<img alt="ds2.png" class="center iw600" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/ngrams/html/ds2.png"/></p><p class="new">Now if you do that and treat each pair as a 'word', you once again have a 
+distribution over pairs of words. Using these pairs of "grams" along with 
+using the same count analysis (unique keys in a dictionary), we get the 
+following (top 5) results:</p><pre><code>('in the',     2)
+('we went',    1)
+('went to',    1)
+('to clump',   1)
+('clump of',   1)</code></pre><p class="new">These pairs can be very useful at extracting information from a text (as you will see). 
+The N-gram method is very powerful at modeling language with applications in 
+optical character recognition (OCR -- if a word is hard to decode, you can use 
+probabilities based on the previous word or following word, text generation that 
+your predictive keyboard may use (e.g. You are super nice to see if you have any 
+chance of that the first one¹), spell checkers, and so on. You can even create 
+N-grams over sliding windows of characters (not just the words) to build 
+distributions of likely letter/character pairings and use that to help 
+guess what language is being typed by a user.</p><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-2" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-2"><span> the meaning of term frequency table </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-3" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-3"><span> what an ngram is and why it's useful </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div><h1 class="section" id="section3">Lesson Assignment:  Ngrams</h1><p class="new">We will build a simple pipeline that does the following:</p><ul><li>reads in the contents of Huckleberry Finn</li><li>tokenizes the contents into 'words'</li><li>builds a list of all bi-grams</li><li>find the most common bi-grams in the text</li></ul><p class="new">The above pipeline will be used in other lessons and assignments. It's not 
+only important to pass the tests for this lesson, but to understand the workflow. 
+We will use this to eventually find characters in literature. Be sure to <strong>TEST</strong> 
+each function before moving from one stage to the next. Do NOT attempt 
+ to write all the code and then 'run the tests'. You should build your own tests 
+ and make sure you understand each function before moving to the next one.</p><h2 id="step-1-read-text">Step 1: Read Text</h2><p class="new">Create a function <code>read_text(filename)</code> that opens the file and returns its contents. 
+Don't hardcode the filename, use the parameter.  Be sure to confirm you are 
+reading all the data:</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+
+def read_text(filename):
+  # opens filename and returns its contents
+  return ""
+  
+def read_test():
+    path = Util.path_for_data('sample.txt')
+    text = read_text(path)
+    print(len(text))</code></pre></div><h2 id="step-2-tokenizing">Step 2: Tokenizing</h2><p class="new">Now that we have seen regular expressions, we will use them to extract the 
+tokens for this analysis. The one issue to discuss is how to handle apostrophes. 
+Look at the following passage that shows some of the various usages of apostrophes:</p><pre><code>With my sisters' 'ax' we are gonna 'chop off her legs!' I'm afraid; 'fraid I am.  I was scout'n' for a place to take the table to shorten it for the kiddos.</code></pre><p class="new">The apostrophe can mark contractions (i.e. omission of letters), possession, 
+the marking of plurals (e.g mind your p's and q's), quoting words within a 
+quotation, marking of irony, and more (<a href="https://www.grammarbook.com/punctuation/apostro.asp" target="_blank">https://www.grammarbook.com/punctuation/apostro.asp</a>). 
+Even using an NLP (Natural Language Processing) toolkit to mark the 
+different cases (which would require a lot of computation) will not promise 
+error free results. In an attempt to strike a balance, we will use the following 
+two rules for parsing words and dealing with apostrophes:</p><h3 id="rule-1-use-the-following-regular-expression-to-tokenize-the-text-">Rule 1: Use the following regular expression to tokenize the text: </h3><pre><code>   ['A-Za-z0-9]+-?['A-Za-z0-9]+</code></pre><p class="new">Note that this regular expression will</p><ul><li>skip single letter words (and numbers)</li><li>not match double hyphenated words (Aunt--Poly) (it will be two matches)</li><li>keep single hyphenated words (e.g. iron-will)</li><li>include the apostrophe in all of its possible uses.</li></ul><p class="new">Make sure you understand why the given regular expression has those limitations. 
+Be sure you can read and understand that regular expression.</p><h3 id="rule-2-normalize-the-tokens">Rule 2: normalize the tokens</h3><p class="new">Then for each of the returned tokens (from using the regular expression)</p><ul><li>strip off any leading and trailing apostrophes</li><li>keep the internal ones</li><li>do NOT change the case of the word</li><li>you will need to use the powerful string methods you learned in the bootcamp</li></ul><p class="new">Note that these rules keep contractions together (e.g. ain't, can't). 
+And quoted words (e.g. 'food' ) will be the same as the non quoted version.</p><p class="new">Use the two rules above to implement the following <code>split_text_into_tokens</code> function. 
+It must return a list of tokens (in the same order as the text).</p><div class="ide code-starter clearfix"><pre><code>def split_text_into_tokens(text):
+    return []</code></pre></div><p class="new">Be sure your two functions work together.  Print out tokens, if necessary.</p><pre><code>path   = Util.path_for_data('sample.txt')
+text   = read_text(path)
+tokens = split_text_into_tokens(text)</code></pre><h3 id="step-3-bi-grams">Step 3: Bi-grams</h3><p class="new">Create a function named <code>bi_grams(tokens)</code> which returns a list of tuples. This 
+function moves a sliding window of size 2 over tokens (a list), and creates a 
+new list of bigrams tuples: each tuple has two elements, both of them tokens.</p><div class="ide code-starter clearfix"><pre><code>def bi_grams(tokens):
+    return tokens</code></pre></div><p class="new">You must build this algorithm.  Do NOT use any library or the function <code>zip</code> to help you. 
+Those will come in due time.  It's more important to figure out how to do 
+this (i.e. algorithm development) using the constructs of Python. </p><p class="new">Hint: you will need to use a loop.</p><p class="new">Your <code>bi_grams</code> function should work similarly to this example:</p><div class="ide code-starter clearfix"><pre><code>def test_bigrams():
+    text = '''
+    it was the best of times
+    it was the worst of times
+    it was the age of wisdom
+    it was the age of foolishness
+    '''
+    tokens = text.split()
+    grams  = bi_grams(tokens)
+    print(grams)
+    return grams</code></pre></div><pre><code>The following would be the output: [('it', 'was'), ('was', 'the'), ('the', 'best'), ('best', 'of'), ('of', 'times'), ('times', 'it'), ('it', 'was'), ('was', 'the'), ('the', 'worst'), ('worst', 'of'), ('of', 'times'), ('times', 'it'), ('it', 'was'), ('was', 'the'), ('the', 'age'), ('age', 'of'), ('of', 'wisdom'), ('wisdom', 'it'), ('it', 'was'), ('was', 'the'), ('the', 'age'), ('age', 'of'), ('of', 'foolishness')]</code></pre><h2 id="step-4-top-n">Step 4: Top N</h2><p class="new">For calculating top N lists, much like the previous lesson, we can leverage 
+the Python library collections. It contains many handy utility functions. 
+Please <a href="https://docs.python.org/3.6/library/collections.html" target="_blank">read</a> the documentation.</p><p class="new">You can use (but not required) the <code>Counter</code> class. The following are two very 
+handy ways to use the Counter class:</p><pre><code>import collections
+
+words   = "you are the one you are fun".split()
+counter = collections.Counter(words)
+print(counter.most_common(10))</code></pre><p class="new">If it is necessary to use the count map within a loop, you can add the values
+ one by one as well: </p><pre><code>import collections
+
+words   = "you are the one you are fun".split()
+counter = collections.Counter()
+for w in words:
+  counter[w] += 1
+print(counter.most_common(10))</code></pre><p class="new">Create a function named <code>top_n(tokens, n)</code> which returns a list of tuples where 
+each tuple contains the word followed by its count.  The count is the number of 
+times the token (a bi-gram) occurs in <code>tokens</code>. The parameter <code>n</code> is used to get 
+the <code>n</code> most occurring tokens.</p><div class="ide code-starter clearfix"><pre><code>def top_n(tokens, n):
+   return tokens</code></pre></div><p class="new">After this is done, the following should work:</p><pre><code>def test_topn():
+    grams = test_bigrams()
+    top   = top_n(grams, 3)
+    print(top)</code></pre><p class="new">The output should match the following:</p><pre><code>[(('it', 'was'), 4), (('was', 'the'), 4), (('of', 'times'), 2)]</code></pre><h2 id="testing-huck-">Testing Huck </h2><p class="new">Before you submit, test your process by processing the text to the first
+ chapter of Huckleberry Finn.  You can get the data via <code>LessonUtil.path_for_data('data.txt')</code>.</p><p class="new">The top 5 bi-grams are:</p><pre><code>  bi-grams     Count     
+('in', 'the'),  421
+('of', 'the'),  333
+('and', 'the'), 310
+('it', 'was'),  290
+('to', 'the'),  233</code></pre><p class="new">That's not too useful.  We will fix that in the next lesson.</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>DS-Ngrams</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">N-grams</div><p class="text-center text-gray-800 text-xl">more than one</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">DS-Ngrams</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div><p class="new">¹That is literally the sentence that was created by selecting the suggested word 
+after typing <code>You</code>.</p></div></div></body></html>
