@@ -89,7 +89,7 @@ class HuckFinnDemo(AG.AutoGrader):
         print('8', len(r8))
 
 
-class HuckFinnAutoGrader(AG.AutoGrader):
+class HuckFinnAutoTester(AG.AutoGrader):
 
     def __init__(self):
         super().__init__('huck', read_huck())
