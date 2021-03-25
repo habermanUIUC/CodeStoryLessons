@@ -17,5 +17,7 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">That's an efficient way to get all the values inside <code>np_num</code> whose value is 
-less than five. We can even combine the syntax to make for a reading friendly version:</p><pre><code>print(np_num[np_num&lt;5])</code></pre><p class="new">See the appendix for yet another (very useful) way to mask with Numpy.</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>fruit = np.array("apples,pears,bananas,oranges".split(','))
+print(fruit)
+lens = np.char.str_len(fruit)
+print(lens)</code></pre></div></div></div></body></html>

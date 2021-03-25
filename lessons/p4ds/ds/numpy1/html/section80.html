@@ -17,13 +17,18 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section15">Appendix: (but still very useful)</h1><p class="new">Here's yet another way to use masking in Numpy.</p><h2 id="using-the-where-clause">Using the <code>Where</code> Clause</h2><p class="new">Numpy allows similar masking using the where function.<br/>You pass in a condition to where function to get back an array that can 
-be used for masking. For example, let's find all elements of an array whose 
-value is 5:</p><p class="new">Here's the code to generate an array of 10 numbers:</p><pre><code>np.random.seed(101)
-values = np.random.randint(0,7, (10,))
-print(values)</code></pre><p class="new">Now let's create a condition:</p><pre><code>mask = values == 5
-print(mask)</code></pre><p class="new">And finally pass that condition/mask to the where function:</p><pre><code>indices = np.where(mask)
-print(len(indices), indices)</code></pre><p class="new">The <code>where</code> function returns a set of tuples.  Each tuple is an index.
-You can iterate over the first element of the tuple to get the values:</p><pre><code>for idx in range(0, len(indices)):
-  i = indices[idx]
-  print(values[i]) # should be a 5!</code></pre></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="one-more-time-in-2d">One more time, in 2D</h2><p class="new">Let's do the same process, but now with a two dimensional array:</p><pre><code>np.random.seed(55)
+values = np.random.randint(0,7, (2,3))
+print(values)
+
+mask = values == 5
+print(mask)
+
+rows, cols = np.where(mask)
+print(rows)
+print(cols)
+# NOTE len(rows) == len(cols)</code></pre><p class="new">A few important notes:</p><ul><li><code>np.where</code> still returns a tuple, but we unravel (assign the different parts of) 
+the tuple to different variables</li><li>since values is 2D, <code>np.where</code> will return indices for both rows and columns</li></ul><p class="new">We can now iterate over these indices:</p><pre><code>for idx in range(0, len(rows)): 
+  r = rows[idx]
+  c = cols[idx]
+  print(values[r][c]) # should be a 5!</code></pre></div></div></body></html>

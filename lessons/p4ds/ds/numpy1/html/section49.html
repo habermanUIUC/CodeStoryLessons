@@ -17,8 +17,13 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section13">Working with Strings</h1><p class="new">Even though Numpy is meant for heavy duty processing of numeric data, it also can 
-be used to process strings, unicode, and character data (<a href="https://docs.scipy.org/doc/numpy/reference/routines.char.html" target="_blank">https://docs.scipy.org/doc/numpy/reference/routines.char.html</a>).</p><pre><code>fruit = np.array("apples,pears,bananas,oranges".split(','))
-print(fruit)
-lens = np.char.str_len(fruit)
-print(lens)</code></pre></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">You can do masking as well:</p><pre><code>short = (lens &lt;= 5)
+print(fruit[short])
+print(np.char.count(fruit, "a"))</code></pre><p class="new">The function <code>np.char.count</code> works with multiple dimensions as well:</p><pre><code>data = ["apple pear pizza",
+        "apple lemon bagel milk lemon",
+        "pizza soda apple"]
+trips = np.array(data)
+
+print(np.char.count(trips, 'apple'))
+print(np.char.count(trips, 'lemon'))
+print(np.char.count(trips, 'pizza'))</code></pre></div></div></body></html>

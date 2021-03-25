@@ -17,13 +17,10 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">Numpy provides a utility function named <code>genfromtxt</code> that will read in data 
-from a file (or url) and return a structured array that is ready for analysis. 
-We can read this file into a structured array via <code>np.genfromtxt</code> and then
- perform some basic analysis on the returned numPy array.  </p><p class="new">Don't worry, we won't spend too much on the numPy function <code>np.genfromtxt</code> since 
-we will be using Pandas very soon that adds more functionality on top of numPy.</p><p class="new">All of the questions will be from analyzing the data found in data.csv. You will 
-be passed a Numpy structured data array. Each question will ask you to 
-manipulate the data and return a result.</p><ul><li>All the information to solve these is given in this lesson</li><li>You should solve these by using only the Numpy library</li><li>Avoid converting to pure Python to solve these</li><li>There's no need for loops, regular expressions, etc</li></ul><p class="new">Each can be solved using Numpy operators and functions given in the lesson. Many of 
-these answers will use <code>np.sum</code> on an <code>np.array</code> if you didn't read each of 
-the sections and didn't run each of the samples, it will be impossible (unless 
-you already know NumPy) to answer these questions.</p><h2 id="q0">q0</h2><h3 id="find-the-total-amount-spent-on-all-merchants">Find the total amount spent on all merchants.</h3><p class="new">answer: already done for you!</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">You can test it like this:</p><pre><code>def test_q0():
+    import LessonUtil as Util
+    data = util.read_data()
+    print(q0(data))</code></pre><p class="new">In order to get a feel for the result of each stage, just print each step:</p><pre><code>    sub_set = data['Total']
+    print(sub_set)
+    total = np.sum(sub_set)
+    print(total)</code></pre><h2 id="q1-">q1: </h2><h3 id="how-many-transactions-were-on-restaurants">How many transactions were on Restaurants?</h3></div></div></body></html>

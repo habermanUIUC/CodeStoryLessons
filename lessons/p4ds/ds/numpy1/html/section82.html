@@ -17,18 +17,5 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="one-more-time-in-2d">One more time, in 2D</h2><p class="new">Let's do the same process, but now with a two dimensional array:</p><pre><code>np.random.seed(55)
-values = np.random.randint(0,7, (2,3))
-print(values)
-
-mask = values == 5
-print(mask)
-
-rows, cols = np.where(mask)
-print(rows)
-print(cols)
-# NOTE len(rows) == len(cols)</code></pre><p class="new">A few important notes:</p><ul><li><code>np.where</code> still returns a tuple, but we unravel (assign the different parts of) 
-the tuple to different variables</li><li>since values is 2D, <code>np.where</code> will return indices for both rows and columns</li></ul><p class="new">We can now iterate over these indices:</p><pre><code>for idx in range(0, len(rows)): 
-  r = rows[idx]
-  c = cols[idx]
-  print(values[r][c]) # should be a 5!</code></pre></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><p class="new">That's a lot to learn. Be sure you understand the different parts of all of this. 
+You don't need to memorize anything, just understand how numpy works at the syntax level.</p></div></div></body></html>
