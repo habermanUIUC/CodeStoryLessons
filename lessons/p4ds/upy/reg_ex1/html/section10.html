@@ -22,7 +22,7 @@ sample code and move to the next one without understanding what you just ran,
 it will be impossible to learn the nuances being taught.</p></blockquote><p class="new">One small fix we need to do. The pattern finds words regardless of the 
 case (it is letter-case is insensitive).  So <code>findall()</code> will return the words in 
 their original case (it does NOT transform text). We need to be sure 
-words like 'You' and 'you' are treated as the same word. </p><p class="new">The normalization step is still needed with regular expressions.  Let's fix that.</p><p class="new">Type that in the following (either using a new code cell or a previous one). 
+words like 'You' and 'you' are treated as the same word. </p><p class="new">The normalization step is still needed with regular expressions.  Let's fix that.</p><p class="new">Type in the following (either using a new code cell or a previous one). 
 When you run it, you should get 5,983 'words' -- any token that consists of all letters. </p><pre><code>def get_uniq_wordset(words):
   return set([x.lower() for x in words])
 

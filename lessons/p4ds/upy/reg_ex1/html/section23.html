@@ -48,7 +48,7 @@ white space or word boundaries (to be discussed later).</p><h3 id="special-chara
 literal (meaning it doesn't represent something else).  However, there are
  four characters that are exceptions to this:</p><ol start="1"><li><code>^</code></li><li><code>-</code></li><li><code>]</code></li><li><code>\</code></li></ol><p class="new">In other words, if you wanted to match a caret <code>^</code> you would have to escape
  it (e.g. <code>[\^abc]</code>) using the backslash <code>\</code> . </p><h2 id="the-anti-match">The Anti-Match</h2><p class="new">If you want to match anything BUT a specific character class, you add the 
-caret <code>^</code> as the first item in square brackets:</p><p class="new"><code>[^abc]</code> matches any thing BUT <code>a</code> or <code>b</code> or <code>c</code>.  The caret negates everything that
+caret <code>^</code> as the first item in square brackets:</p><p class="new"><code>[^abc]</code> matches anything BUT <code>a</code> or <code>b</code> or <code>c</code>.  The caret 'negates' everything that
  follows.</p><p class="new">This shows why the <code>^</code> is considered a special character when used inside
  brackets.</p><h2 id="simplification">Simplification</h2><p class="new">As we have seen, the regular expression pattern can get a bit long and we are 
 always striving to keep the pattern as short and readable as possible. We can 
