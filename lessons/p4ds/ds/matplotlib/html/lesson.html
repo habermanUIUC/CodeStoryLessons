@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang='en'><head><title>Matplotlib</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}input{overflow:visible}[type=checkbox]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,h3,p,pre{margin:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}input:-ms-input-placeholder{color:#a0aec0}input::-ms-input-placeholder{color:#a0aec0}input::-moz-placeholder{color:#a0aec0}h1,h2,h3{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}input{padding:0;line-height:inherit;color:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-orange-300{--bg-opacity:1;background-color:#fbd38d;background-color:rgba(251,211,141,var(--bg-opacity))}.bg-green-200{--bg-opacity:1;background-color:#c6f6d5;background-color:rgba(198,246,213,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.border-indigo-500{--border-opacity:1;border-color:#667eea;border-color:rgba(102,126,234,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.cursor-pointer{cursor:pointer}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.clearfix:after{content:"";display:table;clear:both}.font-sans{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.leading-normal{line-height:1.5}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.opacity-0{opacity:0}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-2{padding:.5rem}.p-3{padding:.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.absolute{position:absolute}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-2\/3{width:66.666667%}.w-full{width:100%}@media (min-width:768px){.md\:w-2\/3{width:66.666667%}}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}.tab{font-size:1rem;border-color:#8c6728}.tab-content{max-height:0;max-width:100%;transition:max-height .35s}.tab input:checked~.tab-content{max-height:100vh}.tab input:checked+label{padding:1rem;border-left-width:2px;border-color:#6574cd;background-color:#f8fafc;color:#6574cd}.tab label::after{float:right;right:0;top:0;display:block;width:1em;height:1.5em;line-height:1.5;font-size:1rem;text-align:center;transition:all .35s}.tab input[type=checkbox]+label::after{content:"+";font-weight:700;border-width:1px;border-radius:9999px;border-color:#8c6728}.tab input[type=checkbox]:checked+label::after{transform:rotate(315deg);background-color:#6574cd;color:#f8fafc}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Matplotlib</div><p class="text-center mt-2 text-gray-800 text-xl">The Basics, part 1</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">🐍  4 D.S.</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Matplotlib<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>bootcamp</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Matplotlib</h1><h2 id="the-basics-part-1">The Basics, part 1</h2><p class="new">Matplotlib is one of the oldest and most complete libraries for building 
+data visualizations in Python. Knowing the basics of matplotlib will help 
+you use many of the other libraries that use it directly or wrap convenience 
+functions around it (e.g. seaborn, pandas, ggpy, scikit-plot). At some point 
+the libraries that use matplotlib won't give you enough control and you end 
+up needing to know how to use matplotlib anyway.</p><h2 id="the-oo-way">The OO Way</h2><p class="new">The big problem with matplotlib is that it is so BIG and so flexible that 
+it's hard to learn -- there's plenty of excellent tutorials available but 
+the issue is that each tutorial presents a different way to build charts and 
+graphs. A previous lesson introduced two different styles for creating 
+visualizations, this lesson will continue along the path of using the 
+object-oriented (OO) approach where there is not a reliance on state 
+sharing (called the matplotlib pyplot interface)  This comes at the cost of 
+needing to write a bit more code; however, the code is more explicit (you're 
+not relying on hidden state) and presents a uniform approach to building 
+visualizations. Even matplotlib advises using the OO interface:</p><img alt="ds1.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds1.png"/><div class="text-xs">source: <a href="https://matplotlib.org/tutorials/introductory/lifecycle.html" target="_blank">https://matplotlib.org/tutorials/introductory/lifecycle.html</a> 
+and <a href="https://matplotlib.org/api/api_overview.html" target="_blank">https://matplotlib.org/api/api_overview.html</a>
+</div><h2 id="static-vs-interactive">Static vs Interactive</h2><p class="new">Perhaps one of the least appealing aspects of using standard matplotlib is 
+that the visualizations are static.  You can't interact with them; there's 
+no animation -- the library was built to create publish-quality graphics. 
+However, the popularity of online notebooks has pushed the development such 
+that there are now options to convert a matplotlib figure into HTML/Javascript 
+as well as create animations in matplotlib.</p><p class="new">Since matplotlib's API is so popular, other web-based animation libraries 
+support a matplotlib-like interface as well. There's plenty of web-first 
+visualization libraries (e.g. D3, React-vis, Raphael, Chart.js) that we 
+can explore later. Some libraries like mpld3, Plotly, bokeh bring the 
+worlds of Python, matplotlib, and Javascript together. The effort required to 
+learn matplotlib will be worth it even if you end up creating only web-based 
+visualizations.</p><h2 id="starting-from-one">Starting From One</h2><p class="new">Matplotlib was written by someone who used MATLAB and wanted similar 
+functionality in Python (the <code>pylab</code> module was built to mimic the MATLAB 
+global style -- which we are trying to <strong>avoid</strong>). Another carry over is that
+ MATLAB uses 1-based indexing so many things in matplotlib start at one 
+ and not zero (this fact only affects those using the <code>pyplot</code>, shared state interface).</p><p class="new">Since matplotlib is a graphics library there is a separation of the user created 
+code that uses matplotlib (called the <em>frontend</em>) from the actual user 
+interface (e.g. GUI) called the <em>backend</em> -- the output.  The backend is 
+responsible for taking the matplotlib internal representation of a graph to 
+different platforms (windows, unix, jupyter notebooks, etc) to actually 
+render the plots. In some cases, the backend will provide a toolbar to 
+work with the created visualization. For the most part, you will not need 
+to reconfigure the backend.</p><blockquote><p class="new"><strong><em>Coder's Log</em></strong> When you write client/server code, the user-facing product
+(i.e. client-code, a GUI, a user interface, web-page) is usually called the frontend and the backend refers to the server code.  </p></blockquote><p class="new">You can see what the backend is being used by calling the following:</p><div class="ide code-starter clearfix"><pre><code>import matplotlib
+print(matplotlib.get_backend())</code></pre></div><p class="new">If you need to change or modify the backend, you must do it before you do anything 
+else (including importing other matplotlib modules).</p><p class="new">To bring matplotlib into your codebase you usually just import matplotlib's
+ pyplot library. Add this too and re-run the code:</p><pre><code>import matplotlib.pyplot as plt</code></pre><p class="new">It is standard convention to alias <code>matplotlib.pyplot</code> to <code>plt</code>.</p><h1 class="section" id="section2">A Hierarchy of Objects</h1><p class="new">Every graph starts out by creating a figure:</p><div class="ide code-starter clearfix"><pre><code>fig = plt.figure()
+print(type(fig))</code></pre></div><p class="new">A matplotlib figure is the user interface. It's a container that can hold 
+multiple plots. You can create multiple figures, but the usual convention 
+is that you build multiple subplots inside a figure.</p><p class="new">The figure function can take different parameters to configure it's 
+size (among other things <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html" target="_blank">see</a>.</p><pre><code>fig = plt.figure(figsize=(6, 4), facecolor='green')</code></pre><p class="new">The <code>figure</code> holds one or more <em>subplots</em>. However these subplots are called <em>axes</em>.</p><img alt="ds2.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds2.png"/><div class="text-xs">source: <a href="https://realpython.com/python-matplotlib-guide" target="_blank">https://realpython.com/python-matplotlib-guide</a>
+</div><p class="new">The <em>axes</em> object (a subplot) holds all the elements of a visualization including
+ the x and y axis, lines, labels, legends (you can also attach a legend to a figure), etc:</p><img alt="ds3.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds3.png"/><div class="text-xs">source: matplotlib.org</div><p class="new">Since it's so common to need to access the figure and subplots (i.e. axes) 
+there is a convenience function to create both using the plt.subplots function:</p><div class="ide code-starter clearfix"><pre><code>fig, axes  = plt.subplots()
+print(type(fig), type(axes))</code></pre></div><p class="new">If you need multiple subplots within a figure you can do the following:</p><pre><code>fig, axes = plt.subplots(nrows=1, ncols=2)
+print(type(axes))
+
+# twice as tall 
+fig, axes = plt.subplots(ncols=2, figsize=plt.figaspect(1.0/2.0))</code></pre><p class="new">However, now <code>axes</code> is a <strong>list/array of axes</strong>. Specifically it is a NumPy 
+<code>ndarray</code> of <code>AxesSubplot</code> objects. </p><h3 id="numpy-dependence">Numpy dependence</h3><p class="new">Like many libraries, matplotlib also uses Numpy for many of its implementation 
+details. Numpy is not needed for this lesson, but be aware that knowing Numpy 
+will help you with matplotlib. Pandas (a data analysis package) is built on 
+top of both matplotlib AND adds additional features on top of Numpy. So mastering 
+these libraries will make you a very effective Pandas user and developer.</p><p class="new">We will look at using multiple subplots in a future lesson. Each axes (yes it's plural) 
+is a plot that you can access the x and y axis and build your visualization.  </p><p class="new">You can also create the figure and the axes independently by using the <code>add_subplot</code> function:</p><pre><code>fig, axes  = plt.subplots() 
+
+# IS SAME AS
+fig  = plt.figure()
+axes = fig.add_subplot(111)</code></pre><p class="new">The reasoning behind the <code>111</code> parameter will be discussed in further detail in 
+the second part (<code>111: 1 row, 1 col, subplot position 1</code>).</p><p class="new">We will focus on a single unified way to build a figure via the OO API. There 
+are also a multitude of functions that use the active state to create and 
+manipulate figures (e.g. <code>plt.subplot()</code>). The flexibility of the library is 
+what makes learning it so difficult -- there's so many ways to solve a problem! </p><p class="new">The decision to use the OO API and a few of the specific functions will allow 
+you to write explicit code and follow the recommended/best-practices way to use matplotlib</p><p class="new">Also, as a reminder, writing explicit code is better than relying on implicit state. 
+If you see <code>plt.&lt;SOMETHING&gt;</code> (other than for creating subplots and showing them), 
+you're seeing the non-object oriented (pyplot) interface.  </p><h1 class="section" id="section3">Showing a Figure</h1><p class="new">Once you are finished building your figure, you <em>usually</em> do the following:</p><pre><code># make a figure window appear (shows all figures)
+plt.show()</code></pre><p class="new">However, in the notebook environment, you don't need to call <code>show</code>. The
+ library is set to interactive mode -- meaning the figures will automatically
+  appear.  In some environments, like repl.it, nothing will happen when you
+   call <code>show</code> because the backend's implementation doesn't do anything. </p><h2 id="saving-a-figure">Saving a Figure</h2><p class="new">You can always write your figure to a file too:</p><pre><code>fig, axes = plt.subplots(nrows=1, ncols=2)
+plt.savefig('ex1.png')</code></pre><p class="new">Since the <code>savefig</code> has its own set of parameters, you may need to set some of 
+the parameters explicitly (rather than assume <code>savefig</code> will use the information 
+from the figure) <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.savefig.html" target="_blank">see</a></p><pre><code>fig, axes = plt.subplots(nrows=1, ncols=2)
+fig.set_facecolor('green')
+plt.savefig('ex2.png', facecolor=fig.get_facecolor())</code></pre><h2 id="simple-plots-by-example">Simple Plots By Example</h2><p class="new">Let's go over some very basic chart types.  Mastery of the simple allows you to 
+build more complex visualizations. You will begin to see some patterns emerge.</p><h2 id="data-for-charts">Data for Charts</h2><p class="new">This lesson comes with a Data Utility that mimics a roll of two dice done
+ multiple times.  You can access this data as follows:</p><div class="ide code-starter clearfix"><pre><code>import DataUtil
+
+# roll a pair of dice 10 times
+DICE = DataUtil.Dice(10)
+print(DICE.roll_map)
+print(DICE.roll_map.keys())
+print(DICE.roll_map.values())
+
+# roll a pair of dice 1000 times
+DICE = DataUtil.Dice(1000)</code></pre></div><p class="new">We will use the same dataset for all the visualizations.</p><h1 class="section" id="section4">Scatter Plot</h1><p class="new">The simplest graph to produce is a plot of x,y values. </p><img alt="ds4.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds4.png"/><p class="new">The following creates a scatter plot:</p><div class="ide code-starter clearfix"><pre><code>def make_scatter(d):
+  x = d.keys()     # 2,3,4 .. 11, 12  (unordered)
+  y = d.values()   # times that sum was rolled
+  fig, axes = plt.subplots()
+  axes.scatter(x,y)
+  fig.savefig('scatter.png')</code></pre></div><p class="new">To create a scatter plot of the dice rolls:</p><pre><code>make_scatter(DICE.roll_map)</code></pre><p class="new">We will soon learn how to add labels and make the graph more visually appealing, 
+but for now we are going to focus on the basics.</p><h1 class="section" id="section5">Line Plots</h1><p class="new">For line plots, it's important that your data is <em>ordered</em> -- since the lines 
+are drawn connecting adjacent points. </p><img alt="ds5.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds5.png"/><p class="new">For line graphs, you need two parallel arrays: one that represents the x values 
+and another for the y values:</p><div class="ide code-starter clearfix"><pre><code>def make_lines(x,y):
+  # need the x,y pairs in order
+  fig, axes = plt.subplots()
+  axes.plot(x,y)
+  fig.savefig('line.png')
+
+make_lines(DICE.x, DICE.y)</code></pre></div><h2 id="vertical-and-horizontal-lines">Vertical and Horizontal lines</h2><p class="new">To make simple vertical or horizontal lines there are the convenience 
+functions <code>axhline</code> and <code>axvline</code>.  These are perfect for augmenting a chart.</p><h1 class="section" id="section6">Bar Charts</h1><p class="new">Bar charts use a similar type of data as the line chart, however, you need to 
+specify the width of the bars. </p><img alt="ds6.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds6.png"/><p class="new">By default, matplotlib will do this for you. In the case of showing dice rolls, 
+the y values (the number of times the sum (represented by x)) will be the height values.</p><div class="ide code-starter clearfix"><pre><code>def make_bar(x,y):
+  fig, axes = plt.subplots()
+  axes.bar(x, height=y)
+  fig.savefig('bar.png')
+
+make_bar(DICE.x, DICE.y)</code></pre></div><h1 class="section" id="section7">Histograms</h1><p class="new">Closely related to bar charts are histograms. A histogram typically visualizes 
+a distribution of numerical data -- usually an estimate of a probability distribution 
+for a continuous variable. You need to specify either the number of bins you 
+want to divide your data into or a list of bin 'edges'.</p><img alt="ds7.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds7.png"/><p class="new">For making histograms, you need the raw elements that you will be plotting</p><div class="ide code-starter clearfix"><pre><code>def make_histogram(elements):
+  fig, axes = plt.subplots()
+  low  = min(elements)
+  high = max(elements)
+  bins = high - low + 1
+  
+  axes.hist(elements, bins=bins)
+  fig.savefig('hist.png')
+
+make_histogram(DICE.rolls)</code></pre></div><p class="new">To make it into a probability density function, you specify density to be True:</p><pre><code>  axes.hist(elements, density=True, bins=bins)
+  fig.savefig('hist2.png')</code></pre><p class="new">Note that the argument for bins is an integer in this case.</p><p class="new">In order to center the data, you can specify a list of bin edges to use:</p><pre><code>  bins = [i-0.5 for i in range(low,high+2)]
+  axes.hist(elements, density=True, bins=bins)
+  fig.savefig('hist3.png')</code></pre><p class="new">Here bins is a list of values.  We simply subtract 0.5 from each bin to 
+essentially move the x axis labels.</p><h1 class="section" id="section8">Area Charts</h1><p class="new">There's not much difference between a line chart and an area chart other than 
+the space under the line is filled in. It helps communicate trends rather 
+than specific values.</p><img alt="ds8.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds8.png"/><div class="ide code-starter clearfix"><pre><code>def make_area(x, y):
+  # need the x,y pairs in order
+  fig, axes = plt.subplots()
+  axes.fill_between(x,y)
+  fig.savefig('area.png')
+
+make_area(DICE.x, DICE.y)</code></pre></div><p class="new">Each plot type has unique configurations (formal parameters). The only way to 
+harness matplotlib is to always consult the documentation for each chart type. 
+For example, documentation for the histogram method on the axes is available via
+<a href="https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.hist.html" target="_blank">https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.hist.html</a>
+Be careful when you google 'matplotlib histogram'. There are many different 
+ways to generate a histogram.</p><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-6" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-6"><span> what a figure is </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-7" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-7"><span> what an axes is </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-8" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-8"><span> the basic chart types </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div><h1 class="section" id="section9">Lesson Assignment.</h1><p class="new">All this great knowledge will be used in an upcoming lesson.  You will still
+ need to upload this lesson to Gradescope to acknowledge you read the lessons
+ and read (and ran) all the sample code.</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>DS-Matplotlib</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Matplotlib</div><p class="text-center text-gray-800 text-xl">The Basics, part 1</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">DS-Matplotlib</span></div><div class="text-gray-700 text-base"> </div><div></div><div class="text-gray-700 text-base">References and Additional Readings</div><div class="text-xs p-2 border border-solid border-gray-500 bg-gray-300"> <div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://matplotlib.org/Matplotlib.pdf" target="_blank">https://matplotlib.org/Matplotlib.pdf</a></div><div class="text-gray-700 px-4 m-2"><span> </span> <strong>cheatsheet: (warning this is not the OO API)</strong></div><div class="text-gray-700 px-4 m-2">• <!-- --> <a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf" target="_blank">https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Python_Matplotlib_Cheat_Sheet.pdf</a></div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>
