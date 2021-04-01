@@ -1,0 +1,189 @@
+<!DOCTYPE html><html lang='en'><head><title>Finding Characters</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h2,h3,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3{font-size:inherit;font-weight:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}ul{margin-bottom:30px}.title-text{font-size:2rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw400{height:auto;width:auto;max-width:400px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/finding_characters/html/cc-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Finding Characters</div><p class="text-center mt-2 text-gray-800 text-xl">Move over NLP</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#python</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">🐍  4 D.S.</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Finding Characters<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>Bootcamp</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>Regular Expressions (1,2,3)</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>ngrams</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>stopwords</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/finding_characters/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">🐍 Coding Challenges: Finding Characters </h1><img alt="ds1.jpg" class="float-left mr-3 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/finding_characters/html/ds1.jpg"/><p class="new">One of the goals of the <strong>C</strong>liff <strong>N</strong>ote <strong>G</strong>enerator was to generate a 
+list of characters in a novel. We can actually use our current skill set and 
+include the techniques discussed in the nGrams lesson to extract (with a 
+good level of accuracy) the main characters of a novel. </p><p class="new">We will also make some improvements with some of the parsing, cleaning, and preparation of the data. 
+It would be best to read this entire lesson before doing any coding. Also note 
+that this lesson is a bit different in that you will be responsible for more of 
+the code writing. What is being specified is a minimum. We highly recommend 
+that you decompose any complex processes into multiple functions.</p><h2 id="preparation">Preparation</h2><p class="new">Before doing anything, read through the entire set of directions first. You 
+will get a sense of the restrictions and overall goals.</p><h3 id="step-1">Step 1</h3><p class="new">Fill in the functions from the previous lessons (ngrams and stopwords).</p><div class="ide code-starter clearfix"><pre><code>#
+# from Ngrams and Stopwords Lessons
+#
+
+# copy &amp; paste your code
+# from ngrams lesson
+def split_text_into_tokens(text):
+  return [] 
+  
+def bi_grams(tokens):
+  return []
+
+def top_n(tokens, n):
+  return []
+
+# from stopwords lesson
+def remove_stop_words(tokens, stoplist):
+  return []</code></pre></div><h3 id="step-2--test-your-code--">Step 2 : Test your code.  </h3><p class="new">The following should now work</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+def demo_test():
+
+   text = Util.read_data_file('huck.txt')
+   stop = Util.load_stop_words()
+   
+   tokens  = split_text_into_tokens(text)
+   cleaned = remove_stop_words(tokens, stop)
+   grams = bi_grams(cleaned)
+   
+   print(top_n(grams, 10))
+
+demo_test()</code></pre></div><p class="new">You should see the following:</p><pre><code>[(('old', 'man'), 49), (('Mary', 'Jane'), 41), (('Tom', 'Sawyer'), 40), 
+(('Aunt', 'Sally'), 39), (('pretty', 'soon'), 37), 
+(('never', 'see'), 33), (('ever', 'see'), 29), (('Jim', 'said'), 28), 
+(('every', 'time'), 25), (('come', 'along'), 24)]</code></pre><p class="new">Note how this compares to the output when we didn't account for the case of the word.</p><h1 class="section" id="section2">Finding the Characters</h1><p class="new">With this machinery in place, we are ready to find characters in a novel (I 
+hope you are reading this with great anticipation) using different strategies. 
+Each of the strategies has a function to implement that strategy. </p><h2 id="method-1">Method #1</h2><p class="new">One attribute (or feature) of the text we are analyzing is that proper nouns 
+are capitalized. Let’s capitalize on this and find all single words in the 
+text whose first character is an uppercase letter and the word is <strong>not</strong> a stop word.</p><p class="new">Create and define the function <code>find_characters_v1(text, stoplist, top)</code>:</p><ul><li>Tokenize and clean the text using the function <code>split_text_into_tokens</code></li><li>Filter the tokens so it has no stop words in it (regardless of case). The 
+parameter <code>stoplist</code> is the array returned from <code>load_stop_words</code></li><li>Create a new list of tokens (keep the order) of words that are capitalized. 
+You can test the first character of the token.</li><li>Return the top words as a list of tuples (the first element is the word, 
+the second is the count)</li></ul><div class="ide code-starter clearfix"><pre><code>def find_characters_v1(text, stoplist, top):
+  return []</code></pre></div><p class="new">For Huck Finn, you should get the following (the output is formatted for clarity):</p><pre><code>text = Util.read_data_file('huck.txt')
+stop = Util.load_stop_words()
+v1  = find_characters_v1(text, stop, 15)
+print(v1)</code></pre><p class="new">You should see:</p><pre><code>('Jim',  341), 
+('Well', 318),
+('Tom',  217),
+('Huck', 70), 
+('Yes',  68), 
+('Oh',   65), 
+('Miss', 63), 
+('Mary', 60), 
+('Aunt', 53), 
+('Now',  53), 
+('Sally', 46), 
+('CHAPTER', 43), 
+('Sawyer', 43), 
+('Jane', 43), 
+('Buck', 38),</code></pre><p class="new">Notice with this very simple method we found 8 characters in the top 15 (those 
+in bold). You also found an Aunt and a Miss too. You might be inclined to 
+start fiddling with the stop-words. The one you could add is 'CHAPTER' 
+and 'Well' -- the interjection, since we know that word does not provide 
+much content in this context. But as we mentioned in the stop words lesson, 
+that's a dangerous game, since other novels might include some of these:</p><img alt="ds2.png" class="iw400 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/finding_characters/html/ds2.png"/><h2 id="method-2">Method #2</h2><p class="new">Another feature of characters in a novel is that many of them have two 
+names (Tom Sawyer, Aunt Polly, etc). </p><p class="new">Create and define the following function:</p><pre><code>find_characters_v2(text, stoplist, top)</code></pre><ul><li>Tokenize and clean the text using the function <code>split_text_into_tokens</code></li><li>Convert the list of tokens into a list of bigrams (using your <code>bi_grams</code> method)</li><li>Filter out all bigrams to keep only the ones where both words are capitalized (just the first character)</li><li>Neither word should (either lower or upper) be in <code>stoplist</code></li><li>Remember <code>stoplist</code> could be the empty list</li><li>Return the top bigrams as a list of tuples: The first element is the 
+bigram tuple, the second is the count</li></ul><p class="new">Note that we are <strong>not</strong> removing the stopwords from the text. We are now using 
+the stopwords to make decisions on the text. The stopwords lesson has more 
+details on this as well.</p><div class="ide code-starter clearfix"><pre><code>def find_characters_v2(text, stoplist, top):
+  return []
+
+
+v2  = find_characters_v2(text, [], 15)
+print(v2)</code></pre></div><p class="new">With the text of Huckleberry Finn, the following is the output with stopwords 
+being the empty list:</p><pre><code>(('Mary', 'Jane'),   41), 
+(('Tom',  'Sawyer'), 40), 
+(('Aunt', 'Sally'),  39), 
+(('Miss', 'Watson'), 20), 
+(('Miss', 'Mary'),   19), 
+(('Mars', 'Tom'),  16), 
+(('Huck', 'Finn'),   15), 
+(('Uncle','Silas'),  15), 
+(('Aunt', 'Polly'),  11), 
+(('Judge','Thatcher'), 10), 
+(('But', 'Tom'), 9), 
+(('Ben', 'Rogers'), 8), 
+(('So', 'Tom'), 8), 
+(('St', 'Louis'), 7), 
+(('Miss', 'Sophia'), 7)</code></pre><p class="new">That found 11 characters in the top 15 bigrams frequency table. This method is 
+pretty good and the method didn't even consider stop words. What happens if 
+you consider stop words?</p><p class="new">Note: in order to match these outputs, use the <code>collections.Counter</code> class. 
+Otherwise, it's possible that your version of sorting will handle those 
+tuples with equal counts differently (unstable sorting).</p><h2 id="titles-a-short-diversion">Titles, a short diversion</h2><p class="new">Another feature of characters is that many of them have a title (also 
+called honorifics) precede them (Dr. Mr. Mrs. Miss. Ms. Rev. Prof. Sir. etc). 
+We will look for bi-grams that have these titles. However, we will <strong>not</strong> 
+hard code the titles (we won't specify which titles to look for). We will 
+let the data tell us what the 'titles' are. </p><p class="new">Here's the process to use to self discover titles:</p><ul><li>Let's define a title as a capital letter followed by 1 to 3 lower case
+letters followed by a period. This is not perfect, but it captures a good 
+majority of them.</li><li>Create a list named <code>title_tokens</code> whose text matches the above criteria
+(hint: use regular expressions) for example: <br/><code>title_tokens = regex1.findall(text)</code></li><li>Now we need to remove words that might have ended a sentence with those same
+title characteristics (e.g. Tom. Bill. Pat. Etc. ). These names could have 
+been in a sentence like "Please go Tom." Tom is <strong>not</strong> a title, but it would have 
+been found by our definition.</li><li>Use the same definition for titles (above) but instead of ending with a
+period, the token must end with whitespace. The idea is that hopefully somewhere 
+in the text the same name will appear but without a period. It’s very likely 
+that you would encounter 'Tom' somewhere in the text without a period, but it’s 
+unlikely that Mr., Mrs., Dr., etc would appear without a period. Let's 
+call this list <code>pseudo_titles</code>. <br/><code>pseudo_titles = regex2.findall(text)</code></li><li>The set of titles is essentially the first list of tokens, <code>title_tokens</code> with
+all the tokens in the second set (<code>pseudo_titles</code>) removed. For example, the 
+first list might have 'Dr.', 'Tom.' and 'Mr.' in it and the second set might 
+have 'Tom' and 'Ted' in it. The final title list would be <code>['Dr', 'Mr']</code>.</li></ul><p class="new">Name your function <code>get_titles</code> that encapsulates the above logic; it should 
+return a list of titles:</p><div class="ide code-starter clearfix"><pre><code>def get_titles(txt):
+   return [] # see process above</code></pre></div><p class="new">Once you have get_titles working, the following should work:</p><pre><code>text = Util.read_data_file('huck.txt')
+titles = get_titles(text)
+print(titles)</code></pre><p class="new">You should get 7 computed titles in Huckleberry Finn:</p><pre><code>['Col', 'Dr', 'Mr', 'Mrs', 'Otto', 'Rev', 'St']</code></pre><p class="new">Do not move forward until this is working.</p><h2 id="method-3">Method #3</h2><p class="new">Create and define the following function</p><p class="new"><code>find_characters_v3(text, stoplist, top)</code></p><ul><li>Tokenize and clean the text</li><li>Convert the list of tokens into a list of bigrams</li><li>Filter out all bigrams such that the first word in the bigram is a title and
+the second word is capitalized (hint: use the output of <code>get_titles</code>) <strong>and</strong>
+the 
+second word (either lower or upper) should not be in <code>stoplist</code></li><li>Return the top bigrams as a list of tuples: the first element is the bigram
+tuple, the second is the count</li></ul><div class="ide code-starter clearfix"><pre><code>def find_characters_v3(text, stoplist, top):
+  return []
+  
+  
+text = Util.read_data_file('huck.txt')
+stop = Util.load_stop_words()
+v3 = find_characters_v3(text, stop, 15)
+print(v3)</code></pre></div><p class="new">For Huck Finn, you should get the following:</p><pre><code>(('St', 'Louis'),     7), 
+(('Mr', 'Lothrop's'),  6), 
+(('Mrs', 'Phelps'),   4), 
+(('St',  'Petersburg'), 3), 
+(('Dr',  'Robinson'), 3), 
+(('Mr',  'Garrick'),  2), 
+(('Mr',  'Kean'),  2), 
+(('Mr',  'Wilks'), 2), 
+(('Mr',  'Mark'),  1), 
+(('Mrs', 'Judith'), 1), 
+(('Mr',  'Parker'), 1), 
+(('Dr',  'Gunn's'),  1), 
+(('Col', 'Grangerford'), 1), 
+(('Dr',  'Armand'),  1), 
+(('St',  'Jacques'), 1)</code></pre><p class="new">Clearly, that yields a lot of good information. Although looking at the counts, 
+none of them are that prominent. We also found a few places as well as people.</p><h1 class="section" id="section3">Machine Learning?</h1><p class="new">You may have heard of (and used) the NLTK Python library that’s a popular choice for 
+processing text. These libraries include models that were built by processing 
+large amounts of text. We will use both the NLTK and SpaCy NLP libraries to 
+do something similar in another lesson. However, these libraries have models 
+built from using large data sets to extract entities (called NER for named 
+entity recognition). These entities include organizations, people, places, money.  </p><p class="new">The models that were built essentially learned what features (like 
+capitalization or title words) were important when analyzing text and came 
+up with a model that attempts to do the same thing we did here. However, we 
+hard coded the rules (use bigrams, remove stop words, look for capital letters, 
+etc). This is sometimes referred to as a rule-based system. The analysis is 
+built on manually crafted rules.</p><img alt="DMAP-sm.png" class="float-left mr-3 border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/finding_characters/html/DMAP-sm.png"/><p class="new">In machine learning (sometimes referred to as an automatic system), some of 
+the algorithms essentially learn what features are important (or can learn 
+how much weight to apply to each feature) to build a model and then uses 
+the model to classify tokens as named entities. The biggest issue is that 
+these models could be built with a very different text source (e.g. journal 
+articles or twitter feed) than what you are processing. Also the models 
+themselves require a large set of resources (memory, cpu) that you may 
+not have available. What you built in this lesson is efficient, fast and 
+fairly accurate.  </p><p class="new">The follow-on course, you'll be able to build your own text-based models.</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>CC-FindingChars</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Finding Characters</div><p class="text-center text-gray-800 text-xl">Move over NLP</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">CC-FindingChars</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang='en'><head><title>Natural Language Processing</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}input{font-family:inherit;font-size:100%;line-height:1.15;margin:0}input{overflow:visible}[type=checkbox]{box-sizing:border-box;padding:0}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}blockquote,h1,h2,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}input:-ms-input-placeholder{color:#a0aec0}input::-ms-input-placeholder{color:#a0aec0}input::-moz-placeholder{color:#a0aec0}h1,h2{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}input{padding:0;line-height:inherit;color:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.container{width:100%}@media (min-width:640px){.container{max-width:640px}}@media (min-width:768px){.container{max-width:768px}}@media (min-width:1024px){.container{max-width:1024px}}@media (min-width:1280px){.container{max-width:1280px}}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-orange-300{--bg-opacity:1;background-color:#fbd38d;background-color:rgba(251,211,141,var(--bg-opacity))}.bg-green-200{--bg-opacity:1;background-color:#c6f6d5;background-color:rgba(198,246,213,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.border-indigo-500{--border-opacity:1;border-color:#667eea;border-color:rgba(102,126,234,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-l-2{border-left-width:2px}.border-t{border-top-width:1px}.cursor-pointer{cursor:pointer}.block{display:block}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.clearfix:after{content:"";display:table;clear:both}.font-sans{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.leading-normal{line-height:1.5}.m-2{margin:.5rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.opacity-0{opacity:0}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.p-3{padding:.75rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.absolute{position:absolute}.shadow-md{box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-2\/3{width:66.666667%}.w-full{width:100%}@media (min-width:768px){.md\:w-2\/3{width:66.666667%}}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}blockquote em:first-child{font-family:Times!important;font-size:1.35em;margin-right:10px}blockquote em:first-child:after{content:":"}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}ul{margin-bottom:30px}p.new a{text-decoration:underline}.lesson a{text-decoration:underline;color:#00f}.title-text{font-size:2rem}blockquote{font-size:1em;background:#f9f9f9;border-left:10px solid #ccc;margin:.5em 10px;padding:.5em 10px;border-left-color:#ffcd69;border-right-color:#f6ba59;quotes:"\201C""\201D""\2018""\2019"}blockquote:before{color:#ccc;content:open-quote;font-size:4em;line-height:.1em;margin-right:.25em;vertical-align:-.4em}blockquote:after{color:#ccc;content:no-close-quote}blockquote p{display:inline}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw600{height:auto;width:auto;max-width:600px}img.iw300{height:auto;width:auto;max-width:300px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}.tab{font-size:1rem;border-color:#8c6728}.tab-content{max-height:0;max-width:100%;transition:max-height .35s}.tab input:checked~.tab-content{max-height:100vh}.tab input:checked+label{padding:1rem;border-left-width:2px;border-color:#6574cd;background-color:#f8fafc;color:#6574cd}.tab label::after{float:right;right:0;top:0;display:block;width:1em;height:1.5em;line-height:1.5;font-size:1rem;text-align:center;transition:all .35s}.tab input[type=checkbox]+label::after{content:"+";font-weight:700;border-width:1px;border-radius:9999px;border-color:#8c6728}.tab input[type=checkbox]:checked+label::after{transform:rotate(315deg);background-color:#6574cd;color:#f8fafc}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/nlp/html/ds-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Natural Language Processing</div><p class="text-center mt-2 text-gray-800 text-xl">computer, understand my words</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#info490</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">🐍  4 D.S.</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Natural Language Processing<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>bootcamp</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/nlp/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Natural Language Processing </h1><h2 id="computer-understand-my-words-">computer, understand my words </h2><p class="new">Much of what we have been doing in this classroom is within the domain 
+of <strong>N</strong>atural <strong>L</strong>anguage <strong>P</strong>rocessing (i.e. NLP).  It's a field that is very 
+popular and important since a majority of what people create in terms of 
+historical records is in the form of written text. NLP is about writing 
+algorithms to help organize, process and understand text.  </p><p class="new">Two of the more popular Python libraries for NLP are NLTK (Natural Language ToolKit) 
+and SpaCy. We will explore SpaCy in the advanced class.  Another good tool 
+that we will not explore is the <a href="https://www.clips.uantwerpen.be/pages/pattern" target="_blank">Pattern library</a> 
+and you should look into once your time frees up.</p><h2 id="building-a-better-nlp-processor">Building a better NLP Processor</h2><p class="new">We will attempt to find characters in a novel by coding a heuristic (lesson on finding characters). 
+However, most NLP libraries have models (a system of rules built by an algorithm 
+using lots of data) that were created using machine learning techniques for 
+processing text -- for example, finding entities like people, places, and 
+organizations is essentially a <em>classification</em> problem.  The "models" (i.e. heuristics) 
+you built were small and very fast. The models inside libraries like NLTK and 
+SpaCy are large and were computationally expensive to build (and sometimes to run). 
+However, they should perform better. </p><p class="new">The one issue is that if a model was trained using data that is not similar 
+to the data on which it will be fed or tested, the accuracy can be very poor. 
+For example, a language model built on Project Gutenberg text would perform 
+very poorly on Twitter streams. That's also an issue with NLTK -- some of its 
+models are outdated.  </p><blockquote><p class="new"><strong><em>Learner's Log</em></strong> There is a rigor to typing it all by yourself, line by line 
+that makes you understand these lessons better. When you copy&amp;paste, you almost 
+always take a macro view and conclude with 'ah, I get the primary logic'. 
+When you type it in line by line, you are seeing each line and are forced to 
+inspect it more. For the love of Python (and your brain), and a grade for this 
+lesson, type in the code; line by line. </p></blockquote><h2 id="nlp-with-nltk">NLP with NLTK</h2><p class="new">The NLTK (natural language toolkit) library is one of the most popular natural 
+language processing libraries for Python. The project started in the early 2000's 
+and supports multiple languages.  You can visit the [How To] (<a href="http://www.nltk.org/howto/" target="_blank">http://www.nltk.org/howto/</a>) 
+page to see all of its capabilities.  We will do some quick demonstrations.</p><h1 class="section" id="section2">Tokenizing</h1><p class="new">One of the basic functionalities of NLP is to tokenize text into sentences and words. 
+In our examples, we used a regular expression to decide how to split the text into tokens. 
+For NLTK, it's based on a more elaborate set of rules. </p><p class="new">Run the following: (if an error is generated, read the next section for the
+ steps to resolve it).</p><div class="ide code-starter clearfix"><pre><code>import nltk
+def nltk_tokenize_demo(text):
+  for sentence in nltk.sent_tokenize(text):
+    tokens = nltk.word_tokenize(sentence)
+    print(tokens)
+    
+demo = "This is a simple sentence. Followed by another!"
+nltk_tokenize_demo(demo)</code></pre></div><p class="new">You will get an error about a model name in the Punkt corpus. So you need to 
+download and install that model as well. Add the following:</p><pre><code>import nltk
+nltk.download('punkt')  # sentence tokenizer</code></pre><p class="new">Re-run the demo.  You should now see the tokens for each of the sentences. Note 
+how the tokens include punctuation. You should think about how you would use a 
+regular expression to build a sentence parser -- it's actually very difficult. 
+You can do it, but as we will see later, it's easier to use a 2-pass algorithm.</p><h1 class="section" id="section3">Part of Speech Tagging.</h1><p class="new">NLP also includes the ability for determining the parts of speech within a sentence. 
+This includes finding nouns, pronouns, adjectives, verbs, adverbs, prepositions, 
+conjunctions and interjections within a sentence. With NLTK, it's very simple 
+to get these tags.  Code up the following:</p><pre><code>def nltk_pos_demo(text):
+  for sent in nltk.sent_tokenize(text):
+    tokens = nltk.word_tokenize(sent)
+    tagged = nltk.pos_tag(tokens)
+    for t in tagged:
+      print(t)
+
+demo = "This is a simple sentence. Followed by another!"
+nltk_pos_demo(demo)</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><p class="new">When you run that cell, you get the following error:</p><p class="new"><code>Resource averaged_perceptron_tagger not found</code></p><p class="new">You need to add another download:</p><pre><code>import nltk
+nltk.download('punkt') # sentence tokenizer
+nltk.download('averaged_perceptron_tagger') # pos tagger</code></pre><p class="new">Note: It's best to gather all your imports in the first cell, even though 
+they are shown in-line. 
+<!-- -->When you add a new import to that code cell, you will have to re-run the cell.</p><p class="new">Once that is done, re-run the <code>nltk_pos_demo</code>. 
+The output should look like the following:</p><pre><code>('This', 'DT') 
+('is', 'VBZ') 
+('a', 'DT') 
+('simple', 'JJ') 
+('sentence', 'NN') 
+('.', '.') 
+('Followed', 'VBN') 
+('by', 'IN') 
+('another', 'DT') 
+('!', '.')</code></pre><p class="new">In this example, the word 'simple' is an adjective (marked by the JJ tag). 
+You can look up the meaning of each of the tags (e.g. JJ,VB, etc) 
+<a href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html" target="_blank">here</a>.</p><p class="new">If you were interested in doing sentiment analysis (discussed later) using 
+only adjectives and adverbs, getting the POS tags would be a good start.</p><h1 class="section" id="section4">Named Entity Recognition (NER)</h1><p class="new">Getting labeled entities like People, Location, Organizations, Money, Dates 
+from text is also a common use for NLP.  Basically it's a classifier 
+(a machine learning technique for labeling data). In the NLTK we just extend 
+the pos demo:</p><pre><code>def nltk_ne_demo(text):
+  for sent in nltk.sent_tokenize(text):
+    tokens = nltk.word_tokenize(sent)
+    tagged = nltk.pos_tag(tokens)
+    for chunk in nltk.ne_chunk(tagged):
+      print(chunk)
+
+demo = 'San Francisco considers banning sidewalk delivery robots'
+nltk_ne_demo(demo)</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><p class="new">When we run that we get another error: </p><p class="new"><code>Resource maxent_ne_chunker not found.</code> </p><p class="new">So we need to download that as well:</p><pre><code>import nltk
+nltk.download('punkt')              # sentence tokenizer
+nltk.download('averaged_perceptron_tagger') # pos tagger
+nltk.download('maxent_ne_chunker')           # NE tagger
+nltk.download('words')                       # needed for tagging</code></pre><p class="new">After you run that cell again, and the cell that contains <code>nltk_ne_demo</code>, you should now see:</p><pre><code>(GPE San/NNP) 
+(PERSON Francisco/NNP) (
+'considers', 'NNS') 
+('banning', 'VBG') 
+('sidewalk', 'NN') 
+('delivery', 'NN') ('robots', 'NNS')</code></pre><p class="new">As a shortcut, you could just add <code>nltk.download()</code> to download everything. But 
+sometimes it is good to be minimalist and know what the basic requirements are 
+for each NLTK task. Also, downloading everything, takes a lot of time and space.</p><p class="new">You should experiment with different sentences to get a feel for the accuracy of 
+the model that finds named entities:</p><pre><code>s1 = 'San Francisco considers banning sidewalk delivery robots'
+s2 = 'In San Francisco, Aunt Polly considers paying sidewalk delivery robots $20.00.'
+nltk_ne_demo(s2)</code></pre><p class="new">Note that in the s1, it thinks Francisco is a PERSON.</p><p class="new">The following shows the common NLTK entity types (GPE: Geo-Political Entity):</p><img alt="entity.png" class="iw600 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/nlp/html/entity.png"/><p class="new">To get a specific named entity, you have to work with the chunk entity:</p><pre><code>def nltk_find_people_demo(text):
+  for sent in nltk.sent_tokenize(text):
+    tagged = nltk.pos_tag(nltk.word_tokenize(sent))
+    for chunk in nltk.ne_chunk(tagged):
+      if hasattr(chunk, 'label') and chunk.label() == 'PERSON':
+        name = ' '.join(c[0] for c in chunk)
+        print(name)
+
+s3 = 'In San Francisco, Aunt Polly considers paying sidewalk delivery robots $20.00.'
+nltk_find_people_demo(s3)</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="fair-warning-reminder">Fair Warning Reminder</h2><p class="new">If you leave your browser window open and it remains inactive, the browser may 
+detach from the VM. If this happens you need to reconnect and re-run any code 
+cells that download resources for doing NLP.</p><img alt="ds1.png" class="iw300 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/nlp/html/ds1.png"/><h1 class="section" id="section5">Stopwords</h1><p class="new">NLTK provides a list of stopwords to use as well:</p><pre><code>nltk.download('stopwords') 
+from nltk.corpus import stopwords
+
+def nltk_stop_word_demo():
+  stop_words = stopwords.words('english')
+  print("nltk", stop_words)</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h1 class="section" id="section6">Ngrams</h1><p class="new">The ngrams function from nltk allows you to create any sized n-grams:</p><pre><code>import collections
+from nltk import ngrams
+
+def nltk_ngram_demo(text):
+  tokens = text.lower().split()
+  grams = ngrams(tokens, 2)
+  
+  c = collections.Counter(grams)
+  print(c.most_common(10))</code></pre><div class="ide code-starter clearfix"><pre><code>
+text = "We went to a clump of bushes, and Tom made everybody swear to keep the secret, and then showed them a hole in the hill, right in the thickest part of the bushes. "
+nltk_ngram_demo(text)</code></pre></div><h1 class="section" id="section7">Sentiment Analysis</h1><p class="new">Sentiment analysis is about extracting an opinion (positive, negative) from text. 
+It can be done at different levels of granularity (i.e. document vs sentence). 
+Although the topic of building our own sentiment analyzer would be fun, the details 
+of doing so would be an advanced topic (i.e. involves machine learning). However, 
+in the meantime, we can use NLTK's implementation:</p><div class="ide code-starter clearfix"><pre><code>nltk.download('vader_lexicon')
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+
+def nltk_sentiment_demo():
+  
+  sentiment_analyzer = SentimentIntensityAnalyzer()
+  
+  # helper
+  def polarity_scores(doc):
+      return sentiment_analyzer.polarity_scores(doc)
+  doc1 = "INFO 490 is so fun."
+  doc2 = "INFO 490 is so awful."
+  doc3 = "INFO 490 is so fun that I can't wait to take the follow on course!"
+  doc4 = "INFO 490 is so awful that I am glad there's not a follow on course!"
+
+  print(polarity_scores(doc1)) # most positive
+  print(polarity_scores(doc2)) # most negative
+  print(polarity_scores(doc3)) # mostly positive, neutral
+  print(polarity_scores(doc4)) # mostly negative, a little positive too
+
+nltk_sentiment_demo()</code></pre></div><h1 class="section" id="section8">Stemming and Lemmatization.</h1><p class="new">One of the underlying issues with the exercises that involved word frequency 
+counters or dictionaries is that a word is separately counted even though it 
+may exist in the dictionary but in a different form. For example, argue, arguing, 
+argues, argued would all be distinct keys in our counter even though they 
+essentially are the 'same' word. Both word stemming and word lemmatization are 
+attempts to solve this issue.  </p><h2 id="stemming">Stemming</h2><p class="new">Stemming uses an algorithm (and/or a lookup table) to remove the suffix of 
+tokens so that words with the same base but different inflections are reduced 
+to the same form. For example: ‘argued’ and ‘arguing’ are both stemmed to the 
+form: ‘argu’. The goal is to arrive at a common root form of the word. 
+The two common algorithms are porter and lancaster. </p><p class="new">The lancaster algorithm is more aggressive than porter. A good discussion on 
+the complete Porter algorithm is 
+given <a href="http://snowball.tartarus.org/algorithms/porter/stemmer.html" target="_blank">here</a> and its 
+<a href="https://tartarus.org/martin/PorterStemmer/python.txt" target="_blank">implementation</a>.</p><h2 id="lemmatization">Lemmatization</h2><p class="new">Lemmatization reduces tokens to their lemmas, which is the canonical dictionary 
+form. For example, ‘argued’ and ‘arguing’ are both lemmatized to ‘argue’. The process 
+uses the part of speech of the word and then applies different rules based on 
+its usage (e.g. The house is our home vs We will house them) in order to 
+figure out the base form.</p><p class="new">So the major difference between the two is that a lemma is a canonical form of 
+the word, while a stem may not be a real word -- stemming can often create 
+non-existent words, whereas lemmas are actual words.</p><p class="new">NLTK provides an implementation of the different stemming algorithms:</p><div class="ide code-starter clearfix"><pre><code>def nltk_stem_and_lemm_demo():
+
+  words = ["game","gaming","gamed","games","gamer","grows","fairly","nonsensical"]
+
+  ps  = nltk.stem.PorterStemmer()
+  sno = nltk.stem.SnowballStemmer('english')
+  lan = nltk.stem.lancaster.LancasterStemmer()
+ 
+  for word in words:
+    base  = ps.stem(word)
+    sbase = sno.stem(word)
+    lbase = lan.stem(word)
+  
+    s = ''
+    if (sbase != base):
+      s += "(or {})".format(sbase)
+    if (lbase != base and lbase != sbase):
+      s += "(or {})".format(lbase)
+  
+    print("{:11s} stems to {:s} {}".format(word, base, s))</code></pre></div><p class="new">NLTK's Lemmatizer is based on <a href="https://wordnet.princeton.edu" target="_blank">WordNet</a> which is an 
+open source dictionary that closely resembles a thesaurus. It is a database of 
+English words that are linked together by their semantic relationships. </p><pre><code>nltk.download('wordnet')
+def nltk_wordnet_demo():
+  lemma = nltk.stem.WordNetLemmatizer()
+  print(lemma.lemmatize('dogs'))</code></pre><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="accuracy">Accuracy</h2><p class="new">All of these models (both NLTK and SpaCy) will not give you perfect results. 
+However, given a large enough sample and assuming the text you are analyzing 
+is somewhat similar to the text that was used to train and build the underlying 
+models, accuracy can be in the 80% - 95% range (see <a href="https://spacy.io/usage/facts-figures" target="_blank">https://spacy.io/usage/facts-figures</a>).</p><p class="new">If accuracy is an issue for your particular analysis, you can even build your 
+own models (either for a new language or from a new source of text) and 
+integrate them with both spaCy and NLTK. Model building is an advanced topic 
+that will be addressed in the sequel class (Data, Machines &amp; the 🐍). </p><div class="font-sans container mt-1 mb-4 "><p>🎗Before you go, you should <strong>know</strong>:</p><div class="w-2/3 md:w-2/3"><div class="shadow-md"><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-7" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-7"><span> the main use cases of nlp </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div><div class="tab overflow-hidden border-t bg-green-200"><input class="absolute opacity-0" id="tab-multi-8" name="tabs" type="checkbox"/><label class="block p-3 leading-normal cursor-pointer" for="tab-multi-8"><span> how to use nltk for tokenizing, ngrams, entity, part of speech tagging </span></label><div class="tab-content overflow-hidden border-l-2 bg-orange-300 border-indigo-500 leading-normal"><p class="p-3">No Answer</p></div></div></div></div></div><h1 class="section" id="section9">Lesson Assignment</h1><p class="new">You're essentially done. Please make sure you appreciate all the power you learned. 
+You will put it to good use soon.</p><h2 id="nlp-and-finding-characters">NLP and Finding Characters</h2><p class="new">You will use the power of nltk to find characters in a novel. Write the function 
+<code>find_characters_nlp</code>.  It will use <code>nltk</code>. </p><div class="ide code-starter clearfix"><pre><code>def find_characters_nlp(text, topn):
+  # returns top n characters found in text
+  return []</code></pre></div><p class="new">Be sure to test this first on small samples of text first.  Once this is done, the following should work:</p><pre><code>def huck_test():
+    import LessonUtil as Util
+    text = Util.read_data_file('huck.txt')
+    topn = find_characters_nlp(text, 50)
+    print(topn)
+huck_test()</code></pre><p class="new">You should see these numbers:
+<code>('Jim', 336) ('Tom', 150) ('Huck', 41) ('Tom Sawyer', 37) ('Aunt Sally', 37) ('Buck', 32)</code></p><p class="new">Notes:</p><ul><li>note that with nltk, there's no need for stopwords, ngrams</li><li>most of the code is already done for you</li><li>what did you notice about the running time for how long it takes to find the
+characters using nlp.</li></ul><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>DS-NLP</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Natural Language Processing</div><p class="text-center text-gray-800 text-xl">computer, understand my words</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">DS-NLP</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">🐍  4 D.S.</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div><h1 class="section" id="section10">POS </h1><p class="new">From <a href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html" target="_blank">https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html</a></p><pre><code>CC Coordinating conjunction
+CD Cardinal number
+DT Determiner
+EX Existential
+FW Foreign word
+IN Preposition or subordinating conjunction
+JJ Adjective
+JJR Adjective, comparative
+JJS Adjective, superlative
+LS List item marker
+MD Modal
+NN Noun, singular or mass
+NNS Noun, plural
+NNP Proper noun, singular
+NNPS Proper noun, plural
+PDT Predeterminer
+POS Possessive ending
+PRP Personal pronoun
+PRP$ Possessive pronoun
+RB Adverb
+RBR Adverb, comparative
+RBS Adverb, superlative
+RP Particle
+SYM Symbol
+TO to
+UH Interjection
+VB Verb, base form
+VBD Verb, past tense
+VBG Verb, gerund or present participle
+VBN Verb, past participle
+VBP Verb, non-3rd person singular present
+VBZ Verb, 3rd person singular present
+WDT Wh-determiner
+WP Wh-pronoun
+WP$ Possessive wh-pronoun
+WRB Wh-adverb</code></pre></div></div></body></html>
