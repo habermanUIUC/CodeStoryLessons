@@ -61,8 +61,8 @@ something like FTP (File Transfer Protocol -- an old protocol for getting files)
 is not specified, the default port is used.  Hostnames can be specified via <strong>DNS</strong> 
 names (Domain Name Service) or IP addresses: </p><ul><li><code>http://</code><strong><code>www.gutenberg.org</code></strong><code>/files/76/76-0.txt</code></li><li><code>http://</code><strong><code>www.gutenberg.org:80</code></strong><code>/files/76/76-0.txt</code></li><li><code>http://</code><strong><code>173.194.219.113:80</code></strong></li></ul><p class="new">Typically, we use DNS names for identifying the server.</p><h4 id="the-path">The Path</h4><p class="new">The <strong>path</strong> identifies the specific resource the client (e.g. the web browser) 
 wants to access on the server:</p><ul><li><code>http://www.gutenberg.org/</code><strong><code>files/76/76-0.txt</code></strong></li></ul><p class="new">In this case the path is a specific file, but a resource could be a script
- (like <strong>php</strong> -- another coding language) or a program that gets run
- /executed on the server and whose <em>output</em> is the response (e.g. an SQL or database query).</p><h4 id="the-query-string">The Query String</h4><p class="new">The query string is optional but it allows you to pass additional information 
+ (like <strong>php</strong> -- another coding language) or a program that gets run/executed 
+ on the server and whose <em>output</em> is the response (e.g. an SQL or database query).</p><h4 id="the-query-string">The Query String</h4><p class="new">The query string is optional but it allows you to pass additional information 
 to the web server to access different aspects of the resource. For example, 
 the following URL contains the query parameters:</p><ul><li><code>https://en.wikipedia.org/w/api.php?</code><strong><code>action=parse&amp;format=json&amp;page=Steve+Jobs&amp;prop=text</code></strong></li></ul><p class="new">The parameters are <code>action</code>, <code>format</code>, <code>page</code>, <code>prop</code>.  In this case we are 
 retrieving data from a web service (the output isn't meant for our visual consumption). 
