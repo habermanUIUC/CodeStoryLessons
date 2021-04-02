@@ -17,6 +17,14 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="step-4-imagecluster">Step 4: <code>ImageCluster</code></h2><p class="new">Create a class named <code>ImageCluster</code>.  </p><ul><li>The constructor for <code>ImageCluster</code> takes an <code>RCImage</code> as it's only parameter</li><li>Add a method named <code>paint_by_number</code> that has a parameter, <code>count</code>, that is
-the number of colors the painting will have.  It has a default value of 8.</li><li><code>paint_by_number</code> performs KMeans on the image data (specifically the pixels)</li><li><code>paint_by_number</code> does not return anything, but the class should use an
-attribute to hold onto the model and labels (use <code>km</code> and <code>labels</code> respectively)</li></ul></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>import matplotlib.pyplot as plt
+import LessonUtil as Util
+
+def test_image():
+    path = Util.path_for_data('cat400Green.png')
+    
+    im = plt.imread(path)
+    my_image = RCImage(img_data=im)
+    fig = my_image.display()
+
+test_image()</code></pre></div></div></div></body></html>

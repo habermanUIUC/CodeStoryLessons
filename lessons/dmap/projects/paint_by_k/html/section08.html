@@ -17,14 +17,9 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>import matplotlib.pyplot as plt
-import LessonUtil as Util
-
-def test_image():
-    path = Util.path_for_data('cat400Green.png')
-    
-    im = plt.imread(path)
-    my_image = RCImage(img_data=im)
-    fig = my_image.display()
-
-test_image()</code></pre></div></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="step-2-remove-the-frame">Step 2: Remove the frame</h2><p class="new">When you display an image, let's remove all the axis markers and the frame
+ around the picture.  Add a named parameter <code>frame</code> whose default value is
+ <code>False</code>.  If <code>frame</code> is False, remove the frame.</p><pre><code># how to remove the frame
+axes.xaxis.set_visible(False)
+axes.yaxis.set_visible(False)
+axes.set_frame_on(False)</code></pre><h2 id="step-3-test-it--">Step 3: Test it  </h2><p class="new">You should see the image without any borders</p><img alt="catNoFrame.png" class="iw300 center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/paint_by_k/html/catNoFrame.png"/></div></div></body></html>

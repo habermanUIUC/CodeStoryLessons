@@ -17,6 +17,26 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section3">Lesson Assignment</h1><p class="new">So all this talk about math and colors must be leading to something good. For this 
-lesson, we are going to use some of your classes you created in a previous lesson.</p><h2 id="step-1-rcimage">Step 1: <code>RCImage</code></h2><p class="new">Copy and paste your code for <code>RCImage</code> (of course for better <code>class</code> practice, 
-you can re-implement it here). You will <strong>not need</strong> the class <code>RGBImageKernel</code>.</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><h2 id="color-distance-">Color Distance </h2><p class="new">Within a colorspace, you can also define a distance metric to be used to
+ determine how far two colors are apart. For example, the euclidean distance
+ in RGB space is simply defined as:</p><img alt="math?math=%5CLarge%20distance%3D%5Csqrt%7B(R_2%20-%20R_1)%5E2%20%2B%20(G_2%20-%20G_1)%5E2%20%2B%20(B_2%20-%20B_1)%5E2%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20distance%3D%5Csqrt%7B(R_2%20-%20R_1)%5E2%20%2B%20(G_2%20-%20G_1)%5E2%20%2B%20(B_2%20-%20B_1)%5E2%7D"/><br/><h2 id="colorspace-problems">Colorspace Problems</h2><p class="new">However, not all colorspaces work well for doing 'math' operations on colors. The 
+following image demonstrates this. Both the magenta color and the cyan/aqua are 
+the same 'distance' from yellow.
+<img alt="twoBytwo.png" class="iw400 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/paint_by_k/html/twoBytwo.png"/>Yet the cyan color appears to be much closer to yellow than magenta does. So
+ when you compare the distances of colors in RGB, the same size 'gap' between colors 
+may look very different. The <em>big</em> problem with using math with colors is that many 
+colorspaces are not perceptually uniform. </p><h3 id="perceptually-uniform-colorspaces">Perceptually Uniform Colorspaces</h3><p class="new">However, if a colorspace is perceptually uniform, then a change of length <code>x</code> in 
+any direction of the color space would be perceived by a human as the same 
+change. </p><p class="new">To learn more about a few colorspaces that are perceptually uniform please
+ read the <a href="https://www.hsluv.org/" target="_blank">HSLuv</a> and the 
+<a href="https://medium.com/hipster-color-science/a-beginners-guide-to-colorimetry-401f1830b65a" target="_blank">CIE</a> colorspaces.
+The HSLuv colorspace is used to design user-friendly color-pallets. Both the
+ CIELab and CIELuv colorspaces are designed to match what our eyes see.</p><h2 id="colormaps">ColorMaps</h2><p class="new">Just to refresh our memory from a distant lesson, a <em>color map</em> allow you to 
+map a numeric value to a color. You can store your 'image' as a simple matrix of numbers rather 
+ than a 'color' specification for each point. Hence, using a colormap can help to decrease 
+ the amount of memory/storage. It can act like a look up table.</p><p class="new">Colormaps also are used to specify the available colors within a colorspace. 
+An artist (i.e. software engineer, info490 student) can specifify how index
+ numbers will map to specific colors.  As we have seen matplotlib offers many
+ available colormaps to use.  And which one is used <em>could</em> have implications. 
+Be sure to <a href="https://www.eecs.harvard.edu/~kgajos/papers/2011/borkin11-infoviz.pdf" target="_blank">read</a> how 
+the once default 'jet' colormap lead to more diagnostic errors.</p></div></div></body></html>

@@ -17,8 +17,13 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="step-6--lets-paint--oh-my">Step 6:  Let's paint 😬🙀 Oh My!</h2><p class="new">Here's where the paint hits the canvas. Now that the clustering is done, you 
-have a finite set of paints to use. Your job is to build a new painting (same 
-number of pixels) but each pixel is colored based on the result of running <code>KMeans</code>.</p><ul><li>create a method named <code>build_painting</code> that just returns a new matrix of
-pixels (hint use <code>np.zeros</code>).</li><li><code>build_painting</code> should only contain a unique set of colors (based on how
-<code>paint_by_number</code> was called.</li></ul><h2 id="step-7--test-it">Step 7:  Test it!</h2><p class="new">Once that is done, you can pipeline the entire process:</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def test_paint():
+    path = Util.path_for_data('cat400Green.png')
+    
+    im = plt.imread(path)
+    my_image = RCImage(img_data=im)
+    ic = ImageCluster(my_image)
+    ic.paint_by_number(8)
+    
+    print(len(ic.km.cluster_centers_) == 8)
+test_paint()</code></pre></div></div></div></body></html>

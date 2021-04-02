@@ -17,5 +17,21 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><img alt="cat8color.png" class="iw300 center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/paint_by_k/html/cat8color.png"/><h2 id="step-8-upload-your-own-image-to-paint">Step 8: Upload your own image to paint:</h2><p class="new">You can use the <code>google.colab</code> library to upload a file to the VM running your
- notebook:</p></div></div></body></html>
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def paint_pipeline(path=None, count=8, figsize=8):
+
+    if path is None:
+        path = Util.path_for_data('cat400Green.png')
+    
+    im = plt.imread(path)
+    my_image = RCImage(img_data=im)
+    ic = ImageCluster(my_image)
+    
+    # build a painting using count colors
+    ic.paint_by_number(count)
+    
+    # display the painting
+    k_image = ic.build_painting()
+    painting = RCImage(img_data=k_image)
+    painting.display(size=figsize)
+
+    return ic</code></pre></div></div></div></body></html>

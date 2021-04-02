@@ -17,7 +17,7 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section2">Color Models and Spaces</h1><p class="new">As we learned previously, a color has red, green, blue (i.e. r,g,b) components 
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section2">Color Models</h1><p class="new">As we learned previously, a color has red, green, blue (i.e. r,g,b) components 
 (usually specified by the user from 0 to 255). We call this the RGB color model.
 In this case a <em>color model</em> is how one describes a color. </p><p class="new">There are three popular color models:</p><ul><li>RGB is used for screen-based displays (additive model)</li><li>CMYK (cyan, magenta, yellow, black) is used for printing (subtractive model)</li><li>Lab (<strong>L</strong>ight, <strong>a</strong>: green-red axis, <strong>b</strong>: blue-yellow axis) is based on
 how humans see color. 
@@ -26,12 +26,4 @@ It's hard to even imagine what a color might be if you are given it's r,g,b
  values. How orange (is it even orange?) is 229, 123, 0 anyway?</p><p class="new">The HSV colormodel (shown below) attempts to fix this by separating the
  colors using <strong>h</strong>ue (the color), <strong>s</strong>aturation (intensity of color -- lack of gray), 
  and <strong>v</strong>alue (light and darkness added to the color). Given that you know the 
- hue, it's a bit easier to know how the other two values affect the color.</p><h2 id="colorspace-problems">Colorspace Problems</h2><p class="new">A <em>color space</em> is a specific implementation of a model. It organizes the
- colors available to use. The set of colors that a color model can describe is 
- the colorspace. </p><p class="new">The RGB colorspace is usually shown as a cube using r,g,b as dimensions.
-<img alt="rgbCube.png" class="iw400 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/paint_by_k/html/rgbCube.png"/></p><p class="new">In the HSV colorspace, the hue, saturation, and value parameters define the space.
-<img alt="HSVColorSpace.png" class="iw400 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/paint_by_k/html/HSVColorSpace.png"/></p><h3 id="the-color-of-math">The Color of Math</h3><p class="new">It is within a colorspace, that one can describe terms like 'distance' and 'similarity'. 
-You can even mix colors mathematically (e.g. take averages). For example, in the image
-   below, the last row of colors is the average of the two colors above it.
-<img alt="colorPatch.png" class="iw400 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/projects/paint_by_k/html/colorPatch.png"/></p><p class="new">In the next code cell, you can use the sliders to select different r,g,b values 
-for two colors and see the resulting mix (by using an average).</p></div></div></body></html>
+ hue, it's a bit easier to know how the other two values affect the color.</p></div></div></body></html>
