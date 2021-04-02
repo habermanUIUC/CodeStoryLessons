@@ -18,7 +18,7 @@
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><p class="new">In general the full url can be created using the following pattern:</p><pre><code>def build_url(base_url, params):
-  url = baseurl + "?" + urllib.parse.urlencode(params) 
+  url = base_url + "?" + urllib.parse.urlencode(params) 
   return url</code></pre><p class="new">A newer library, <code>urllb2</code>, provides additional functionality over <code>urllib</code> but 
 is not available for older versions of Python. And if you are using a newer 
 version of Python (e.g. 3.x), there are better libraries that build 
