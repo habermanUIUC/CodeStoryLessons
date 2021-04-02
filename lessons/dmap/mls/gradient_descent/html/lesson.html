@@ -1,0 +1,223 @@
+<!DOCTYPE html><html lang='en'><head><title>Gradient Descent</title><meta charset="utf-8"><style>/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}h1{font-size:2em;margin:.67em 0}pre{font-family:monospace,monospace;font-size:1em}strong{font-weight:bolder}code{font-family:monospace,monospace;font-size:1em}img{border-style:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}h1,h2,h3,h4,p,pre{margin:0}ul{list-style:none;margin:0;padding:0}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";line-height:1.5}*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e2e8f0}img{border-style:solid}h1,h2,h3,h4{font-size:inherit;font-weight:inherit}code,pre{font-family:Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}img{display:block;vertical-align:middle}img{max-width:100%;height:auto}.bg-gray-200{--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.bg-gray-300{--bg-opacity:1;background-color:#e2e8f0;background-color:rgba(226,232,240,var(--bg-opacity))}.bg-blue-200{--bg-opacity:1;background-color:#bee3f8;background-color:rgba(190,227,248,var(--bg-opacity))}.bg-blue-300{--bg-opacity:1;background-color:#90cdf4;background-color:rgba(144,205,244,var(--bg-opacity))}.border-gray-400{--border-opacity:1;border-color:#cbd5e0;border-color:rgba(203,213,224,var(--border-opacity))}.border-gray-500{--border-opacity:1;border-color:#a0aec0;border-color:rgba(160,174,192,var(--border-opacity))}.rounded{border-radius:.25rem}.rounded-full{border-radius:9999px}.border-solid{border-style:solid}.border{border-width:1px}.border-t{border-top-width:1px}.inline-block{display:inline-block}.flex{display:flex}.justify-center{justify-content:center}.justify-around{justify-content:space-around}.float-left{float:left}.clearfix:after{content:"";display:table;clear:both}.clear-both{clear:both}.font-serif{font-family:Georgia,Cambria,"Times New Roman",Times,serif}.font-semibold{font-weight:600}.font-bold{font-weight:700}.h-64{height:16rem}.text-xs{font-size:.75rem}.text-sm{font-size:.875rem}.text-base{font-size:1rem}.text-xl{font-size:1.25rem}.leading-none{line-height:1}.m-2{margin:.5rem}.m-4{margin:1rem}.my-1{margin-top:.25rem;margin-bottom:.25rem}.my-4{margin-top:1rem;margin-bottom:1rem}.mt-1{margin-top:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.mb-2{margin-bottom:.5rem}.mr-3{margin-right:.75rem}.mb-3{margin-bottom:.75rem}.mt-4{margin-top:1rem}.mb-4{margin-bottom:1rem}.mt-6{margin-top:1.5rem}.max-w-sm{max-width:24rem}.max-w-2xl{max-width:42rem}.object-contain{-o-object-fit:contain;object-fit:contain}.overflow-hidden{overflow:hidden}.p-1{padding:.25rem}.py-1{padding-top:.25rem;padding-bottom:.25rem}.py-2{padding-top:.5rem;padding-bottom:.5rem}.px-3{padding-left:.75rem;padding-right:.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pl-3{padding-left:.75rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)}.shadow-inner{box-shadow:inset 0 2px 4px 0 rgba(0,0,0,.06)}.text-left{text-align:left}.text-center{text-align:center}.text-black{--text-opacity:1;color:#000;color:rgba(0,0,0,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-800{--text-opacity:1;color:#2d3748;color:rgba(45,55,72,var(--text-opacity))}.text-red-700{--text-opacity:1;color:#c53030;color:rgba(197,48,48,var(--text-opacity))}.whitespace-no-wrap{white-space:nowrap}.w-1\/2{width:50%}.w-full{width:100%}.text-tiny{font-size:.5rem!important}body{color:#000!important;font-size:1.25rem!important}.main-content{max-width:900px}.lesson{padding-left:15px!important;padding-right:10px!important;--bg-opacity:1;background-color:#edf2f7;background-color:rgba(237,242,247,var(--bg-opacity))}.main-content,html{font-family:Arial,Georgia,Verdana,"Times New Roman"!important}.lesson-footer-card,.lesson-overview-card{font-family:"Times New Roman"!important}.lesson-footer{margin-top:50px;margin-top:20px}.lesson ul{list-style-position:inside;list-style-type:none;margin-left:1em}.lesson ul li{padding-left:1em;padding-right:5px}.lesson ul li::before{content:"•";padding-right:5px}span{white-space:nowrap}p.new{padding-top:0;padding-bottom:.5em}p.new+p{padding-top:.5em}h1,h2,h3,h4{font-weight:700;margin-top:.25em!important;margin-bottom:.05em!important;font-family:Georgia,Cambria,"Times New Roman",Times,serif!important}h1{font-size:2em!important;clear:both;color:#000!important}div+h1,h2{margin-top:0!important}h2{margin-top:.5em!important;font-size:1.5em!important;clear:both;color:#8b0000!important}h3{font-size:1.25em!important;clear:both;color:#006400!important}h4{font-size:1em!important;clear:both;color:#00008b!important}ul{margin-bottom:30px}.title-text{font-size:2rem}.shadow-lg{box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.5)}img.formula-block{margin-left:auto;margin-right:auto;margin-top:.25rem;margin-bottom:.75rem}img.formula-inline{margin-top:.25rem;margin-bottom:.25rem}img.center{-o-object-position:center;object-position:center;margin-left:auto;margin-right:auto}img.border{border:1px solid #021a40;margin-top:.5rem;margin-bottom:.75rem}img.iw600{height:auto;width:auto;max-width:600px}img.iw400{height:auto;width:auto;max-width:400px}img.iw200{height:auto;width:auto;max-width:200px}code{font-size:smaller}pre code{font-size:15px}pre code:not(.line-number){background:#f4f4f4;font-family:monospace;font-size:15px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;touch-action:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent;clear:both;border:1px solid #ddd;color:#666;page-break-inside:avoid;display:block;min-width:840px;max-width:840px;overflow:scroll;line-height:1.6;margin-bottom:1.6em;padding:1em 1.5em;-moz-tab-size:2;-o-tab-size:2;tab-size:2;word-wrap:break-word;white-space:pre-wrap;border-left:3px solid #f36d33}div.code-starter>pre code{border-left:3px solid #fdff44!important;background-image:radial-gradient(rgba(0,150,0,.75),#000 120%);color:#fff;font:.9rem Inconsolata,monospace}div.code-starter>pre code::after{content:"\a$_"}</style>
+<script src="https://kit.fontawesome.com/7efc4bcee2.js" crossOrigin="anonymous"></script>
+<script>
+    let stateCheck = setInterval(function(){
+      if (document.readyState === 'complete') {
+        clearInterval(stateCheck);
+        let s1 = document.getElementById('start');
+        // console.log('doc is ready', s1);
+        if (s1) {
+           s1.setAttribute('tabindex', '-1');
+           s1.focus(); 
+           s1.scrollIntoView({behavior: 'smooth'}); 
+           setTimeout(function(){s1.blur()}, 500);
+           // console.log('focus set');
+        }
+      }
+    }, 200);
+    </script>
+</head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
+<div id="start" class="section">&nbsp;</div><h1 class="overview"></h1><div class="lesson-overview bg-gray-200 flex justify-center"><div class="text-center px-4 py-2 m-2"><div class="lesson-overview-card displaycard bg-blue-200 max-w-sm rounded overflow-hidden shadow-lg"><div> </div><img alt="Text" class="object-contain h-64 w-full" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/MachineLearningV2-sm.png"/><div class="px-6 py-4"><div class="title-text text-center leading-none font-bold text-xl">Gradient Descent</div><p class="text-center mt-2 text-gray-800 text-xl">Parameter Estimation</p><div class="text-gray-700 text-base"> </div><div class="text-center mb-3"><span class="inline-block bg-gray-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">#machine learning</span></div><div class="flex border-t border-solid border-gray-500 shadow-inner justify-around bg-blue-300"><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap">D.M. &amp; the 🐍</span></div><div class="text-gray-700 text-center px-4 m-2 text-sm"><span class="whitespace-no-wrap"><strong>Version:</strong> <!-- -->SP21</span></div></div><div class="text-gray-700 mt-1 text-center text-tiny">All Rights Reserved</div></div></div></div><div class="text-center px-4 py-2 m-2 w-1/2"><div class="displaycard bg-gray-200 max-w-sm rounded overflow-hidden shadow-lg"><div class="px-6 py-4 text-left"><div class="text-center font-bold text-xl">Gradient Descent<br/><div><span>prerequisites</span><div class="text-center text-xs mb-2">(start only after finishing)</div><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>mlprep</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>Python classes</strong></p><p class="max-w-sm text-gray-800 text-sm">⦿ <strong>linear regression</strong></p></div></div></div><div class="px-6 py-4 text-left text-gray-800"><div class="text-center font-bold text-xl">Colab Notes</div><p class="max-w-sm text-sm">1. <strong>Copy</strong> this notebook <img alt="copy2drive.png" class="inline-block" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/copy2drive.png"/></p><p class="max-w-sm text-sm">2. <strong>Update</strong> the <strong><code>NET_ID</code></strong> in the notebook</p><p class="max-w-sm text-gray-800 text-sm">3. <strong>Hit ▶️ </strong> to install the INFO 490 IDE</p><div class="text-center font-bold text-xl"> </div><div class="text-center font-bold text-xl">Jupyter/PyCharm Notes</div><p class="max-w-sm text-gray-800 text-sm text-left">The testing framework does <strong>not work</strong> (at this time) for Jupyter  notebooks or local code development.</p></div></div></div></div><h1 class="section" id="section1">Gradient Descent</h1><h2 id="parameter-estimation">Parameter Estimation</h2><h3 id="a-quick-recap">A quick recap</h3><p class="new">In the previous lesson on linear regression, we discussed the idea that the
+ best fitting line <img alt="math?math=%5Clarge%20f(x)%20%3D%20w_0%20%2B%20w_1x" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20f(x)%20%3D%20w_0%20%2B%20w_1x" style="display:inline-block"/> is the one that 
+ minimizes <img alt="math?math=%5Clarge%20SSE%20%3D%20%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20SSE%20%3D%20%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/> (the loss function). </p><p class="new">If you find that notation confusing, please go carefully through the linear 
+regression lesson. This lesson continues where that one left off.</p><p class="new">We also created a graph that plotted different values for w0 (the y0) while holding 
+the w1 (the slope) constant, and plotting the resulting MSE (mean squared error
+) for a dataset (<code>data20-2.csv</code>).</p><img alt="w0VSmse.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/w0VSmse.png"/><p class="new">As a reminder of the above plot. It's the calculated MSE for different values
+ of the y-intercept in a best-fit line for the dataset (while holding the slope 
+ constant). Below is an animation of how the line moves into place with different values of w0 (y0). 
+  The line changes green when the MSE hits a minimum.</p><img alt="movingY0.gif" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/movingY0.gif"/><h2 id="a-brute-force-attempt-at-finding-the-best-w0">A brute force attempt at finding the best <code>w0</code></h2><p class="new">Of course it's easy to look at the graph you created and see that when <code>w0</code> is about 7, the
+ MSE is the lowest. However in a large dataset with multiple independent
+  variables (or having a complex cost function), it's just not feasible to 
+  calculate every value for all possible combinations. </p><h2 id="an-iterative-attempt-at-finding-the-best-w0-">An iterative attempt at finding the best <code>w0</code> </h2><p class="new">What if you were only given a single random <code>w0</code> and you had to decide if that 
+value was the best or if you should try a different value for <code>w0</code>?</p><p class="new">That is the job of gradient descent (GD for short). It is an iterative approach to
+ parameter estimation. It starts with a random assignment for it's
+  parameters.  Then every iteration through the training set, it produces
+  better estimates for the loss function it is trying to minimize.</p><p class="new">GD essentially starts on the graph somewhere, then attempts to go 'downhill' towards a better minimum.</p><img alt="GD1.png" class="iw400 center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/GD1.png"/><p class="new">The loss function for this example is only based on one variable. However, 
+gradient descent nicely generalizes to high dimensional space (i.e. having
+ many independent variables), using different loss functions, and dealing
+  with large datasets.</p><h1 class="section" id="section2">Calculus, calculus! </h1><h2 id="wherefore-art-thou-calculus-">wherefore art thou calculus? </h2><img alt="calculus.png" class="iw200 float-left mr-3 mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/calculus.png"/><p class="new">In order to understand the machinery behind GD, we need to peak back into
+ our calculus books. If you never had calculus, fear not. Just be open to
+  learning the reasons why we need it. Understanding the concepts are more
+   important than being adroit at the mechanics.</p><p class="new">Hopefully, you are now comfortable with the concept of a line having a <em>slope</em>. 
+ It's simply the change in y divided by its change in x:</p><img alt="math?math=%5CLarge%20slope%20%3D%20%5Cfrac%7B%5CDelta%20y%7D%7B%5CDelta%20x%7D" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20slope%20%3D%20%5Cfrac%7B%5CDelta%20y%7D%7B%5CDelta%20x%7D"/><h2 id="magnitude">Magnitude</h2><p class="new"> The slope's <strong>magnitude</strong> tells you how fast the line is changing (a slope of
+  zero means it's not changing). </p><h2 id="direction">Direction</h2><p class="new">The <strong>direction</strong> of the change is based on its sign:
+<img alt="slopes.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/slopes.png"/></p><p class="new"> Gradient descent loves the negative slope -- it communicates the idea that
+  we are moving downward (we can minimize our loss even further).</p><p class="new">For a slope to be negative means either:</p><ul><li>a positive step in the x direction results in a negative change in y</li><li>a negative step in the x direction results in a positive change in y</li></ul><p class="new">By definition, a line's slope is constant.  Calculate it once, and you are done.
+  However, for non-linear functions it's not as simple.  But calculus
+   provides us with a few tricks (i.e. <em>methods and techniques</em>) to make it
+    manageable.</p><h2 id="back-to-the-slopes">Back to the slopes</h2><h3 id="the-tangent-trick-">The Tangent Trick </h3><p class="new">The following non-linear graph is the MSE vs w0 graph we created in the
+ linear regression lesson. The MSE value is 258.32 when <code>w0</code> is -8.16. 
+ And the number shown (<span class="text-red-700">-30.95</span>) is the <em>slope</em> 
+ of that curve at the point (-8.16, 258.32).</p><img alt="mseGraph.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/mseGraph.png"/><p class="new"> How do get that value (<span class="text-red-700">-30.95</span>)? </p><p class="new"> Well if you zoom way into that graph, the 'curve' goes away (like seeing a 
+ flat horizon on a spherical earth). We can draw a new line (called the tangent line) that
+    just touches the curve near the point we are interested in:</p><img alt="zoom.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/zoom.png"/><p class="new">Note that the orange line (the tangent line) is essentially parallel to the
+ curve at the point shown. And we know how to measure the slope of a line.</p><p class="new">We can now measure the △ y (-50) for a positive △ x (1.6) (we can get those
+ values by just selecting two different points). </p><img alt="zoom2.png" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/zoom2.png"/><h3 id="slopes-are-a-changin">Slopes are a changin'</h3><p class="new">In our simple line equation, <img alt="math?math=%5Clarge%20f(x)%20%3D%20w_0%20%2B%20w_1x" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20f(x)%20%3D%20w_0%20%2B%20w_1x" style="display:inline-block"/>,  <code>w1</code> is the slope. 
+The slope tells us how much the line is changing at that point. In the case
+ of a simple line, the output (y) always changes by the slope for a single
+  step in <code>x</code> (note that value of <code>w0</code> does not affect the result). </p><p class="new">The following graph shows the tangent line (representing the slope of the
+ curve) at various selected points. Note what happens when and where the
+  tangent line becomes horizontal.
+<img alt="tangents.gif" class="border center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/tangents.gif"/></p><p class="new">It's now clear that when the MSE is at its lowest (<code>w0 = 7.13</code>), the 
+slope of the tangent line is zero!  That's exactly what we need. We could pick points on the
+  curve, measure the slope (using the tangent line) and decide how to pick
+   the next point to try (until we have a zero slope). </p><p class="new">   But we can do even better.</p><h3 id="the-derivative-trick-">The Derivative Trick </h3><p class="new">If you know the function that is responsible for the curve, you can find it's
+ derivative (and you know calculus). The derivative is just another function 
+ that gives you the slope at a point.  </p><p class="new">Finding the derivative of a function is the specialty of differential calculus -- 
+it teaches one how to find derivatives. You don't have to be an expert, but 
+you should know the terminology.</p><p class="new">Rather than figuring out the necessary math to draw a line tangent to a curve, we can
+    simply ask the derivative function for the value.  When the derivative is zero, we
+     are at the minimum for the curve.</p><h2 id="summarys-slope">Summary's Slope</h2><p class="new">Here's what gradient descent is trying to do:  </p><p class="new">You have a function (called the loss function) you want to know where
+ that function is at a minimum (i.e. you want to minimize it). For linear
+  regression, we use the MSE function. Using calculus you find it's derivative 
+  function (or simply derivative).  </p><p class="new">Gradient descent will pick a random point (a guess), ask for it's derivative (i.e. the slope) 
+  at that value. If the slope is <em>negative</em> it knows the guess needs to be bigger. 
+  If the slope (i.e. derivative) is <em>positive</em>, it knows it needs to subtract 
+  a bit from the guess. When the slope is near zero (or at zero), it knows it has 
+  found the value(s) where the loss function is minimized. </p><p class="new">That's it in a 🥜.  There's a lot more details to fill in.  But here's an outline of
+using gradient descent (version 1.0) to find the best value for <code>w0</code>:</p><pre><code>     w0 = pick a random value
+     while not finished:
+         slope = get_slope_from_derivative(w0)
+         if slope &lt; 0:
+             # increase our guess
+             w0 += a small amount
+         elif slope &gt; 0:
+             # decrease our guess
+             w0 -= a small amount
+         else:
+             w0 is PERFECT</code></pre><h1 class="section" id="section3">Gradient Descent for Two please.</h1><p class="new">Now that we can see how GD works for a single variable, let's expand it for
+ both <code>w0</code> and <code>w1</code>. </p><p class="new">Let's review the MSE function we are trying to minimize:
+<img alt="math?math=%5CLarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2"/> </p><p class="new">if MSE were a Python function, it would look like:</p><pre><code>def calculate_mse(xv, yv, w0, w1):
+    err = yv - (xv*w1 + w0)
+    mse = np.sum(err * err)/len(xv)  # or mse = np.mean(err*err)
+    return mse</code></pre><p class="new">We can confirm this calculation (with our graphs above) and by using a guess for
+ <code>w0</code> of -8.16 with the known <code>w1</code> value of 2.9063. Hopefully, we will get
+  something close to 258.</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+import numpy as np
+def calculate_mse(xv, yv, w0, w1):
+    err = yv - (xv*w1 + w0)
+    mse = np.sum(err * err)/len(xv)  # or mse = np.mean(err*err)
+    return mse
+ 
+xv, yv = Util.xy_from_file(Util.path_for_data('data20-2.csv'), 'SUGAR', 'TIME')
+mse = calculate_mse(xv, yv, -8.16, 2.9063)
+print(mse)</code></pre></div><p class="new">The function <code>calculate_mse</code> has two degrees of freedom (<code>w0</code> and <code>w1</code>). Our initial
+ plots from the previous lesson used just one of those weights. </p><p class="new">Here's what the graph looks like when you plot MSE vs <code>w0</code> and <code>w1</code>. That is we
+ are plotting for all combinations of <code>w0</code> and <code>w1</code> (same graph, two different perspectives):</p><img alt="3dMSE1.png" class="float-left m-4 iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/3dMSE1.png"/><img alt="3dMSE2.png" class="iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/3dMSE2.png"/><br class="clear-both"/><p class="new">If you imagine looking straight at the <code>w0</code> axis, you would 'see' your 2D graph 
+previously created.</p><h2 id="3d-gd">3D GD</h2><p class="new">Now rather than having a 'simple' graph to navigate, gradient descent will 
+pick a random point on that mesh.  But now it has to consider the slopes 
+for <code>w0</code> and <code>w1</code>. It can't make a decision in terms of which way is towards 
+the minimum without taking into account both derivatives (slopes). </p><p class="new">Since the loss function for a line has two weights (or a weight for each independent 
+variable and an additional one) you need to find the derivative for both. In 
+this case, it's called finding <em>partial</em> derivatives.  </p><p class="new">A partial derivative is a derivative found for each weight while assuming the other
+ weights are just constants. In mathematical notation, for a function <code>f</code> (the MSE
+ loss function), we say:</p><h4 id="the-partial-derivative-of-f-with-respect-to-w-is-formula-classnamemy-1-inlinetrue-sizelarge-jaxfrac-partial-fpartial-w0-">The partial derivative of <code>f</code> with respect to <code>w₀</code> is <img alt="math?math=%5Clarge%20%5Cfrac%20%7B%5Cpartial%20f%7D%7B%5Cpartial%20w_0%7D" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%20%7B%5Cpartial%20f%7D%7B%5Cpartial%20w_0%7D" style="display:inline-block"/></h4><h4 id="the-partial-derivative-of-f-with-respect-to-w-is-formula-classnamemy-1-inlinetrue-sizelarge-jaxfrac-partial-fpartial-w1-">The partial derivative of <code>f</code> with respect to <code>w₁</code> is <img alt="math?math=%5Clarge%20%5Cfrac%20%7B%5Cpartial%20f%7D%7B%5Cpartial%20w_1%7D" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%20%7B%5Cpartial%20f%7D%7B%5Cpartial%20w_1%7D" style="display:inline-block"/></h4><br/><p class="new">Many times the letter <code>d</code> will be used instead of <code>ϑ</code> (theta <code>θ</code>).</p><br/><p class="new">It is at this point, we ask our calculus friends to find those derivatives for us. 
+ When using gradient descent you <strong>don't have to know the mechanics of how to find derivatives</strong>, 
+ the libraries you will use have that figured out.  When we get to
+  neural networks the partial derivatives are a big part of back-propagation
+ and can get a bit messy (again, we are getting ahead of ourselves).</p><h2 id="partials-derivatives-for-gd-linear-regression">Partials Derivatives for GD (linear regression)</h2><p class="new">As mentioned in the linear regression lesson, sometimes you will see MSE 
+expressed as a loss function using the letter 'J' (a homage to the Jacobian matrix)</p><ul><li><img alt="math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20J(w_0%2C%20w_1)%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20J(w_0%2C%20w_1)%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/></li></ul><p class="new">Here are the two partial derivatives for the loss function MSE (already
+ solved for us):</p><ul><li><img alt="math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_0%7D%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_0%7D%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_1%7D%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum%20x_i%20(y_i%20-%20(w_0%20%2B%20w_1x_i))" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_1%7D%20%3D%20%5Cfrac%7B1%7D%7Bn%7D%5Csum%20x_i%20(y_i%20-%20(w_0%20%2B%20w_1x_i))" style="display:inline-block"/></li></ul><p class="new">Depending on who's in the mathroom, you may also see the following:</p><ul><li><img alt="math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_0%7D%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_0%7D%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0%20%2B%20w_1x_i)%20)" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_1%7D%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum%20x_i%20(y_i%20-%20(w_0%20%2B%20w_1x_i))" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_1%7D%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum%20x_i%20(y_i%20-%20(w_0%20%2B%20w_1x_i))" style="display:inline-block"/></li></ul><h4 id="extension-for-linear-algebra">Extension for Linear Algebra</h4><p class="new">Another simplification that you may see (we won't be using this version) is
+ to add an <img alt="math?math=%5Clarge%20x_0" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20x_0" style="display:inline-block"/> variable and set it to 1 for all instances (essentially 
+adding another column/attribute).  When GD is implemented using linear
+ algebra, this is usually the way it's implemented.</p><ul><li><img alt="math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0x_0%20%2B%20w_1x_i)%20)%5E2" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20MSE%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum(%20y_i%20-%20(w_0x_0%20%2B%20w_1x_i)%20)%5E2" style="display:inline-block"/></li><li><img alt="math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_i%7D%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum%20x_i%20(y_i%20-%20(w_0x_0%20%2B%20w_1x_i))" class="my-1 formula-inline" src="https://render.githubusercontent.com/render/math?math=%5Clarge%20%5Cfrac%7Bd%7D%7Bdw_i%7D%20%3D%20%5Cfrac%7B1%7D%7B2n%7D%5Csum%20x_i%20(y_i%20-%20(w_0x_0%20%2B%20w_1x_i))" style="display:inline-block"/></li></ul><h2 id="use-the-gradient">Use the <strong>Gradient</strong></h2><p class="new">The <em>gradient</em> in gradient descent is the set of functions (ultimately expressed
+ inside of a matrix) that represent the slopes of the cost/loss function. The gradient 
+ is the set of partial derivatives (slopes).</p><p class="new">To repeat, the gradient is for the <strong>cost</strong> function.</p><h3 id="finding-your-way-home-with-blind-faith">Finding Your Way Home (with Blind Faith)</h3><img alt="gradient.png" class="float-left mr-3" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/gradient.png"/><p class="new">If you think of the loss function (i.e. the objective function) as a landscape, 
+then to find your way home (where the loss is at its lowest point), you should
+ proceed as follows: </p><ul><li>start at some random place on the landscape</li><li>always move on the best path to a low ground (local minimum).</li><li>the best path is always the fastest path downward (consulting all directions).</li><li>the gradient is your guide.</li></ul><p class="new">Here's our updated algorithm (Version 2.0) :</p><pre><code>     w0, w1 # pick random values to begin with
+     while not finished:
+
+         mse = calculate_mse(xv, yv, [w0, w1])
+         if near threshold:
+             done  
+
+         # calculate partial derivatives (errors)
+         for i in range(n):
+            w0_sum += (yv[i] - (w1*xv[i] + w0))
+            w1_sum += (yv[i] - (w1*xv[i] + w0)) * xv[i] 
+         d_w0 = (-2/n) * w0_sum
+         d_w1 = (-2/n) * w1_sum
+
+         # update the weights (step size)
+         w0 = w0 - d_w0
+         w1 = w1 - d_w1</code></pre><p class="new">The <strong>important part</strong> is seeing how we update the weights (the last 2 lines). </p><p class="new">If the new slope is negative</p><ul><li>we increase our guess a little bit (we subtract a negative)</li></ul><p class="new">If the new slope is positive</p><ul><li>we need to decrease our guess a little bit</li></ul><p class="new">The following shows the path taken by gradient descent for our data (with
+ both <code>w0</code> and <code>w1</code> purposely initialized with bad values.</p><img alt="path1.png" class="float-left mr-3 iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/path1.png"/><img alt="path2.png" class="float-left mr-3 iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/path2.png"/><br class="clear-both"/><p class="new">You can see that the slope of <code>w1</code> has a bigger impact in the direction to
+ pursue at first, and then the slope of <code>w0</code> has a bigger influence.</p><h2 id="the-learning-rate">The 'Learning' rate</h2><p class="new">The one area for concern is our update rule (how the weights get updated). 
+Right now, if the slope, for example, was -18.00, our next step would be +18
+ steps in the x direction. That might jump <strong>right over the true minimum</strong>.</p><img alt="learning.png" class="center iw600" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/learning.png"/><p class="new">If you take too small of as step, converging on the local minimal can take a very 
+long time. If you take too big of a step, you can jump past your goal:</p><p class="new">The solution is to dampen the effect by multiplying the slope (i.e. the next step) 
+by a small amount -- called the learning rate. The result is called the step size:</p><img alt="math?math=%5CLarge%20step%20%3D%20learning%5C%2C%20rate%20%5Ctimes%20slope" class=" formula-block" src="https://render.githubusercontent.com/render/math?math=%5CLarge%20step%20%3D%20learning%5C%2C%20rate%20%5Ctimes%20slope"/><p class="new">The learning rate (α) gives us some additional control over how large of 
+steps we make. </p><img alt="learningRates.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/learningRates.png"/><p class="new">With a very low learning rate, we can confidently move in the direction of 
+the negative gradient at the cost of more calculations/steps. </p><p class="new">With a large learning rate, we can cover more ground each step, 
+but we risk overshooting the lowest point since the slope of the hill is 
+constantly changing. </p><p class="new">The most commonly used rates are: 0.001, 0.003, 0.01, 0.03, 0.1, 0.3. </p><h2 id="normalizing-input">Normalizing input</h2><p class="new">A common technique to ensure GD converges quickly is to ensure the data is
+ normalized to a 0-1 scale. If one attribute is orders of magnitude larger than 
+the others, GD can result in numerical errors (overflow, instability). If you
+ are unable to normalize the data and the attributes have different scales, 
+you usually have to insist on a very small learning rate.</p><h1 class="section" id="section4">Local vs Global Minimum  </h1><img alt="localglobal.png" class="center mb-4" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/gradient_descent/html/localglobal.png"/><p class="new">Depending on the landscape GD is navigating, it's quite possible that it will
+ get stuck at a local minimum. That is we end up at the bottom, but we are
+ not at the lowest point of the cost function.  It's one of the reason why GD is
+ initialized with random weights and run several times to compare different results.</p><p class="new">In some cases, we can get mathematical clearance (proof) that the gradient
+ behaves in a way that we don't have to worry about it. But this is usually
+ not the case.</p><h1 class="section" id="section5">Variants of Gradient Descent </h1><p class="new">Once we have our gradient descent algorithm, we can use it in different ways.
+The algorithm outlined above (Version 2.0), updates the weights after
+ visiting all the instances.  This is batch gradient descent.</p><p class="new"><strong>Batch gradient descent</strong> (BGD): </p><ul><li>calculates the error for each example in the training dataset.</li><li>updates the model after all training examples have been evaluated.</li></ul><p class="new">For large datasets and/or working with many features, calculating the
+ residuals and the derivatives for each of the features can become costly
+ quickly. Rather than doing this for each data point (instance), we can pick
+ a sample data point and run it through the algorithm.  This is repeated for
+ several samples. Stochastic gradient descent comes to our rescue! “Stochastic”, 
+essentially means “random”.</p><p class="new"><strong>Stochastic gradient descent</strong> (SGD): </p><ul><li>calculate the error and updates the model for each example in the training dataset.</li><li>it is a batch size of 1 (the single sample).</li><li>this is done for many samples while keeping state of the model (rather than resetting the weights).</li></ul><p class="new">A third way is to use mini-batches. It is using the standard batch algorithm
+ but with a small set (batch sizes of 32 are common) of instances. These mini-batches 
+can be random samples or a specific set of rules to slice up the training data.</p><h1 class="section" id="section6">A Look Forward</h1><p class="new">Understanding GD is essential for knowing how parts of neural networks work. 
+It can get messy fast, but the ideas are the same. Most implementations of GD 
+are vectorized (i.e. use linear algebra) for efficient calculation. For example, 
+the code below shows how the weights and MSE can be calculated very easily using numpy:</p><pre><code>def gradient_v(xv, yv, w0, w1):
+
+    n = len(xv)
+    y_pred = xv.dot(w1).flatten() + w0
+    error = yv.flatten() - y_pred
+    
+    # partial derivatives
+    est_w0 = np.mean(error)
+    est_w1 = error.dot(xv)
+    
+    mse = np.sum(np.power(error, 2))/n
+    return est_w0, est_w1[0], mse</code></pre><h1 class="section" id="section7">Lesson Assignment</h1><h2 id="gradient-descent-">Gradient Descent </h2><p class="new">We are going to implement batch gradient descent, starting with the pseudo code 
+shown above (Version 2.0).</p><p class="new">You will create the same class from the previous lesson: <code>LinearRegressionGD</code>. 
+The constructor will take two arrays (x, y)</p><p class="new">Implement the <code>solve</code> method</p><pre><code>def solve(self, iterations=100000, learning_rate=???, threshold=???):</code></pre><p class="new">We will cover the details a bit further down.</p><p class="new">Here's how the class will be used:</p><pre><code>import LessonUtil as Util
+
+# load up the data
+xv, yv = Util.xy_from_file(Util.path_for_data('data20-2.csv'), 'SUGAR', 'TIME')
+
+# create the class
+lr_gd = LinearRegressionGD(xv, yv)
+
+# solve using gradient descent
+w0, w1, iterations, mse = lr_gd.solve(threshold=1e-10, learning_rate=0.1)
+
+# see how well we did
+print("y = {:.4f}x + {:.4f}".format(w1, w0))
+print('MSE {:.6f} after {:d} iterations'.format(mse, iterations))</code></pre><h3 id="implementation-notes">Implementation Notes</h3><p class="new">General Restrictions:</p><ul><li>You cannot use any part of an OLS solution (that would be taking short cuts)</li><li>You can only use numpy</li></ul><p class="new">The method <code>solve</code> has a few requirements:</p><ul><li>at most <code>iterations</code> can be used, once that threshold is passed, you must
+return the current values</li><li>the parameter <code>threshold</code> is used to determine when to return the current
+values</li><li><code>threshold</code> is the difference between the calculated MSE of the current
+step with the calculated MSE of the previous step. So if, for example, the
+last two calculations didn't improve MSE by enough, you are done</li><li>use the <code>learning_rate</code> passed in a parameter</li><li>return the 4-item tuple (w0 estimate, w1 estimate, number of iterations
+used, the current MSE value) in that order</li><li>use 0 for initializing both weight estimates (rather than using a random
+number)</li></ul><pre><code>   import LessonUtil as Util
+
+   xv, yv = Util.xy_from_file(Util.path_for_data('data20-2.csv'), 'SUGAR', 'TIME')
+   lr_gd = LinearRegressionGD(xv, yv)
+   
+   w0, w1, iterations, mse = lr_gd.solve(threshold=??, learning_rate=??)
+   print("y = {:.4f}x + {:.4f}".format(w1, w0))
+   print('MSE {:.6f} after {:d} iterations'.format(mse, iterations))</code></pre><div class="ide code-starter clearfix"><pre><code>class LinearRegressionGD(object):
+    pass</code></pre></div><p class="new">Be sure to experiment:</p><ul><li>What happens if you set the threshold too low?</li><li>What happens if you set the <code>learning_rate</code> too high?</li><li>What happens if you set the <code>learning_rate</code> too low?</li><li>Can you get the exact answer with the right parameters?</li><li>What is the least number of iterations you can solve for each dataset?</li><li>What is the least number of total iterations you can solve all the datasets?</li></ul><h3 id="challenge">Challenge:</h3><p class="new">When you submit your code, be sure to set reasonable defaults such that both 
+datasets (20-1, 20-2) can be solved in under 100,000 iterations.</p><p class="new">The testing framework will call your <code>solve</code> method without specifying any
+ parameters.</p><p class="new">For data20-1: </p><ul><li><code>Util.xy_from_file(Util.path_for_data('data20-1.csv'), 'Mother', 'Daughter')</code></li><li>the solution is y = 1.50x + 0.5</li></ul><p class="new">For data20-2: </p><ul><li><code>Util.xy_from_file(Util.path_for_data('data20-2.csv'), 'SUGAR', 'TIME')</code></li><li>the solution is y = 2.906x + 7.313</li></ul><p class="new">For another dataset, data20-3:</p><ul><li><code>Util.xy_from_file(Util.path_for_data('data20-3.csv'), 'SCORE', 'NSOLVED')</code></li><li>the solution is y = -0.060x + 7.699</li></ul><h3 id="testing-and-scoring">Testing and Scoring</h3><p class="new">Since you have all the necessary information for testing, the only 'tests' available 
+will be on gradescope. You can be done (95%) by only making sure data20-1 and data20-2 
+can be solved. The last 5 points are for data20-3 to be solved as well.</p><h1>Test and Submit</h1><p>Once you have finished, you can download your code (via <code>ide.tester</code>) and upload that file to Gradescope (find lesson with tag <strong>gradientDescent</strong>).</p><div class="my-4"><pre><code><strong># to list the tests available</strong><br/>print(ide.tester.list_tests())<br/><strong># to perform a specific test</strong><br/>print(ide.tester.test_functionality('name of test'))<br/><strong># to test your code (either works)</strong><br/>print(ide.tester.test_notebook())<br/>print(ide.tester.test_notebook(verbose=True))<br/><strong># to prepare and download your code</strong><br/>ide.tester.download_solution()</code></pre></div><div class="lesson-footer flex bg-gray-200 justify-center"><div class="lesson-footer-card displaycard bg-blue-200 border-t border-gray-400 max-w-2xl rounded overflow-hidden shadow-lg"><div class="px-6 py-4"><div class="title-text text-center font-bold text-xl">Gradient Descent</div><p class="text-center text-gray-800 text-xl">Parameter Estimation</p><div class="text-center mt-6 text-xl"><i aria-hidden="true" class="fas fa-tags"></i> any questions on Piazza with <span class="font-bold">gradientDescent</span></div><div class="text-gray-700 text-base"> </div><div></div><div></div><div class="flex mt-4 border-t border-solid border-gray-500 justify-around bg-gray-200"><div class="text-gray-700 text-center px-4 m-2 text-sm">D.M. &amp; the 🐍</div><div class="text-gray-700 text-center px-4 m-2 text-sm"><strong>Version:</strong> <!-- -->SP21</div></div><div class="text-gray-700 mt-2 text-center text-sm font-bold">All Rights Reserved Michael Haberman</div><div class="text-gray-700 text-center text-sm">Do not distribute this notebook</div></div></div></div><div> </div><div class="ide code-starter clearfix"><pre><code># print(ide.tester.test_notebook()) 
+# print(ide.tester.test_notebook(verbose=True)) 
+
+# once you are ready -- run this 
+# ide.tester.download_solution() 
+</code></pre></div></div></div></body></html>
