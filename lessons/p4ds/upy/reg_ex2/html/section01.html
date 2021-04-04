@@ -17,7 +17,7 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Regular Expressions (part 2)</h1><h2 id="finding-patterns-continued">Finding Patterns continued</h2><p class="new">This is the second part of using regular expressions to easily find and use 
+<div id="start" class="section">&nbsp;</div><h1 class="section" id="section1">Regular Expressions (part 2)</h1><h2 id="finding-patterns-continued">Finding patterns continued</h2><p class="new">This is the second part of using regular expressions to easily find and use 
 patterns in text. As we have seen they are a powerful tool for processing text 
 by letting you describe a pattern for which data you are interested in. You 
 can use regular expressions for </p><ul><li>cleaning text: replacing characters, removing characters</li><li>parsing text: splitting text into sentences, words, and tokens (like dates, airport codes, capitalized words, words with hyphens, etc)</li><li>testing text: asking if text has a vowel, is a number, a date, etc</li><li>searching for text that matches a pattern</li></ul><p class="new">The effort to learn regular expressions is well worth it -- almost all 
@@ -25,7 +25,7 @@ programming languages support regular expressions, you can even use regular
 expressions in some editors and on the "command line" (something we hope to cover).  </p><p class="new">The following reference from part 1 is repeated here:</p><h2 id="character-sets">Character Sets</h2><pre><code>[abc]   matches a or b or c
 [abc]+  matches any combination of the letters: a, b, c 
 [^abc]  matches anything BUT a or b or c 
-        the caret negates everything that follows
+        the caret 'negates' the characters that follow
 ^ - ] \ these 4 have special meaning and you will need to escape inside [ ]</code></pre><h2 id="matching-specific-counts-of-characters">Matching Specific Counts of Characters</h2><pre><code>?     0 or 1 time
 *     0 or more times
 +     1 or more times
