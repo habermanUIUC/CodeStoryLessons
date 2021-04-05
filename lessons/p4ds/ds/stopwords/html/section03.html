@@ -22,7 +22,7 @@
 NLP (natural language processing) task), it's important <strong>not</strong> to remove
  stop words (mostly adjectives) that might be used to convey some kind of 
  emotion (e.g. well) as well as words that convey negation (can't, don't, etc). 
- There are methods (e.g. tf-idf) that actually identifies stop words -- that is 
+ There are methods (e.g. tf-idf) that actually identify stop words -- that is 
  words that offer no discerning information. The term frequency inverse document 
  frequency technique will be discussed in the next class.</p><h2 id="hand-in-hand-with-data-cleaning">Hand in Hand with Data Cleaning</h2><p class="new">It's important that whatever cleaning and normalization is done to the data, 
 that the same process is applied to stop words as well. Otherwise, it's very 
@@ -32,7 +32,7 @@ process you made everything lowercase, no stop words would be removed.
 Similarly, if you removed all apostrophes, stop words like we'd and aren't 
 would never be removed. Had we decided to remove all the apostrophes, you 
 would also have to remove all the apostrophes in the stop words (a viable decision). 
-Otherwise, you will see words like 'ive' and 'im' in your output.  </p><p class="new">The handling of apostrophes is very tricky can be tricky as well. There is also 
+Otherwise, you will see words like 'ive' and 'im' in your output.  </p><p class="new">The handling of apostrophes is can be tricky as well. There is also 
 an issue that could present itself as well: There are stop words that after 
 you remove the apostrophe becomes a different word (e.g. she'd becomes shed, 
 we'll become well, he'll becomes hell, others include wed, shell, were). 
@@ -57,7 +57,7 @@ the word <code>well</code> appears 427 times and <code>we'll</code> appears 40 t
 have to decide if the connotations and usage of well (interjection vs an adjective, etc) 
 affect your analysis before deciding to either remove internal apostrophes (and we'll becomes well) 
 or add either as stop words.</p><h2 id="tokenizing-and-cleaning-tom-sawyer">Tokenizing and Cleaning Tom Sawyer</h2><p class="new">In the previous lesson on ngrams, we had a very specific data cleaning stage where 
-we removed leading and trailing apostrophe (e.g. 'food' becomes food) but left 
+we removed leading and trailing apostrophes (e.g. 'food' becomes food) but left 
 internal apostrophe's alone (e.g. I'm). Luckily this decision will not 
 impact the stop words too much. But we will still run the stop words though 
 the same data preparation step.</p><p class="new">Since you will be comparing tokens to stop words, you must also normalize the 

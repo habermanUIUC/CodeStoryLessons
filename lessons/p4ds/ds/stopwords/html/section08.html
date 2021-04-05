@@ -17,8 +17,8 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><h2 id="step-2-cleaning-and-refactoring-code">Step 2: Cleaning and Refactoring code</h2><p class="new">You should now refactor your code so you can reuse the data normalizing step(s) 
-you used in <code>split_text_into_tokens</code>.</p><p class="new">What does that mean? </p><p class="new">You should create a function called <code>normalize_token</code> that takes in a word and 
+<div id="start" class="section">&nbsp;</div><h2 id="step-2-cleaning-and-refactoring-code">Step 2: Cleaning and Refactoring code</h2><p class="new">You should now refactor your code so you can remove the code duplication for 
+the normalizing step(s). </p><p class="new">What does that mean? </p><p class="new">You should create a function called <code>normalize_token</code> that takes in a word and 
 returns the normalized word according to the rules specified in the ngrams lesson 
 (i.e. remove leading and trailing apostrophes and whitespace).</p><p class="new">You can now <strong>call</strong> this function in two places!  Once in <code>split_text_into_tokens</code> 
 and again in <code>load_stop_words</code>. This is how software development works. When 
