@@ -32,11 +32,9 @@ process you made everything lowercase, no stop words would be removed.
 Similarly, if you removed all apostrophes, stop words like we'd and aren't 
 would never be removed. Had we decided to remove all the apostrophes, you 
 would also have to remove all the apostrophes in the stop words (a viable decision). 
-Otherwise, you will see words like 'ive' and 'im' in your output.  </p><p class="new">The handling of apostrophes is can be tricky as well. There is also 
-an issue that could present itself as well: There are stop words that after 
-you remove the apostrophe becomes a different word (e.g. she'd becomes shed, 
-we'll become well, he'll becomes hell, others include wed, shell, were). 
-You could either remove these from your stop word list or decide just to leave 
+Otherwise, you will see words like 'ive' and 'im' in your output.  </p><p class="new">The handling of apostrophes can be tricky as well. There are stop words that after 
+you remove the apostrophe becomes a different word.  For example, she'd becomes shed, 
+we'll becomes well, he'll becomes hell (others include wed, shell, were). </p><p class="new">You could either remove these from your stop word list or decide just to leave 
 in the apostrophes. It's important to know how you tokenize and clean your text 
 could affect other areas of your analysis. This is one of the reasons why we 
 are leaving internal apostrophes alone -- we don't have to clean the stop 
