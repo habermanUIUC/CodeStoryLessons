@@ -94,9 +94,9 @@ called <em>vectorized operations</em> and also named universal functions ('UFunc
 np.sin    Trigonometric sine, element-wise.
 np.log    Natural logarithm, element-wise.
 np.square Element-wise square of the input</code></pre><p class="new">If you need to perform an operation, element-by-element, most likely NumPy 
-has a function to do it for you.</p><h2 id="none-in-numpy">None in NumPy</h2><p class="new">Numpy uses a special constant to indicate a missing value or a value that can't 
-be represented by using <code>numpy.nan</code> (not a number) or <code>numpy.NaN</code>, <code>numpy.NAN</code>. 
-There are several functions that can be used to determine if a value is NaN:</p><div class="ide code-starter clearfix"><pre><code>data = np.array([1,2,3, np.nan])
+has a function to do it for you.</p><h2 id="none-in-numpy">None in NumPy</h2><p class="new">Numpy has a special constant, <code>numpy.NaN</code>, that is used to indicate a missing 
+value or a value that can't be represented. It's value is <code>numpy.nan</code> (not a
+ number). There are also the values <code>numpy.NaN</code> and <code>numpy.NAN</code> that mean the same. </p><p class="new">There are several functions that can be used to determine if a value is <code>NaN</code>:</p><div class="ide code-starter clearfix"><pre><code>data = np.array([1,2,3, np.nan])
 print(data[3])
 print(np.isnan(data[3]))</code></pre></div><h1 class="section" id="section7">Simple Functions</h1><p class="new">There's also aggregation functions (functions that return a single value 
 like <code>max</code>) that work with NumPy arrays as well:</p><img alt="ds4.png" class="center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/numpy1/html/ds4.png"/><pre><code>np.sum  Compute sum of elements
@@ -216,7 +216,7 @@ you already know NumPy) to answer these questions.</p><h2 id="q0">q0</h2><h3 id=
 def q0(data):
   return np.sum(data['Total'])</code></pre></div><p class="new">You can test it like this:</p><pre><code>def test_q0():
     import LessonUtil as Util
-    data = util.read_data()
+    data = Util.read_data()
     print(q0(data))</code></pre><p class="new">In order to get a feel for the result of each stage, just print each step:</p><pre><code>    sub_set = data['Total']
     print(sub_set)
     total = np.sum(sub_set)
