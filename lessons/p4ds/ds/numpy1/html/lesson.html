@@ -112,8 +112,7 @@ np.median Compute median of elements
 np.percentile Compute rank-based statistics of elements
 np.any  Evaluate whether any elements are true
 np.all Evaluate whether all elements are true
-np.ptp  Calculates the range (np.max - np.min)
-np.sum  Compute sum of elements</code></pre><div class="ide code-starter clearfix"><pre><code>x = np.array([0,1,2,3,4,5,6])
+np.ptp  Calculates the range (np.max - np.min)</code></pre><div class="ide code-starter clearfix"><pre><code>x = np.array([0,1,2,3,4,5,6])
 print(np.sum(x))
 print(x + 2*x)</code></pre></div><p class="new">Also, most aggregates have a NaN-safe counterpart that computes the result 
 while ignoring missing values, which are marked by the np.NaN value.</p><div class="ide code-starter clearfix"><pre><code>x = np.array([1,2,0,3,6,5,np.NaN,4])
