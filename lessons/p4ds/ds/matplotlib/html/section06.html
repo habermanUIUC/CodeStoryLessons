@@ -19,7 +19,7 @@
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><p class="new">A matplotlib figure is the user interface. It's a container that can hold 
 multiple plots. You can create multiple figures, but the usual convention 
-is that you build multiple subplots inside a figure.</p><p class="new">The figure function can take different parameters to configure it's 
+is that you build multiple subplots inside a figure.</p><p class="new">The figure function can take different parameters to configure its 
 size (among other things <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.figure.html" target="_blank">see</a>.</p><pre><code>fig = plt.figure(figsize=(6, 4), facecolor='green')</code></pre><p class="new">The <code>figure</code> holds one or more <em>subplots</em>. However these subplots are called <em>axes</em>.</p><img alt="ds2.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds2.png"/><div class="text-xs">source: <a href="https://realpython.com/python-matplotlib-guide" target="_blank">https://realpython.com/python-matplotlib-guide</a>
 </div><p class="new">The <em>axes</em> object (a subplot) holds all the elements of a visualization including
  the x and y axis, lines, labels, legends (you can also attach a legend to a figure), etc:</p><img alt="ds3.png" class="center border" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/matplotlib/html/ds3.png"/><div class="text-xs">source: matplotlib.org</div><p class="new">Since it's so common to need to access the figure and subplots (i.e. axes) 

@@ -1,0 +1,1001 @@
+Month, Region, Zip, Sales Person, Category, Product, Total
+Jan,East,15217,Jim,Copier,S300,263.64
+Jan,East,15217,Jim,Paper,Bond-50,1420.25
+Jan,East,15217,Karen,Paper,Laser-24,1443.83
+Jan,East,15218,Danny,Paper,Laser-24,1163.40
+Jan,East,15218,Dwight,Paper,Bond-20,1914.93
+Jan,East,15218,Dwight,Paper,Laser-24,1306.78
+Jan,East,15218,Jim,Copier,S100,2222.15
+Jan,East,15218,Karen,Paper,Bond-20,919.61
+Jan,East,15218,Karen,Paper,Bond-30,1986.94
+Jan,East,15218,Packer,Copier,S200,1378.70
+Jan,East,15218,Ryan,Paper,Bond-40,1294.56
+Jan,East,15219,Danny,Paper,Bond-40,1336.47
+Jan,East,15219,Dwight,Paper,Laser-24,1131.08
+Jan,East,15220,Danny,Paper,Laser-24,1749.01
+Jan,East,15220,Dwight,Copier,S400,521.85
+Jan,East,15220,Jim,Paper,Bond-20,1641.00
+Jan,East,15220,Karen,Paper,Bond-40,258.43
+Jan,East,15220,Michael,Paper,Card Stock,2090.23
+Jan,East,15220,Pam,Paper,Bond-40,687.85
+Jan,East,15221,Danny,Paper,Bond-40,2079.96
+Jan,East,15221,Pam,Paper,Card Stock,227.61
+Jan,East,15222,Danny,Paper,Bond-30,1657.93
+Jan,East,15222,Danny,Paper,Bond-50,2264.06
+Jan,East,15222,Dwight,Copier,S300,1170.96
+Jan,East,15222,Jim,Paper,Bond-50,1637.13
+Jan,East,15224,Dwight,Paper,Bond-40,193.39
+Jan,East,15224,Dwight,Paper,Laser-24,643.15
+Jan,East,15224,Karen,Paper,Bond-50,122.49
+Jan,East,15224,Michael,Paper,Bond-50,226.35
+Jan,East,15226,Danny,Paper,Bond-30,173.21
+Jan,East,15226,Danny,Paper,Bond-30,1955.38
+Jan,East,15226,Danny,Paper,Bond-30,363.14
+Jan,East,15226,Danny,Paper,Laser-24,2206.40
+Jan,East,15226,Jim,Paper,Bond-30,1976.47
+Jan,East,15226,Jim,Paper,Bond-40,2130.84
+Jan,East,15226,Jim,Paper,Card Stock,1549.92
+Jan,East,15226,Jim,Paper,Laser-24,1686.43
+Jan,North,15106,Dwight,Copier,S200,774.01
+Jan,North,15120,Danny,Paper,Laser-24,1134.85
+Jan,North,15201,Dwight,Paper,Laser-24,1715.06
+Jan,North,15201,Jim,Paper,Laser-24,419.31
+Jan,North,15203,Danny,Paper,Bond-30,766.16
+Jan,North,15203,Dwight,Paper,Bond-20,304.85
+Jan,North,15203,Dwight,Paper,Bond-40,1029.86
+Jan,North,15203,Dwight,Paper,Card Stock,941.88
+Jan,North,15204,Danny,Paper,Bond-40,2077.59
+Jan,North,15204,Danny,Paper,Laser-24,703.48
+Jan,North,15205,Danny,Paper,Bond-20,2415.51
+Jan,North,15205,Danny,Paper,Card Stock,880.19
+Jan,North,15205,Dwight,Paper,Bond-20,1550.54
+Jan,North,15205,Karen,Paper,Bond-50,1771.68
+Jan,North,15205,Michael,Paper,Bond-20,712.56
+Jan,North,15206,Danny,Paper,Laser-24,1011.71
+Jan,North,15207,Dwight,Paper,Bond-20,2194.28
+Jan,North,15207,Dwight,Paper,Bond-30,1747.22
+Jan,North,15207,Ryan,Paper,Laser-24,1807.48
+Jan,South,15208,Michael,Paper,Card Stock,1438.62
+Jan,South,15210,Dwight,Copier,S100,1272.33
+Jan,South,15210,Jim,Paper,Bond-30,1578.80
+Jan,South,15210,Karen,Paper,Bond-50,2283.18
+Jan,South,15210,Michael,Paper,Card Stock,1265.94
+Jan,South,15212,Danny,Paper,Bond-20,106.94
+Jan,South,15212,Danny,Paper,Bond-30,1837.96
+Jan,South,15213,Danny,Paper,Card Stock,2401.77
+Jan,South,15213,Dwight,Paper,Bond-40,2361.13
+Jan,South,15213,Jim,Paper,Bond-40,1400.44
+Jan,South,15214,Danny,Paper,Laser-24,1031.46
+Jan,South,15214,Karen,Paper,Card Stock,2497.55
+Jan,South,15214,Pam,Paper,Laser-24,492.48
+Jan,South,15215,Danny,Copier,S300,1660.54
+Jan,South,15215,Danny,Paper,Bond-30,2299.81
+Jan,South,15215,Dwight,Paper,Bond-40,2397.21
+Jan,South,15215,Karen,Copier,S200,255.92
+Jan,South,15216,Dwight,Paper,Bond-40,1736.94
+Jan,South,15216,Michael,Paper,Bond-20,1435.61
+Jan,South,15216,Michael,Paper,Laser-24,776.21
+Jan,West,15227,Dwight,Copier,S300,635.84
+Jan,West,15227,Jim,Paper,Bond-50,1647.22
+Jan,West,15232,Andy,Paper,Bond-30,297.91
+Jan,West,15232,Ryan,Paper,Bond-20,260.69
+Jan,West,15234,Karen,Paper,Laser-24,750.19
+Jan,West,15260,Danny,Paper,Bond-50,1426.98
+Jan,West,15260,Dwight,Paper,Bond-20,494.61
+Feb,East,15217,Danny,Paper,Bond-50,1272.44
+Feb,East,15217,Dwight,Paper,Bond-50,324.33
+Feb,East,15217,Dwight,Paper,Card Stock,1258.64
+Feb,East,15217,Michael,Paper,Bond-20,952.15
+Feb,East,15217,Michael,Paper,Bond-30,1345.93
+Feb,East,15217,Packer,Copier,S450,217.98
+Feb,East,15217,Pam,Paper,Bond-50,1306.13
+Feb,East,15217,Pam,Paper,Bond-50,437.67
+Feb,East,15218,Danny,Copier,S300,1332.00
+Feb,East,15218,Danny,Paper,Bond-50,1675.83
+Feb,East,15218,Dwight,Copier,S200,610.71
+Feb,East,15218,Dwight,Paper,Bond-30,722.86
+Feb,East,15218,Dwight,Paper,Laser-24,32.16
+Feb,East,15218,Karen,Paper,Card Stock,833.21
+Feb,East,15218,Pam,Paper,Bond-50,266.40
+Feb,East,15218,Ryan,Copier,S450,2242.67
+Feb,East,15219,Danny,Copier,S400,1677.67
+Feb,East,15219,Danny,Paper,Bond-40,1008.50
+Feb,East,15219,Dwight,Copier,S450,1358.48
+Feb,East,15219,Karen,Paper,Bond-30,1890.06
+Feb,East,15220,Dwight,Copier,S450,426.28
+Feb,East,15220,Karen,Paper,Bond-50,2151.01
+Feb,East,15220,Karen,Paper,Bond-50,681.32
+Feb,East,15220,Michael,Paper,Bond-30,1207.00
+Feb,East,15221,Dwight,Paper,Bond-50,941.12
+Feb,East,15221,Jim,Paper,Laser-24,1965.45
+Feb,East,15222,Dwight,Paper,Bond-40,965.12
+Feb,East,15222,Michael,Paper,Bond-50,2049.32
+Feb,East,15224,Andy,Paper,Laser-24,2180.92
+Feb,East,15224,Danny,Copier,S300,504.07
+Feb,East,15224,Danny,Paper,Laser-24,617.14
+Feb,East,15224,Dwight,Copier,S200,498.31
+Feb,East,15224,Dwight,Paper,Bond-20,1409.15
+Feb,East,15224,Dwight,Paper,Bond-30,2332.46
+Feb,East,15224,Jim,Paper,Bond-40,218.82
+Feb,East,15226,Andy,Paper,Laser-24,1867.23
+Feb,East,15226,Danny,Paper,Card Stock,1601.07
+Feb,East,15226,Jim,Copier,S400,2358.63
+Feb,East,15226,Jim,Paper,Bond-40,1476.15
+Feb,East,15226,Jim,Paper,Bond-40,245.67
+Feb,East,15226,Jim,Paper,Bond-50,358.06
+Feb,East,15226,Jim,Paper,Bond-50,85.94
+Feb,East,15226,Pam,Paper,Bond-50,2013.87
+Feb,North,15106,Danny,Paper,Bond-50,1330.73
+Feb,North,15106,Dwight,Paper,Bond-30,1437.51
+Feb,North,15106,Dwight,Paper,Bond-40,1347.12
+Feb,North,15106,Karen,Paper,Bond-20,1202.19
+Feb,North,15106,Karen,Paper,Card Stock,1214.37
+Feb,North,15120,Dwight,Paper,Bond-20,1574.19
+Feb,North,15201,Dwight,Paper,Bond-40,2278.11
+Feb,North,15201,Michael,Paper,Bond-50,88.33
+Feb,North,15203,Karen,Copier,S200,268.95
+Feb,North,15203,Karen,Paper,Card Stock,1904.25
+Feb,North,15204,Danny,Paper,Bond-20,1145.29
+Feb,North,15204,Dwight,Paper,Bond-40,312.94
+Feb,North,15204,Dwight,Paper,Card Stock,2193.95
+Feb,North,15205,Dwight,Paper,Bond-40,2081.02
+Feb,North,15205,Jim,Paper,Bond-40,1945.54
+Feb,South,15208,Dwight,Copier,S400,1765.62
+Feb,South,15208,Dwight,Paper,Card Stock,1375.86
+Feb,South,15208,Michael,Paper,Bond-40,561.52
+Feb,South,15208,Michael,Paper,Bond-50,308.10
+Feb,South,15210,Dwight,Paper,Bond-50,2442.47
+Feb,South,15212,Andy,Paper,Bond-40,1748.62
+Feb,South,15212,Danny,Paper,Bond-30,778.42
+Feb,South,15212,Danny,Paper,Bond-50,1936.60
+Feb,South,15212,Dwight,Paper,Bond-40,1396.90
+Feb,South,15212,Jim,Paper,Card Stock,893.65
+Feb,South,15213,Danny,Paper,Bond-40,860.38
+Feb,South,15213,Dwight,Paper,Card Stock,2355.05
+Feb,South,15213,Michael,Copier,S200,445.58
+Feb,South,15213,Michael,Paper,Bond-50,1606.22
+Feb,South,15213,Michael,Paper,Laser-24,2422.47
+Feb,South,15214,Dwight,Paper,Laser-24,1251.43
+Feb,South,15214,Jim,Paper,Card Stock,882.79
+Feb,South,15215,Dwight,Copier,S450,846.78
+Feb,South,15215,Jim,Paper,Card Stock,2300.39
+Feb,South,15216,Danny,Paper,Laser-24,416.19
+Feb,South,15216,Dwight,Paper,Bond-20,700.61
+Feb,South,15216,Jim,Paper,Bond-20,2480.82
+Feb,South,15216,Jim,Paper,Laser-24,2048.78
+Feb,South,15216,Michael,Copier,S300,914.13
+Feb,West,15232,Danny,Paper,Laser-24,1550.65
+Feb,West,15234,Danny,Paper,Bond-20,374.89
+Feb,West,15236,Dwight,Paper,Bond-30,1084.72
+Feb,West,15238,Jim,Paper,Bond-30,38.19
+Feb,West,15238,Karen,Paper,Card Stock,714.85
+Feb,West,15260,Ryan,Paper,Laser-24,282.29
+Feb,West,15290,Dwight,Paper,Bond-30,119.03
+Feb,West,15290,Jim,Paper,Bond-50,842.60
+Mar,East,15217,Danny,Paper,Bond-20,704.62
+Mar,East,15217,Danny,Paper,Bond-30,1840.98
+Mar,East,15217,Jim,Paper,Laser-24,106.99
+Mar,East,15217,Karen,Copier,S450,1261.18
+Mar,East,15217,Ryan,Paper,Laser-24,2007.58
+Mar,East,15218,Dwight,Paper,Laser-24,1181.15
+Mar,East,15218,Jim,Copier,S100,320.98
+Mar,East,15218,Jim,Paper,Bond-20,201.28
+Mar,East,15218,Karen,Paper,Laser-24,736.04
+Mar,East,15218,Michael,Paper,Bond-50,1589.41
+Mar,East,15219,Dwight,Paper,Bond-50,1718.96
+Mar,East,15219,Jim,Paper,Bond-30,389.63
+Mar,East,15219,Jim,Paper,Laser-24,1244.65
+Mar,East,15219,Jim,Paper,Laser-24,2158.16
+Mar,East,15219,Packer,Paper,Bond-40,2485.18
+Mar,East,15220,Dwight,Paper,Bond-40,891.30
+Mar,East,15220,Jim,Copier,S400,618.42
+Mar,East,15220,Karen,Paper,Card Stock,1464.04
+Mar,East,15220,Michael,Copier,S450,1269.41
+Mar,East,15221,Danny,Paper,Bond-40,2072.75
+Mar,East,15221,Dwight,Paper,Bond-20,449.01
+Mar,East,15221,Dwight,Paper,Bond-50,80.95
+Mar,East,15221,Dwight,Paper,Laser-24,637.69
+Mar,East,15221,Jim,Paper,Bond-50,849.79
+Mar,East,15222,Danny,Paper,Bond-20,1880.58
+Mar,East,15222,Dwight,Copier,S300,1383.93
+Mar,East,15222,Dwight,Paper,Bond-40,1232.18
+Mar,East,15222,Jim,Paper,Bond-30,1269.26
+Mar,East,15222,Jim,Paper,Bond-40,586.79
+Mar,East,15222,Jim,Paper,Bond-50,1585.39
+Mar,East,15222,Jim,Paper,Card Stock,1931.17
+Mar,East,15222,Jim,Paper,Card Stock,594.84
+Mar,East,15222,Jim,Paper,Laser-24,265.52
+Mar,East,15222,Karen,Paper,Laser-24,535.01
+Mar,East,15222,Michael,Copier,S450,1327.86
+Mar,East,15224,Danny,Paper,Bond-50,1748.38
+Mar,East,15224,Danny,Paper,Bond-50,2147.23
+Mar,East,15224,Dwight,Copier,S400,2153.12
+Mar,East,15224,Dwight,Copier,S450,968.83
+Mar,East,15224,Jim,Paper,Laser-24,1424.08
+Mar,East,15224,Ryan,Paper,Bond-50,817.57
+Mar,East,15226,Danny,Paper,Bond-20,113.12
+Mar,East,15226,Dwight,Paper,Bond-40,2301.29
+Mar,East,15226,Jim,Paper,Bond-30,158.03
+Mar,East,15226,Jim,Paper,Card Stock,1902.43
+Mar,East,15226,Jim,Paper,Laser-24,1232.42
+Mar,North,15106,Jim,Paper,Laser-24,2011.73
+Mar,North,15120,Dwight,Paper,Laser-24,1974.03
+Mar,North,15120,Karen,Paper,Bond-30,2224.90
+Mar,North,15201,Dwight,Paper,Laser-24,1199.09
+Mar,North,15201,Karen,Copier,S450,1550.53
+Mar,North,15203,Packer,Paper,Bond-40,495.56
+Mar,North,15204,Michael,Paper,Bond-50,717.97
+Mar,North,15205,Danny,Paper,Bond-30,94.15
+Mar,North,15205,Dwight,Copier,S200,1695.45
+Mar,North,15205,Jim,Paper,Laser-24,1679.34
+Mar,North,15207,Danny,Paper,Bond-30,2430.55
+Mar,North,15207,Jim,Paper,Laser-24,1245.18
+Mar,South,15208,Jim,Paper,Bond-40,1911.16
+Mar,South,15210,Danny,Paper,Bond-40,1705.05
+Mar,South,15210,Dwight,Paper,Bond-30,193.32
+Mar,South,15210,Karen,Paper,Laser-24,31.30
+Mar,South,15211,Michael,Paper,Bond-50,2458.96
+Mar,South,15211,Packer,Paper,Bond-50,2315.09
+Mar,South,15212,Karen,Paper,Card Stock,527.43
+Mar,South,15213,Dwight,Paper,Bond-30,455.52
+Mar,South,15214,Jim,Paper,Bond-20,1086.94
+Mar,South,15214,Jim,Paper,Bond-30,1689.21
+Mar,South,15214,Karen,Copier,S100,1961.62
+Mar,South,15214,Ryan,Paper,Bond-20,540.45
+Mar,South,15215,Danny,Paper,Bond-50,2083.36
+Mar,South,15216,Jim,Copier,S300,110.56
+Mar,South,15216,Jim,Copier,S300,1879.42
+Mar,South,15216,Jim,Paper,Laser-24,339.02
+Mar,West,15227,Michael,Paper,Bond-20,1649.64
+Mar,West,15232,Jim,Copier,S400,1888.28
+Mar,West,15232,Michael,Paper,Card Stock,395.17
+Mar,West,15233,Danny,Paper,Bond-20,2439.77
+Mar,West,15234,Danny,Paper,Card Stock,1647.46
+Mar,West,15235,Jim,Paper,Bond-30,963.06
+Mar,West,15238,Michael,Paper,Bond-30,1278.61
+Mar,West,15238,Pam,Paper,Bond-30,757.28
+Mar,West,15260,Jim,Paper,Bond-20,784.45
+Mar,West,15260,Jim,Paper,Bond-30,1989.44
+Apr,East,15217,Danny,Paper,Bond-40,1464.83
+Apr,East,15217,Dwight,Paper,Card Stock,1221.41
+Apr,East,15217,Jim,Copier,S450,1785.36
+Apr,East,15217,Jim,Paper,Bond-20,1583.63
+Apr,East,15217,Pam,Paper,Bond-40,1326.07
+Apr,East,15217,Ryan,Paper,Bond-40,611.02
+Apr,East,15219,Dwight,Paper,Bond-30,2293.74
+Apr,East,15219,Jim,Copier,S100,2236.82
+Apr,East,15219,Jim,Paper,Bond-50,399.17
+Apr,East,15219,Jim,Paper,Card Stock,2363.27
+Apr,East,15219,Pam,Paper,Bond-20,637.20
+Apr,East,15219,Pam,Paper,Bond-40,1429.84
+Apr,East,15220,Andy,Paper,Bond-20,575.96
+Apr,East,15220,Danny,Paper,Bond-20,1667.09
+Apr,East,15220,Danny,Paper,Bond-40,1145.45
+Apr,East,15220,Danny,Paper,Card Stock,1736.09
+Apr,East,15220,Jim,Copier,S200,2408.91
+Apr,East,15220,Jim,Paper,Bond-50,871.33
+Apr,East,15220,Michael,Paper,Bond-30,1721.92
+Apr,East,15220,Pam,Paper,Bond-30,163.39
+Apr,East,15221,Danny,Copier,S100,128.41
+Apr,East,15221,Dwight,Paper,Bond-20,1732.85
+Apr,East,15221,Dwight,Paper,Laser-24,2368.31
+Apr,East,15221,Jim,Paper,Bond-50,993.21
+Apr,East,15221,Jim,Paper,Laser-24,2031.78
+Apr,East,15221,Ryan,Paper,Laser-24,1367.39
+Apr,East,15222,Dwight,Paper,Laser-24,862.09
+Apr,East,15222,Jim,Paper,Bond-40,245.87
+Apr,East,15222,Jim,Paper,Card Stock,971.51
+Apr,East,15222,Jim,Paper,Laser-24,629.20
+Apr,East,15222,Karen,Paper,Card Stock,867.25
+Apr,East,15222,Michael,Paper,Bond-50,485.97
+Apr,East,15224,Danny,Paper,Bond-40,2475.05
+Apr,East,15226,Danny,Paper,Bond-50,1615.23
+Apr,East,15226,Danny,Paper,Bond-50,973.00
+Apr,East,15226,Dwight,Paper,Bond-30,465.23
+Apr,East,15226,Dwight,Paper,Bond-50,1805.75
+Apr,East,15226,Jim,Paper,Bond-20,1233.59
+Apr,East,15226,Karen,Paper,Bond-20,102.19
+Apr,North,15106,Dwight,Paper,Card Stock,2070.52
+Apr,North,15106,Jim,Copier,S100,168.64
+Apr,North,15106,Jim,Paper,Card Stock,1080.26
+Apr,North,15120,Michael,Copier,S450,595.58
+Apr,North,15201,Jim,Paper,Bond-20,545.11
+Apr,North,15201,Jim,Paper,Card Stock,54.98
+Apr,North,15201,Karen,Copier,S200,1464.00
+Apr,North,15201,Pam,Paper,Bond-40,202.75
+Apr,North,15203,Dwight,Paper,Bond-40,1356.85
+Apr,North,15203,Dwight,Paper,Card Stock,400.27
+Apr,North,15203,Michael,Paper,Bond-20,2186.20
+Apr,North,15203,Michael,Paper,Laser-24,1826.07
+Apr,North,15204,Danny,Copier,S100,1427.47
+Apr,North,15205,Danny,Paper,Bond-40,688.00
+Apr,North,15205,Dwight,Copier,S450,432.24
+Apr,North,15206,Jim,Paper,Bond-40,490.76
+Apr,North,15206,Packer,Copier,S100,2154.51
+Apr,North,15207,Dwight,Paper,Card Stock,872.68
+Apr,North,15207,Dwight,Paper,Laser-24,2107.84
+Apr,North,15207,Jim,Paper,Bond-40,359.17
+Apr,North,15207,Ryan,Paper,Bond-40,1759.13
+Apr,South,15208,Andy,Copier,S450,2124.56
+Apr,South,15208,Jim,Copier,S200,225.23
+Apr,South,15210,Michael,Paper,Bond-20,2337.99
+Apr,South,15211,Danny,Paper,Laser-24,1019.25
+Apr,South,15211,Danny,Paper,Laser-24,277.99
+Apr,South,15211,Jim,Paper,Bond-20,392.15
+Apr,South,15212,Dwight,Paper,Bond-20,602.33
+Apr,South,15212,Dwight,Paper,Bond-20,716.90
+Apr,South,15212,Dwight,Paper,Laser-24,813.94
+Apr,South,15213,Danny,Paper,Bond-50,1013.12
+Apr,South,15214,Jim,Paper,Bond-40,2205.84
+Apr,South,15214,Jim,Paper,Card Stock,1392.03
+Apr,South,15215,Danny,Paper,Bond-50,947.56
+Apr,South,15215,Jim,Paper,Bond-30,485.54
+Apr,South,15216,Ryan,Paper,Bond-30,39.92
+Apr,West,15233,Michael,Paper,Card Stock,2103.98
+Apr,West,15234,Danny,Paper,Bond-30,1008.83
+Apr,West,15234,Jim,Paper,Bond-20,2436.38
+Apr,West,15235,Dwight,Paper,Bond-30,2014.50
+Apr,West,15235,Jim,Copier,S400,951.77
+May,East,15217,Dwight,Paper,Laser-24,49.53
+May,East,15217,Jim,Paper,Bond-20,190.99
+May,East,15217,Jim,Paper,Bond-30,1011.75
+May,East,15217,Jim,Paper,Laser-24,2441.17
+May,East,15217,Pam,Paper,Bond-40,72.01
+May,East,15217,Ryan,Paper,Laser-24,2044.27
+May,East,15218,Andy,Paper,Bond-40,1222.22
+May,East,15218,Karen,Paper,Laser-24,1410.11
+May,East,15219,Andy,Paper,Bond-40,2212.58
+May,East,15219,Andy,Paper,Laser-24,1973.12
+May,East,15219,Danny,Copier,S450,840.35
+May,East,15219,Jim,Paper,Bond-30,600.19
+May,East,15219,Karen,Paper,Bond-50,1920.83
+May,East,15219,Pam,Copier,S200,631.61
+May,East,15220,Danny,Copier,S100,2228.18
+May,East,15220,Dwight,Paper,Bond-40,2344.72
+May,East,15220,Dwight,Paper,Bond-40,358.62
+May,East,15220,Dwight,Paper,Laser-24,1988.93
+May,East,15220,Jim,Copier,S100,1114.85
+May,East,15220,Jim,Paper,Bond-40,858.93
+May,East,15221,Danny,Paper,Bond-50,1533.70
+May,East,15221,Danny,Paper,Bond-50,1664.08
+May,East,15221,Danny,Paper,Laser-24,1036.98
+May,East,15221,Danny,Paper,Laser-24,1054.45
+May,East,15221,Jim,Paper,Card Stock,2289.44
+May,East,15222,Dwight,Paper,Bond-20,760.64
+May,East,15222,Jim,Paper,Card Stock,1486.01
+May,East,15222,Jim,Paper,Card Stock,870.56
+May,East,15224,Danny,Copier,S300,1289.30
+May,East,15224,Danny,Paper,Bond-30,1222.47
+May,East,15224,Dwight,Copier,S400,579.69
+May,East,15224,Dwight,Paper,Bond-40,1708.85
+May,East,15224,Jim,Paper,Bond-50,1567.76
+May,East,15226,Andy,Copier,S400,841.72
+May,East,15226,Andy,Copier,S450,1349.52
+May,East,15226,Danny,Paper,Bond-50,1725.24
+May,East,15226,Danny,Paper,Card Stock,1372.82
+May,East,15226,Dwight,Paper,Bond-30,1337.87
+May,East,15226,Dwight,Paper,Laser-24,2314.12
+May,East,15226,Karen,Paper,Laser-24,365.24
+May,North,15106,Michael,Paper,Card Stock,1843.13
+May,North,15201,Danny,Paper,Laser-24,783.71
+May,North,15201,Packer,Copier,S300,1721.49
+May,North,15201,Pam,Paper,Bond-50,1845.09
+May,North,15203,Andy,Paper,Card Stock,2463.69
+May,North,15203,Dwight,Paper,Laser-24,2222.41
+May,North,15203,Jim,Paper,Laser-24,1426.92
+May,North,15204,Danny,Paper,Bond-20,467.77
+May,North,15204,Danny,Paper,Bond-40,709.83
+May,North,15204,Jim,Copier,S100,2455.34
+May,North,15205,Dwight,Copier,S400,643.44
+May,North,15205,Jim,Paper,Bond-20,1633.21
+May,North,15205,Jim,Paper,Bond-20,741.10
+May,North,15205,Jim,Paper,Laser-24,257.91
+May,North,15206,Danny,Paper,Card Stock,2254.72
+May,North,15206,Karen,Paper,Bond-20,573.25
+May,North,15206,Michael,Paper,Bond-30,543.33
+May,North,15207,Danny,Paper,Bond-50,2336.86
+May,North,15207,Dwight,Paper,Laser-24,1805.75
+May,North,15207,Karen,Copier,S100,889.98
+May,North,15207,Karen,Paper,Bond-20,767.80
+May,North,15207,Michael,Copier,S100,165.66
+May,South,15208,Dwight,Paper,Bond-40,523.85
+May,South,15208,Jim,Paper,Card Stock,2237.26
+May,South,15210,Danny,Paper,Bond-40,1259.05
+May,South,15210,Pam,Paper,Bond-30,846.21
+May,South,15212,Jim,Paper,Laser-24,2200.47
+May,South,15213,Dwight,Paper,Bond-20,2336.02
+May,South,15214,Dwight,Copier,S400,798.19
+May,South,15214,Dwight,Paper,Bond-20,1598.29
+May,South,15214,Jim,Paper,Card Stock,1659.50
+May,South,15215,Dwight,Copier,S100,1280.51
+May,South,15216,Dwight,Paper,Bond-50,510.62
+May,West,15232,Jim,Paper,Bond-30,231.83
+May,West,15234,Dwight,Paper,Bond-40,490.44
+May,West,15234,Jim,Copier,S400,192.02
+May,West,15235,Danny,Paper,Laser-24,1871.09
+May,West,15236,Andy,Copier,S200,418.00
+May,West,15238,Danny,Copier,S400,2086.07
+June,East,15217,Andy,Paper,Bond-40,537.55
+June,East,15217,Danny,Paper,Bond-20,1491.98
+June,East,15217,Danny,Paper,Bond-20,318.41
+June,East,15217,Danny,Paper,Bond-40,880.22
+June,East,15217,Michael,Paper,Bond-50,1985.65
+June,East,15218,Danny,Paper,Laser-24,2203.92
+June,East,15218,Dwight,Paper,Bond-50,344.94
+June,East,15218,Jim,Paper,Bond-30,1253.02
+June,East,15218,Jim,Paper,Bond-30,1513.15
+June,East,15218,Jim,Paper,Bond-50,2052.81
+June,East,15218,Jim,Paper,Laser-24,1126.18
+June,East,15218,Michael,Paper,Bond-50,1321.54
+June,East,15219,Danny,Copier,S300,2280.76
+June,East,15219,Dwight,Copier,S450,2448.20
+June,East,15219,Karen,Paper,Laser-24,1504.10
+June,East,15219,Michael,Paper,Laser-24,2065.35
+June,East,15220,Karen,Paper,Card Stock,463.96
+June,East,15220,Michael,Paper,Bond-30,1875.34
+June,East,15221,Dwight,Copier,S400,2341.94
+June,East,15222,Jim,Paper,Card Stock,807.21
+June,East,15224,Danny,Paper,Bond-50,1882.50
+June,East,15224,Danny,Paper,Card Stock,1329.04
+June,East,15224,Dwight,Copier,S450,224.64
+June,East,15224,Dwight,Paper,Bond-20,169.29
+June,East,15224,Dwight,Paper,Card Stock,668.00
+June,East,15224,Karen,Copier,S200,2127.95
+June,East,15224,Karen,Paper,Bond-20,1355.00
+June,East,15224,Michael,Paper,Card Stock,2447.61
+June,East,15226,Danny,Paper,Bond-40,584.39
+June,East,15226,Dwight,Copier,S300,1852.08
+June,East,15226,Jim,Paper,Bond-30,32.03
+June,East,15226,Jim,Paper,Bond-40,1253.81
+June,East,15226,Michael,Paper,Card Stock,1187.16
+June,North,15106,Jim,Paper,Card Stock,539.03
+June,North,15201,Jim,Paper,Bond-20,740.39
+June,North,15203,Dwight,Paper,Bond-30,2116.02
+June,North,15203,Jim,Paper,Bond-40,642.24
+June,North,15203,Packer,Paper,Bond-30,2106.49
+June,North,15203,Ryan,Paper,Bond-50,2181.58
+June,North,15204,Dwight,Paper,Bond-40,2399.48
+June,North,15204,Dwight,Paper,Laser-24,1524.68
+June,North,15204,Michael,Copier,S400,1917.22
+June,North,15204,Michael,Paper,Bond-40,1868.64
+June,North,15205,Dwight,Paper,Card Stock,1427.76
+June,North,15205,Jim,Copier,S450,1535.31
+June,North,15205,Pam,Paper,Card Stock,2188.23
+June,North,15207,Jim,Paper,Bond-40,1345.98
+June,South,15208,Ryan,Paper,Bond-30,937.49
+June,South,15210,Dwight,Paper,Bond-50,2459.92
+June,South,15210,Jim,Paper,Bond-30,327.56
+June,South,15210,Jim,Paper,Card Stock,2084.85
+June,South,15210,Karen,Paper,Bond-40,460.41
+June,South,15211,Andy,Copier,S400,114.23
+June,South,15211,Dwight,Paper,Bond-40,1451.66
+June,South,15213,Andy,Paper,Card Stock,1108.57
+June,South,15213,Jim,Paper,Bond-20,807.46
+June,South,15213,Karen,Paper,Bond-30,1476.93
+June,South,15213,Karen,Paper,Laser-24,294.26
+June,South,15215,Michael,Copier,S400,137.55
+June,South,15216,Jim,Paper,Bond-20,1585.04
+June,South,15216,Michael,Paper,Bond-50,26.79
+June,West,15227,Karen,Paper,Bond-40,752.46
+June,West,15232,Danny,Paper,Bond-30,953.79
+June,West,15232,Danny,Paper,Laser-24,1283.82
+June,West,15232,Dwight,Paper,Bond-20,898.09
+June,West,15234,Jim,Paper,Bond-30,566.42
+June,West,15234,Ryan,Paper,Laser-24,2431.37
+June,West,15235,Dwight,Paper,Bond-40,1421.92
+June,West,15235,Jim,Paper,Laser-24,2324.21
+June,West,15236,Danny,Paper,Laser-24,152.77
+June,West,15236,Dwight,Paper,Bond-40,2276.35
+June,West,15236,Pam,Paper,Bond-50,952.88
+June,West,15238,Dwight,Paper,Bond-20,446.45
+June,West,15260,Michael,Copier,S300,756.28
+July,East,15217,Andy,Paper,Bond-20,2199.92
+July,East,15217,Andy,Paper,Bond-50,647.74
+July,East,15217,Dwight,Paper,Bond-20,2135.56
+July,East,15217,Jim,Paper,Bond-20,1488.42
+July,East,15217,Pam,Paper,Bond-40,856.43
+July,East,15217,Pam,Paper,Laser-24,1775.82
+July,East,15218,Dwight,Paper,Bond-40,1654.82
+July,East,15218,Jim,Copier,S450,477.18
+July,East,15218,Jim,Paper,Bond-20,664.19
+July,East,15218,Michael,Copier,S200,1522.42
+July,East,15219,Danny,Paper,Bond-50,107.13
+July,East,15219,Dwight,Copier,S450,1272.97
+July,East,15219,Jim,Paper,Bond-20,1026.27
+July,East,15219,Jim,Paper,Bond-40,566.57
+July,East,15219,Jim,Paper,Bond-50,1321.14
+July,East,15220,Andy,Paper,Bond-30,2495.60
+July,East,15220,Danny,Copier,S200,1743.98
+July,East,15220,Danny,Paper,Bond-30,1843.35
+July,East,15220,Danny,Paper,Bond-30,983.71
+July,East,15220,Danny,Paper,Bond-50,1557.40
+July,East,15220,Karen,Paper,Card Stock,1476.09
+July,East,15220,Ryan,Paper,Bond-40,796.06
+July,East,15221,Andy,Paper,Bond-20,805.32
+July,East,15221,Andy,Paper,Bond-30,135.03
+July,East,15221,Danny,Paper,Bond-40,195.65
+July,East,15221,Danny,Paper,Laser-24,695.47
+July,East,15221,Dwight,Copier,S200,587.94
+July,East,15221,Dwight,Paper,Bond-30,800.92
+July,East,15221,Dwight,Paper,Bond-50,1358.96
+July,East,15221,Dwight,Paper,Bond-50,1895.67
+July,East,15221,Jim,Paper,Bond-30,1541.70
+July,East,15221,Jim,Paper,Bond-30,1999.43
+July,East,15221,Karen,Paper,Bond-20,1144.81
+July,East,15221,Packer,Paper,Card Stock,1398.56
+July,East,15224,Danny,Paper,Bond-50,1464.44
+July,East,15224,Danny,Paper,Laser-24,1369.74
+July,East,15224,Jim,Paper,Bond-30,1805.32
+July,East,15224,Jim,Paper,Laser-24,570.49
+July,East,15224,Karen,Paper,Laser-24,533.71
+July,East,15224,Michael,Paper,Laser-24,2008.88
+July,East,15224,Pam,Paper,Bond-20,847.54
+July,East,15226,Danny,Copier,S100,2357.50
+July,East,15226,Danny,Paper,Bond-40,877.21
+July,East,15226,Danny,Paper,Bond-50,1345.80
+July,East,15226,Dwight,Copier,S450,1110.22
+July,East,15226,Dwight,Paper,Bond-30,1916.90
+July,East,15226,Dwight,Paper,Card Stock,267.76
+July,East,15226,Karen,Paper,Card Stock,1644.91
+July,East,15226,Michael,Paper,Bond-40,1450.97
+July,East,15226,Michael,Paper,Laser-24,1053.03
+July,East,15226,Pam,Paper,Card Stock,2093.27
+July,North,15106,Danny,Paper,Bond-40,728.18
+July,North,15106,Jim,Paper,Bond-40,2488.31
+July,North,15120,Jim,Paper,Bond-40,926.99
+July,North,15201,Dwight,Copier,S100,2179.22
+July,North,15201,Dwight,Paper,Laser-24,1813.92
+July,North,15203,Jim,Paper,Bond-30,1946.00
+July,North,15203,Jim,Paper,Laser-24,624.77
+July,North,15203,Michael,Paper,Card Stock,370.91
+July,North,15204,Karen,Paper,Bond-30,259.38
+July,North,15205,Dwight,Paper,Bond-20,2294.07
+July,North,15207,Danny,Paper,Bond-20,1940.53
+July,North,15207,Karen,Paper,Bond-50,1802.56
+July,North,15207,Michael,Paper,Bond-20,2352.92
+July,North,15207,Pam,Paper,Bond-40,1546.58
+July,South,15208,Jim,Paper,Bond-30,1191.30
+July,South,15208,Michael,Paper,Bond-50,778.12
+July,South,15210,Dwight,Paper,Card Stock,1234.36
+July,South,15211,Michael,Paper,Card Stock,456.34
+July,South,15212,Andy,Copier,S200,891.16
+July,South,15212,Danny,Paper,Bond-20,234.36
+July,South,15212,Jim,Paper,Card Stock,2075.89
+July,South,15213,Dwight,Paper,Bond-30,2401.66
+July,South,15213,Jim,Paper,Bond-20,634.04
+July,South,15214,Karen,Paper,Bond-30,762.88
+July,South,15215,Dwight,Paper,Bond-30,1588.43
+July,South,15215,Jim,Paper,Bond-40,1009.47
+July,South,15215,Jim,Paper,Laser-24,1790.67
+July,South,15215,Karen,Paper,Bond-40,388.40
+July,South,15215,Michael,Copier,S400,284.51
+July,South,15216,Dwight,Paper,Bond-40,2409.50
+July,South,15216,Dwight,Paper,Laser-24,359.33
+July,South,15216,Karen,Paper,Bond-40,1254.29
+July,South,15216,Karen,Paper,Card Stock,1238.78
+July,West,15227,Dwight,Paper,Card Stock,762.96
+July,West,15232,Pam,Paper,Bond-40,2227.58
+July,West,15233,Jim,Paper,Bond-30,1470.93
+July,West,15235,Pam,Copier,S100,2281.23
+July,West,15260,Danny,Paper,Bond-20,1143.71
+July,West,15260,Dwight,Paper,Card Stock,983.00
+Aug,East,15217,Danny,Copier,S200,1159.64
+Aug,East,15217,Danny,Paper,Card Stock,1487.37
+Aug,East,15217,Danny,Paper,Card Stock,235.77
+Aug,East,15217,Jim,Paper,Bond-40,570.53
+Aug,East,15217,Jim,Paper,Laser-24,1110.20
+Aug,East,15217,Karen,Copier,S300,1606.20
+Aug,East,15217,Michael,Copier,S450,921.17
+Aug,East,15217,Michael,Paper,Bond-50,2461.63
+Aug,East,15218,Andy,Paper,Bond-40,1850.39
+Aug,East,15218,Michael,Paper,Laser-24,1821.85
+Aug,East,15219,Danny,Copier,S100,542.52
+Aug,East,15219,Danny,Paper,Laser-24,1483.60
+Aug,East,15219,Jim,Paper,Bond-20,1074.18
+Aug,East,15219,Jim,Paper,Bond-40,507.89
+Aug,East,15219,Michael,Paper,Bond-20,2108.78
+Aug,East,15219,Michael,Paper,Bond-20,536.75
+Aug,East,15219,Michael,Paper,Card Stock,1228.24
+Aug,East,15219,Michael,Paper,Card Stock,2173.47
+Aug,East,15220,Danny,Copier,S100,1384.83
+Aug,East,15220,Danny,Copier,S450,1749.05
+Aug,East,15220,Jim,Paper,Bond-50,1790.28
+Aug,East,15220,Jim,Paper,Card Stock,207.50
+Aug,East,15220,Michael,Paper,Bond-50,860.59
+Aug,East,15220,Michael,Paper,Card Stock,1661.63
+Aug,East,15221,Danny,Paper,Bond-30,1587.80
+Aug,East,15221,Danny,Paper,Card Stock,2391.85
+Aug,East,15221,Jim,Paper,Bond-30,659.71
+Aug,East,15221,Jim,Paper,Bond-50,153.06
+Aug,East,15221,Jim,Paper,Bond-50,1552.34
+Aug,East,15221,Jim,Paper,Bond-50,231.40
+Aug,East,15221,Michael,Paper,Bond-20,2030.60
+Aug,East,15221,Michael,Paper,Laser-24,1802.82
+Aug,East,15222,Danny,Paper,Bond-30,819.96
+Aug,East,15222,Dwight,Paper,Bond-50,2404.53
+Aug,East,15222,Michael,Paper,Bond-40,1711.11
+Aug,East,15222,Michael,Paper,Bond-40,1900.43
+Aug,East,15224,Karen,Paper,Bond-40,794.88
+Aug,East,15226,Danny,Paper,Card Stock,2123.10
+Aug,East,15226,Dwight,Paper,Bond-20,830.50
+Aug,East,15226,Jim,Paper,Bond-30,1475.83
+Aug,East,15226,Karen,Copier,S300,1678.44
+Aug,East,15226,Michael,Paper,Bond-30,757.79
+Aug,East,15226,Michael,Paper,Card Stock,2196.12
+Aug,North,15106,Danny,Paper,Bond-40,860.45
+Aug,North,15106,Michael,Paper,Card Stock,156.05
+Aug,North,15120,Michael,Paper,Bond-50,1355.88
+Aug,North,15201,Jim,Paper,Card Stock,244.94
+Aug,North,15201,Michael,Copier,S400,808.82
+Aug,North,15201,Michael,Paper,Bond-30,969.38
+Aug,North,15203,Andy,Copier,S400,2131.92
+Aug,North,15203,Danny,Paper,Bond-40,2177.74
+Aug,North,15203,Danny,Paper,Laser-24,2166.71
+Aug,North,15203,Jim,Paper,Laser-24,1239.15
+Aug,North,15204,Danny,Copier,S200,1099.10
+Aug,North,15204,Jim,Paper,Bond-40,165.33
+Aug,North,15204,Michael,Paper,Bond-40,204.64
+Aug,North,15205,Danny,Paper,Bond-30,1429.14
+Aug,North,15205,Dwight,Paper,Card Stock,918.42
+Aug,North,15205,Michael,Paper,Bond-20,2366.92
+Aug,North,15206,Danny,Copier,S100,781.25
+Aug,North,15206,Michael,Paper,Bond-50,1209.53
+Aug,North,15207,Danny,Paper,Bond-40,1051.83
+Aug,North,15207,Jim,Paper,Bond-20,2331.88
+Aug,North,15207,Karen,Copier,S400,1941.84
+Aug,North,15207,Michael,Paper,Card Stock,1072.99
+Aug,North,15207,Michael,Paper,Card Stock,1669.74
+Aug,South,15208,Michael,Copier,S400,886.45
+Aug,South,15208,Pam,Copier,S300,2230.83
+Aug,South,15210,Danny,Paper,Laser-24,1963.81
+Aug,South,15210,Dwight,Copier,S300,221.92
+Aug,South,15210,Jim,Paper,Bond-50,1711.31
+Aug,South,15210,Karen,Paper,Bond-40,966.67
+Aug,South,15210,Michael,Paper,Card Stock,581.42
+Aug,South,15211,Jim,Paper,Bond-50,952.95
+Aug,South,15211,Pam,Copier,S200,589.02
+Aug,South,15212,Dwight,Paper,Laser-24,980.63
+Aug,South,15212,Jim,Paper,Bond-40,1646.74
+Aug,South,15212,Jim,Paper,Card Stock,707.63
+Aug,South,15212,Karen,Paper,Bond-20,987.12
+Aug,South,15212,Michael,Paper,Bond-30,2407.63
+Aug,South,15212,Pam,Paper,Bond-20,1371.15
+Aug,South,15213,Jim,Paper,Bond-30,2453.05
+Aug,South,15213,Jim,Paper,Bond-40,1857.73
+Aug,South,15214,Dwight,Copier,S300,2479.07
+Aug,South,15214,Jim,Paper,Bond-50,828.27
+Aug,South,15215,Danny,Paper,Card Stock,1710.34
+Aug,South,15215,Danny,Paper,Card Stock,2221.08
+Aug,South,15215,Jim,Paper,Bond-30,671.73
+Aug,South,15216,Danny,Paper,Card Stock,2288.98
+Aug,South,15216,Michael,Copier,S400,683.35
+Aug,West,15227,Jim,Paper,Card Stock,2349.73
+Aug,West,15232,Danny,Paper,Bond-20,1682.68
+Aug,West,15235,Michael,Paper,Bond-40,754.47
+Aug,West,15238,Dwight,Paper,Bond-20,282.59
+Aug,West,15238,Jim,Copier,S300,1310.30
+Aug,West,15238,Jim,Copier,S300,1810.30
+Aug,West,15260,Jim,Paper,Card Stock,2049.33
+Aug,West,15290,Karen,Paper,Laser-24,2019.44
+Sept,East,15217,Danny,Copier,S400,368.72
+Sept,East,15217,Danny,Paper,Bond-30,358.16
+Sept,East,15217,Danny,Paper,Bond-40,943.73
+Sept,East,15217,Dwight,Copier,S100,580.15
+Sept,East,15217,Karen,Paper,Bond-20,1988.39
+Sept,East,15218,Dwight,Paper,Bond-40,535.61
+Sept,East,15218,Pam,Paper,Bond-40,1106.08
+Sept,East,15219,Andy,Paper,Card Stock,710.94
+Sept,East,15219,Danny,Copier,S200,1471.03
+Sept,East,15219,Danny,Copier,S300,2440.31
+Sept,East,15219,Danny,Paper,Bond-50,1047.38
+Sept,East,15219,Dwight,Paper,Bond-40,485.46
+Sept,East,15219,Karen,Paper,Bond-40,719.47
+Sept,East,15219,Pam,Paper,Bond-40,616.08
+Sept,East,15220,Danny,Copier,S100,1843.57
+Sept,East,15220,Danny,Paper,Laser-24,1747.62
+Sept,East,15220,Dwight,Paper,Bond-20,263.62
+Sept,East,15220,Dwight,Paper,Bond-30,542.35
+Sept,East,15220,Jim,Copier,S450,848.82
+Sept,East,15220,Jim,Paper,Bond-20,1918.95
+Sept,East,15220,Karen,Paper,Bond-30,2391.46
+Sept,East,15220,Michael,Paper,Bond-30,1740.21
+Sept,East,15220,Michael,Paper,Card Stock,2151.10
+Sept,East,15221,Dwight,Paper,Bond-30,1377.72
+Sept,East,15221,Dwight,Paper,Laser-24,386.70
+Sept,East,15221,Jim,Paper,Bond-30,1609.81
+Sept,East,15221,Jim,Paper,Bond-30,2370.28
+Sept,East,15221,Michael,Paper,Laser-24,1076.24
+Sept,East,15222,Danny,Copier,S200,783.52
+Sept,East,15222,Danny,Paper,Card Stock,2382.37
+Sept,East,15222,Dwight,Paper,Bond-20,2268.00
+Sept,East,15222,Jim,Paper,Bond-20,606.65
+Sept,East,15222,Karen,Paper,Bond-40,695.01
+Sept,East,15222,Michael,Paper,Card Stock,152.92
+Sept,East,15222,Pam,Copier,S200,1867.09
+Sept,East,15224,Andy,Paper,Bond-20,682.94
+Sept,East,15224,Danny,Paper,Bond-30,1061.58
+Sept,East,15224,Danny,Paper,Bond-40,2374.71
+Sept,East,15224,Danny,Paper,Bond-50,465.05
+Sept,East,15224,Dwight,Paper,Bond-50,1007.81
+Sept,East,15224,Dwight,Paper,Card Stock,926.57
+Sept,East,15224,Jim,Paper,Card Stock,1841.89
+Sept,East,15224,Jim,Paper,Card Stock,2476.05
+Sept,East,15224,Jim,Paper,Card Stock,340.62
+Sept,East,15226,Danny,Paper,Laser-24,502.94
+Sept,East,15226,Dwight,Copier,S450,34.71
+Sept,East,15226,Michael,Paper,Bond-20,2335.01
+Sept,North,15106,Michael,Paper,Bond-20,1789.68
+Sept,North,15120,Jim,Paper,Laser-24,2245.75
+Sept,North,15203,Dwight,Copier,S200,1443.21
+Sept,North,15203,Jim,Paper,Bond-30,2133.46
+Sept,North,15203,Jim,Paper,Bond-40,2418.07
+Sept,North,15204,Andy,Copier,S200,1485.86
+Sept,North,15204,Andy,Paper,Bond-30,2204.54
+Sept,North,15205,Dwight,Copier,S100,2252.95
+Sept,South,15208,Dwight,Paper,Card Stock,1698.08
+Sept,South,15210,Andy,Paper,Bond-40,384.88
+Sept,South,15210,Danny,Copier,S400,1716.55
+Sept,South,15210,Danny,Paper,Bond-50,919.67
+Sept,South,15211,Dwight,Paper,Laser-24,2319.10
+Sept,South,15211,Jim,Copier,S200,319.37
+Sept,South,15212,Danny,Paper,Laser-24,604.37
+Sept,South,15212,Dwight,Paper,Bond-20,1032.04
+Sept,South,15212,Jim,Paper,Card Stock,623.72
+Sept,South,15214,Danny,Paper,Card Stock,1608.16
+Sept,South,15214,Jim,Paper,Card Stock,1377.71
+Sept,South,15215,Danny,Paper,Laser-24,2373.17
+Sept,South,15216,Andy,Copier,S450,878.66
+Sept,South,15216,Andy,Paper,Bond-20,555.68
+Sept,South,15216,Michael,Paper,Bond-40,2070.60
+Sept,West,15232,Jim,Copier,S100,846.35
+Sept,West,15232,Michael,Paper,Bond-30,1118.89
+Sept,West,15233,Jim,Paper,Bond-30,1584.96
+Sept,West,15234,Dwight,Copier,S450,910.24
+Sept,West,15234,Pam,Paper,Bond-50,712.00
+Sept,West,15235,Dwight,Paper,Bond-50,1592.47
+Sept,West,15235,Dwight,Paper,Laser-24,33.34
+Sept,West,15236,Danny,Paper,Laser-24,964.73
+Sept,West,15236,Dwight,Paper,Bond-30,978.08
+Sept,West,15236,Jim,Paper,Bond-50,698.11
+Sept,West,15238,Andy,Paper,Laser-24,1290.32
+Sept,West,15260,Dwight,Paper,Card Stock,284.91
+Sept,West,15290,Dwight,Paper,Laser-24,2408.27
+Sept,West,15290,Jim,Paper,Bond-50,1299.75
+Oct,East,15217,Andy,Paper,Bond-40,1902.67
+Oct,East,15217,Danny,Paper,Bond-30,1603.11
+Oct,East,15217,Dwight,Paper,Bond-30,1125.86
+Oct,East,15217,Dwight,Paper,Bond-30,1236.70
+Oct,East,15217,Karen,Copier,S200,1507.57
+Oct,East,15218,Danny,Paper,Laser-24,225.98
+Oct,East,15218,Dwight,Paper,Bond-30,1593.10
+Oct,East,15218,Dwight,Paper,Bond-30,208.88
+Oct,East,15218,Jim,Copier,S200,2442.29
+Oct,East,15218,Jim,Paper,Card Stock,397.11
+Oct,East,15218,Pam,Copier,S100,1938.04
+Oct,East,15219,Andy,Copier,S400,809.11
+Oct,East,15219,Danny,Paper,Bond-30,1834.92
+Oct,East,15219,Jim,Copier,S300,1107.74
+Oct,East,15219,Jim,Paper,Bond-50,392.15
+Oct,East,15219,Michael,Paper,Bond-50,705.65
+Oct,East,15220,Andy,Paper,Bond-40,113.93
+Oct,East,15220,Andy,Paper,Card Stock,1810.07
+Oct,East,15220,Dwight,Paper,Bond-20,2008.68
+Oct,East,15220,Dwight,Paper,Bond-50,1269.81
+Oct,East,15220,Dwight,Paper,Card Stock,2116.25
+Oct,East,15220,Jim,Paper,Bond-50,1580.33
+Oct,East,15220,Jim,Paper,Bond-50,1974.99
+Oct,East,15220,Karen,Copier,S100,1040.83
+Oct,East,15221,Andy,Paper,Bond-50,88.27
+Oct,East,15221,Danny,Paper,Bond-50,2293.29
+Oct,East,15221,Danny,Paper,Laser-24,2423.11
+Oct,East,15221,Dwight,Paper,Bond-30,1100.76
+Oct,East,15221,Karen,Paper,Bond-40,2128.36
+Oct,East,15222,Jim,Paper,Bond-30,996.03
+Oct,East,15222,Packer,Copier,S450,989.72
+Oct,East,15224,Danny,Paper,Bond-40,1499.72
+Oct,East,15224,Danny,Paper,Bond-40,2011.48
+Oct,East,15224,Dwight,Paper,Bond-30,2018.40
+Oct,East,15224,Dwight,Paper,Bond-50,1016.91
+Oct,East,15224,Jim,Paper,Bond-40,211.32
+Oct,East,15224,Pam,Paper,Bond-20,672.62
+Oct,East,15226,Dwight,Paper,Bond-30,724.55
+Oct,East,15226,Dwight,Paper,Bond-40,1252.28
+Oct,East,15226,Dwight,Paper,Card Stock,1349.07
+Oct,East,15226,Jim,Paper,Laser-24,1950.52
+Oct,East,15226,Ryan,Paper,Bond-50,364.02
+Oct,North,15106,Michael,Paper,Bond-40,1921.95
+Oct,North,15201,Danny,Paper,Card Stock,1757.56
+Oct,North,15203,Danny,Copier,S450,2289.68
+Oct,North,15203,Karen,Paper,Laser-24,1150.46
+Oct,North,15204,Dwight,Paper,Bond-50,845.86
+Oct,North,15204,Pam,Paper,Laser-24,2123.85
+Oct,North,15205,Dwight,Paper,Bond-40,480.20
+Oct,North,15206,Dwight,Copier,S450,637.12
+Oct,North,15206,Michael,Copier,S400,1000.42
+Oct,North,15207,Andy,Paper,Bond-30,2023.10
+Oct,South,15208,Dwight,Paper,Bond-20,1576.24
+Oct,South,15208,Dwight,Paper,Bond-30,34.87
+Oct,South,15208,Jim,Paper,Card Stock,1216.88
+Oct,South,15210,Dwight,Copier,S200,42.53
+Oct,South,15211,Danny,Paper,Bond-20,2188.98
+Oct,South,15211,Danny,Paper,Bond-20,384.04
+Oct,South,15211,Packer,Paper,Laser-24,184.44
+Oct,South,15212,Jim,Paper,Laser-24,1962.96
+Oct,South,15212,Karen,Paper,Laser-24,158.31
+Oct,South,15213,Dwight,Paper,Laser-24,90.36
+Oct,South,15213,Michael,Paper,Bond-20,1730.02
+Oct,South,15214,Jim,Paper,Bond-40,575.41
+Oct,South,15214,Michael,Paper,Bond-20,2381.15
+Oct,South,15215,Dwight,Paper,Bond-30,1873.32
+Oct,South,15216,Danny,Paper,Bond-50,1718.29
+Oct,South,15216,Dwight,Paper,Bond-20,1361.94
+Oct,South,15216,Jim,Paper,Bond-40,1544.58
+Oct,West,15227,Andy,Paper,Bond-50,192.64
+Oct,West,15233,Danny,Paper,Bond-50,839.60
+Oct,West,15233,Jim,Paper,Laser-24,1789.77
+Oct,West,15233,Michael,Paper,Card Stock,1449.07
+Oct,West,15234,Dwight,Paper,Bond-30,1662.14
+Oct,West,15238,Danny,Paper,Card Stock,1299.34
+Oct,West,15260,Michael,Paper,Bond-50,752.05
+Oct,West,15290,Karen,Paper,Card Stock,1541.99
+Oct,West,15290,Pam,Paper,Bond-50,220.58
+Nov,East,15217,Michael,Copier,S100,1874.73
+Nov,East,15217,Michael,Copier,S450,72.67
+Nov,East,15217,Pam,Paper,Bond-30,556.59
+Nov,East,15218,Andy,Paper,Bond-40,470.29
+Nov,East,15218,Danny,Copier,S300,698.53
+Nov,East,15218,Danny,Paper,Laser-24,1654.33
+Nov,East,15218,Dwight,Paper,Bond-30,724.77
+Nov,East,15218,Dwight,Paper,Card Stock,143.37
+Nov,East,15218,Jim,Paper,Bond-20,1971.85
+Nov,East,15218,Jim,Paper,Bond-30,1813.23
+Nov,East,15219,Danny,Paper,Laser-24,462.90
+Nov,East,15219,Dwight,Paper,Bond-20,452.35
+Nov,East,15219,Dwight,Paper,Bond-30,1454.24
+Nov,East,15219,Michael,Paper,Card Stock,1723.84
+Nov,East,15220,Dwight,Paper,Bond-40,2423.43
+Nov,East,15220,Dwight,Paper,Card Stock,2046.68
+Nov,East,15220,Jim,Paper,Bond-40,851.47
+Nov,East,15220,Jim,Paper,Bond-50,86.51
+Nov,East,15220,Jim,Paper,Card Stock,2454.92
+Nov,East,15220,Michael,Paper,Bond-40,2031.03
+Nov,East,15220,Pam,Paper,Bond-20,1733.02
+Nov,East,15221,Dwight,Copier,S450,1363.60
+Nov,East,15221,Dwight,Paper,Bond-30,1321.68
+Nov,East,15221,Dwight,Paper,Bond-30,1912.94
+Nov,East,15221,Dwight,Paper,Laser-24,34.65
+Nov,East,15221,Pam,Paper,Bond-20,2085.92
+Nov,East,15222,Jim,Copier,S400,1598.14
+Nov,East,15222,Michael,Paper,Bond-30,359.59
+Nov,East,15222,Michael,Paper,Bond-40,2217.93
+Nov,East,15222,Pam,Paper,Bond-20,360.34
+Nov,East,15224,Danny,Paper,Bond-40,2177.26
+Nov,East,15224,Dwight,Paper,Bond-50,113.34
+Nov,East,15226,Dwight,Paper,Laser-24,2150.71
+Nov,East,15226,Karen,Paper,Card Stock,792.77
+Nov,East,15226,Michael,Paper,Bond-30,530.90
+Nov,North,15106,Jim,Paper,Card Stock,715.60
+Nov,North,15120,Andy,Paper,Laser-24,2165.32
+Nov,North,15120,Jim,Paper,Bond-50,1391.75
+Nov,North,15201,Danny,Paper,Bond-50,1283.56
+Nov,North,15201,Jim,Paper,Card Stock,1709.61
+Nov,North,15204,Danny,Paper,Bond-40,2017.10
+Nov,North,15204,Danny,Paper,Bond-40,77.04
+Nov,North,15204,Dwight,Paper,Bond-50,1752.54
+Nov,North,15204,Dwight,Paper,Laser-24,143.35
+Nov,North,15206,Jim,Paper,Bond-50,1034.27
+Nov,North,15206,Pam,Paper,Bond-30,2237.25
+Nov,North,15207,Danny,Paper,Bond-30,1872.93
+Nov,North,15207,Dwight,Paper,Bond-20,411.89
+Nov,North,15207,Dwight,Paper,Bond-40,1722.44
+Nov,North,15207,Michael,Paper,Card Stock,1852.09
+Nov,North,15207,Pam,Paper,Bond-30,1046.82
+Nov,South,15208,Jim,Paper,Bond-30,750.30
+Nov,South,15210,Dwight,Paper,Card Stock,1385.71
+Nov,South,15210,Karen,Paper,Bond-40,373.01
+Nov,South,15210,Michael,Copier,S400,839.70
+Nov,South,15211,Dwight,Paper,Bond-40,546.48
+Nov,South,15212,Danny,Copier,S200,395.09
+Nov,South,15212,Jim,Paper,Bond-40,2284.13
+Nov,South,15212,Michael,Paper,Bond-20,2191.72
+Nov,South,15213,Michael,Paper,Bond-20,1667.66
+Nov,South,15213,Pam,Paper,Bond-20,1722.27
+Nov,South,15214,Danny,Paper,Bond-50,305.02
+Nov,South,15215,Dwight,Paper,Card Stock,2296.22
+Nov,South,15216,Karen,Copier,S100,1327.15
+Nov,West,15234,Dwight,Paper,Bond-40,1582.97
+Nov,West,15234,Dwight,Paper,Bond-40,1696.00
+Nov,West,15235,Dwight,Paper,Card Stock,1675.27
+Nov,West,15235,Karen,Paper,Bond-50,305.70
+Nov,West,15235,Michael,Paper,Bond-30,1200.96
+Nov,West,15238,Danny,Paper,Laser-24,38.45
+Nov,West,15260,Dwight,Paper,Bond-40,1680.91
+Nov,West,15290,Dwight,Paper,Bond-50,765.48
+Nov,West,15290,Karen,Copier,S200,1896.01
+Dec,East,15217,Andy,Paper,Bond-30,1874.38
+Dec,East,15217,Danny,Paper,Bond-20,1682.81
+Dec,East,15217,Dwight,Paper,Bond-30,471.65
+Dec,East,15217,Jim,Copier,S400,311.44
+Dec,East,15217,Jim,Paper,Bond-50,2118.23
+Dec,East,15217,Karen,Paper,Bond-30,828.70
+Dec,East,15218,Danny,Paper,Bond-50,309.12
+Dec,East,15218,Dwight,Paper,Bond-20,567.03
+Dec,East,15218,Jim,Copier,S200,1664.71
+Dec,East,15218,Jim,Copier,S450,1816.32
+Dec,East,15218,Jim,Paper,Bond-20,1806.16
+Dec,East,15218,Karen,Copier,S400,2080.36
+Dec,East,15218,Karen,Paper,Laser-24,1015.04
+Dec,East,15219,Danny,Paper,Bond-30,2168.27
+Dec,East,15219,Danny,Paper,Card Stock,1799.69
+Dec,East,15219,Dwight,Copier,S400,2211.52
+Dec,East,15219,Dwight,Paper,Bond-40,1693.55
+Dec,East,15219,Jim,Paper,Card Stock,1288.32
+Dec,East,15220,Danny,Paper,Bond-50,1344.97
+Dec,East,15220,Dwight,Copier,S400,141.38
+Dec,East,15220,Dwight,Paper,Bond-30,870.93
+Dec,East,15220,Dwight,Paper,Laser-24,2346.85
+Dec,East,15220,Dwight,Paper,Laser-24,947.93
+Dec,East,15220,Karen,Copier,S200,619.36
+Dec,East,15220,Karen,Paper,Bond-40,2003.07
+Dec,East,15221,Danny,Paper,Card Stock,2112.55
+Dec,East,15221,Dwight,Paper,Bond-30,1816.59
+Dec,East,15221,Jim,Paper,Bond-20,623.99
+Dec,East,15221,Jim,Paper,Bond-50,684.59
+Dec,East,15221,Pam,Paper,Card Stock,344.34
+Dec,East,15222,Andy,Copier,S200,597.41
+Dec,East,15222,Dwight,Paper,Bond-50,2094.78
+Dec,East,15222,Dwight,Paper,Card Stock,1118.22
+Dec,East,15222,Michael,Paper,Bond-20,1996.44
+Dec,East,15224,Andy,Paper,Bond-20,1053.98
+Dec,East,15224,Dwight,Paper,Bond-40,1462.81
+Dec,East,15224,Jim,Paper,Laser-24,467.55
+Dec,East,15224,Packer,Paper,Bond-20,1473.66
+Dec,East,15226,Karen,Paper,Card Stock,2159.17
+Dec,East,15226,Michael,Copier,S400,288.47
+Dec,North,15106,Dwight,Paper,Bond-30,110.79
+Dec,North,15106,Jim,Paper,Bond-40,1502.78
+Dec,North,15120,Danny,Paper,Bond-30,772.94
+Dec,North,15120,Danny,Paper,Card Stock,638.67
+Dec,North,15120,Jim,Paper,Bond-50,1092.25
+Dec,North,15201,Dwight,Paper,Bond-50,1354.22
+Dec,North,15203,Andy,Paper,Bond-50,1248.09
+Dec,North,15203,Jim,Copier,S200,952.89
+Dec,North,15203,Karen,Paper,Bond-30,2227.44
+Dec,North,15204,Danny,Paper,Laser-24,2269.37
+Dec,North,15204,Dwight,Paper,Bond-20,1510.26
+Dec,North,15204,Dwight,Paper,Bond-30,1103.54
+Dec,North,15204,Jim,Paper,Bond-30,2357.43
+Dec,North,15205,Andy,Paper,Bond-30,1418.09
+Dec,North,15205,Dwight,Paper,Bond-50,1980.92
+Dec,North,15205,Karen,Paper,Laser-24,1025.58
+Dec,North,15205,Michael,Copier,S100,89.16
+Dec,North,15205,Ryan,Paper,Laser-24,1141.51
+Dec,North,15206,Dwight,Paper,Card Stock,1737.91
+Dec,North,15207,Danny,Paper,Bond-50,1240.65
+Dec,North,15207,Dwight,Paper,Bond-20,2167.95
+Dec,North,15207,Dwight,Paper,Bond-30,658.56
+Dec,South,15208,Danny,Copier,S300,2437.55
+Dec,South,15208,Danny,Paper,Laser-24,1049.03
+Dec,South,15208,Jim,Paper,Bond-40,1087.08
+Dec,South,15208,Karen,Copier,S200,1675.34
+Dec,South,15210,Danny,Paper,Bond-20,658.33
+Dec,South,15210,Dwight,Paper,Card Stock,1193.55
+Dec,South,15210,Jim,Paper,Bond-50,1190.71
+Dec,South,15210,Packer,Paper,Bond-20,1362.06
+Dec,South,15212,Andy,Paper,Bond-40,2450.42
+Dec,South,15212,Danny,Paper,Bond-40,922.42
+Dec,South,15212,Jim,Copier,S300,282.04
+Dec,South,15213,Danny,Paper,Bond-20,2433.55
+Dec,South,15213,Danny,Paper,Card Stock,1201.51
+Dec,South,15216,Jim,Paper,Bond-40,2137.83
+Dec,West,15227,Karen,Paper,Laser-24,355.11
+Dec,West,15232,Jim,Paper,Bond-30,1057.16
+Dec,West,15232,Jim,Paper,Laser-24,1736.88
+Dec,West,15232,Karen,Paper,Bond-30,2055.32
+Dec,West,15232,Michael,Paper,Bond-30,453.07
+Dec,West,15234,Danny,Copier,S200,1119.61
+Dec,West,15235,Danny,Paper,Bond-40,112.19
+Dec,West,15236,Dwight,Paper,Card Stock,858.39
+Dec,West,15238,Andy,Paper,Laser-24,1125.20
+Dec,West,15260,Andy,Paper,Bond-40,1595.53
+Dec,West,15290,Danny,Paper,Card Stock,2118.34
