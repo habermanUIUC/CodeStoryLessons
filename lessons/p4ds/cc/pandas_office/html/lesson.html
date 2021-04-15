@@ -49,7 +49,7 @@ two lessons on Pandas. There's no need to scour the internet.</li></ul><pre><cod
   
   # UGLY
   return 10.0</code></pre><h2 id="the-questions">THE QUESTIONS</h2><h3 id="question-1-build-the-dataframe--">Question 1: Build the DataFrame.  </h3><p class="new">Finish the implementation of <code>build_dataframe</code>  which does the following:</p><ul><li>creates a Pandas dataframe using resource (a csv file or URL)</li><li>cleans the column names so that all internal and surrounding spaces are removed</li><li>returns the dataframe</li></ul><div class="ide code-starter clearfix"><pre><code>def build_dataframe(resource):
-    return None</code></pre></div><h3 id="question-2-returns-the-total-sales-for-the-entire-company-">Question 2: returns the total sales for the entire company </h3><p class="new">The parameter, <code>df</code> is the dataframe created <code>via build_dataframe</code></p><div class="ide code-starter clearfix"><pre><code># already DONE !!!! YES.
+    return None</code></pre></div><h3 id="question-2-returns-the-total-sales-for-the-entire-company-">Question 2: returns the total sales for the entire company </h3><p class="new">The parameter, <code>df</code> is the dataframe created via <code>build_dataframe</code></p><div class="ide code-starter clearfix"><pre><code># already DONE !!!! YES.
 def total_sales(df):
     return df['Total'].sum()</code></pre></div><p class="new">Now the following should work:</p><pre><code>p = Util.path_for_data('dm101s.csv')
 df = build_dataframe(p)
