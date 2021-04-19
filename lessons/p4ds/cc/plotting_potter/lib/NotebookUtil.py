@@ -63,7 +63,7 @@ def mount_notebook(doc_url, silent=True, idx=None):
     import Extractor
 
     doc_id = validate_notebook_id(doc_url)
-    text = install_gd_file(doc_id, 'nb.py')
+    text = install_gd_file(doc_id, 'nb.ipynb')
 
     #text = open(name, 'r').read()
 
