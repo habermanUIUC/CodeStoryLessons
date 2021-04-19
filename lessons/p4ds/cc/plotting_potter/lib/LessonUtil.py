@@ -56,5 +56,20 @@ def load_stop_words():
 
 import NotebookUtil as NB
 
-def mount_notebook(nb_id):
-    return NB.mount_notebook(nb_id)
+def mount_notebook(url):
+    return NB.mount_notebook(url)
+
+
+if __name__ == "__main__":
+    url ='https://drive.google.com/file/d/1hIgIEubGmRKNSJoaIFmxNHRTX2lB3Bec/view?usp=sharing'
+    if mount_notebook(url):
+        import re
+        import collections
+
+        import lesson
+
+        text = "Hello Dr. Phil. How are you Mr. Roberts?"
+        ans = lesson.find_characters_v3(text)
+        print(ans)
+    else:
+        print('unable to mount notebook')

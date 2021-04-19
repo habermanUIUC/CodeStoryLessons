@@ -23,7 +23,7 @@ characters in Huckleberry Finn. If you look closely at your solution, you will
 notice that the algorithm for finding the characters is NOT specific to that book. 
 Other than cleaning of the text, your code should work for another book/novel.</p><p class="new">Using the power of Python we can RUN your colab notebook for that lesson
  inside this notebook!  </p><p class="new">Here's how it will work:</p><ul><li>Get the ID portion of the shareable URL of your notebook for the Finding Characters 
-Lesson (be SURE that the notebook is still readable/viewable by others).</li><li>Run the following code, which will treat that notebook as a Python module</li></ul><div class="ide code-starter clearfix"><pre><code>def optional_fun(nb_id, text):
+Lesson (be SURE that the notebook is still readable/viewable by others).</li></ul><img alt="share.png" class="border center iw500" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/plotting_potter/html/share.png"/><ul><li>Run the following code, which will treat that notebook as a Python module</li></ul><div class="ide code-starter clearfix"><pre><code>def optional_fun(nb_id, text):
     import LessonUtil as Util
     if Util.mount_notebook(nb_id):
         import notebook
@@ -43,14 +43,14 @@ Lesson (be SURE that the notebook is still readable/viewable by others).</li><li
 
 import LessonUtil as Util
 
-# this is the ID of your Finding Characters Lesson
-FC_ID = 'CHANGE_ME' 
+# this is the document ID or url of your Finding Characters Lesson
+GOOGLE_URL = 'CHANGE_ME' 
 
 # the text of Harry Potter (book 1)
 text = Util.read_data_file('harryPotter.txt')
 
 # use your code to process the Harry Potter Text
-optional_fun(FC_ID, text)</code></pre></div><p class="new">If all goes well, you will see the output of YOUR code being run with the 
+optional_fun(GOOGLE_URL, text)</code></pre></div><p class="new">If all goes well, you will see the output of YOUR code being run with the 
 text of Harry Potter and the Sorcerer's Stone.  </p><h3 id="findcharactersv1">find_characters_v1</h3><pre><code>[('Harry', 1217), ('Ron', 410), ('Hagrid', 336), 
 ('Hermione', 257), ('Professor', 180), ('Snape', 145), ('Dumbledore', 140), ('Dudley', 115), ("Harry's", 113), ('Uncle', 111), ('Malfoy', 109), ('Vernon', 105), ('Neville', 102), ('Potter', 97), ('McGonagall', 95)]</code></pre><h3 id="findcharactersv2">find_characters_v2</h3><pre><code>[(('Uncle', 'Vernon'), 97), (('Professor', 'McGonagall'), 90), 
 (('Aunt', 'Petunia'), 51), (('Mr', 'Dursley'), 29), (('Harry', 'Potter'), 28), (('Professor', 'Dumbledore'), 20), (('Mrs', 'Dursley'), 17), (('Mr', 'Potter'), 17), (('Professor', 'Quirrell'), 17), (('Privet', 'Drive'), 16), (('Mr', 'Ollivander'), 16), (('Hermione', 'Granger'), 16), (('Nimbus', 'Two'), 15), (('Great', 'Hall'), 15), (('Professor', 'Flitwick'), 15)]</code></pre><h3 id="findcharactersv3">find_characters_v3</h3><pre><code>[(('Mr', 'Dursley'), 29), (('Mrs', 'Dursley'), 17), (('Mr', 'Potter'), 17), (('Mr', 'Ollivander'), 16), (('Mrs', 'Norris'), 12), (('Mrs', 'Figg'), 5), (('Mrs', 'Weasley'), 4), (('Mrs', "Figg's"), 3), (('Mr', 'Filch'), 3), (('Mrs', "Dursley's"), 2), (('Tap', 'Tap'), 2), (('Mr', 'Harry'), 2), (('Mr', 'Ronald'), 2), (('Mrs', 'Potter'), 1), (('Mrs', 'Next'), 1)]</code></pre><p class="new">If your code doesn't work, you will need to go back to your notebook and do some debugging.</p><p class="new">A few notes:</p><ul><li>The analysis is done on the raw text -- we would get more accurate results if 

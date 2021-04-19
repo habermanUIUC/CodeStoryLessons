@@ -1,81 +1,91 @@
+
 import requests
-import urllib
-import json
+import urllib.parse
+import urllib.request
+import os
 
-#
-# no need to change anything in this module
-#
+def is_ipython(text):
+    return text is not None and text.find('{"nbformat') == 0
 
-def read_remote(url):
-    with requests.get(url) as response:
-        response.encoding = 'utf-8'
-        if response.status_code == requests.codes.ok:
-            # that is 200
-            return response.text
-        else:
-            print('invalid read', response.status_code, url)
-    return None
+def validate_notebook_id(notebook_id):
+    import re
+    regex = re.compile(r'/?[A-Za-z0-9_-]{20,}')
+    ids = regex.findall(notebook_id)
+    if len(ids) == 0:
+        return None
+    return ids[0].strip('/')
 
-#
-# replit does NOT allow editing of files
-# that are created at runtime
-#
-C_URL = 'https://raw.githubusercontent.com/habermanUIUC/DMAPTester/master/src/tf/notebook/SourceCleaner.py'
-P_URL = 'https://raw.githubusercontent.com/habermanUIUC/DMAPTester/master/src/tf/notebook/Parser.py'
+def install_gd_file(doc_id, filename=None):
 
-def mount_notebook(d_id, name='notebook.py', force=False):
+    #
+    # possible 403 if attempt is made too many times to download?
+    # seems to be temporary -- don't fire off too many requests
+    #
+    baseurl = "https://docs.google.com/uc"
+    baseurl = "https://drive.google.com/uc"
 
-    import os
+    #
+    # can help by switching the baseurl
+    #
 
-    if os.path.exists(name) and not force:
-        print(name, "already mounted")
-        return True
-
-    try:
-        import Parser
-        import SourceCleaner
-    except ImportError as e:
-        prep_remote('SourceCleaner.py', C_URL)
-        prep_remote('Parser.py', P_URL)
-
-    import Parser
-    import SourceCleaner
-
-    url = build_google_drive_url(d_id)
-    code = read_remote(url)
-
-    try:
-        py_code = Parser.NBParser().parse_code(code)
-        with open(name, 'w') as fd:
-            fd.write(py_code[0])
-
-        code = SourceCleaner.CodeCleaner().clean(py_code[0])
-        with open(name, 'w') as fd:
-            fd.write(code)
-
-        # os.remove('SourceCleaner.py')
-        # os.remove('Parser.py')
-        return True
-
-    except json.decoder.JSONDecodeError as e:
-        print("notebook is not readable", str(e))
-        return False
-    except Exception as e:
-        print("notebook is not cleaned", str(e))
-        return False
-
-def prep_remote(fn, url):
-    code = read_remote(url)
-    with open(fn, 'w') as fd:
-        fd.write(code)
-
-def build_google_drive_url(doc_id):
-    URL_1 = "https://drive.google.com/uc"
-    URL_2 = "https://docs.google.com/uc"
-
-    baseurl = URL_1
-    params = {"export": "download",
-              "id": doc_id}
+    params = {"export": "download", "id": doc_id}
     url = baseurl + "?" + urllib.parse.urlencode(params)
-    return url
+
+    try:
+
+        def v2():
+            #r = requests.get(baseurl, params)
+            r = requests.get(url)
+            r.encoding = 'utf-8'
+            if r.status_code != 200:
+                print('bad request:', r.status_code)
+                print('headers:', r.headers)
+                print(r.status_code, "unable to download google doc with id:", doc_id)
+                return None
+            return r.text
+
+        text = v2()
+        if filename is not None and text is not None and len(text) > 0:
+            with open(filename, 'w') as fd:
+                fd.write(text)
+        else:
+            print("Unable to write file", filename, len(text))
+
+        return text
+
+    except Exception as e:
+        print("unable to load notebook at", url, str(e))
+        return None
+
+def mount_notebook(doc_url, silent=True, idx=None):
+    import CodeCleaners
+    import Notebook
+    import Extractor
+
+    doc_id = validate_notebook_id(doc_url)
+    text = install_gd_file(doc_id, 'nb.py')
+
+    #text = open(name, 'r').read()
+
+    cleaner = CodeCleaners.CodeCleaner()
+    story = Notebook.StoryNotebook(text)
+
+    code = cleaner.clean(story)
+    filename = 'lesson.py'
+    module = 'lesson'
+    if idx is not None:
+        filename = "lesson{:d}.py".format(idx)
+        module = "lesson{:d}".format(idx)
+
+    Extractor.create_module(code=code, file_out=filename, hide_imports=False)
+
+    try:
+        import importlib
+        lesson = importlib.import_module(module)
+        #import os
+        #os.remove(filename)
+        return True
+    except Exception as e:
+        print('Exception ', e)
+        return False
 
