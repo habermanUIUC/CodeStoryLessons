@@ -26,7 +26,7 @@ Other than cleaning of the text, your code should work for another book/novel.</
 Lesson (be SURE that the notebook is still readable/viewable by others).</li></ul><img alt="share.png" class="border center iw500" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/plotting_potter/html/share.png"/><ul><li>Run the following code, which will treat that notebook as a Python module</li></ul><div class="ide code-starter clearfix"><pre><code>def optional_fun(nb_id, text):
     import LessonUtil as Util
     if Util.mount_notebook(nb_id):
-        import notebook
+        import lesson as notebook
 
         stop = Util.load_stop_words()
         c1 = notebook.find_characters_v1(text, stop, 5)

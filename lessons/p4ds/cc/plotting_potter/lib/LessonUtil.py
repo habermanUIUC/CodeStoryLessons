@@ -61,7 +61,7 @@ def mount_notebook(url):
 
 
 if __name__ == "__main__":
-    url ='https://drive.google.com/file/d/1hIgIEubGmRKNSJoaIFmxNHRTX2lB3Bec/view?usp=sharing'
+    url = None
     if mount_notebook(url):
         import re
         import collections

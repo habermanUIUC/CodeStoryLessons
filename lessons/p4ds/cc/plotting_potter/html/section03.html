@@ -20,7 +20,7 @@
 <div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def optional_fun(nb_id, text):
     import LessonUtil as Util
     if Util.mount_notebook(nb_id):
-        import notebook
+        import lesson as notebook
 
         stop = Util.load_stop_words()
         c1 = notebook.find_characters_v1(text, stop, 5)
