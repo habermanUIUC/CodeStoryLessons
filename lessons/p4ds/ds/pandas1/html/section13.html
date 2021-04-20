@@ -20,6 +20,9 @@
 <div id="start" class="section">&nbsp;</div><p class="new">In this case we are using the column label much like a dictionary key to access 
 the column values. Each column is a Panda Series object. </p><p class="new">You can also pass an array of columns to select:</p><pre><code>print(df3[ ['last', 'asp'] ])</code></pre><img alt="ds6.png" class="iw600 center" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/pandas1/html/ds6.png"/><p class="new">In this case the returned type is a DataFrame.</p><p class="new">You can also use the name of the column directly:</p><pre><code>print(df3.wpw)</code></pre><h2 id="selecting-rows">Selecting Rows</h2><p class="new">We can select rows just as easy. The default is to use integer indices (much 
 like a list). The returned type is a DataFrame:</p><pre><code># select the first 2 rows
+print(df3[0:2])
+
+# select rows 1,2
 print(df3[1:3])</code></pre><h2 id="subsets-with-iloc">Subsets with iloc</h2><p class="new">There are two ways to do DataFrame slicing. One uses integers as indices 
 the other uses labels. 
 The <code>.iloc</code> property is used with integers indices and its format is the same 
