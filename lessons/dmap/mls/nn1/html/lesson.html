@@ -219,14 +219,14 @@ test_p2_p4()</code></pre><h2 id="step-2">Step 2</h2><img alt="blueline.png" clas
     assert 1 == lp.predict(p4)
     assert 0 == lp.predict([-2,-2])
     assert 0 == lp.predict([-1,-1.0001])</code></pre><h2 id="step-3">Step 3</h2><p class="new">Create detectors for the lines defined by (p1, p2) and (p3, p4). Be sure to
- test your code</p><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="step-4">Step 4</h2><p class="new">Create the class named <code>DiamondDectector</code> that uses four <code>LinearPerceptrons</code> and
+ test your code</p><div class="ide code-starter clearfix"><pre><code></code></pre></div><h2 id="step-4">Step 4</h2><p class="new">Create the class named <code>DiamondDetector</code> that uses four <code>LinearPerceptrons</code> and
  one or more appropriate <code>BooleanPerceptron</code> such the the following diamond is
- detected:</p><img alt="4lines.png" class="center iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/nn1/html/4lines.png"/><div class="ide code-starter clearfix"><pre><code>class DiamondDectector(object):
+ detected:</p><img alt="4lines.png" class="center iw200 border2" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/dmap/mls/nn1/html/4lines.png"/><div class="ide code-starter clearfix"><pre><code>class DiamondDetector(object):
     pass
     
     
 def test_dd():
-    dd = DiamondDectector()
+    dd = DiamondDetector()
     assert 1 == dd.predict([0, 0])</code></pre></div><h2 id="wheres-the-learning">Where's the <em>learning</em>?</h2><p class="new">You can now see how a network could be built to detect shapes.  You might
  imagine how by using more inputs and more neurons could result in a network
  that is able to detect shapes with both higher resolution and in higher
