@@ -17,9 +17,10 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><p class="new">Note that the use of <code>pd</code> allows you to keep the pandas syntax (keys typed) short 
-and sweet. The use <code>pd</code> is the conventional way to import pandas. </p><p class="new">Pandas also supports reading Excel documents directly (skipping the need to export 
-the data as <code>.csv</code> formatted data). Pandas can even read the data using the URL of a remote file as well.</p><p class="new">The returned object from <code>read_csv</code> is a Panda DataFrame. It's Panda's 
+<div id="start" class="section">&nbsp;</div><p class="new">Note that importing pandas as <code>pd</code> allows you to keep the pandas syntax (keys typed) short 
+and sweet. Using <code>pd</code> is the conventional way to import pandas. </p><p class="new">Pandas also supports reading Excel documents directly (skipping the need to export 
+the data as <code>.csv</code> formatted data). Pandas can even read the data using the
+ URL of a remote resource as well.</p><p class="new">The returned object from <code>read_csv</code> is a Panda DataFrame. It's Panda's 
 fundamental data structure. You can think of it as a table of values that you 
 can access rows, columns, cells, and subsets of the data.</p><p class="new">To show the contents you can do the following:</p><pre><code># print the first 5 records
 print(df.head(5))</code></pre><p class="new">This truncates the data to fit the screen size (you may may 
