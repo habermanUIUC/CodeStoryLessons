@@ -83,7 +83,7 @@ split the parameter text into an array of chapters</p><ul><li>return an array wh
 the chapter (ideally it would be the latter, but the regex is a bit more complicated)</li></ul><div class="ide code-starter clearfix"><pre><code>import re
 def split_into_chapters(text):
     return []</code></pre></div><h3 id="testing">Testing</h3><p class="new">Take a look at the text of Harry Potter and the Sorcerer's Stone. You can
- either print parts of it, or <a href="https://raw.githubusercontent.com/NSF-EC/INFO490Assets/master/src/datasets/books/hp/harryPotter.txt" target="_blank">read</a> 
+ either print parts of it, or <a href="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/plotting_potter/data/harryPotter.txt" target="_blank">read</a> 
 in another browser window.</p><p class="new">Luckily the chapters are well marked -- can you see the pattern?</p><p class="new">When you are done, the following should work (you should implement this):</p><pre><code>def test_pipeline():
     import LessonUtil as Util
     text = Util.read_data_file('harryPotter.txt')
@@ -262,7 +262,8 @@ throughout a novel. You can also play with different characters as well -- your
 code should adapt to any number of characters you want to graph. That is powerful.</p><h1 class="section" id="section5">Extra Credit</h1><h2 id="gussy-it-up">Gussy it Up</h2><img alt="ds7.png" class="border center iw500" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/cc/plotting_potter/html/ds7.png"/><p class="new">Although the graph you created has the most important part -- accurate data, 
 it will be helpful to label and color the characters.</p><p class="new">Define a function named <code>simple_graph_hp(counts, names)</code> which adds all the 
 necessary embellishments to make your graph look like the one above: </p><ul><li>set the figure's title to 'HP Characters &lt;your initials here&gt;' with your initials as well (without the &lt;&gt;)</li><li>add a grid background</li><li>set the x and y axis labels</li><li>set the x axis tick markers to be for each chapter (e.g. 1 through 17) but do 
-NOT hard-code the number 17 (get it from the data)</li><li>add a legend for each of the characters (you can pick the location)</li><li>style your graph using either fivethirtyeight or seaborn</li><li>make sure the labels don't get cut off</li></ul><p class="new">Create the following as well: (only if doing extra credit)</p><pre><code>def pipeline_hp(names):
+NOT hard-code the number 17 (get it from the data)</li><li>add a legend for each of the characters (you can pick the location)</li><li>style your graph using either fivethirtyeight or seaborn (you will need to
+apply the style before creating any graphs)</li><li>make sure the labels don't get cut off</li></ul><p class="new">Create the following as well: (only if doing extra credit)</p><pre><code>def pipeline_hp(names):
     calls simple_graph_hp
     return the figure created from the pipeline
 
