@@ -31,7 +31,11 @@ Apparel    238.72    4 21.49    4 260.21    4
 Grocery     57.13    2  5.14    2  62.27    2
 Restaurant 374.29   30 33.69   27 407.98   30
 Technology 156.82    2 14.11    2 170.93    2</code></pre><h2 id="chaining-methods">Chaining methods</h2><p class="new">As you solve problems and research Pandas, you may come across code like this (and this is a short one):</p><pre><code>answer = df.groupby(['Type', 'Merchant']).size().nlargest(5).reset_index(name='top')
-print(answer)</code></pre><p class="new">Each of the Pandas methods returns an object and that returned object can be operated on as well.  When you come across code like the above, be assured that the author spent a lot of time with the individual pieces before gluing them together in confusing an almost incoherent (yet supposedly impressive) chain. Don't be impressed -- they're hard to read and reason with unless you're well versed in the API. </p><h2 id="filtering-groups">Filtering Groups</h2><p class="new">We have seen how to use masks to filter a DataFrame:</p><pre><code>is_tech = df['Type'] == 'Technology'
+print(answer)</code></pre><p class="new">Each of the Pandas methods returns an object and that returned object can be operated on as well. 
+When you come across code like the above, be assured that the author spent a lot of time with 
+the individual pieces before gluing them together in a confusing and almost incoherent (yet supposedly 
+impressive) chain. Don't be impressed -- they're hard to read and reason with unless 
+you're well versed in the API. </p><h2 id="filtering-groups">Filtering Groups</h2><p class="new">We have seen how to use masks to filter a DataFrame:</p><pre><code>is_tech = df['Type'] == 'Technology'
 print(df[is_tech])</code></pre><p class="new">The following example was used earlier showing how to use masks with groups and do more advanced filtering:</p><pre><code>c = df.groupby(['Type']).size().reset_index(name='count')
 over_30 = c['count'] &gt; 30 
 is_tech = c['Type'] == 'Technology'
