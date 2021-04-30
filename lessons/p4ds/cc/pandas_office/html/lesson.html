@@ -33,7 +33,7 @@ Mar,East,15224,Ryan,Paper,Bond-50,2061.28
 Dec,East,15222,Michael,Paper,Laser-24,977.42
 Oct,East,15224,Dwight,Paper,Bond-40,1810.23
 Nov,East,15218,Danny,Copier,S450,1901.46
-July,East,15222,Dwight,Paper,Card Stock,1798.76</code></pre><p class="new">The entire dataset can be loaded via the LessonUtil as well:</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
+July,East,15222,Dwight,Paper,Card Stock,1798.76</code></pre><p class="new">The entire dataset can be loaded via the <code>LessonUtil</code> as well:</p><div class="ide code-starter clearfix"><pre><code>import LessonUtil as Util
 import pandas as pd
 
 p = Util.path_for_data('dm101s.csv')
@@ -58,7 +58,8 @@ print(total_sales(df))</code></pre><p class="new">You can also test it using the
     return None</code></pre></div><h3 id="question-5-">Question 5: </h3><p class="new">return the total for paper sold by Dwight </p><ul><li><code>df</code> is the dataframe created via <code>build_dataframe</code></li></ul><div class="ide code-starter clearfix"><pre><code>def dwight_paper_sales(df):
     return None</code></pre></div><h3 id="question-6-">Question 6: </h3><p class="new">return the total sales by region.</p><ul><li><code>df</code> is the dataframe created via <code>build_dataframe</code></li><li>results must be sorted in descending order</li></ul><div class="ide code-starter clearfix"><pre><code>def sales_by_region(df):
     return None</code></pre></div><p class="new"> 
-If you printed the results of <code>sales_by_region</code>, you would get the following:</p><pre><code>Region
+If you printed the results of <code>sales_by_region</code>, you would get the following
+(actual numbers may be different):</p><pre><code>Region
 East     624208.80
 South    266489.36
 North    257879.98
