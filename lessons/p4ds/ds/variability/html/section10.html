@@ -18,9 +18,12 @@
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
 <div id="start" class="section">&nbsp;</div><p class="new">Another available dataset is the price paid for a ticket.  You can access this
- data, dollar.csv, via the LessonUtil.</p><pre><code>p    = Util.path_for_data('dollar.csv')
-df   = pd.read_csv(p)
-axes = df.boxplot()</code></pre><p class="new">The boxplot looks like the following:
+ data, dollar.csv, via the LessonUtil.</p><pre><code>def demo2():
+    p    = Util.path_for_data('dollar.csv')
+    df   = pd.read_csv(p)
+    axes = df.boxplot()
+    
+demo2()</code></pre><p class="new">The boxplot looks like the following:
 <img alt="ds9.png" class="center iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/variability/html/ds9.png"/></p><p class="new">You can show outliers (by passing <code>showfliers=True</code> to <code>boxplot</code>)</p><img alt="ds10.png" class="center iw400" src="https://raw.githubusercontent.com/habermanUIUC/CodeStoryLessons/main/lessons/p4ds/ds/variability/html/ds10.png"/><p class="new">This indeed confirms that the dollar data has a number of significant outliers.</p><h2 id="distribution">Distribution</h2><p class="new">Probably the most interesting (yet the most elusive to numerically quantify 
 into a meaningful summary statistic) attribute of a dataset is its 
 distribution -- that is how are the measurements spread out from the minimum 

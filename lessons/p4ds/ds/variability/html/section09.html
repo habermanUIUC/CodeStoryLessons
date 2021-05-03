@@ -17,11 +17,14 @@
     }, 200);
     </script>
 </head><body class="lesson"><div class="main-content lesson bg-gray-200 text-black p-1 pl-3 font-serif"><div class="md-inner">
-<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>import pandas as pd
+<div id="start" class="section">&nbsp;</div><div class="ide code-starter clearfix"><pre><code>def demo1():
+    import pandas as pd
 
-rolls = Util.perfect_dice()
-df    = pd.DataFrame(rolls)
-axes  = df.boxplot()
+    rolls = Util.perfect_dice()
+    df    = pd.DataFrame(rolls)
+    axes  = df.boxplot()
 
-# to save a figure from pandas (it's matplotlib!)
-# axes.get_figure().savefig('b.png')</code></pre></div></div></div></body></html>
+    # to save a figure from pandas (it's matplotlib!)
+    # axes.get_figure().savefig('b.png')
+    
+demo1()</code></pre></div></div></div></body></html>
